@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  ProjectNotes
+//  NoteApplication
 //
-//  Created by Kalin Karev on 12/28/17.
-//  Copyright © 2017 Kalin Karev. All rights reserved.
+//  Created by Kalin Karev on 1/4/18.
+//  Copyright © 2018 Kalin Karev. All rights reserved.
 //
 
 import UIKit
