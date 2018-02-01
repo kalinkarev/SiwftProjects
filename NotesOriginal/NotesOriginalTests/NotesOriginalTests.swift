@@ -1,15 +1,15 @@
 //
-//  NoteApplicationTests.swift
-//  NoteApplicationTests
+//  NotesOriginalTests.swift
+//  NotesOriginalTests
 //
-//  Created by Kalin Karev on 1/4/18.
+//  Created by Kalin Karev on 2/1/18.
 //  Copyright © 2018 Kalin Karev. All rights reserved.
 //
 
 import XCTest
-@testable import NoteApplication
+@testable import NotesOriginal
 
-class NoteApplicationTests: XCTestCase {
+class NotesOriginalTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

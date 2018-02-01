@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  NoteApplication
+//  NotesOriginal
 //
-//  Created by Kalin Karev on 1/4/18.
+//  Created by Kalin Karev on 2/1/18.
 //  Copyright © 2018 Kalin Karev. All rights reserved.
 //
 
@@ -11,7 +11,7 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
+    var window: UIWindow? // property
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
