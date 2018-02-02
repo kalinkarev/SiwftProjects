@@ -45,9 +45,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: Actions
-    @IBAction func setDefaultLabelText(_ sender: UIButton) {
-        noteNameLabel.text = "Default Text"
-    }
+//    @IBAction func setDefaultLabelText(_ sender: UIButton) {
+//        noteNameLabel.text = "Default Text"
+//    }
     
     // target-action pattern in iOS app design. The target-action is a design pattern where one object sends a messageto another object when a specific event occurs.
     
