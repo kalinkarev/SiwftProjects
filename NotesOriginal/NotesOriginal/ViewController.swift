@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: Properties
     
@@ -25,19 +25,33 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // Handle the text field's user input through delegate callbacks.
+        nameTextField.delegate = self
     }
 
     // Creating a simple action that sets the label to Default Text whenever the user taps the Set Deafult Text button
     
-    // MARK: Actions
+    // MARK: UITextFieldDelegate
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Hide the keyboard.
+        textField.resignFirstResponder()
+        return true
+    }
     
+    // get the entered in the field
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        noteNameLabel.text = textField.text
+    }
+    
+    // MARK: Actions
     @IBAction func setDefaultLabelText(_ sender: UIButton) {
         noteNameLabel.text = "Default Text"
     }
     
     // target-action pattern in iOS app design. The target-action is a design pattern where one object sends a messageto another object when a specific event occurs.
     
+    // when you work with accepting user input from atext field, you need some help from a text field delegate. A delegate is an object that acts on behalf of, or in coordination with, another object. 
     
 }
 
