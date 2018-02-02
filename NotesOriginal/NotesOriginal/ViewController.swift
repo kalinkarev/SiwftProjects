@@ -28,5 +28,16 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    // Creating a simple action that sets the label to Default Text whenever the user taps the Set Deafult Text button
+    
+    // MARK: Actions
+    
+    @IBAction func setDefaultLabelText(_ sender: UIButton) {
+        noteNameLabel.text = "Default Text"
+    }
+    
+    // target-action pattern in iOS app design. The target-action is a design pattern where one object sends a messageto another object when a specific event occurs.
+    
+    
 }
 
