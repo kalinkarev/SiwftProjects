@@ -48,7 +48,7 @@
                     <navigationItem key="navigationItem" title="Your Notes" id="bYq-le-Ug7">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vTE-Vw-CdX">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="w82-tx-7II"/>
+                                <segue destination="3p7-ap-VzP" kind="presentation" identifier="AddItem" id="w82-tx-7II"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -57,7 +57,7 @@
             </objects>
             <point key="canvasLocation" x="-679.20000000000005" y="117.39130434782609"/>
         </scene>
-        <!--Note View Controller-->
+        <!--New Note-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="NoteViewController" customModule="NotesOriginal" customModuleProvider="target" sceneMemberID="viewController">
@@ -88,13 +88,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="New Note" id="z8I-d4-7PT">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="A0O-iZ-qgW"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="21y-ae-AEZ"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="nameTextField" destination="Nmp-fH-T1B" id="g6v-DJ-JNu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="298" y="117"/>
+            <point key="canvasLocation" x="1228" y="116"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ejo-Ay-tVK">
@@ -113,6 +117,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eVa-Jq-33w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1644" y="117"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="NQc-1y-Gir">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3p7-ap-VzP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Jqe-Tw-eoV">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="onZ-Ad-nnh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bm2-ss-DFH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="297.60000000000002" y="116.94152923538232"/>
         </scene>
     </scenes>
 </document>
