@@ -21,10 +21,16 @@ class Note {
     
     init?(name: String) {
         
-        // Initialization should fail if there is no name
-        if (name.isEmpty) {
+//        // Initialization should fail if there is no name
+//        if (name.isEmpty) {
+//            return nil
+//        }
+
+        // The name must not be empty
+        guard !name.isEmpty else {
             return nil
         }
+        // guard -> declares a condition that must be true in order for the code after the guard statement to be executed.
         
         // Initialize stored properties.
             self.name = name
