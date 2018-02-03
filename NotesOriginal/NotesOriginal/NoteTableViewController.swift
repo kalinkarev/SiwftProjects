@@ -105,6 +105,18 @@ class NoteTableViewController: UITableViewController {
     }
     */
     
+    // MARK: Actions
+    
+    @IBAction func unwindToNoteList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? NoteViewController, let note = sourceViewController.note {
+            // Add a new meal.
+            let newIndexPath = IndexPath(row: notes.count, section: 0)
+            notes.append(note)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
+    }
+    
+    
     // MARK: Private Methods
     
     // this is a helper method to load sample data into the app

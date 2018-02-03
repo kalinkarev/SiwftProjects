@@ -90,13 +90,19 @@
                     </view>
                     <navigationItem key="navigationItem" title="New Note" id="z8I-d4-7PT">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="A0O-iZ-qgW"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="21y-ae-AEZ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="21y-ae-AEZ">
+                            <connections>
+                                <segue destination="mKs-AB-RGy" kind="unwind" unwindAction="unwindToNoteListWithSender:" id="qLW-X0-dJQ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="nameTextField" destination="Nmp-fH-T1B" id="g6v-DJ-JNu"/>
+                        <outlet property="saveButton" destination="21y-ae-AEZ" id="VlP-Pq-kT2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="mKs-AB-RGy" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1228" y="116"/>
         </scene>

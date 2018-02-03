@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class NoteViewController: UIViewController, UITextFieldDelegate {
 
@@ -20,7 +21,16 @@ class NoteViewController: UIViewController, UITextFieldDelegate {
     //@IBOutlet weak var noteNameLabel: UILabel!
     // You only need an outlet to an interface object if you plan to either access a value from the interface object or modify the interface object in your code.
     
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
     // OUTLETS are used only for modifying
+    
+    /*
+     This value is either passed by 'NoteTableViewController' in 'prepare(for:sender:)' or
+     constructed as part of adding a new note.
+     */
+    // Add a Note property to NoteViewController
+    var note: Note?
     
     
     override func viewDidLoad() {
@@ -42,6 +52,26 @@ class NoteViewController: UIViewController, UITextFieldDelegate {
     // get the entered in the field
     func textFieldDidEndEditing(_ textField: UITextField) {
         //noteNameLabel.text = textField.text
+    }
+    
+    // MARK: Navigation
+    
+    // This method lets you configure a view controller before it's presented.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        // Configure the destination view controller only when the save button is pressed.
+        guard let button = sender as? UIBarButtonItem, button === saveButton else {
+            os_log("The save button was not pressed, cancelling", log: OSLog.default, type:.debug)
+            return
+        }
+        // Verifies that the sender is a button, and then uses the === to check that the objects referenced by the sender and the saveButton outlet are the same.
+        
+        let name = nameTextField.text ?? ""
+        
+        // Set the note to be passed to NoteTableViewController after the unwind segue.
+        note = Note(name: name)
+        
     }
     
     // MARK: Actions
