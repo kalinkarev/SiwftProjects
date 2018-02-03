@@ -46,7 +46,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Your Notes" id="bYq-le-Ug7">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vTE-Vw-CdX"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vTE-Vw-CdX">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" id="w82-tx-7II"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yM9-Vi-JNF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -62,7 +66,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="U9q-AS-Bdd">
-                                <rect key="frame" x="0.0" y="40" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="84" width="375" height="30"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter note name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nmp-fH-T1B">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
@@ -90,7 +94,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="240.80000000000001" y="118.29085457271366"/>
+            <point key="canvasLocation" x="298" y="117"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ejo-Ay-tVK">
