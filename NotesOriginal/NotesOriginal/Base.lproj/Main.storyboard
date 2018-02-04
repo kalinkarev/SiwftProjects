@@ -89,7 +89,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="New Note" id="z8I-d4-7PT">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="A0O-iZ-qgW"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="A0O-iZ-qgW">
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="f3F-VO-7Aw"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="21y-ae-AEZ">
                             <connections>
                                 <segue destination="mKs-AB-RGy" kind="unwind" unwindAction="unwindToNoteListWithSender:" id="qLW-X0-dJQ"/>

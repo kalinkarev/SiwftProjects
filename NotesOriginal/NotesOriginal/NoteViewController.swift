@@ -68,6 +68,16 @@ class NoteViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Navigation
     
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    /*
+     the dismiss method dismisses the modal scene and animates the transition
+     back to the previous scene(to note list). The app does not store any data
+     when the note detail scene is dismissed, and neither the
+     prepare(for:sender:) method nor the unwind action method are called.
+    */
+ 
     // This method lets you configure a view controller before it's presented.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
