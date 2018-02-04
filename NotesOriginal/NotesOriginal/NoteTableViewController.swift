@@ -18,6 +18,13 @@ class NoteTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Use the edit button item provided by the table view controller.
+        navigationItem.leftBarButtonItem = editButtonItem
+        /*
+         Creating a special type of bar button item that has editing behavior built into it.
+         It then adds this button to the left side of the navigation bar in the note list scene.
+         */
+ 
         // Load the sample data.
         loadSampleNotes()
 
@@ -60,25 +67,24 @@ class NoteTableViewController: UITableViewController {
         return cell
     }
 
-    /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
 
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            notes.remove(at: indexPath.row)
+            // this code removes the Note object to be deleted from notes.
             tableView.deleteRows(at: [indexPath], with: .fade)
+            // deletes the corresponding row from the table view.
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
 
     /*
     // Override to support rearranging the table view.
