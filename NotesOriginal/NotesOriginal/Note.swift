@@ -6,10 +6,9 @@
 //  Copyright © 2018 Kalin Karev. All rights reserved.
 //
 
-//import Foundation
 import UIKit
 
-class Note {
+struct Note {
     
     // MARK: Properties
     
