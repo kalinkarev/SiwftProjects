@@ -65,26 +65,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="U9q-AS-Bdd">
-                                <rect key="frame" x="0.0" y="84" width="375" height="30"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter note name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nmp-fH-T1B">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                    </textField>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Nmp-fH-T1B" secondAttribute="trailing" id="NKi-SZ-rp2"/>
-                                </constraints>
-                            </stackView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter note name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nmp-fH-T1B">
+                                <rect key="frame" x="20" y="94" width="335" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="U9q-AS-Bdd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VFN-nE-eby"/>
-                            <constraint firstItem="U9q-AS-Bdd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="q5w-2Y-d1f"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="U9q-AS-Bdd" secondAttribute="trailing" id="qLC-em-XPd"/>
+                            <constraint firstItem="Nmp-fH-T1B" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="59C-1q-taH"/>
+                            <constraint firstItem="Nmp-fH-T1B" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="R1A-2a-X0K"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Nmp-fH-T1B" secondAttribute="trailing" constant="20" id="VYn-qI-tNc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

@@ -132,5 +132,4 @@ class NoteTableViewController: UITableViewController {
         }
         notes += [note1]
     }
-
 }

@@ -9,7 +9,7 @@
 import UIKit
 import os.log
 
-class NoteViewController: UIViewController, UITextFieldDelegate {
+class NoteViewController: UIViewController {
 
     // MARK: Properties
     
@@ -44,27 +44,6 @@ class NoteViewController: UIViewController, UITextFieldDelegate {
     }
 
     // Creating a simple action that sets the label to Default Text whenever the user taps the Set Deafult Text button
-    
-    // MARK: UITextFieldDelegate
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        // Hide the keyboard.
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    // get the entered in the field
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        //noteNameLabel.text = textField.text -> From before
-        updateSaveButtonState()
-        navigationItem.title = textField.text // sets the title of the scene to that text
-        
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        // Disable the Save button while editing.
-        saveButton.isEnabled = false
-    }
-    // this method gets called when an editing session begins, or when the keyboard gets displayed. It disables the Save button while the user is edidting the text field.
     
     // MARK: Navigation
     
@@ -112,6 +91,30 @@ class NoteViewController: UIViewController, UITextFieldDelegate {
         saveButton.isEnabled = !text.isEmpty
     }
     // This is the helper method to disable the Save button if the text field is empty.
+   
     
+}
+
+// MARK: UITextFieldDelegate
+extension NoteViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Hide the keyboard.
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // get the entered in the field
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        //noteNameLabel.text = textField.text -> From before
+        updateSaveButtonState()
+        navigationItem.title = textField.text // sets the title of the scene to that text
+        
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        // Disable the Save button while editing.
+        saveButton.isEnabled = false
+    }
+    // this method gets called when an editing session begins, or when the keyboard gets displayed. It disables the Save button while the user is edidting the text field.
 }
 
