@@ -29,6 +29,7 @@ class NoteViewController: UIViewController {
      This value is either passed by 'NoteTableViewController' in 'prepare(for:sender:)' or
      constructed as part of adding a new note.
      */
+    
     // Add a Note property to NoteViewController
     var note: Note?
     
@@ -43,56 +44,6 @@ class NoteViewController: UIViewController {
         updateSaveButtonState()// to make sure that the Save button is disabled until a user enters a valid name
     }
 
-    // Creating a simple action that sets the label to Default Text whenever the user taps the Set Deafult Text button
-    
-    // MARK: Navigation
-    
-    @IBAction func cancel(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
-    }
-    /*
-     the dismiss method dismisses the modal scene and animates the transition
-     back to the previous scene(to note list). The app does not store any data
-     when the note detail scene is dismissed, and neither the
-     prepare(for:sender:) method nor the unwind action method are called.
-    */
- 
-    // This method lets you configure a view controller before it's presented.
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        
-        // Configure the destination view controller only when the save button is pressed.
-        guard let button = sender as? UIBarButtonItem, button === saveButton else {
-            os_log("The save button was not pressed, cancelling", log: OSLog.default, type:.debug)
-            return
-        }
-        // Verifies that the sender is a button, and then uses the === to check that the objects referenced by the sender and the saveButton outlet are the same.
-        
-        let name = nameTextField.text ?? ""
-        
-        // Set the note to be passed to NoteTableViewController after the unwind segue.
-        note = Note(name: name)
-        
-    }
-    
-    // MARK: Actions
-//    @IBAction func setDefaultLabelText(_ sender: UIButton) {
-//        noteNameLabel.text = "Default Text"
-//    }
-    
-    // target-action pattern in iOS app design. The target-action is a design pattern where one object sends a messageto another object when a specific event occurs.
-    
-    // when you work with accepting user input from atext field, you need some help from a text field delegate. A delegate is an object that acts on behalf of, or in coordination with, another object. 
-    
-    // MARK: Private Methods
-    private func updateSaveButtonState() {
-        // Disable the Save button if the text field is empty.
-        let text = nameTextField.text ?? ""
-        saveButton.isEnabled = !text.isEmpty
-    }
-    // This is the helper method to disable the Save button if the text field is empty.
-   
-    
 }
 
 // MARK: UITextFieldDelegate
@@ -118,3 +69,44 @@ extension NoteViewController: UITextFieldDelegate {
     // this method gets called when an editing session begins, or when the keyboard gets displayed. It disables the Save button while the user is edidting the text field.
 }
 
+// MARK: Private Methods
+extension NoteViewController {
+    private func updateSaveButtonState() {
+        // Disable the Save button if the text field is empty.
+        let text = nameTextField.text ?? ""
+        saveButton.isEnabled = !text.isEmpty
+    }
+    // This is the helper method to disable the Save button if the text field is empty.
+}
+
+// MARK: Navigation
+extension NoteViewController {
+    
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    /*
+     the dismiss method dismisses the modal scene and animates the transition
+     back to the previous scene(to note list). The app does not store any data
+     when the note detail scene is dismissed, and neither the
+     prepare(for:sender:) method nor the unwind action method are called.
+     */
+    
+    // This method lets you configure a view controller before it's presented.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        // Configure the destination view controller only when the save button is pressed.
+        guard let button = sender as? UIBarButtonItem, button === saveButton else {
+            os_log("The save button was not pressed, cancelling", log: OSLog.default, type:.debug)
+            return
+        }
+        // Verifies that the sender is a button, and then uses the === to check that the objects referenced by the sender and the saveButton outlet are the same.
+        
+        let name = nameTextField.text ?? ""
+        
+        // Set the note to be passed to NoteTableViewController after the unwind segue.
+        note = Note(name: name)
+        
+    }
+}
