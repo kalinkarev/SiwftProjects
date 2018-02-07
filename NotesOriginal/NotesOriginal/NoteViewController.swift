@@ -46,6 +46,7 @@ class NoteViewController: UIViewController {
 
 }
 
+
 // MARK: UITextFieldDelegate
 extension NoteViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
