@@ -89,7 +89,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         super.viewDidLoad()
 
         // Use the edit button item provided by the table view controller.
-        navigationItem.leftBarButtonItem = editButtonItem
+//        navigationItem.leftBarButtonItem = editButtonItem
         /*
          Creating a special type of bar button item that has editing behavior built into it.
          It then adds this button to the left side of the navigation bar in the note list scene.
