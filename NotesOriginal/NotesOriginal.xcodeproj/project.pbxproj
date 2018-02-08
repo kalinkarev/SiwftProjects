@@ -16,6 +16,7 @@
 		A9ADF79B2023619600C08B84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9ADF79A2023619600C08B84 /* Assets.xcassets */; };
 		A9ADF79E2023619600C08B84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9ADF79C2023619600C08B84 /* LaunchScreen.storyboard */; };
 		A9ADF7A92023619600C08B84 /* NotesOriginalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ADF7A82023619600C08B84 /* NotesOriginalTests.swift */; };
+		A9BC8AB5202C447D00F03AF6 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BC8AB4202C447D00F03AF6 /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		A9ADF7A42023619600C08B84 /* NotesOriginalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotesOriginalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9ADF7A82023619600C08B84 /* NotesOriginalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesOriginalTests.swift; sourceTree = "<group>"; };
 		A9ADF7AA2023619600C08B84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9BC8AB4202C447D00F03AF6 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			children = (
 				A9ADF7932023619600C08B84 /* AppDelegate.swift */,
 				A9ADF7952023619600C08B84 /* NoteViewController.swift */,
+				A9BC8AB4202C447D00F03AF6 /* TableViewController.swift */,
 				A93956A120259FA400CD764C /* Note.swift */,
 				A93956A32025AF9A00CD764C /* NoteTableViewCell.swift */,
 				A93956A52025B32600CD764C /* NoteTableViewController.swift */,
@@ -209,6 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A93956A62025B32600CD764C /* NoteTableViewController.swift in Sources */,
+				A9BC8AB5202C447D00F03AF6 /* TableViewController.swift in Sources */,
 				A9ADF7962023619600C08B84 /* NoteViewController.swift in Sources */,
 				A9ADF7942023619600C08B84 /* AppDelegate.swift in Sources */,
 				A93956A220259FA400CD764C /* Note.swift in Sources */,
