@@ -97,7 +97,17 @@ extension NoteViewController {
 extension NoteViewController {
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        // Depending on style of presentation (modal of push presentation), this view controller needs to be dismissed in two different ways.
+        let isPresentingInAddNoteMode = presentingViewController is UINavigationController
+        // creating a boolean value that indicates whether the view contoller that presented this scene is of type UINavigationController
+        
+        if (isPresentingInAddNoteMode) {
+            dismiss(animated: true, completion: nil)
+        } else if let owningNavigationController = navigationController {
+            owningNavigationController.popViewController(animated: true)
+        } else {
+            fatalError("The NoteViewController is not inside a navigation controller.")
+        }
     }
     /*
      the dismiss method dismisses the modal scene and animates the transition
