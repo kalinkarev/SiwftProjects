@@ -39,6 +39,19 @@ class NoteViewController: UIViewController {
         
         // Handle the text field's user input through delegate callbacks.
         nameTextField.delegate = self
+    
+        // Set up views if diting an existing Note.
+        if let note = note {
+            navigationItem.title = note.name
+            nameTextField.text = note.name
+        }
+        
+        // Set up views if editing an existing Note.
+        if let note = note {
+            navigationItem.title = note.name
+            nameTextField.text = note.name
+        }
+        
         
         // Enable the Save button only if the text field has a valid Note name.
         updateSaveButtonState()// to make sure that the Save button is disabled until a user enters a valid name

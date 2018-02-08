@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import os.log
 
 class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
     // MARK: Properties
     
     @IBOutlet weak var tableView: UITableView!
@@ -24,30 +25,30 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         return notes.count
     }
     
-//    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        // Table view cells are reused and should be dequeued using a cell identifier.
-//        let cellIdentifier = "NoteTableViewCell"
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? NoteTableViewCell else {
-//            fatalError("The dequeued cell is not an instance of NoteTableViewCell.")
-//        }
-//
-//        // Fetches the appropriate note for the data source layout.
-//        let note = notes[indexPath.row]
-//
-//        // Configure the cell...
-//
-//        cell.nameLabel.text = note.name
-//
-//        return cell
-//    }
+    //    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    //        // Table view cells are reused and should be dequeued using a cell identifier.
+    //        let cellIdentifier = "NoteTableViewCell"
+    //        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? NoteTableViewCell else {
+    //            fatalError("The dequeued cell is not an instance of NoteTableViewCell.")
+    //        }
+    //
+    //        // Fetches the appropriate note for the data source layout.
+    //        let note = notes[indexPath.row]
+    //
+    //        // Configure the cell...
+    //
+    //        cell.nameLabel.text = note.name
+    //
+    //        return cell
+    //    }
     
-        public func numberOfSections(in tableView: UITableView) -> Int {
-            return 1
-        }
+    public func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     
-//        public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//            return notes.count
-//        }
+    //        public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    //            return notes.count
+    //        }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Table view cells are reused and should be dequeued using a cell identifier.
@@ -55,14 +56,14 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? NoteTableViewCell else {
             fatalError("The dequeued cell is not an instance of NoteTableViewCell.")
         }
-
+        
         // Fetches the appropriate note for the data source layout.
         let note = notes[indexPath.row]
-
+        
         // Configure the cell...
-
+        
         cell.nameLabel.text = note.name
-
+        
         return cell
     }
     
@@ -87,9 +88,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Use the edit button item provided by the table view controller.
-//        navigationItem.leftBarButtonItem = editButtonItem
+        //        navigationItem.leftBarButtonItem = editButtonItem
         /*
          Creating a special type of bar button item that has editing behavior built into it.
          It then adds this button to the left side of the navigation bar in the note list scene.
@@ -104,34 +105,72 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     
-    
-    
-    /*
     // MARK: - Navigation
-
+     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        super.prepare(for: segue, sender: sender)
+        
+        switch (segue.identifier ?? "") {
+        case "AddItem":
+            os_log("Adding a new meal.", log: OSLog.default, type: .debug)
+            
+        case "ShowDetail":
+            guard let noteDetailViewController = segue.destination as? NoteViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let selectedNoteCell = sender as? NoteTableViewCell else {
+                fatalError("Unexpected sender: \(String(describing: sender))")
+            }
+            
+            guard let indexPath = tableView.indexPath(for: selectedNoteCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            let selectedNote = notes[indexPath.row]
+            noteDetailViewController.note = selectedNote
+            
+        default:
+//            fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
+            print("Problem")
+        }
+        // examing the segue's identifier. If the identifier is nil, the nil-coalescing operator (??) replaces it with an empty string("")
+        
     }
-    */
-
+    
     
     // MARK: Actions
-
+    
     @IBAction func unwindToNoteList(sender: UIStoryboardSegue) {
+        
         if let sourceViewController = sender.source as? NoteViewController, let note = sourceViewController.note {
-            // Add a new meal.
-            let newIndexPath = IndexPath(row: notes.count, section: 0)
-            notes.append(note)
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        
+        // checks whether a row in the table view is selected. A user tapped one of the table view cells to edit a meal.
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            
+                // Update an existing note.
+                notes[selectedIndexPath.row] = note
+                // updates the notes array, replace the old note object with the new one
+                
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+                // reloads the appropriate row in the table view. Replaces the current cell with a new cell that contains the updated note data
+            } else {
+                // Add a new meal.
+                let newIndexPath = IndexPath(row: notes.count, section: 0)
+                notes.append(note)
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
         }
     }
     
@@ -143,7 +182,12 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         guard let note1 = Note(name: "Go to fitness") else {
             fatalError("Unable to instantiate note1")
         }
-        notes += [note1]
+        
+        guard let note2 = Note(name: "Swimming") else {
+            fatalError("Unable to instantiate note2")
+        }
+        
+        notes += [note1, note2]
     }
     
 }
