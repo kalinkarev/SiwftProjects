@@ -32,6 +32,6 @@ struct Note {
         // Initialize stored properties.
             self.name = name
     }
-    
     // Now the initializer returns an optional Note? object
+
 }

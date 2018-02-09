@@ -14,6 +14,4 @@ protocol NotesManager {
 //    <#function body#>
 //    }
 
-    
-    
 }
