@@ -7,13 +7,18 @@
 //
 
 import XCTest
-// testing framework
+// is the XCode's testing framework
 
 @testable import NotesOriginal
 // testable attribute -> gives your tests access to the internal elements of your app's code
 
 // Tests the functionality and performance of the app
 // Test cases are simply methods that the system automatically runs as part ofyour init tests
+
+// Functional tests -> to check that everything is producing the values you expect;
+// Performance tests -> to check that your code is performing as fast as you expect it to;
+
+// Test cases are simple methods that the system automatically runs as part of your unit tests
 
 class NotesOriginalTests: XCTestCase {
     
@@ -44,7 +49,6 @@ class NotesOriginalTests: XCTestCase {
     // MARK: Note Class Tests
     
     // Confirm that the Note initializer returns a Note object when passed valid parameters.
-    
     func testNoteInitializationSucceeds() {
         // Name
         let noteWithName = Note.init(name: "Work")
@@ -58,5 +62,11 @@ class NotesOriginalTests: XCTestCase {
         XCTAssertNotNil(emptyStringNote)
     }
     
+    // Confirm that the Note initializer returns a Note object when passed invalid parameters.
+    func testNoteInitializationFailsWithEmptyLabel() {
+        // Empty field
+        let emptyLabelNote = Note.init(name: "")
+        XCTAssertNotNil(emptyLabelNote)
+    }
     
 }

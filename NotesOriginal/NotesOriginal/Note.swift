@@ -16,8 +16,11 @@ struct Note {
     
     
     // MARK: Initialization
-    // Initializer is a method that prepares an instance of a class for use (setting an initial value for each property and performing any other setup or initialization)
     
+    /* Initializer is a method that prepares an instance of a class for use
+     (setting an initial value for each property and performing any other setup or initialization)
+    */
+ 
     init?(name: String) {
 
         // The name must not be empty
