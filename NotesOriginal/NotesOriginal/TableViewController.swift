@@ -9,7 +9,7 @@
 import UIKit
 import os.log
 
-class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TableViewController: UIViewController, UITableViewDelegate {
     
     // MARK: Properties
     
@@ -17,34 +17,6 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     var notes = [Note]()
     // decalres a property on NoteTableViewController and initializes it with a default value (an empty array of Note objects)
-    
-    
-    // MARK: tableview datasource
-    
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return notes.count
-    }
-    
-    public func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Table view cells are reused and should be dequeued using a cell identifier.
-        let cellIdentifier = "NoteTableViewCell"
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? NoteTableViewCell else {
-            fatalError("The dequeued cell is not an instance of NoteTableViewCell.")
-        }
-        
-        // Fetches the appropriate note for the data source layout.
-        let note = notes[indexPath.row]
-        
-        // Configure the cell...
-        
-        cell.nameLabel.text = note.name
-        
-        return cell
-    }
     
     // Override to support conditional editing of the table view.
     public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -91,8 +63,62 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     
-    // MARK: - Navigation
-     
+
+    
+    
+    
+    
+    
+    // MARK: Private Methods
+    
+    // this is a helper method to load sample data into the app
+    private func loadSampleNotes() {
+        guard let note1 = Note(name: "Go to fitness") else {
+            fatalError("Unable to instantiate note1")
+        }
+        
+        guard let note2 = Note(name: "Swimming") else {
+            fatalError("Unable to instantiate note2")
+        }
+        
+        notes += [note1, note2]
+    }
+    
+}
+
+
+// MARK: UITableViewDataSource
+extension TableViewController: UITableViewDataSource {
+    
+    public func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return notes.count
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Table view cells are reused and should be dequeued using a cell identifier.
+        let cellIdentifier = "NoteTableViewCell"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? NoteTableViewCell else {
+            fatalError("The dequeued cell is not an instance of NoteTableViewCell.")
+        }
+        
+        // Fetches the appropriate note for the data source layout.
+        let note = notes[indexPath.row]
+        
+        // Configure the cell...
+        
+        cell.nameLabel.text = note.name
+        
+        return cell
+    }
+}
+
+// MARK: - Navigation
+extension TableViewController {
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
@@ -121,23 +147,24 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             noteDetailViewController.note = selectedNote
             
         default:
-//            fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
+            //            fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
             print("Problem")
         }
         // examing the segue's identifier. If the identifier is nil, the nil-coalescing operator (??) replaces it with an empty string("")
         
     }
-    
-    
-    // MARK: Actions
+}
+
+// MARK: Actions
+extension TableViewController {
     
     @IBAction func unwindToNoteList(sender: UIStoryboardSegue) {
         
         if let sourceViewController = sender.source as? NoteViewController, let note = sourceViewController.note {
-        
-        // checks whether a row in the table view is selected. A user tapped one of the table view cells to edit a meal.
-            if let selectedIndexPath = tableView.indexPathForSelectedRow {
             
+            // checks whether a row in the table view is selected. A user tapped one of the table view cells to edit a meal.
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                
                 // Update an existing note.
                 notes[selectedIndexPath.row] = note
                 // updates the notes array, replace the old note object with the new one
@@ -152,21 +179,4 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             }
         }
     }
-    
-    
-    // MARK: Private Methods
-    
-    // this is a helper method to load sample data into the app
-    private func loadSampleNotes() {
-        guard let note1 = Note(name: "Go to fitness") else {
-            fatalError("Unable to instantiate note1")
-        }
-        
-        guard let note2 = Note(name: "Swimming") else {
-            fatalError("Unable to instantiate note2")
-        }
-        
-        notes += [note1, note2]
-    }
-    
 }
