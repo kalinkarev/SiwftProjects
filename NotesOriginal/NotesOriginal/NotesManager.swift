@@ -10,6 +10,10 @@ import Foundation
 
 protocol NotesManager {
     
+//    func addNote(<#parameters#>) -> <#return type#> {
+//    <#function body#>
+//    }
+
     
     
 }
