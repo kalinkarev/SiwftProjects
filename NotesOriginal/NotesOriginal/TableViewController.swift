@@ -62,28 +62,6 @@ class TableViewController: UIViewController, UITableViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    
-
-    
-    
-    
-    
-    
-    // MARK: Private Methods
-    
-    // this is a helper method to load sample data into the app
-    private func loadSampleNotes() {
-        guard let note1 = Note(name: "Go to fitness") else {
-            fatalError("Unable to instantiate note1")
-        }
-        
-        guard let note2 = Note(name: "Swimming") else {
-            fatalError("Unable to instantiate note2")
-        }
-        
-        notes += [note1, note2]
-    }
-    
 }
 
 
@@ -178,5 +156,22 @@ extension TableViewController {
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
         }
+    }
+}
+
+// MARK: Private Methods
+extension TableViewController {
+    
+    // this is a helper method to load sample data into the app
+    private func loadSampleNotes() {
+        guard let note1 = Note(name: "Go to fitness") else {
+            fatalError("Unable to instantiate note1")
+        }
+        
+        guard let note2 = Note(name: "Swimming") else {
+            fatalError("Unable to instantiate note2")
+        }
+        
+        notes += [note1, note2]
     }
 }
