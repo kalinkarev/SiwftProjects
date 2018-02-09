@@ -8,6 +8,6 @@
 
 import Foundation
 
-class NotesManager {
+protocol NotesManager {
     
 }
