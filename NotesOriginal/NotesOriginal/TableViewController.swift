@@ -9,7 +9,7 @@
 import UIKit
 import os.log
 
-class TableViewController: UIViewController, UITableViewDelegate {
+class TableViewController: UIViewController {
     
     // MARK: Properties
     
@@ -17,25 +17,6 @@ class TableViewController: UIViewController, UITableViewDelegate {
     
     var notes = [Note]()
     // decalres a property on NoteTableViewController and initializes it with a default value (an empty array of Note objects)
-    
-    // Override to support conditional editing of the table view.
-    public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    
-    // Override to support editing the table view.
-    public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            notes.remove(at: indexPath.row)
-            // this code removes the Note object to be deleted from notes.
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            // deletes the corresponding row from the table view.
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +43,28 @@ class TableViewController: UIViewController, UITableViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+}
+
+
+extension TableViewController: UITableViewDelegate {
+    // Override to support conditional editing of the table view.
+    public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    
+    // Override to support editing the table view.
+    public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            notes.remove(at: indexPath.row)
+            // this code removes the Note object to be deleted from notes.
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            // deletes the corresponding row from the table view.
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
 }
 
 
@@ -93,6 +96,7 @@ extension TableViewController: UITableViewDataSource {
         return cell
     }
 }
+
 
 // MARK: - Navigation
 extension TableViewController {
@@ -133,6 +137,7 @@ extension TableViewController {
     }
 }
 
+
 // MARK: Actions
 extension TableViewController {
     
@@ -158,6 +163,7 @@ extension TableViewController {
         }
     }
 }
+
 
 // MARK: Private Methods
 extension TableViewController {
