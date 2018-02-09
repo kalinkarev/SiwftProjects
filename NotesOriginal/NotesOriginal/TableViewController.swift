@@ -25,30 +25,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         return notes.count
     }
     
-    //    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    //        // Table view cells are reused and should be dequeued using a cell identifier.
-    //        let cellIdentifier = "NoteTableViewCell"
-    //        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? NoteTableViewCell else {
-    //            fatalError("The dequeued cell is not an instance of NoteTableViewCell.")
-    //        }
-    //
-    //        // Fetches the appropriate note for the data source layout.
-    //        let note = notes[indexPath.row]
-    //
-    //        // Configure the cell...
-    //
-    //        cell.nameLabel.text = note.name
-    //
-    //        return cell
-    //    }
-    
     public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
-    //        public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    //            return notes.count
-    //        }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Table view cells are reused and should be dequeued using a cell identifier.
