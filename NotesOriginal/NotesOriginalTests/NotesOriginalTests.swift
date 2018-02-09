@@ -62,11 +62,11 @@ class NotesOriginalTests: XCTestCase {
         XCTAssertNotNil(emptyStringNote)
     }
     
-    // Confirm that the Note initializer returns a Note object when passed invalid parameters.
-    func testNoteInitializationFailsWithEmptyLabel() {
-        // Empty field
-        let emptyLabelNote = Note.init(name: "")
-        XCTAssertNotNil(emptyLabelNote)
-    }
+//    // Confirm that the Note initializer returns a Note object when passed invalid parameters.
+//    func testNoteInitializationFailsWithEmptyLabel() {
+//        // Empty field
+//        let emptyLabelNote = Note.init(name: "")
+//        XCTAssertNotNil(emptyLabelNote)
+//    }
     
 }
