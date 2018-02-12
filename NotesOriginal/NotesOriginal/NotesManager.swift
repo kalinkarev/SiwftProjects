@@ -9,5 +9,5 @@
 import Foundation
 
 protocol NotesManager {
-    func userDidEnterData(data: String)
+    func userDidEnterData(data: Note)
 }
