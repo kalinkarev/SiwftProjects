@@ -41,6 +41,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="21y-ae-AEZ">
                             <connections>
+                                <action selector="btnSaveWasPressed:" destination="BYZ-38-t0r" id="kbt-hP-2Ri"/>
                                 <segue destination="mKs-AB-RGy" kind="unwind" unwindAction="unwindToNoteListWithSender:" id="qLW-X0-dJQ"/>
                             </connections>
                         </barButtonItem>

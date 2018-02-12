@@ -23,6 +23,17 @@ class NoteViewController: UIViewController {
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
+    var delegate: NotesManager? = nil
+    
+    @IBAction func btnSaveWasPressed(_ sender: UIBarButtonItem) {
+        if delegate != nil {
+            if nameTextField.text != nil {
+                let data = nameTextField.text
+                delegate?.userDidEnterData(data: data!)
+            }
+        }
+    }
+    
     // OUTLETS are used only for modifying
     
     /*

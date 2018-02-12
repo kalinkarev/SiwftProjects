@@ -2,16 +2,12 @@
 //  NotesManager.swift
 //  NotesOriginal
 //
-//  Created by Kalin Karev on 2/9/18.
+//  Created by Kalin Karev on 2/12/18.
 //  Copyright © 2018 Kalin Karev. All rights reserved.
 //
 
 import Foundation
 
 protocol NotesManager {
-    
-//    func addNote(<#parameters#>) -> <#return type#> {
-//    <#function body#>
-//    }
-
+    func userDidEnterData(data: String)
 }
