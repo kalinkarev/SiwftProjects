@@ -106,6 +106,18 @@ extension NoteViewController {
         // Disable the Save button if the text field is empty.
         let text = nameTextField.text ?? ""
         saveButton.isEnabled = !text.isEmpty
+        
+        if delegate != nil {
+            if nameTextField.text != nil {
+                listnote?.name = nameTextField.text!
+                delegate?.addItem(listnote!)
+                dismiss(animated: true, completion: nil)
+                
+                //                let data = nameTextField.text
+                //                delegate?.userDidEnterData(data: data!)
+            }
+        }
+        
     }
     // This is the helper method to disable the Save button if the text field is empty.
 }
