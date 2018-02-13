@@ -103,7 +103,7 @@
                     <navigationItem key="navigationItem" title="Your Notes" id="tpe-po-tvx">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="KW9-wo-Lpb">
                             <connections>
-                                <segue destination="3p7-ap-VzP" kind="show" id="WME-xz-nsh"/>
+                                <segue destination="3p7-ap-VzP" kind="show" identifier="showSendingVC" id="WME-xz-nsh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -43,10 +43,18 @@ class TableViewController: UIViewController, NotesManager {
         // Dispose of any resources that can be recreated.
     }
     
-    func userDidEnterData(data: String) {
 
+    func addItem(_ game: Note) {
+        notes += [game]
     }
-        
+    
+    func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showSendingVC" {
+            let sendingVC: NoteViewController = segue.destination as! NoteViewController
+            sendingVC.delegate = self
+        }
+    }
+    
 }
 
 

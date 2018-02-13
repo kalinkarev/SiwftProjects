@@ -9,5 +9,9 @@
 import Foundation
 
 protocol NotesManager {
-    func userDidEnterData(data: String)
+
+//    var note: Note { get }
+    
+    func addItem(_ game: Note)
+    
 }

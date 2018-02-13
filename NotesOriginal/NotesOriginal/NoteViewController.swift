@@ -24,12 +24,18 @@ class NoteViewController: UIViewController {
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     var delegate: NotesManager? = nil
+  
+    var listnote: Note?
     
     @IBAction func btnSaveWasPressed(_ sender: UIBarButtonItem) {
         if delegate != nil {
             if nameTextField.text != nil {
-                let data = nameTextField.text
-                delegate?.userDidEnterData(data: data!)
+                listnote?.name = nameTextField.text!
+                delegate?.addItem(listnote!)
+                dismiss(animated: true, completion: nil)
+                
+//                let data = nameTextField.text
+//                delegate?.userDidEnterData(data: data!)
             }
         }
     }
