@@ -44,32 +44,9 @@ class TableViewController: UIViewController, NotesManager {
     }
     
     func userDidEnterData(data: String) {
-        
+
     }
-    
-    // MARK: Actions
-    @IBAction func unwindToNoteList(sender: UIStoryboardSegue) {
         
-        if let sourceViewController = sender.source as? NoteViewController, let note = sourceViewController.note {
-            
-            // checks whether a row in the table view is selected. A user tapped one of the table view cells to edit a meal.
-            if let selectedIndexPath = tableView.indexPathForSelectedRow {
-                
-                // Update an existing note.
-                notes[selectedIndexPath.row] = note
-                // updates the notes array, replace the old note object with the new one
-                
-                tableView.reloadRows(at: [selectedIndexPath], with: .none)
-                // reloads the appropriate row in the table view. Replaces the current cell with a new cell that contains the updated note data
-            } else {
-                // Add a new meal.
-                let newIndexPath = IndexPath(row: notes.count, section: 0)
-                notes.append(note)
-                tableView.insertRows(at: [newIndexPath], with: .automatic)
-            }
-        }
-    }
-    
 }
 
 
@@ -168,7 +145,27 @@ extension TableViewController {
 // MARK: Actions
 extension TableViewController {
     
-    
+    @IBAction func unwindToNoteList(sender: UIStoryboardSegue) {
+        
+        if let sourceViewController = sender.source as? NoteViewController, let note = sourceViewController.note {
+            
+            // checks whether a row in the table view is selected. A user tapped one of the table view cells to edit a meal.
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                
+                // Update an existing note.
+                notes[selectedIndexPath.row] = note
+                // updates the notes array, replace the old note object with the new one
+                
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+                // reloads the appropriate row in the table view. Replaces the current cell with a new cell that contains the updated note data
+            } else {
+                // Add a new meal.
+                let newIndexPath = IndexPath(row: notes.count, section: 0)
+                notes.append(note)
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
+        }
+    }
 }
 
 

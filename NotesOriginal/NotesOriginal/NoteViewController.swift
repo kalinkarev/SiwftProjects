@@ -29,11 +29,7 @@ class NoteViewController: UIViewController {
         if delegate != nil {
             if nameTextField.text != nil {
                 let data = nameTextField.text
-                
-                typealias newNote = Note
-                newNote.init(name: data!)
-                
-                delegate?.userDidEnterData(data: newNote)
+                delegate?.userDidEnterData(data: data!)
             }
         }
     }
