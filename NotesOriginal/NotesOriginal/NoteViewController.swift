@@ -10,7 +10,7 @@ import UIKit
 import os.log
 
 class NoteViewController: UIViewController {
-
+    
     // MARK: Properties
     
     @IBOutlet weak var nameTextField: UITextField!
@@ -23,22 +23,24 @@ class NoteViewController: UIViewController {
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
-    var delegate: NotesManager? = nil
-  
-    var listnote: Note?
     
-    @IBAction func btnSaveWasPressed(_ sender: UIBarButtonItem) {
-        if delegate != nil {
-            if nameTextField.text != nil {
-                listnote?.name = nameTextField.text!
-                delegate?.addItem(listnote!)
-                dismiss(animated: true, completion: nil)
-                
-//                let data = nameTextField.text
-//                delegate?.userDidEnterData(data: data!)
-            }
-        }
-    }
+    
+//    var delegate: NotesManager? = nil
+//
+//    var listnote: Note?
+//
+//    @IBAction func btnSaveWasPressed(_ sender: UIBarButtonItem) {
+//        if delegate != nil {
+//            if nameTextField.text != nil {
+//                listnote?.name = nameTextField.text!
+//                delegate?.addItem(listnote!)
+//                dismiss(animated: true, completion: nil)
+//
+////                let data = nameTextField.text
+////                delegate?.userDidEnterData(data: data!)
+//            }
+//        }
+//    }
     
     // OUTLETS are used only for modifying
     
@@ -107,16 +109,16 @@ extension NoteViewController {
         let text = nameTextField.text ?? ""
         saveButton.isEnabled = !text.isEmpty
         
-        if delegate != nil {
-            if nameTextField.text != nil {
-                listnote?.name = nameTextField.text!
-                delegate?.addItem(listnote!)
-                dismiss(animated: true, completion: nil)
-                
-                //                let data = nameTextField.text
-                //                delegate?.userDidEnterData(data: data!)
-            }
-        }
+//        if delegate != nil {
+//            if nameTextField.text != nil {
+//                listnote?.name = nameTextField.text!
+//                delegate?.addItem(listnote!)
+//                dismiss(animated: true, completion: nil)
+//
+//                //                let data = nameTextField.text
+//                //                delegate?.userDidEnterData(data: data!)
+//            }
+//        }
         
     }
     // This is the helper method to disable the Save button if the text field is empty.
@@ -137,6 +139,7 @@ extension NoteViewController {
         } else {
             fatalError("The NoteViewController is not inside a navigation controller.")
         }
+        
     }
     /*
      the dismiss method dismisses the modal scene and animates the transition

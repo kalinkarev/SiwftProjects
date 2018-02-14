@@ -9,7 +9,7 @@
 import UIKit
 import os.log
 
-class TableViewController: UIViewController, NotesManager {
+class TableViewController: UIViewController {
     
     // MARK: Properties
     
@@ -42,7 +42,6 @@ class TableViewController: UIViewController, NotesManager {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
 //    func addItem(_ game: Note) {
 //        notes += [game]
@@ -153,38 +152,28 @@ extension TableViewController {
 // MARK: Actions
 extension TableViewController {
     
-//    @IBAction func unwindToNoteList(sender: UIStoryboardSegue) {
+    @IBAction func unwindToNoteList(sender: UIStoryboardSegue) {
         
-        func addItem(_ game: Note) {
-            notes += [game]
-        }
-        
-        func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
-            if segue.identifier == "showSendingVC" {
-                let sendingVC: NoteViewController = segue.destination as! NoteViewController
-                sendingVC.delegate = self
+        if let sourceViewController = sender.source as? NoteViewController, let note = sourceViewController.note {
+
+            // checks whether a row in the table view is selected. A user tapped one of the table view cells to edit a meal.
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+
+                // Update an existing note.
+                notes[selectedIndexPath.row] = note
+                // updates the notes array, replace the old note object with the new one
+
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+                // reloads the appropriate row in the table view. Replaces the current cell with a new cell that contains the updated note data
+            } else {
+                // Add a new meal.
+                let newIndexPath = IndexPath(row: notes.count, section: 0)
+                notes.append(note)
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
         }
-        
-//        if let sourceViewController = sender.source as? NoteViewController, let note = sourceViewController.note {
-//
-//            // checks whether a row in the table view is selected. A user tapped one of the table view cells to edit a meal.
-//            if let selectedIndexPath = tableView.indexPathForSelectedRow {
-//
-//                // Update an existing note.
-//                notes[selectedIndexPath.row] = note
-//                // updates the notes array, replace the old note object with the new one
-//
-//                tableView.reloadRows(at: [selectedIndexPath], with: .none)
-//                // reloads the appropriate row in the table view. Replaces the current cell with a new cell that contains the updated note data
-//            } else {
-//                // Add a new meal.
-//                let newIndexPath = IndexPath(row: notes.count, section: 0)
-//                notes.append(note)
-//                tableView.insertRows(at: [newIndexPath], with: .automatic)
-//            }
-//        }
-//    }
+    }
+
 }
 
 
