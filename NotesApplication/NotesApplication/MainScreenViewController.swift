@@ -1,14 +1,15 @@
 //
-//  ViewController.swift
+//  MainScreenViewController.swift
 //  NotesApplication
 //
 //  Created by Kalin Karev on 3/6/18.
 //  Copyright © 2018 Kalin Karev. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-class ViewController: UIViewController {
+class MainScreenViewController: UIViewController {
 
     // MARK: Properties
     @IBOutlet weak var notesTableView: UITableView!
@@ -37,7 +38,7 @@ class ViewController: UIViewController {
             let addNoteViewController = navigationController?.topViewController as? AddNoteViewController
             
             if let viewController = addNoteViewController {
-                viewController.delegate = self as? AddNoteViewControllerDelegate
+                viewController.delegate = self as AddNoteViewControllerDelegate
             }
         }
     }
@@ -46,7 +47,7 @@ class ViewController: UIViewController {
 
 
 // MARK: TableViewDelegates
-extension ViewController: UITableViewDataSource, UITableViewDelegate {
+extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return notes.count
     }
@@ -90,7 +91,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 
 
 // MARK: Private Methods
-extension ViewController {
+extension MainScreenViewController {
     
     // this is a helper method to load sample data into the app
     private func loadSampleNotes() {
@@ -108,7 +109,7 @@ extension ViewController {
 
 
 // MARK: Delegates
-extension ViewController: AddNoteViewControllerDelegate {
+extension MainScreenViewController: AddNoteViewControllerDelegate {
     
     func contoller(_ controller: AddNoteViewController, didAddNote: Note) {
         // Update the Data Source
