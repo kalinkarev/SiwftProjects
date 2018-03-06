@@ -14,6 +14,7 @@ class MainScreenViewController: UIViewController {
     // MARK: Properties
     @IBOutlet weak var notesTableView: UITableView!
     
+
     var notes: [Note] = []
     
     override func viewDidLoad() {
@@ -55,8 +56,6 @@ extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "noteTableViewCell"
         
-        // Deque Cell
-        //        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? NoteTableViewCell else {
             fatalError("The dequed cell is not an instance of NoteTableViewCell")
         }
@@ -71,7 +70,9 @@ extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    // Adding the Delete functionality
+    /*
+        Adding the Delete functionality
+     */
     
     public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -103,12 +104,16 @@ extension MainScreenViewController {
             fatalError("Unable to instantiate note2")
         }
         
-        notes += [note1, note2]
+        guard let note3 = Note(name: "Studying") else {
+            fatalError("Unable to instantiate note3")
+        }
+        
+        notes += [note1, note2, note3]
     }
 }
 
 
-// MARK: Delegates
+// MARK: Delegates (Use the delegate to pass data between the views)
 extension MainScreenViewController: AddNoteViewControllerDelegate {
     
     func contoller(_ controller: AddNoteViewController, didAddNote: Note) {
