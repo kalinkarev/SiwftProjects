@@ -16,7 +16,7 @@
 		A9ADF79E2023619600C08B84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9ADF79C2023619600C08B84 /* LaunchScreen.storyboard */; };
 		A9ADF7A92023619600C08B84 /* NotesOriginalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ADF7A82023619600C08B84 /* NotesOriginalTests.swift */; };
 		A9BC8AB5202C447D00F03AF6 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BC8AB4202C447D00F03AF6 /* TableViewController.swift */; };
-		A9D3410A20320542006C79B5 /* NotesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D3410920320542006C79B5 /* NotesManager.swift */; };
+		A9D5239D203C0CD500C3E303 /* ManageNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D5239C203C0CD500C3E303 /* ManageNotes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +43,7 @@
 		A9ADF7A82023619600C08B84 /* NotesOriginalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesOriginalTests.swift; sourceTree = "<group>"; };
 		A9ADF7AA2023619600C08B84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9BC8AB4202C447D00F03AF6 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		A9D3410920320542006C79B5 /* NotesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesManager.swift; sourceTree = "<group>"; };
+		A9D5239C203C0CD500C3E303 /* ManageNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageNotes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +90,7 @@
 				A9BC8AB4202C447D00F03AF6 /* TableViewController.swift */,
 				A93956A120259FA400CD764C /* Note.swift */,
 				A93956A32025AF9A00CD764C /* NoteTableViewCell.swift */,
-				A9D3410920320542006C79B5 /* NotesManager.swift */,
+				A9D5239C203C0CD500C3E303 /* ManageNotes.swift */,
 				A9ADF7972023619600C08B84 /* Main.storyboard */,
 				A9ADF79A2023619600C08B84 /* Assets.xcassets */,
 				A9ADF79C2023619600C08B84 /* LaunchScreen.storyboard */,
@@ -212,10 +212,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9BC8AB5202C447D00F03AF6 /* TableViewController.swift in Sources */,
-				A9D3410A20320542006C79B5 /* NotesManager.swift in Sources */,
 				A9ADF7962023619600C08B84 /* NoteViewController.swift in Sources */,
 				A9ADF7942023619600C08B84 /* AppDelegate.swift in Sources */,
 				A93956A220259FA400CD764C /* Note.swift in Sources */,
+				A9D5239D203C0CD500C3E303 /* ManageNotes.swift in Sources */,
 				A93956A42025AF9A00CD764C /* NoteTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

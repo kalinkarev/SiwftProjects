@@ -22,27 +22,15 @@ class NoteViewController: UIViewController {
     // You only need an outlet to an interface object if you plan to either access a value from the interface object or modify the interface object in your code.
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
-    
-    
-    
-//    var delegate: NotesManager? = nil
-//
-//    var listnote: Note?
-//
-//    @IBAction func btnSaveWasPressed(_ sender: UIBarButtonItem) {
-//        if delegate != nil {
-//            if nameTextField.text != nil {
-//                listnote?.name = nameTextField.text!
-//                delegate?.addItem(listnote!)
-//                dismiss(animated: true, completion: nil)
-//
-////                let data = nameTextField.text
-////                delegate?.userDidEnterData(data: data!)
-//            }
-//        }
-//    }
-    
+
     // OUTLETS are used only for modifying
+    
+    
+    // setup our protocol, need a variable of type DataSentDelegate
+    var delegate: ManageNotes? = nil
+    
+    
+    
     
     /*
      This value is either passed by 'NoteTableViewController' in 'prepare(for:sender:)' or
@@ -98,6 +86,9 @@ extension NoteViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         // Disable the Save button while editing.
         saveButton.isEnabled = false
+        
+        print("The save button was pressed")
+        
     }
     // this method gets called when an editing session begins, or when the keyboard gets displayed. It disables the Save button while the user is edidting the text field.
 }

@@ -42,7 +42,6 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="21y-ae-AEZ">
                             <connections>
                                 <action selector="btnSaveWasPressed:" destination="BYZ-38-t0r" id="kbt-hP-2Ri"/>
-                                <segue destination="mKs-AB-RGy" kind="unwind" unwindAction="unwindToNoteListWithSender:" id="qLW-X0-dJQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -52,7 +51,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <exit id="mKs-AB-RGy" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1567.2" y="115.59220389805098"/>
         </scene>
@@ -73,11 +71,11 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9v6-zC-L5k" id="wYE-eA-YbS">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D61-ao-plw">
-                                                    <rect key="frame" x="15" y="11" width="313" height="21"/>
+                                                    <rect key="frame" x="15" y="11" width="313" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>

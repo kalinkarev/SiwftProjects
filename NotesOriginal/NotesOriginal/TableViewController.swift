@@ -43,6 +43,10 @@ class TableViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        //if segue.identifier == ""
+//    }
+    
 //    func addItem(_ game: Note) {
 //        notes += [game]
 //    }
@@ -53,6 +57,15 @@ class TableViewController: UIViewController {
 //            sendingVC.delegate = self
 //        }
 //    }
+    
+}
+
+
+extension TableViewController: ManageNotes {
+    
+    func userDidEnterNote(data: Note) {
+        notes += [data]
+    }
     
 }
 
