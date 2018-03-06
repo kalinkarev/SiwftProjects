@@ -80,10 +80,14 @@ extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Update Items.
+            /*
+                    Update Items.
+                */
             notes.remove(at: indexPath.row)
             
-            // Update Table View
+            /*
+                    Update Table View
+                */
             tableView.deleteRows(at: [indexPath], with: .right)
         }
     }
