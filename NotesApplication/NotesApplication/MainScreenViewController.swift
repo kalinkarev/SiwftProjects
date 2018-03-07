@@ -83,7 +83,7 @@ extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     /*
-        Adding the Delete functionality
+        Adding the Delete functionality (Deleting the cell, by slipping left)
      */
     
     public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
