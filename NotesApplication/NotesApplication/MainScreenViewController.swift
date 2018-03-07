@@ -60,6 +60,17 @@ extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
             fatalError("The dequed cell is not an instance of NoteTableViewCell")
         }
         
+//        /*
+//            Adding the code for different colors of the cell
+//            */
+//
+//        if (indexPath.row % 2 == 0) {
+//            cell.backgroundColor = UIColor.blue
+//        } else {
+//            cell.backgroundColor = UIColor.red
+//        }
+        
+        
         // Fetch item
         let note = notes[indexPath.row]
         
@@ -119,15 +130,19 @@ extension MainScreenViewController {
 
 // MARK: Delegates (Use the delegate to pass data between the views)
 extension MainScreenViewController: AddNoteViewControllerDelegate {
-    
-    func contoller(_ controller: AddNoteViewController, didAddNote: Note) {
-        // Update the Data Source
-        notes.append(didAddNote)
+
+    func contollerDidSave(_ controller: AddNoteViewController, didSave: Note) {
+        //Update the Data Source
+        notes.append(didSave)
         
         // Reload Table View
         notesTableView.reloadData()
         
         // Dismiss Add Note View Controller
+        dismiss(animated: true, completion: nil)
+    }
+
+    func contollerDidCancel(_ controller: AddNoteViewController) {
         dismiss(animated: true, completion: nil)
     }
     

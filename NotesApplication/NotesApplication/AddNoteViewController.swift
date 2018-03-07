@@ -9,13 +9,20 @@
 import Foundation
 import UIKit
 
+protocol AddNoteViewControllerDelegate: AnyObject {
+    
+    func contollerDidCancel(_ controller: AddNoteViewController)
+    func contollerDidSave(_ controller: AddNoteViewController, didSave: Note)
+    
+}
+
 class AddNoteViewController: UIViewController {
 
     // MARK: Properties
     
     @IBOutlet weak var textField: UITextField!
     
-    var delegate: AddNoteViewControllerDelegate?
+    weak var delegate: AddNoteViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,13 +43,15 @@ class AddNoteViewController: UIViewController {
     // MARK: Actions
     
     @IBAction func cancelButton(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        
+        delegate?.contollerDidCancel(self)
+        
     }
     
     @IBAction func saveButton(_ sender: Any) {
         
         let note = Note(name: textField.text!)
-        delegate?.contoller(self, didAddNote: note!)
+        delegate?.contollerDidSave(self, didSave: note!)
     
     }
     
