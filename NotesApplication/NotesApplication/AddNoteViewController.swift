@@ -22,14 +22,16 @@ class AddNoteViewController: UIViewController {
     
     @IBOutlet weak var textField: UITextField!
     
+    
     weak var delegate: AddNoteViewControllerDelegate?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        // Set Title
+        // Set Title on the navigation bar in the add screen _Add Note_
         title = "Add Note"
         
     }
@@ -54,5 +56,5 @@ class AddNoteViewController: UIViewController {
         delegate?.contollerDidSave(self, didSave: note!)
     
     }
-    
+
 }

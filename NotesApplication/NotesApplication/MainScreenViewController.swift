@@ -14,16 +14,17 @@ class MainScreenViewController: UIViewController {
     // MARK: Properties
     @IBOutlet weak var notesTableView: UITableView!
     
-
+    
+    // Array for storing the notes (all the user notes are stored here)
     var notes: [Note] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set Title
+        // Set Title on the navigation bar on the main screen _Notes_
         title = "Notes"
         
-        // Populate Items
+        // Populate Items in the table view
         loadSampleNotes()
     }
 
