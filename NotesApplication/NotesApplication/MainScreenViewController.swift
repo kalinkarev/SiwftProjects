@@ -61,17 +61,6 @@ extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
             fatalError("The dequed cell is not an instance of NoteTableViewCell")
         }
         
-//        /*
-//            Adding the code for different colors of the cell
-//            */
-//
-//        if (indexPath.row % 2 == 0) {
-//            cell.backgroundColor = UIColor.blue
-//        } else {
-//            cell.backgroundColor = UIColor.red
-//        }
-        
-        
         // Fetch item
         let note = notes[indexPath.row]
         
