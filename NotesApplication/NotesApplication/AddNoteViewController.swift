@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol AddNoteViewControllerDelegate: class {
+protocol AddNoteViewControllerDelegate: AnyObject {
     
     func contollerDidCancel(_ controller: AddNoteViewController)
     func contollerDidSave(_ controller: AddNoteViewController, didSave: Note)
@@ -21,6 +21,7 @@ class AddNoteViewController: UIViewController {
     // MARK: Properties
     
     @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var saveBtn: UIBarButtonItem!
     
     weak var delegate: AddNoteViewControllerDelegate?
     
@@ -31,13 +32,15 @@ class AddNoteViewController: UIViewController {
         
         // Set Title on the navigation bar in the add screen _Add Note_
         title = "Add Note"
+        
+        saveBtn.isEnabled = false
+        textField.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     // MARK: Actions
     
@@ -47,9 +50,7 @@ class AddNoteViewController: UIViewController {
      */
     
     @IBAction func cancelButton(_ sender: Any) {
-        
         delegate?.contollerDidCancel(self)
-        
     }
     
     /*
@@ -58,14 +59,26 @@ class AddNoteViewController: UIViewController {
      */
     
     @IBAction func saveButton(_ sender: Any) {
-        
-        if textField.isEqual("") {
-            
-        } else {
-            let note = Note(name: textField.text!)
-            delegate?.contollerDidSave(self, didSave: note!)
-        }
-    
+        let note = Note(name: textField.text!)
+        delegate?.contollerDidSave(self, didSave: note!)
     }
-
 }
+
+
+// MARK: Private Methods
+extension AddNoteViewController {
+    @objc func editingChanged(_ textField: UITextField) {
+        if textField.text?.count == 1 {
+            if textField.text?.first == " " {
+                textField.text = ""
+                return
+            }
+        }
+        guard let name = textField.text, !name.isEmpty else {
+            saveBtn.isEnabled = false
+            return
+        }
+        saveBtn.isEnabled = true
+    }
+}
+

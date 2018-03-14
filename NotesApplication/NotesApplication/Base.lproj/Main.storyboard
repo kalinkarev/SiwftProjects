@@ -100,6 +100,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="saveBtn" destination="61O-ev-e63" id="tyV-Qc-mwr"/>
                         <outlet property="textField" destination="2bf-Og-B5I" id="bwa-Po-msZ"/>
                     </connections>
                 </viewController>
