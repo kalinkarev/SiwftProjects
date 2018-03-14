@@ -44,11 +44,21 @@ class AddNoteViewController: UIViewController {
 
     // MARK: Actions
     
+    /*
+        Adding the button (functionality) for cancelling an event.
+        It uses the delegate method 'controllerDidCancel' to skip the action of saving an event and get the user to the main screen with his/her all events.
+     */
+    
     @IBAction func cancelButton(_ sender: Any) {
         
         delegate?.contollerDidCancel(self)
         
     }
+    
+    /*
+        Adding the button (functionality) for saving an event.
+        It uses the delegate method 'controllerDidSave' to pass data from the AddNoteViewController to the MainScreenViewController
+     */
     
     @IBAction func saveButton(_ sender: Any) {
         

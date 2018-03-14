@@ -21,8 +21,8 @@ class MainScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set Title on the navigation bar on the main screen _Notes_
-        title = "Notes"
+        // Set Title on the navigation bar on the main screen _Your Notes_
+        title = "Your Notes"
         
         // Populate Items in the table view
         loadSampleNotes()
@@ -72,7 +72,7 @@ extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     /*
-        Adding the Delete functionality (Deleting the cell, by slipping left)
+        Adding the Delete functionality (Deleting the cell, by slipping left (when the user slippes left))
      */
     
     public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -83,11 +83,13 @@ extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
         if editingStyle == .delete {
             /*
                     Update Items.
+                    After removing/deleting the selected cell (the user deletes the cell by slipping from the right to the left in a cell)
                 */
             notes.remove(at: indexPath.row)
             
             /*
                     Update Table View
+                    After the deleting of the selected cell
                 */
             tableView.deleteRows(at: [indexPath], with: .right)
         }
@@ -113,7 +115,11 @@ extension MainScreenViewController {
             fatalError("Unable to instantiate note3")
         }
         
-        notes += [note1, note2, note3]
+        guard let note4 = Note(name: "Studying for the test tomorrow") else {
+            fatalError("Unable to instantiate note4")
+        }
+        
+        notes += [note1, note2, note3, note4]
     }
 }
 
