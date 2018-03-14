@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol AddNoteViewControllerDelegate: AnyObject {
+protocol AddNoteViewControllerDelegate: class {
     
     func contollerDidCancel(_ controller: AddNoteViewController)
     func contollerDidSave(_ controller: AddNoteViewController, didSave: Note)
@@ -22,9 +22,7 @@ class AddNoteViewController: UIViewController {
     
     @IBOutlet weak var textField: UITextField!
     
-    
     weak var delegate: AddNoteViewControllerDelegate?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +31,6 @@ class AddNoteViewController: UIViewController {
         
         // Set Title on the navigation bar in the add screen _Add Note_
         title = "Add Note"
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,8 +59,12 @@ class AddNoteViewController: UIViewController {
     
     @IBAction func saveButton(_ sender: Any) {
         
-        let note = Note(name: textField.text!)
-        delegate?.contollerDidSave(self, didSave: note!)
+        if textField.isEqual("") {
+            
+        } else {
+            let note = Note(name: textField.text!)
+            delegate?.contollerDidSave(self, didSave: note!)
+        }
     
     }
 
