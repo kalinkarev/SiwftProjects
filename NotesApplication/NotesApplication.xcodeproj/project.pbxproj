@@ -15,6 +15,7 @@
 		A999B39A204E884800738623 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = A999B399204E884800738623 /* Note.swift */; };
 		A999B39C204E8A7000738623 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A999B39B204E8A7000738623 /* NoteTableViewCell.swift */; };
 		A999B39E204E8CE200738623 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A999B39D204E8CE200738623 /* AddNoteViewController.swift */; };
+		A9AF53A02060268800C83B90 /* UserNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AF539F2060268800C83B90 /* UserNotes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		A999B399204E884800738623 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		A999B39B204E8A7000738623 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		A999B39D204E8CE200738623 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
+		A9AF539F2060268800C83B90 /* UserNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				A999B399204E884800738623 /* Note.swift */,
 				A999B39B204E8A7000738623 /* NoteTableViewCell.swift */,
 				A999B39D204E8CE200738623 /* AddNoteViewController.swift */,
+				A9AF539F2060268800C83B90 /* UserNotes.swift */,
 				A999B38B204E85F200738623 /* Main.storyboard */,
 				A999B38E204E85F200738623 /* Assets.xcassets */,
 				A999B390204E85F200738623 /* LaunchScreen.storyboard */,
@@ -145,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9AF53A02060268800C83B90 /* UserNotes.swift in Sources */,
 				A999B38A204E85F200738623 /* MainScreenViewController.swift in Sources */,
 				A999B388204E85F200738623 /* AppDelegate.swift in Sources */,
 				A999B39A204E884800738623 /* Note.swift in Sources */,
