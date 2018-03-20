@@ -14,6 +14,7 @@ class MainScreenViewController: UIViewController {
     // MARK: Properties
     @IBOutlet weak var notesTableView: UITableView!
     
+    
     // Array for storing the notes (all the user notes are stored here)
     var notes: [Note] = []
     

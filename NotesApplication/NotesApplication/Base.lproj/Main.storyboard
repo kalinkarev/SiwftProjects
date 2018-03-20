@@ -62,7 +62,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="notesTableView" destination="TNe-H0-lYI" id="xlv-Mn-gHz"/>
-                        <outlet property="tableView" destination="TNe-H0-lYI" id="JcO-Ei-5Mp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
