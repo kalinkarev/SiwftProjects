@@ -9,13 +9,13 @@
 import Foundation
 import UIKit
 
-class UserNotes {
+struct UserNotes {
     
     // Array for storing the notes (all the user notes are stored here)
     var notes: [Note] = []
     
     func addNote(newNote: Note) {
-        notes += [newNote]
+        
     }
     
     func deleteNote(deletedNote: Note) -> Note {
