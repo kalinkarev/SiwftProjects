@@ -10,16 +10,12 @@ import Foundation
 import UIKit
 
 protocol AddNoteViewControllerDelegate: AnyObject {
-    
     func contollerDidCancel(_ controller: AddNoteViewController)
     func contollerDidSave(_ controller: AddNoteViewController, didSave: Note)
-    
 }
 
 class AddNoteViewController: UIViewController {
-
     // MARK: Properties
-    
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var saveBtn: UIBarButtonItem!
     
