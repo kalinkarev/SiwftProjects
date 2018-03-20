@@ -59,7 +59,7 @@ class AddNoteViewController: UIViewController {
      */
     
     @IBAction func saveButton(_ sender: Any) {
-        if let note = Note(name: textField.text!) {
+        if let note = Note(name: textField.text ?? "") {
             delegate?.contollerDidSave(self, didSave: note)
         } else {
             print("There is a problem with unwrapping the note's information")
