@@ -64,17 +64,6 @@ class AddNoteViewController: UIViewController {
         } else {
             print("There is a problem with unwrapping the note's information")
         }
-        
-        
-//        let note = Note(name: textField.text!)
-//
-//        if note != nil {
-//            delegate?.contollerDidSave(self, didSave: note)
-//        } else {
-//            print("There is a problem with unwrapping the note")
-//        }
-//
-        
     }
 }
 
@@ -88,6 +77,7 @@ extension AddNoteViewController {
                 return
             }
         }
+        
         guard let name = textField.text, !name.isEmpty else {
             saveBtn.isEnabled = false
             return
