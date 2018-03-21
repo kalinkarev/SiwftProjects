@@ -14,6 +14,8 @@ struct UserNotes {
     var notes: [Note] = []
     
     mutating func addNote(newNote: Note) -> Array<Note> {
+        // adding the new note into the array of notes
+        /* returning the whole array */
         notes += [newNote]
         return notes
     }
@@ -21,7 +23,9 @@ struct UserNotes {
     var noteThatToBeDeleted = Note.init(name: "fitness")
     
     mutating func deleteNote(deletedNote: Note) -> Array<Note> {
+        // creating a loop for iterating over the whole array
         for i in notes {
+            // comparing the two names of the searched item and the items, which are in the array
             if i.name == noteThatToBeDeleted?.name {
                 print("The note \(String(describing: noteThatToBeDeleted?.name)) is found in the array")
   
