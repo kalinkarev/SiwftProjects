@@ -10,8 +10,6 @@ import Foundation
 import UIKit
 
 struct UserNotes {
-    
-    
     // Array for storing the notes (all the user notes are stored here)
     var notes: [Note] = []
     
@@ -24,7 +22,6 @@ struct UserNotes {
         return notes
     }
 
-//    var noteForDelete = "fitness" //= Note(name: "fitness")
     var noteThatToBeDeleted = Note.init(name: "fitness")
     
     mutating func deleteNote(deletedNote: Note) -> Array<Note> {
