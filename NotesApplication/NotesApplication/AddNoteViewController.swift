@@ -10,7 +10,9 @@ import Foundation
 import UIKit
 
 protocol AddNoteViewControllerDelegate: AnyObject {
+    // function used for cancelling the saving of new note
     func contollerDidCancel(_ controller: AddNoteViewController)
+    // function used for saving the new note, entered by the user
     func contollerDidSave(_ controller: AddNoteViewController, didSave: Note)
 }
 
