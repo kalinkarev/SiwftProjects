@@ -13,8 +13,6 @@ struct UserNotes {
     // Array for storing the notes (all the user notes are stored here)
     var notes: [Note] = []
     
-    // func myArrayFunc(inputArray:Array<Int>) -> Array<Int> {}
-    
     mutating func addNote(newNote: Note) -> Array<Note> {
         
         notes += [newNote]
