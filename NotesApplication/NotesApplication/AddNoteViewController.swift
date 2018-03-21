@@ -48,6 +48,7 @@ class AddNoteViewController: UIViewController {
      */
     
     @IBAction func cancelButton(_ sender: Any) {
+        /* use the delegate method for cencelling the save of a note */
         delegate?.contollerDidCancel(self)
     }
     
@@ -57,6 +58,7 @@ class AddNoteViewController: UIViewController {
      */
     
     @IBAction func saveButton(_ sender: Any) {
+        /* use the delegate method for saving user note */
         if let note = Note(name: textField.text ?? "") {
             delegate?.contollerDidSave(self, didSave: note)
         } else {
