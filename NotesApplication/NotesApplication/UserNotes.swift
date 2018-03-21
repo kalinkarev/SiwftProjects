@@ -14,16 +14,13 @@ struct UserNotes {
     var notes: [Note] = []
     
     mutating func addNote(newNote: Note) -> Array<Note> {
-        
         notes += [newNote]
-        
         return notes
     }
 
     var noteThatToBeDeleted = Note.init(name: "fitness")
     
     mutating func deleteNote(deletedNote: Note) -> Array<Note> {
-        
         for i in notes {
             if i.name == noteThatToBeDeleted?.name {
                 print("The note \(String(describing: noteThatToBeDeleted?.name)) is found in the array")

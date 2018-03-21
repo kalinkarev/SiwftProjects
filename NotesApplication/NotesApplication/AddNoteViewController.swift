@@ -70,6 +70,7 @@ class AddNoteViewController: UIViewController {
 
 // MARK: Private Methods
 extension AddNoteViewController {
+    // checking if the label for inputting the name of the event is empty (if it is empty the user is not allowed to save the node) / (the save button is unabled)
     @objc func editingChanged(_ textField: UITextField) {
         if textField.text?.count == 1 {
             if textField.text?.first == " " {
