@@ -14,12 +14,17 @@ struct UserNotes {
     // Array for storing the notes (all the user notes are stored here)
     var notes: [Note] = []
     
-    func addNote(newNote: Note) {
+    mutating func addNote(newNote: Note) {
+        // need to make the new value of Note to be inputted into the array
+        notes += [newNote]
+    }
+
+    func deleteNote(deletedNote: Note) {
         
     }
     
-    func deleteNote(deletedNote: Note) -> Note {
-        return deletedNote
-    }
+//    func deleteNote(deletedNote: Note) -> Note {
+//        return deletedNote
+//    }
     
 }
