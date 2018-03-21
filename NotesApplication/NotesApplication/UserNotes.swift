@@ -11,6 +11,7 @@ import UIKit
 
 struct UserNotes {
     
+    
     // Array for storing the notes (all the user notes are stored here)
     var notes: [Note] = []
     
@@ -33,21 +34,14 @@ struct UserNotes {
             // if saveButton == (sender as? UIBarButtonItem)
 
             if i.name == noteThatToBeDeleted?.name {
+                print("The note \(String(describing: noteThatToBeDeleted?.name)) is found in the array")
+  
+//                let indexOfNote = notes.index(of: i)
+//                print("The index of the searched note is: \(indexOfNote)")
                 
+//                notes.remove(at: indexOfNote)
             }
         }
-            
-//            if i.name == noteForDelete {
-//                print("The is the note \(noteForDelete) in the array")
-//
-//                //let indexOfNote = notes.index(of: i)
-//                let indexOfNote = notes.index(of: i)
-//                print("The index of the searched item is: \(indexOfNote)")
-//
-//                notes.remove(at: indexOfNote)
-//            }
-//        }
-        
         return notes
     }
     
