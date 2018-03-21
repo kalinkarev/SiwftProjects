@@ -16,11 +16,17 @@ struct UserNotes {
     
     // func myArrayFunc(inputArray:Array<Int>) -> Array<Int> {}
     
-    func addNote(newNote: Note) -> Array<Note> {
+    mutating func addNote(newNote: Note) -> Array<Note> {
+        
+        notes += [newNote]
+        
         return notes
     }
 
     func deleteNote(deletedNote: Note) -> Array<Note> {
+        
+        
+        
         return notes
     }
     
