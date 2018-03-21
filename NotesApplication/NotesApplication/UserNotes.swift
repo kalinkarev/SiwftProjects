@@ -27,35 +27,18 @@ struct UserNotes {
 //    var noteForDelete = "fitness" //= Note(name: "fitness")
     var noteThatToBeDeleted = Note.init(name: "fitness")
     
-    func deleteNote(deletedNote: Note) -> Array<Note> {
+    mutating func deleteNote(deletedNote: Note) -> Array<Note> {
         
         for i in notes {
-            
-            // if saveButton == (sender as? UIBarButtonItem)
-
             if i.name == noteThatToBeDeleted?.name {
                 print("The note \(String(describing: noteThatToBeDeleted?.name)) is found in the array")
   
-//                let indexOfNote = notes.index(of: i)
-//                print("The index of the searched note is: \(indexOfNote)")
+                let indexOfNote = notes.index(of: i)
+                print("The index of the searched note is: \(String(describing: indexOfNote))")
                 
-//                notes.remove(at: indexOfNote)
+                notes.remove(at: indexOfNote!)
             }
         }
         return notes
     }
-    
-//    mutating func addNote(newNote: Note) {
-//        // need to make the new value of Note to be inputted into the array
-//        notes += [newNote]
-//    }
-
-//    func deleteNote(deletedNote: Note) {
-//
-//    }
-    
-//    func deleteNote(deletedNote: Note) -> Note {
-//        return deletedNote
-//    }
-    
 }
