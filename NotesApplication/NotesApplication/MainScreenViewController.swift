@@ -18,7 +18,7 @@ class MainScreenViewController: UIViewController {
     // Array for storing the notes (all the user notes are stored here)
     var notes: [Note] = []
 
-    let userNotes = UserNotes()
+    var userNotes = UserNotes()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +28,7 @@ class MainScreenViewController: UIViewController {
         
         // Populate Items in the table view
         loadSampleNotes()
+        userNotes.loadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -103,25 +104,25 @@ extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
 
 // MARK: Private Methods
 extension MainScreenViewController {
-    
+
     // this is a helper method to load sample data into the app
     private func loadSampleNotes() {
         guard let note1 = Note(name: "Go to fitness") else {
             fatalError("Unable to instantiate note1")
         }
-        
+
         guard let note2 = Note(name: "Swimming") else {
             fatalError("Unable to instantiate note2")
         }
-        
+
         guard let note3 = Note(name: "Studying") else {
             fatalError("Unable to instantiate note3")
         }
-        
+
         guard let note4 = Note(name: "Studying for the test tomorrow") else {
             fatalError("Unable to instantiate note4")
         }
-        
+
         notes += [note1, note2, note3, note4]
     }
 }
