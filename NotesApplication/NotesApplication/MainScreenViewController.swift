@@ -17,6 +17,8 @@ class MainScreenViewController: UIViewController {
     
     // Array for storing the notes (all the user notes are stored here)
     var notes: [Note] = []
+
+    let userNotes = UserNotes()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +53,8 @@ class MainScreenViewController: UIViewController {
 // MARK: TableViewDelegates
 extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return notes.count
+//        return notes.count
+        return userNotes.notesNumber()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

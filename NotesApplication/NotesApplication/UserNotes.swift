@@ -37,4 +37,20 @@ struct UserNotes {
         }
         return notes
     }
+    
+//    func notesNumber() -> Int {
+//        return notes.count
+//    }
+
+    func notesNumber() -> Int {
+        return notes.count
+    }
+    
+//    var notesNumber: Int {
+//        get{
+//            return notes.count
+//        }
+//
+//    }
+    
 }
