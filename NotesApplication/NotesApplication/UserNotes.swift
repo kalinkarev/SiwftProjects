@@ -32,8 +32,6 @@ struct UserNotes {
         return notes
     }
 
-    
-    
     var noteThatToBeDeleted = Note.init(name: "fitness")
     
     mutating func deleteNote(deletedNote: Note) -> Array<Note> {
@@ -56,29 +54,3 @@ struct UserNotes {
         return notes.count
     }
 }
-
-//// MARK: Private Methods
-//extension UserNotes {
-//
-//    // this is a helper method to load sample data into the app
-//    private mutating func loadSampleNotes() {
-//        guard let note1 = Note(name: "Go to fitness") else {
-//            fatalError("Unable to instantiate note1")
-//        }
-//
-//        guard let note2 = Note(name: "Swimming") else {
-//            fatalError("Unable to instantiate note2")
-//        }
-//
-//        guard let note3 = Note(name: "Studying") else {
-//            fatalError("Unable to instantiate note3")
-//        }
-//
-//        guard let note4 = Note(name: "Studying for the test tomorrow") else {
-//            fatalError("Unable to instantiate note4")
-//        }
-//
-//        notes += [note1, note2, note3, note4]
-//    }
-//}
-
