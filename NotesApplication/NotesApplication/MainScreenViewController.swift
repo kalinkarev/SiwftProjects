@@ -14,10 +14,6 @@ class MainScreenViewController: UIViewController {
     // MARK: Properties
     @IBOutlet weak var notesTableView: UITableView!
     
-    
-    // Array for storing the notes (all the user notes are stored here)
-    var notes: [Note] = []
-
     var userNotes = UserNotes()
     
     override func viewDidLoad() {
@@ -27,7 +23,6 @@ class MainScreenViewController: UIViewController {
         title = "Your Notes"
         
         // Populate Items in the table view
-        loadSampleNotes()
         userNotes.loadData()
     }
 
@@ -54,7 +49,6 @@ class MainScreenViewController: UIViewController {
 // MARK: TableViewDelegates
 extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return notes.count
         return userNotes.notesNumber()
     }
     
@@ -66,8 +60,7 @@ extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         // Fetch item
-        let note = notes[indexPath.row]
-        
+        let note = userNotes.notes[indexPath.row]
         
         // Configure Cell
         cell.nameLabel.text = note.name
@@ -89,7 +82,7 @@ extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
                     Update Items.
                     After removing/deleting the selected cell (the user deletes the cell by slipping from the right to the left in a cell)
                 */
-            notes.remove(at: indexPath.row)
+            userNotes.notes.remove(at: indexPath.row)
             
             /*
                     Update Table View
@@ -102,38 +95,12 @@ extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 
-// MARK: Private Methods
-extension MainScreenViewController {
-
-    // this is a helper method to load sample data into the app
-    private func loadSampleNotes() {
-        guard let note1 = Note(name: "Go to fitness") else {
-            fatalError("Unable to instantiate note1")
-        }
-
-        guard let note2 = Note(name: "Swimming") else {
-            fatalError("Unable to instantiate note2")
-        }
-
-        guard let note3 = Note(name: "Studying") else {
-            fatalError("Unable to instantiate note3")
-        }
-
-        guard let note4 = Note(name: "Studying for the test tomorrow") else {
-            fatalError("Unable to instantiate note4")
-        }
-
-        notes += [note1, note2, note3, note4]
-    }
-}
-
-
 // MARK: Delegates (Use the delegate to pass data between the views)
 extension MainScreenViewController: AddNoteViewControllerDelegate {
 
     func contollerDidSave(_ controller: AddNoteViewController, didSave: Note) {
         //Update the Data Source
-        notes.append(didSave)
+        userNotes.notes.append(didSave)
         
         // Reload Table View
         notesTableView.reloadData()

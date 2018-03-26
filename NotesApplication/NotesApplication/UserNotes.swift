@@ -13,13 +13,15 @@ struct UserNotes {
     // Array for storing the notes (all the user notes are stored here)
     var notes: [Note] = []
     
-//    var note1 = Note.init(name: "Study")
-    
     mutating func loadData() {
-        guard let note1 = Note(name: "Go to") else {
+        guard let note1 = Note(name: "Go to work") else {
             fatalError("Unable to instantiate note1")
         }
-        notes += [note1]
+        
+        guard let note2 = Note(name: "Study") else {
+            fatalError("Unable to instantiate note2")
+        }
+        notes += [note1, note2]
     }
     
     
