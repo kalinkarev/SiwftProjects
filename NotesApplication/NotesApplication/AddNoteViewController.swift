@@ -19,6 +19,7 @@ protocol AddNoteViewControllerDelegate: AnyObject {
 class AddNoteViewController: UIViewController {
     
     var numberOfNotes: Int = 0
+    var newNumber: Int = 0
     
     // MARK: Properties
     @IBOutlet weak var textField: UITextField!
@@ -66,16 +67,22 @@ class AddNoteViewController: UIViewController {
             delegate?.contollerDidSave(self, didSave: note)
             numberOfNotes += 1
             print("\(numberOfNotes)")
+            newNumber = 1;
+            print("\(note.name)")
+            print("\(note.id + 1)")
         } else {
             print("There is a problem with unwrapping the note's information")
         }
+        
+        newNumber = numberOfNotes
+        print("The number of items is: \(newNumber)")
     }
 }
 
 
 // MARK: Private Methods
 extension AddNoteViewController {
-    // checking if the label for inputting the name of the event is empty (if it is empty the user is not allowed to save the node) / (the save button is unabled)
+    // checking if the label for inputting the name of the note is empty (if it is empty the user is not allowed to save the note) / (the save button is unabled)
     @objc func editingChanged(_ textField: UITextField) {
         if textField.text?.count == 1 {
             if textField.text?.first == " " {
