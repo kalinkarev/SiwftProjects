@@ -9,11 +9,7 @@
 import Foundation
 import UIKit
 
-struct Note: Equatable {
-    static func ==(lhs: Note, rhs: Note) -> Bool {
-        return lhs == rhs
-    }
-    
+struct Note {
     // MARK: Properties
     var name: String
     
