@@ -100,7 +100,7 @@ extension MainScreenViewController: AddNoteViewControllerDelegate {
 
     func contollerDidSave(_ controller: AddNoteViewController, didSave: Note) {
         //Update the Data Source
-        userNotes.notes.append(didSave)
+        userNotes.addNote(didSave)
         
         // Reload Table View
         notesTableView.reloadData()

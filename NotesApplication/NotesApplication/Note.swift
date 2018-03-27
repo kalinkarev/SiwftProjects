@@ -11,10 +11,11 @@ import UIKit
 
 struct Note {
     // MARK: Properties
+    var id: Int
     var name: String
     
     // MARK: Initialization
-    init?(name: String) {
+    init?(id: Int, name: String) {
         
         // Initialization should fail if there is no name input (if the name field is empty) || (There should be an error)
         if name.isEmpty {
@@ -22,6 +23,7 @@ struct Note {
         }
         
         // Initialize stored properties.
+        self.id = id
         self.name = name
         
     }

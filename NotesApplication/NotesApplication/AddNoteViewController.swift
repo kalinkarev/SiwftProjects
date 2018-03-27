@@ -23,6 +23,9 @@ class AddNoteViewController: UIViewController {
     
     weak var delegate: AddNoteViewControllerDelegate?
     
+//    var iteratorId: Int = 0
+    private var score = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,6 +53,9 @@ class AddNoteViewController: UIViewController {
     @IBAction func cancelButton(_ sender: Any) {
         /* use the delegate method for cencelling the save of a note */
         delegate?.contollerDidCancel(self)
+//        score += 1
+//        scoreLabel.text = "\(score)"
+        print("\(score+1)")
     }
     
     /*
@@ -59,8 +65,9 @@ class AddNoteViewController: UIViewController {
     
     @IBAction func saveButton(_ sender: Any) {
         /* use the delegate method for saving user note */
-        if let note = Note(name: textField.text ?? "") {
+        if let note = Note(id: 0, name: textField.text ?? "") {
             delegate?.contollerDidSave(self, didSave: note)
+//            print("The id of the added item is: \(note.id)")
         } else {
             print("There is a problem with unwrapping the note's information")
         }
