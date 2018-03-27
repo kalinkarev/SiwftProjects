@@ -9,8 +9,7 @@
 import Foundation
 import UIKit
 
-class MainScreenViewController: UIViewController {
-
+class MainScreenViewController: UIViewController {    
     // MARK: Properties
     @IBOutlet weak var notesTableView: UITableView!
     
@@ -21,7 +20,7 @@ class MainScreenViewController: UIViewController {
         
         // Set Title on the navigation bar on the main screen _Your Notes_
         title = "Your Notes"
-                
+        
         // Populate Items in the table view
         userNotes.loadData()
     }

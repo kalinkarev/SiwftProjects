@@ -17,6 +17,9 @@ protocol AddNoteViewControllerDelegate: AnyObject {
 }
 
 class AddNoteViewController: UIViewController {
+    
+    var numberOfNotes: Int = 0
+    
     // MARK: Properties
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var saveBtn: UIBarButtonItem!
@@ -61,6 +64,8 @@ class AddNoteViewController: UIViewController {
         /* use the delegate method for saving user note */
         if let note = Note(id: 0, name: textField.text ?? "") {
             delegate?.contollerDidSave(self, didSave: note)
+            numberOfNotes += 1
+            print("\(numberOfNotes)")
         } else {
             print("There is a problem with unwrapping the note's information")
         }
