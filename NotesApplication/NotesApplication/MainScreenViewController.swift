@@ -21,7 +21,7 @@ class MainScreenViewController: UIViewController {
         
         // Set Title on the navigation bar on the main screen _Your Notes_
         title = "Your Notes"
-        
+                
         // Populate Items in the table view
         userNotes.loadData()
     }
@@ -91,7 +91,6 @@ extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
             tableView.deleteRows(at: [indexPath], with: .right)
         }
     }
-    
 }
 
 
@@ -112,5 +111,4 @@ extension MainScreenViewController: AddNoteViewControllerDelegate {
     func contollerDidCancel(_ controller: AddNoteViewController) {
         dismiss(animated: true, completion: nil)
     }
-    
 }

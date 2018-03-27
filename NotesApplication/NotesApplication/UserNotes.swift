@@ -37,4 +37,9 @@ struct UserNotes {
     func notesNumber() -> Int {
         return notes.count
     }
+    
+    func notesIndexes() -> Int {
+        return notes.startIndex
+    }
+    
 }

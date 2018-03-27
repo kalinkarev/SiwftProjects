@@ -23,8 +23,6 @@ class AddNoteViewController: UIViewController {
     
     weak var delegate: AddNoteViewControllerDelegate?
     
-    var identifier: Int = 0
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -59,12 +57,10 @@ class AddNoteViewController: UIViewController {
         It uses the delegate method 'controllerDidSave' to pass data from the AddNoteViewController to the MainScreenViewController
      */
     
-    @IBAction func saveButton(_ sender: Any) {
+    @IBAction func saveButton(_ sender: UIBarButtonItem) {
         /* use the delegate method for saving user note */
-        if let note = Note(id: identifier, name: textField.text ?? "") {
+        if let note = Note(id: 0, name: textField.text ?? "") {
             delegate?.contollerDidSave(self, didSave: note)
-            print("The identifier of the note object is: \(identifier)")
-            identifier = identifier + 1
         } else {
             print("There is a problem with unwrapping the note's information")
         }
