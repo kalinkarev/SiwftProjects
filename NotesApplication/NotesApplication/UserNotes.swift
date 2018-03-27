@@ -31,7 +31,7 @@ struct UserNotes {
     }
     
     mutating func deleteNote(deletedNote: Note) {
-        
+        notes.remove(at: deletedNote.id)
     }
     
     func notesNumber() -> Int {
