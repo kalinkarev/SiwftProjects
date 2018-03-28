@@ -14,11 +14,11 @@ struct UserNotes {
     var notes: [Note] = []
     
     mutating func loadData() {
-//        guard let note1 = Note(id: 1, name: "Go to work") else {
+//        guard let note1 = Note(id: 0, name: "Go to work") else {
 //            fatalError("Unable to instantiate note1")
 //        }
 //
-//        guard let note2 = Note(id: 2, name: "Study") else {
+//        guard let note2 = Note(id: 1, name: "Study") else {
 //            fatalError("Unable to instantiate note2")
 //        }
 //        notes += [note1, note2]

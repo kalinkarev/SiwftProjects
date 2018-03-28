@@ -25,6 +25,5 @@ struct Note {
         // Initialize stored properties.
         self.id = id
         self.name = name
-        
     }
 }
