@@ -72,6 +72,10 @@ class AddNoteViewController: UIViewController {
         newNumber = numberOfNotes
         newNumber *= 3
         // Need to implement how to increment the id value by One (maybe it is goint to happen each time the user click the save button on the adding screen ())
+        print("The new number is: \(newNumber)")
+        print("The number of notes is: \(numberOfNotes)")
+        newNumber += 2
+        print("The new number is: \(newNumber)")
     }
 }
 
@@ -91,6 +95,7 @@ extension AddNoteViewController {
             saveBtn.isEnabled = false
             return
         }
+        // Enabling the save button. It can be used.
         saveBtn.isEnabled = true
     }
 }
