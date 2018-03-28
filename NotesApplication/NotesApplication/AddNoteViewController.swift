@@ -63,19 +63,14 @@ class AddNoteViewController: UIViewController {
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
         /* use the delegate method for saving user note */
-        if let note = Note(id: 0, name: textField.text ?? "") {
+        if let note = Note(id: newNumber, name: textField.text ?? "") {
             delegate?.contollerDidSave(self, didSave: note)
-            numberOfNotes += 1
-            print("\(numberOfNotes)")
-            newNumber = 1;
-            print("\(note.name)")
-            print("\(note.id + 1)")
+            print("The new added item has id: \(note.id) and name: \(note.name)")
         } else {
             print("There is a problem with unwrapping the note's information")
         }
-        
-        newNumber = numberOfNotes
-        print("The number of items is: \(newNumber)")
+        numberOfNotes = newNumber
+        newNumber += 1
     }
 }
 
