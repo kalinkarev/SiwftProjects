@@ -18,8 +18,8 @@ protocol AddNoteViewControllerDelegate: AnyObject {
 
 class AddNoteViewController: UIViewController {
     
-    var numberOfNotes: Int = 0
-    var newNumber: Int = 0
+    var numberOfNotes: Int = 1
+    var newNumber: Int = 1
     
     // MARK: Properties
     @IBOutlet weak var textField: UITextField!
@@ -63,14 +63,15 @@ class AddNoteViewController: UIViewController {
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
         /* use the delegate method for saving user note */
-        if let note = Note(id: newNumber, name: textField.text ?? "") {
+        if let note = Note(id: numberOfNotes, name: textField.text ?? "") {
             delegate?.contollerDidSave(self, didSave: note)
             print("The new added item has id: \(note.id) and name: \(note.name)")
         } else {
             print("There is a problem with unwrapping the note's information")
         }
-        numberOfNotes = newNumber
-        newNumber += 1
+        newNumber = numberOfNotes
+        newNumber *= 3
+        // Need to implement how to increment the id value by One (maybe it is goint to happen each time the user click the save button on the adding screen ())
     }
 }
 
