@@ -13,10 +13,11 @@ struct UserNotes {
     // Array for storing the notes (all the user notes are stored here)
     var notes: [Note] = []
     
-    var counter: Int = 1
-    var c: Int = 0
-    var tmp: Int = 0
-
+    private var counter: Int = 1
+    private var tmp: Int = 1
+    var saveValue: Int = 0
+    var identifier: Int = 0
+    
     mutating func loadData() {
         guard let note1 = Note(id: 0, name: "Go to work") else {
             fatalError("Unable to instantiate note1")
@@ -29,7 +30,6 @@ struct UserNotes {
         
         print("The id of note \(note1.name) is \(note1.id)")
         print("The id of note \(note2.name) is \(note2.id)")
-        
     }
     
     mutating func addNote(_ newNote: Note) {
@@ -47,9 +47,25 @@ struct UserNotes {
     }
     
     mutating func incrementIdentifierByOne() -> Int {
+        /* Need to make the counter to increment from the previous value, not from the initialization value */
         counter = counter + 1
+        print("The value of the variable counter is: \(counter)")
+        tmp = counter
+        print("The value of the variable tmp is: \(tmp)")
         return counter
     }
+
+    mutating func saveTheValues() {
+        saveValue = tmp
+    }
     
-    
+    mutating func printValues() {
+        print("The value of tmp is: \(tmp)")
+        print("The value of the save value is: \(saveValue)")
+        if (identifier == counter) {
+            identifier += 1
+            print("The value of the identifier of the new note is \(identifier)")
+        }
+        // How to make the identifier to be incremented By One each time the user save a note
+    }
 }
