@@ -14,14 +14,18 @@ struct UserNotes {
     var notes: [Note] = []
     
     mutating func loadData() {
-//        guard let note1 = Note(id: 0, name: "Go to work") else {
-//            fatalError("Unable to instantiate note1")
-//        }
-//
-//        guard let note2 = Note(id: 1, name: "Study") else {
-//            fatalError("Unable to instantiate note2")
-//        }
-//        notes += [note1, note2]
+        guard let note1 = Note(id: 0, name: "Go to work") else {
+            fatalError("Unable to instantiate note1")
+        }
+
+        guard let note2 = Note(id: 1, name: "Study") else {
+            fatalError("Unable to instantiate note2")
+        }
+        notes += [note1, note2]
+        
+        print("The id of note \(note1.name) is \(note1.id)")
+        print("The id of note \(note2.name) is \(note2.id)")
+        
     }
     
     mutating func addNote(_ newNote: Note) {

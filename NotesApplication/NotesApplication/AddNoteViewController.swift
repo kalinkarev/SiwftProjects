@@ -63,19 +63,23 @@ class AddNoteViewController: UIViewController {
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
         /* use the delegate method for saving user note */
-        if let note = Note(id: numberOfNotes, name: textField.text ?? "") {
+        if let note = Note(id: 2, name: textField.text ?? "") {
             delegate?.contollerDidSave(self, didSave: note)
-            print("The new added item has id: \(note.id) and name: \(note.name)")
-        } else {
-            print("There is a problem with unwrapping the note's information")
+            print("The id of the new note \(note.name) id \(note.id)")
         }
-        newNumber = numberOfNotes
-        newNumber *= 3
-        // Need to implement how to increment the id value by One (maybe it is goint to happen each time the user click the save button on the adding screen ())
-        print("The new number is: \(newNumber)")
-        print("The number of notes is: \(numberOfNotes)")
-        newNumber += 2
-        print("The new number is: \(newNumber)")
+//        if let note = Note(id: numberOfNotes, name: textField.text ?? "") {
+//            delegate?.contollerDidSave(self, didSave: note)
+//            print("The new added item has id: \(note.id) and name: \(note.name)")
+//        } else {
+//            print("There is a problem with unwrapping the note's information")
+//        }
+//        newNumber = numberOfNotes
+//        newNumber *= 3
+//        // Need to implement how to increment the id value by One (maybe it is goint to happen each time the user click the save button on the adding screen ())
+//        print("The new number is: \(newNumber)")
+//        print("The number of notes is: \(numberOfNotes)")
+//        newNumber += 2
+//        print("The new number is: \(newNumber)")
     }
 }
 
