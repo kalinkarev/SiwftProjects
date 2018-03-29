@@ -54,10 +54,13 @@ struct UserNotes {
 //        print("The value of the variable tmp is: \(tmp)")
         return counter
     }
-
-    mutating func saveTheValues() {
-        saveValue = tmp
+    
+    // Method for incrementing the counter variable by specific amount (it can be chosen by the user)
+    mutating func addingOneToAValue(by amount: Int) {
+        counter += amount
     }
+    
+    // Maybe the increment of the idenfier will happen here. Each new added note`s identifier should be incremented by one.
     
     mutating func printValues() {
         print("The value of tmp is: \(tmp)")
