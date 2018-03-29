@@ -22,6 +22,7 @@ class NoteTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
+        // This line of code is used when the user click a cell in the table view not to be marked
         selectionStyle = UITableViewCellSelectionStyle.none
     }
 }

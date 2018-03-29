@@ -96,7 +96,8 @@ extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
 extension MainScreenViewController: AddNoteViewControllerDelegate {
 
     func contollerDidSave(_ controller: AddNoteViewController, didSave: Note) {
-        //Update the Data Source
+        // Update the Data Source
+        // Using the method implemented in the UserNotes.swift
         userNotes.addNote(didSave)
         
         // Reload Table View

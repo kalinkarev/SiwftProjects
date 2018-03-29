@@ -49,9 +49,9 @@ struct UserNotes {
     mutating func incrementIdentifierByOne() -> Int {
         /* Need to make the counter to increment from the previous value, not from the initialization value */
         counter = counter + 1
-        print("The value of the variable counter is: \(counter)")
-        tmp = counter
-        print("The value of the variable tmp is: \(tmp)")
+//        print("The value of the variable counter is: \(counter)")
+//        tmp = counter
+//        print("The value of the variable tmp is: \(tmp)")
         return counter
     }
 

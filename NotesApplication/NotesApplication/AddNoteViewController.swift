@@ -68,7 +68,7 @@ class AddNoteViewController: UIViewController {
         /* use the delegate method for saving user note */
         if let note = Note(id: userNote.incrementIdentifierByOne(), name: textField.text ?? "") {
             delegate?.contollerDidSave(self, didSave: note)
-            print("The id of the new note \(note.name) id \(note.id)")
+            print("The id of the new note \(note.name) is \(note.id)")
             userNote.printValues()
         }
 //        if let note = Note(id: numberOfNotes, name: textField.text ?? "") {
