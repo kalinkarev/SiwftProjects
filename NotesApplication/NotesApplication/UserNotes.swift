@@ -13,6 +13,10 @@ struct UserNotes {
     // Array for storing the notes (all the user notes are stored here)
     var notes: [Note] = []
     
+    var counter: Int = 1
+    var c: Int = 0
+    var tmp: Int = 0
+
     mutating func loadData() {
         guard let note1 = Note(id: 0, name: "Go to work") else {
             fatalError("Unable to instantiate note1")
@@ -41,4 +45,11 @@ struct UserNotes {
     func notesNumber() -> Int {
         return notes.count
     }
+    
+    mutating func incrementIdentifierByOne() -> Int {
+        counter = counter + 1
+        return counter
+    }
+    
+    
 }

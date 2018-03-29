@@ -20,6 +20,9 @@ class AddNoteViewController: UIViewController {
     
     var numberOfNotes: Int = 1
     var newNumber: Int = 1
+    var noteId: Int = 1
+    
+    var userNote = UserNotes()
     
     // MARK: Properties
     @IBOutlet weak var textField: UITextField!
@@ -63,7 +66,7 @@ class AddNoteViewController: UIViewController {
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
         /* use the delegate method for saving user note */
-        if let note = Note(id: 2, name: textField.text ?? "") {
+        if let note = Note(id: userNote.incrementIdentifierByOne(), name: textField.text ?? "") {
             delegate?.contollerDidSave(self, didSave: note)
             print("The id of the new note \(note.name) id \(note.id)")
         }
