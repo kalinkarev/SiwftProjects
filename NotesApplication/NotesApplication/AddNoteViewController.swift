@@ -18,10 +18,6 @@ protocol AddNoteViewControllerDelegate: AnyObject {
 
 class AddNoteViewController: UIViewController {
     
-    var numberOfNotes: Int = 1
-    var newNumber: Int = 1
-    var noteId: Int = 1
-    
     var userNote = UserNotes()
     
     // MARK: Properties
@@ -68,22 +64,7 @@ class AddNoteViewController: UIViewController {
         /* use the delegate method for saving user note */
         if let note = Note(id: userNote.incrementIdentifierByOne(), name: textField.text ?? "") {
             delegate?.contollerDidSave(self, didSave: note)
-//            print("The id of the new note \(note.name) is \(note.id)")
-//            userNote.printValues()
         }
-//        if let note = Note(id: numberOfNotes, name: textField.text ?? "") {
-//            delegate?.contollerDidSave(self, didSave: note)
-//            print("The new added item has id: \(note.id) and name: \(note.name)")
-//        } else {
-//            print("There is a problem with unwrapping the note's information")
-//        }
-//        newNumber = numberOfNotes
-//        newNumber *= 3
-//        // Need to implement how to increment the id value by One (maybe it is goint to happen each time the user click the save button on the adding screen ())
-//        print("The new number is: \(newNumber)")
-//        print("The number of notes is: \(numberOfNotes)")
-//        newNumber += 2
-//        print("The new number is: \(newNumber)")
     }
 }
 

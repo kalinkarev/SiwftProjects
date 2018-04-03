@@ -25,8 +25,10 @@ struct UserNotes {
         }
         notes += [note1, note2]
         
-        print("The id of note \(note1.name) is \(note1.id)")
-        print("The id of note \(note2.name) is \(note2.id)")
+//        print("The id of note \(note1.name) is \(note1.id)")
+//        print("The id of note \(note2.name) is \(note2.id)")
+        print("The note name: \(note1.name) and id: \(note1.id)")
+        print("The note name: \(note2.name) and id: \(note2.id)")
     }
     
     mutating func addNote(_ newNote: Note) {
@@ -34,10 +36,10 @@ struct UserNotes {
         /* returning the whole array */
         
         let lastNote = notes.last
-        print("The last note is: \(String(describing: lastNote))")
+//        print("The last note is: \(String(describing: lastNote))")
         
         let lastID = lastNote?.id
-        print("The last id is: \(String(describing: lastID))")
+//        print("The last id is: \(String(describing: lastID))")
         
         var localNewNote = newNote
         localNewNote.id = lastID! + 1
@@ -59,14 +61,4 @@ struct UserNotes {
         counter = counter + 1
         return counter
     }
-//
-//    mutating func printValues() {
-//        print("The value of tmp is: \(tmp)")
-//        print("The value of the save value is: \(saveValue)")
-//        if (identifier == counter) {
-//            identifier += 1
-//            print("The value of the identifier of the new note is \(identifier)")
-//        }
-//        // How to make the identifier to be incremented By One each time the user save a note
-//    }
 }
