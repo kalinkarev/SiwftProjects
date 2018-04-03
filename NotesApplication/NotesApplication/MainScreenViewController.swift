@@ -81,6 +81,7 @@ extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
                     After removing/deleting the selected cell (the user deletes the cell by slipping from the right to the left in a cell)
                 */
             userNotes.notes.remove(at: indexPath.row)
+//            userNotes.deleteNote(deletedNote: userNotes.notes.remove(at: indexPath.row))
             
             /*
                     Update Table View

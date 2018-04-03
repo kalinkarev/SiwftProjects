@@ -52,8 +52,6 @@ struct UserNotes {
         return counter
     }
     
-    // Maybe the increment of the idenfier will happen here. Each new added note`s identifier should be incremented by one.
-    
     mutating func printValues() {
         print("The value of tmp is: \(tmp)")
         print("The value of the save value is: \(saveValue)")
