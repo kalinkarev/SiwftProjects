@@ -25,21 +25,18 @@ struct UserNotes {
         }
         notes += [note1, note2]
         
-//        print("The id of note \(note1.name) is \(note1.id)")
-//        print("The id of note \(note2.name) is \(note2.id)")
         print("The note name: \(note1.name) and id: \(note1.id)")
         print("The note name: \(note2.name) and id: \(note2.id)")
     }
     
     mutating func addNote(_ newNote: Note) {
         // adding the new note into the array of notes
-        /* returning the whole array */
         
         let lastNote = notes.last
-//        print("The last note is: \(String(describing: lastNote))")
+        print("The last note is: \(String(describing: lastNote))")
         
         let lastID = lastNote?.id
-//        print("The last id is: \(String(describing: lastID))")
+        print("The last id is: \(String(describing: lastID))")
         
         var localNewNote = newNote
         localNewNote.id = lastID! + 1
