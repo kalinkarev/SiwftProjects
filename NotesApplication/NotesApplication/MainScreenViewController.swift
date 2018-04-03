@@ -81,13 +81,15 @@ extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
                     After removing/deleting the selected cell (the user deletes the cell by slipping from the right to the left in a cell)
                 */
             
-            let selectedNote = Note(id: indexPath.row - 1, name: "")
+            let selectedNote = Note(id: indexPath.row, name: "")
             
             print("The id of the selected note is: \(String(describing: selectedNote?.id))")
             
 //            userNotes.notes.remove(at: indexPath.row)
 //            userNotes.deleteNote(deletedNote: userNotes.notes.remove(at: indexPath.row))
-            userNotes.deleteNote(deletedNote: selectedNote!)
+//            userNotes.deleteNote(deletedNote: selectedNote!)
+
+            userNotes.notes.remove(at: indexPath.row)
             
             /*
                     Update Table View

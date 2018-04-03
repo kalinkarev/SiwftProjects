@@ -47,6 +47,7 @@ struct UserNotes {
     }
     
     mutating func deleteNote(deletedNote: Note) {
+        // Removing the selected note (the user selects a note and it should be removed | we are using the removement by id |)
         notes.remove(at: deletedNote.id)
     }
     
