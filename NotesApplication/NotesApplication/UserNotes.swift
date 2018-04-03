@@ -49,15 +49,7 @@ struct UserNotes {
     mutating func incrementIdentifierByOne() -> Int {
         /* Need to make the counter to increment from the previous value, not from the initialization value */
         counter = counter + 1
-//        print("The value of the variable counter is: \(counter)")
-//        tmp = counter
-//        print("The value of the variable tmp is: \(tmp)")
         return counter
-    }
-    
-    // Method for incrementing the counter variable by specific amount (it can be chosen by the user)
-    mutating func addingOneToAValue(by amount: Int) {
-        counter += amount
     }
     
     // Maybe the increment of the idenfier will happen here. Each new added note`s identifier should be incremented by one.
