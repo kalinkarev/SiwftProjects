@@ -35,7 +35,36 @@ struct UserNotes {
     mutating func addNote(_ newNote: Note) {
         // adding the new note into the array of notes
         /* returning the whole array */
-        notes += [newNote]
+        
+        let lastNote = notes.last
+        print("The last note is: \(String(describing: lastNote))")
+        
+        let lastID = lastNote?.id
+        print("The last id is: \(String(describing: lastID))")
+        
+        var localNewNote = newNote
+        localNewNote.id = lastID! + 1
+        
+        
+//        if let lastNote = notes.last {
+//            print("The last note is: \(lastNote)")
+//
+//            var lastID = lastNote.id
+//            newNote.id = lastID + 1
+//
+//            func someFunction (parameterName:Int) {
+//                var localParameterName = parameterName
+//                // Now use localParameterName
+//                localParameterName = 2;
+//                var a = localParameterName;
+//            }
+            
+//            newNote.id = lastNote.id + 1
+//        }
+        
+        notes += [localNewNote]
+        
+        print("The new note has name: \(localNewNote.name) and id: \(localNewNote.id)")
     }
     
     mutating func deleteNote(deletedNote: Note) {
@@ -47,7 +76,6 @@ struct UserNotes {
     }
     
     mutating func incrementIdentifierByOne() -> Int {
-        /* Need to make the counter to increment from the previous value, not from the initialization value */
         counter = counter + 1
         return counter
     }
