@@ -95,7 +95,7 @@ extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
 //            userNotes.deleteNote(deletedNote: selectedNote!)
 
 //            userNotes.deleteNote(deletedNote: indexPath.row)
-//            userNotes.notes.remove(at: indexPath.row) -> correct one, working perfectly
+            userNotes.notes.remove(at: indexPath.row) //-> correct one, working perfectly
             
             /* Now i have to make it work with the method deleteNote() in the UserNotes.swift file */
             

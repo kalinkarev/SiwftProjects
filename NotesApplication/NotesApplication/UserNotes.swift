@@ -24,7 +24,7 @@ struct UserNotes {
             fatalError("Unable to instantiate note2")
         }
         notes += [note1, note2]
-        
+
         print("The note name: \(note1.name) and id: \(note1.id)")
         print("The note name: \(note2.name) and id: \(note2.id)")
     }
@@ -32,18 +32,22 @@ struct UserNotes {
     mutating func addNote(_ newNote: Note) {
         // adding the new note into the array of notes
         
-        let lastNote = notes.last
-        print("The last note is: \(String(describing: lastNote))")
-        
-        let lastID = lastNote?.id
-        print("The last id is: \(String(describing: lastID))")
-        
-        var localNewNote = newNote
-        localNewNote.id = lastID! + 1
-        
-        notes += [localNewNote]
-        
-        print("The new note has name: \(localNewNote.name) and id: \(localNewNote.id)")
+        if (notes.isEmpty) {
+            let newID = 0
+            var localNewNote = newNote
+            localNewNote.id = newID
+            notes += [localNewNote]
+            print("The new note has name: \(localNewNote.name) and id: \(localNewNote.id)")
+        } else {
+            let lastNote = notes.last
+            print("The last note is: \(String(describing: lastNote))")
+            let lastID = lastNote?.id
+            print("The last id is: \(String(describing: lastID))")
+            var localNewNote  = newNote
+            localNewNote.id = lastID! + 1
+            notes += [localNewNote]
+            print("The new note has name: \(localNewNote.name) and id: \(localNewNote.id)")
+        }
     }
     
     mutating func deleteNote(deletedNote: Note) {
