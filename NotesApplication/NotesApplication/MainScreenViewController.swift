@@ -80,8 +80,10 @@ extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
                     Update Items.
                     After removing/deleting the selected cell (the user deletes the cell by slipping from the right to the left in a cell)
                 */
+  
+            let note = Note(id: indexPath.row, name: indexPath.description)
             
-            print("The row is: \(indexPath.row)")
+//            print("The row is: \(indexPath.row)")
             
 //            let selectedNote = Note(id: indexPath.row, name: "")
             
@@ -95,7 +97,10 @@ extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
 //            userNotes.deleteNote(deletedNote: selectedNote!)
 
 //            userNotes.deleteNote(deletedNote: indexPath.row)
-            userNotes.notes.remove(at: indexPath.row) //-> correct one, working perfectly
+//            userNotes.notes.remove(at: indexPath.row) //-> correct one, working perfectly
+            
+//            userNotes.deleteNote(deletedNote: )
+            userNotes.deleteNote(deletedNote: note!)
             
             /* Now i have to make it work with the method deleteNote() in the UserNotes.swift file */
             
