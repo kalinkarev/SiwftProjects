@@ -107,6 +107,21 @@ extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
         // Configure Cell
         cell.nameLabel.text = note.name
         
+        
+        //        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+        //            // Update an existing meal.
+        //            meals[selectedIndexPath.row] = meal
+        //            tableView.reloadRows(at: [selectedIndexPath], with: .none)
+        //        }
+        
+        
+        if let selectedIndexPath = notesTableView.indexPathForSelectedRow {
+            // Update an existing note.
+            userNotes.notes[selectedIndexPath.row] = note
+            notesTableView.reloadRows(at: [selectedIndexPath], with: .none)
+        }
+//        print("The new array is: \(userNotes.notes)")
+        
         return cell
     }
     
@@ -119,14 +134,7 @@ extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        
-//        if (editingStyle == ) {
-//            let noteEdit = Note(id: indexPath.row, name: indexPath.description)
-//
-//            userNotes.editNote(editedNote: noteEdit!)
-//
-//        }
-        
+                
         if editingStyle == .delete {
             /*
                     Update Items.
