@@ -65,7 +65,6 @@ struct UserNotes {
         print("The name of the seleceted note is: \(nameOfTheEditingNote)")
         print("The id of the selected note is: \(idOfTheEditingNote)")
         
-        
 //        if let selectedIndexPath = tableView.indexPathForSelectedRow {
 //            // Update an existing meal.
 //            meals[selectedIndexPath.row] = meal
@@ -73,10 +72,7 @@ struct UserNotes {
 //        }
 
 //        notes[editedNote.id]
-        
     }
-    
-    
     
     func notesNumber() -> Int {
         return notes.count
