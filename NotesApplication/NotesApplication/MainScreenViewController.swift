@@ -83,26 +83,8 @@ extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
   
             let note = Note(id: indexPath.row, name: indexPath.description)
             
-//            print("The row is: \(indexPath.row)")
-            
-//            let selectedNote = Note(id: indexPath.row, name: "")
-            
-//            print("The id of the selected note is: \(String(describing: selectedNote?.id))")
-            
-//            userNotes.notes.remove(at: indexPath.row)
-//            userNotes.deleteNote(deletedNote: userNotes.notes.remove(at: indexPath.row))
-//            userNotes.deleteNote(deletedNote: selectedNote!)
-
-//            userNotes.notes.remove(at: indexPath.row)
-//            userNotes.deleteNote(deletedNote: selectedNote!)
-
-//            userNotes.deleteNote(deletedNote: indexPath.row)
 //            userNotes.notes.remove(at: indexPath.row) //-> correct one, working perfectly
-            
-//            userNotes.deleteNote(deletedNote: )
             userNotes.deleteNote(deletedNote: note!)
-            
-            /* Now i have to make it work with the method deleteNote() in the UserNotes.swift file */
             
             /*
                     Update Table View
