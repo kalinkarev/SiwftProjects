@@ -30,7 +30,6 @@ class MainScreenViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         switch (segue.identifier ?? "") {
@@ -58,32 +57,14 @@ class MainScreenViewController: UIViewController {
                 fatalError("The seleceted cell is not being displayed by the table")
             }
             
-//            let noteEdit = Note(id: indexPath.row, name:indexPath.description)
-            
-//            let selectedMeal = meals[indexPath.row]
-//            mealDetailViewController.meal = selectedMeal
-            
             let selectedNote = userNotes.notes[indexPath.row]
             noteDetailViewController.note = selectedNote
-//            noteDetailViewController.userNote = selectedNote
             
             userNotes.editNote(editedNote: selectedNote)
             
-            
         default:
-//            print("Unknown operation")
             fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
         }
-        
-        
-//        if segue.identifier == "AddNoteViewController" {
-//            let navigationController = segue.destination as? UINavigationController
-//            let addNoteViewController = navigationController?.topViewController as? AddNoteViewController
-//
-//            if let viewController = addNoteViewController {
-//                viewController.delegate = self as AddNoteViewControllerDelegate
-//            }
-//        }
     }
 }
 
