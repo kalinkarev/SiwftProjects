@@ -32,14 +32,50 @@ class MainScreenViewController: UIViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "AddNoteViewController" {
+        
+        switch (segue.identifier ?? "") {
+        case "AddNoteViewController":
             let navigationController = segue.destination as? UINavigationController
             let addNoteViewController = navigationController?.topViewController as? AddNoteViewController
             
             if let viewController = addNoteViewController {
                 viewController.delegate = self as AddNoteViewControllerDelegate
             }
+            
+        case "showDetail":
+            
+            print("You have selected edit note")
+            
+            guard let noteDetailViewController = segue.destination as? AddNoteViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let selectedNoteCell = sender as? NoteTableViewCell else {
+                fatalError("Unexpected sender: \(sender)")
+            }
+            
+            guard let indexPath = notesTableView.indexPath(for: selectedNoteCell) else {
+                fatalError("The seleceted cell is not being displayed by the table")
+            }
+            
+            var noteEdit = Note(id: indexPath.row, name:indexPath.description)
+            
+            userNotes.editNote(editedNote: noteEdit!)
+            
+            
+        default:
+            print("Unknown operation")
         }
+        
+        
+//        if segue.identifier == "AddNoteViewController" {
+//            let navigationController = segue.destination as? UINavigationController
+//            let addNoteViewController = navigationController?.topViewController as? AddNoteViewController
+//
+//            if let viewController = addNoteViewController {
+//                viewController.delegate = self as AddNoteViewControllerDelegate
+//            }
+//        }
     }
 }
 
@@ -75,6 +111,14 @@ extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+//        if (editingStyle == ) {
+//            let noteEdit = Note(id: indexPath.row, name: indexPath.description)
+//
+//            userNotes.editNote(editedNote: noteEdit!)
+//
+//        }
+        
         if editingStyle == .delete {
             /*
                     Update Items.

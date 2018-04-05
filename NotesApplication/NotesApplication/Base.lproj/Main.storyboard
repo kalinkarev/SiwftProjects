@@ -41,6 +41,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="nameLabel" destination="qpJ-Ne-dtm" id="oV9-9m-nF1"/>
+                                            <segue destination="vcw-cu-imH" kind="show" identifier="showDetail" id="vFS-4p-GUc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -142,7 +143,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2sF-01-oeE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1351" y="117"/>
+            <point key="canvasLocation" x="1326" y="510"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="vFS-4p-GUc"/>
+    </inferredMetricsTieBreakers>
 </document>

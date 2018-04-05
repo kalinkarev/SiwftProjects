@@ -61,6 +61,14 @@ struct UserNotes {
     func editNote(editedNote: Note) {
 //        var nameOfTheEditingNote = editedNote.name
         
+        let nameOfTheEditingNote = editedNote.name
+        let idOfTheEditingNote = editedNote.id
+        
+        print("The name of the seleceted note is: \(nameOfTheEditingNote)")
+//        print("The name of the selected note is: \(editedNote.name)")
+        print("The id of the selected note is: \(idOfTheEditingNote)")
+        
+        
         
         
 //        if let i = notes.index(of: ) {
