@@ -58,13 +58,20 @@ class MainScreenViewController: UIViewController {
                 fatalError("The seleceted cell is not being displayed by the table")
             }
             
-            var noteEdit = Note(id: indexPath.row, name:indexPath.description)
+            let noteEdit = Note(id: indexPath.row, name:indexPath.description)
             
-            userNotes.editNote(editedNote: noteEdit!)
+//            let selectedMeal = meals[indexPath.row]
+//            mealDetailViewController.meal = selectedMeal
+            
+            let selectedNote = userNotes.notes[indexPath.row]
+//            noteDetailViewController.userNote = selectedNote
+            
+            userNotes.editNote(editedNote: selectedNote)
             
             
         default:
-            print("Unknown operation")
+//            print("Unknown operation")
+            fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
         }
         
         
