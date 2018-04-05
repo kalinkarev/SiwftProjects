@@ -51,19 +51,20 @@ class MainScreenViewController: UIViewController {
             }
             
             guard let selectedNoteCell = sender as? NoteTableViewCell else {
-                fatalError("Unexpected sender: \(sender)")
+                fatalError("Unexpected sender: \(String(describing: sender))")
             }
             
             guard let indexPath = notesTableView.indexPath(for: selectedNoteCell) else {
                 fatalError("The seleceted cell is not being displayed by the table")
             }
             
-            let noteEdit = Note(id: indexPath.row, name:indexPath.description)
+//            let noteEdit = Note(id: indexPath.row, name:indexPath.description)
             
 //            let selectedMeal = meals[indexPath.row]
 //            mealDetailViewController.meal = selectedMeal
             
             let selectedNote = userNotes.notes[indexPath.row]
+            noteDetailViewController.note = selectedNote
 //            noteDetailViewController.userNote = selectedNote
             
             userNotes.editNote(editedNote: selectedNote)

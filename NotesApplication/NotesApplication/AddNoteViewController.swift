@@ -24,6 +24,8 @@ class AddNoteViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var saveBtn: UIBarButtonItem!
     
+    var note = Note(id: 0, name: "")
+    
     weak var delegate: AddNoteViewControllerDelegate?
     
     override func viewDidLoad() {
@@ -33,6 +35,11 @@ class AddNoteViewController: UIViewController {
         
         // Set Title on the navigation bar in the add screen _Add Note_
         title = "Add Note"
+        
+        // Set up views if editing an existing Note.
+        if let note = note {
+            textField.text = note.name
+        }
         
         saveBtn.isEnabled = false
         textField.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
@@ -53,6 +60,21 @@ class AddNoteViewController: UIViewController {
     @IBAction func cancelButton(_ sender: Any) {
         /* use the delegate method for cencelling the save of a note */
         delegate?.contollerDidCancel(self)
+        
+        // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
+        let isPresentingInAddMealMode = presentingViewController is UINavigationController
+        
+        if isPresentingInAddMealMode {
+//            dismiss(animated: true, completion: nil)
+            delegate?.contollerDidCancel(self)
+        }
+        else if let owningNavigationController = navigationController{
+            owningNavigationController.popViewController(animated: true)
+        }
+        else {
+            fatalError("The MealViewController is not inside a navigation controller.")
+        }
+        
     }
     
     /*
