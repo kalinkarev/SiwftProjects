@@ -96,6 +96,7 @@ extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
         //        }
         
         
+        // Trying to update the note and the user has selected to edit
         if let selectedIndexPath = notesTableView.indexPathForSelectedRow {
             // Update an existing note.
             userNotes.notes[selectedIndexPath.row] = note
