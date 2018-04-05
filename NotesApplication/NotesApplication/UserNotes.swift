@@ -55,6 +55,21 @@ struct UserNotes {
         notes.remove(at: deletedNote.id)
     }
     
+    /*
+        Implement the functionality of editing a note
+     */
+    func editNote(editedNote: Note) {
+//        var nameOfTheEditingNote = editedNote.name
+        
+        
+        
+//        if let i = notes.index(of: ) {
+//
+//        }
+    }
+    
+    
+    
     func notesNumber() -> Int {
         return notes.count
     }
