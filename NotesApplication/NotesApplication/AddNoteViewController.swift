@@ -14,6 +14,9 @@ protocol AddNoteViewControllerDelegate: AnyObject {
     func contollerDidCancel(_ controller: AddNoteViewController)
     // function used for saving the new note, entered by the user
     func contollerDidSave(_ controller: AddNoteViewController, didSave: Note)
+    
+    // function used for editing an existing note
+    func controllerDidEdit(_ controller: AddNoteViewController, didEdit: Note)
 }
 
 class AddNoteViewController: UIViewController {
@@ -62,16 +65,16 @@ class AddNoteViewController: UIViewController {
         delegate?.contollerDidCancel(self)
         
         // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
-        let isPresentingInAddMealMode = presentingViewController is UINavigationController
+        let isPresentingInAddNoteMode = presentingViewController is UINavigationController
         
-        if isPresentingInAddMealMode {
+        if isPresentingInAddNoteMode {
             delegate?.contollerDidCancel(self)
         }
         else if let owningNavigationController = navigationController{
             owningNavigationController.popViewController(animated: true)
         }
         else {
-            fatalError("The MealViewController is not inside a navigation controller.")
+            fatalError("The NoteViewController is not inside a navigation controller.")
         }
         
     }
@@ -86,6 +89,7 @@ class AddNoteViewController: UIViewController {
         if let note = Note(id: userNote.incrementIdentifierByOne(), name: textField.text ?? "") {
             delegate?.contollerDidSave(self, didSave: note)
         }
+        
     }
 }
 

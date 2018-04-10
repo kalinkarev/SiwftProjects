@@ -43,6 +43,13 @@ class MainScreenViewController: UIViewController {
             
         case "showDetail":
             
+//            let navigationControllerEdit = segue.destination as? UINavigationController
+//            let editNoteViewController = navigationController?.topViewController as? AddNoteViewController
+//
+//            if let viewContollerEdit = editNoteViewController {
+//                viewContollerEdit.delegate = self as AddNoteViewControllerDelegate
+//            }
+//
             print("You have selected edit note")
             
             guard let noteDetailViewController = segue.destination as? AddNoteViewController else {
@@ -60,7 +67,7 @@ class MainScreenViewController: UIViewController {
             let selectedNote = userNotes.notes[indexPath.row]
             noteDetailViewController.note = selectedNote
             
-            userNotes.editNote(editedNote: selectedNote)
+            userNotes.editNote(selectedNote)
             
         default:
             fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
@@ -96,11 +103,11 @@ extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
         //        }
         
 
-        if let selectedIndexPath = notesTableView.indexPathForSelectedRow {
-            // Update an existing note
-            userNotes.notes[selectedIndexPath.row] = note
-            notesTableView.reloadRows(at: [selectedIndexPath], with: .none)
-        }
+//        if let selectedIndexPath = notesTableView.indexPathForSelectedRow {
+//            // Update an existing note
+//            userNotes.notes[selectedIndexPath.row] = note
+//            notesTableView.reloadRows(at: [selectedIndexPath], with: .none)
+//        }
         
         
 //        // Trying to update the note and the user has selected to edit
@@ -147,7 +154,6 @@ extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
 
 // MARK: Delegates (Use the delegate to pass data between the views)
 extension MainScreenViewController: AddNoteViewControllerDelegate {
-
     func contollerDidSave(_ controller: AddNoteViewController, didSave: Note) {
         // Update the Data Source
         // Using the method implemented in the UserNotes.swift
@@ -161,6 +167,18 @@ extension MainScreenViewController: AddNoteViewControllerDelegate {
     }
 
     func contollerDidCancel(_ controller: AddNoteViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func controllerDidEdit(_ controller: AddNoteViewController, didEdit: Note) {
+        // Update the Data Source
+        // Using the method implemented in the UserNotes.swift
+        userNotes.editNote(didEdit)
+
+        // Reload Table View
+        notesTableView.reloadData()
+
+        // Dismiss Add View Controller
         dismiss(animated: true, completion: nil)
     }
 }

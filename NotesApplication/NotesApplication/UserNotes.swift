@@ -58,12 +58,16 @@ struct UserNotes {
     /*
         Implement the functionality of editing a note
      */
-    func editNote(editedNote: Note) {
+    mutating func editNote(_ editedNote: Note) {
         let nameOfTheEditingNote = editedNote.name
         let idOfTheEditingNote = editedNote.id
         
         print("The name of the seleceted note is: \(nameOfTheEditingNote)")
         print("The id of the selected note is: \(idOfTheEditingNote)")
+        
+        
+        
+        
         
 //        if let selectedIndexPath = tableView.indexPathForSelectedRow {
 //            // Update an existing meal.
