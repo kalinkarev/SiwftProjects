@@ -95,13 +95,20 @@ extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
         //            tableView.reloadRows(at: [selectedIndexPath], with: .none)
         //        }
         
-        
-        // Trying to update the note and the user has selected to edit
+
         if let selectedIndexPath = notesTableView.indexPathForSelectedRow {
-            // Update an existing note.
+            // Update an existing note
             userNotes.notes[selectedIndexPath.row] = note
             notesTableView.reloadRows(at: [selectedIndexPath], with: .none)
         }
+        
+        
+//        // Trying to update the note and the user has selected to edit
+//        if let selectedIndexPath = notesTableView.indexPathForSelectedRow {
+//            // Update an existing note.
+//            userNotes.notes[selectedIndexPath.row] = note
+//            notesTableView.reloadRows(at: [selectedIndexPath], with: .none)
+//        }
 //        print("The new array is: \(userNotes.notes)")
         
         return cell

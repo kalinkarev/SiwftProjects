@@ -70,7 +70,7 @@ struct UserNotes {
 //            meals[selectedIndexPath.row] = meal
 //            tableView.reloadRows(at: [selectedIndexPath], with: .none)
 //        }
-
+        
 //        notes[editedNote.id]
     }
     

@@ -65,7 +65,6 @@ class AddNoteViewController: UIViewController {
         let isPresentingInAddMealMode = presentingViewController is UINavigationController
         
         if isPresentingInAddMealMode {
-//            dismiss(animated: true, completion: nil)
             delegate?.contollerDidCancel(self)
         }
         else if let owningNavigationController = navigationController{
