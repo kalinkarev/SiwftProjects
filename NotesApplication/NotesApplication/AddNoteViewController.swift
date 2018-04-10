@@ -80,7 +80,7 @@ class AddNoteViewController: UIViewController {
     }
     
     /*
-        Adding the button (functionality) for saving an event.
+        Adding the button (functionality) for saving a note.
         It uses the delegate method 'controllerDidSave' to pass data from the AddNoteViewController to the MainScreenViewController
      */
     
@@ -102,6 +102,8 @@ class AddNoteViewController: UIViewController {
                 delegate?.controllerDidEdit(self, didEdit: editedNote)
                 print("The name of the editted note is: \(editedNote.name)")
                 print("The id of the editted note is: \(editedNote.id)")
+                
+                // Testing to see wheather everything is working correctly
             }
             
             print("You are saving in edit mode(saving the editted note)")
