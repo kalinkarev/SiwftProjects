@@ -41,7 +41,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="nameLabel" destination="qpJ-Ne-dtm" id="oV9-9m-nF1"/>
-                                            <segue destination="vcw-cu-imH" kind="show" identifier="showDetail" id="vFS-4p-GUc"/>
+                                            <segue destination="vcw-cu-imH" kind="showDetail" identifier="showDetail" action="showViewController:sender:" id="vFS-4p-GUc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

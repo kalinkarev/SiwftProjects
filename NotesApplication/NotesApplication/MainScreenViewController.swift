@@ -69,6 +69,9 @@ class MainScreenViewController: UIViewController {
             
             userNotes.editNote(selectedNote)
             
+//            array.first({$0.eventID == id})?.added = value
+            
+            
         default:
             fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
         }
@@ -95,22 +98,7 @@ extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
         // Configure Cell
         cell.nameLabel.text = note.name
         
-        
-        //        if let selectedIndexPath = tableView.indexPathForSelectedRow {
-        //            // Update an existing meal.
-        //            meals[selectedIndexPath.row] = meal
-        //            tableView.reloadRows(at: [selectedIndexPath], with: .none)
-        //        }
-        
-
-//        if let selectedIndexPath = notesTableView.indexPathForSelectedRow {
-//            // Update an existing note
-//            userNotes.notes[selectedIndexPath.row] = note
-//            notesTableView.reloadRows(at: [selectedIndexPath], with: .none)
-//        }
-        
-        
-//        // Trying to update the note and the user has selected to edit
+//        // Trying to update the note that the user has selected to edit
 //        if let selectedIndexPath = notesTableView.indexPathForSelectedRow {
 //            // Update an existing note.
 //            userNotes.notes[selectedIndexPath.row] = note
