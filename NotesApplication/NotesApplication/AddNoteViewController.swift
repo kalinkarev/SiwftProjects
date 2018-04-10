@@ -101,6 +101,8 @@ class AddNoteViewController: UIViewController {
             if let editedNote = Note(id: userNote.incrementIdentifierByOne(), name: textField.text!) {
                 delegate?.controllerDidEdit(self, didEdit: editedNote)
                 print("The name of the editted note is: \(editedNote.name)")
+                print("The id of the editted note is: \(editedNote.id)")
+//                userNote.notes += [editedNote]
             }
             
             print("You are in edit mode(saving the editted note)")

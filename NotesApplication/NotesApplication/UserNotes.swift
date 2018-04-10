@@ -65,6 +65,9 @@ struct UserNotes {
         print("The name of the seleceted note is: \(nameOfTheEditingNote)")
         print("The id of the selected note is: \(idOfTheEditingNote)")
         
+        notes += [editedNote]
+        print("The edited note has name: \(editedNote.name) and id: \(editedNote.id)")
+        
         
 //        array.first({$0.eventID == id})?.added = value
 //        notes.first({$0.id == idOfTheEditingNote})
