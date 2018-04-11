@@ -98,9 +98,7 @@ class AddNoteViewController: UIViewController {
             if let note = Note(id: userNote.incrementIdentifierByOne(), name: textField.text ?? "") {
                 delegate?.contollerDidSave(self, didSave: note)
             }
-            print("You pressed the save button in add note")
-//            delegate?.contollerDidCancel(self)
-//            print("You pressed the Cancel button in Add Note screen")
+            print("You pressed the save button in Add Note screen")
         }
         
         // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
@@ -116,36 +114,7 @@ class AddNoteViewController: UIViewController {
         else {
             fatalError("The NoteViewController is not inside a navigation controller.")
         }
-        
-//        if let note = Note(id: userNote.incrementIdentifierByOne(), name: textField.text ?? "") {
-//            delegate?.contollerDidSave(self, didSave: note)
-//        }
-//        print("You pressed the save button in add note")
     }
-        
-//        // Depending on the style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
-//        let isPresentingInAddNoteMode = presentingViewController is UINavigationController
-//
-//        if isPresentingInAddNoteMode {
-////            delegate?.contollerDidCancel(self)
-////            print("You are in edit mode")
-//        } else if let owningNavigationController = navigationController {
-//
-//            if let editedNote = Note(id: userNote.incrementIdentifierByOne(), name: textField.text ?? "") {
-//                delegate?.controllerDidEdit(self, didEdit: editedNote)
-//                print("The name of the editted note is: \(editedNote.name)")
-//                print("The id of the editted note is: \(editedNote.id)")
-//
-//                // Testing to see wheather everything is working correctly
-//            }
-//
-//            print("You are saving in edit mode(saving the editted note)")
-//
-//            owningNavigationController.popViewController(animated: true)
-//        } else {
-//            fatalError("The NoteViewController is not inside a navigation controller.")
-//        }
-//    }
 }
 
 
