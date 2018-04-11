@@ -72,12 +72,10 @@ class AddNoteViewController: UIViewController {
         
         if isPresentingInAddNoteMode {
             delegate?.contollerDidCancel(self)
-        }
-        else if let owningNavigationController = navigationController{
+        } else if let owningNavigationController = navigationController{
             owningNavigationController.popViewController(animated: true)
             print("You pressed the Cancel button in Edit Note screen")
-        }
-        else {
+        } else {
             fatalError("The NoteViewController is not inside a navigation controller.")
         }
     }
@@ -104,8 +102,7 @@ class AddNoteViewController: UIViewController {
         
         if isPresentingInAddNoteMode {
             delegate?.contollerDidCancel(self)
-        }
-        else if let owningNavigationController = navigationController{
+        } else if let owningNavigationController = navigationController{
             owningNavigationController.popViewController(animated: true)
 //            if let editNote = Note(id: userNote.incrementIdentifierByOne(), name: textField.text ?? "") {
 //                userNote.editNote(editNote)
@@ -113,8 +110,7 @@ class AddNoteViewController: UIViewController {
             
             print("You pressed the Save button in Edit Note screen")
             // We have to save the new context of the element without changing the id of the element in the array.
-        }
-        else {
+        } else {
             fatalError("The NoteViewController is not inside a navigation controller.")
         }
     }
