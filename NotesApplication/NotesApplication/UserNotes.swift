@@ -62,9 +62,10 @@ struct UserNotes {
         let nameOfTheEditingNote = editedNote.name
         let idOfTheEditingNote = editedNote.id
         
-        print("The name of the seleceted note is: \(nameOfTheEditingNote)")
+        print("The name of the selected note is: \(nameOfTheEditingNote)")
         print("The id of the selected note is: \(idOfTheEditingNote)")
 
+//        notes.insert(editedNote, at: idOfTheEditingNote)
 //        notes.insert(editedNote, at: idOfTheEditingNote)
 //        notes.insert(editedNote, at: idOfTheEditingNote)
         

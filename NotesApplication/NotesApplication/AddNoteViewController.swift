@@ -72,7 +72,6 @@ class AddNoteViewController: UIViewController {
         
         if isPresentingInAddNoteMode {
             delegate?.contollerDidCancel(self)
-            
         }
         else if let owningNavigationController = navigationController{
             owningNavigationController.popViewController(animated: true)
@@ -109,6 +108,10 @@ class AddNoteViewController: UIViewController {
         }
         else if let owningNavigationController = navigationController{
             owningNavigationController.popViewController(animated: true)
+//            if let editNote = Note(id: userNote.incrementIdentifierByOne(), name: textField.text ?? "") {
+//                userNote.editNote(editNote)
+//            }
+            
             print("You pressed the Save button in Edit Note screen")
         }
         else {
