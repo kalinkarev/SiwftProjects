@@ -112,6 +112,7 @@ class AddNoteViewController: UIViewController {
 //            }
             
             print("You pressed the Save button in Edit Note screen")
+            // We have to save the new context of the element without changing the id of the element in the array.
         }
         else {
             fatalError("The NoteViewController is not inside a navigation controller.")
