@@ -43,6 +43,11 @@ class MainScreenViewController: UIViewController {
             
         case "showDetail":
 
+            // Here we should implement how to work the edit functionality of the application
+          /*
+             We should take the note: change the context of the selected note and save it, without changing the id of the note
+             */
+
 //            let navigationControllerEdit = segue.destination as? UINavigationController
 //            let editNoteViewController = navigationController?.topViewController as? AddNoteViewController
 //
