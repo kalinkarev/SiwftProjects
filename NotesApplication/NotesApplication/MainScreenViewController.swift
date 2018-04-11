@@ -49,7 +49,6 @@ class MainScreenViewController: UIViewController {
 //            if let viewContollerEdit = editNoteViewController {
 //                viewContollerEdit.delegate = self as AddNoteViewControllerDelegate
 //            }
-//
 
 //            let navigationControllerEdit = segue.destination as? UINavigationController
 //            let editNoteViewController = navigationControllerEdit?.topViewController as? AddNoteViewController
