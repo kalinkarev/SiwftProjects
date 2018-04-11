@@ -58,7 +58,7 @@ class MainScreenViewController: UIViewController {
 //            }
 
             print("You have selected edit note")
-
+            
             guard let noteDetailViewController = segue.destination as? AddNoteViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }

@@ -65,6 +65,11 @@ struct UserNotes {
         print("The name of the selected note is: \(nameOfTheEditingNote)")
         print("The id of the selected note is: \(idOfTheEditingNote)")
 
+        // Update the context of the element without changing the id
+        /*
+                ...
+         */
+        
 //        notes.insert(editedNote, at: idOfTheEditingNote)
 //        notes.insert(editedNote, at: idOfTheEditingNote)
 //        notes.insert(editedNote, at: idOfTheEditingNote)

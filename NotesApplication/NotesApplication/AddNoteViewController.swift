@@ -80,7 +80,6 @@ class AddNoteViewController: UIViewController {
         else {
             fatalError("The NoteViewController is not inside a navigation controller.")
         }
-        
     }
     
     /*
