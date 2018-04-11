@@ -68,7 +68,7 @@ struct UserNotes {
         // Update the context of the element without changing the id
         /*
                 ...
-         */
+          */
         
     }
     
