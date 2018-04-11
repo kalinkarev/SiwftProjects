@@ -70,10 +70,6 @@ struct UserNotes {
                 ...
          */
         
-//        notes.insert(editedNote, at: idOfTheEditingNote)
-//        notes.insert(editedNote, at: idOfTheEditingNote)
-//        notes.insert(editedNote, at: idOfTheEditingNote)
-        
     }
     
     func notesNumber() -> Int {
