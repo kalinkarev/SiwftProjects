@@ -42,35 +42,40 @@ class MainScreenViewController: UIViewController {
             }
             
         case "showDetail":
-            
-//            let navigationControllerEdit = segue.destination as? UINavigationController
-//            let editNoteViewController = navigationController?.topViewController as? AddNoteViewController
 //
-//            if let viewContollerEdit = editNoteViewController {
-//                viewContollerEdit.delegate = self as AddNoteViewControllerDelegate
-//            }
+////            let navigationControllerEdit = segue.destination as? UINavigationController
+////            let editNoteViewController = navigationController?.topViewController as? AddNoteViewController
+////
+////            if let viewContollerEdit = editNoteViewController {
+////                viewContollerEdit.delegate = self as AddNoteViewControllerDelegate
+////            }
+////
+//
+////            let navigationControllerEdit = segue.destination as? UINavigationController
+////            let editNoteViewController = navigationControllerEdit?.topViewController as? AddNoteViewController
+////
+////            if let editViewController = editNoteViewController {
+////                editViewController.delegate = self as AddNoteViewControllerDelegate
+////            }
 //
             print("You have selected edit note")
-            
+//
             guard let noteDetailViewController = segue.destination as? AddNoteViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
-            
+
             guard let selectedNoteCell = sender as? NoteTableViewCell else {
                 fatalError("Unexpected sender: \(String(describing: sender))")
             }
-            
+
             guard let indexPath = notesTableView.indexPath(for: selectedNoteCell) else {
                 fatalError("The seleceted cell is not being displayed by the table")
             }
-            
+//
             let selectedNote = userNotes.notes[indexPath.row]
             noteDetailViewController.note = selectedNote
-            
-            userNotes.editNote(selectedNote)
-            
-//            array.first({$0.eventID == id})?.added = value
-            
+//
+//            userNotes.editNote(selectedNote)
             
         default:
             fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
@@ -98,13 +103,10 @@ extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
         // Configure Cell
         cell.nameLabel.text = note.name
         
-//        // Trying to update the note that the user has selected to edit
-//        if let selectedIndexPath = notesTableView.indexPathForSelectedRow {
-//            // Update an existing note.
-//            userNotes.notes[selectedIndexPath.row] = note
-//            notesTableView.reloadRows(at: [selectedIndexPath], with: .none)
-//        }
-//        print("The new array is: \(userNotes.notes)")
+        if let selectedIndexPath = notesTableView.indexPathForSelectedRow {
+            userNotes.notes[selectedIndexPath.row] = note
+            notesTableView.reloadRows(at: [selectedIndexPath], with: .none)
+        }
         
         return cell
     }
@@ -155,18 +157,6 @@ extension MainScreenViewController: AddNoteViewControllerDelegate {
     }
 
     func contollerDidCancel(_ controller: AddNoteViewController) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    func controllerDidEdit(_ controller: AddNoteViewController, didEdit: Note) {
-        // Update the Data Source
-        // Using the method implemented in the UserNotes.swift
-        userNotes.editNote(didEdit)
-
-        // Reload Table View
-        notesTableView.reloadData()
-
-        // Dismiss Add View Controller
         dismiss(animated: true, completion: nil)
     }
 }

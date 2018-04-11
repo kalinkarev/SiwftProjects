@@ -14,9 +14,6 @@ protocol AddNoteViewControllerDelegate: AnyObject {
     func contollerDidCancel(_ controller: AddNoteViewController)
     // function used for saving the new note, entered by the user
     func contollerDidSave(_ controller: AddNoteViewController, didSave: Note)
-    
-    // function used for editing an existing note
-    func controllerDidEdit(_ controller: AddNoteViewController, didEdit: Note)
 }
 
 class AddNoteViewController: UIViewController {
@@ -90,29 +87,31 @@ class AddNoteViewController: UIViewController {
             delegate?.contollerDidSave(self, didSave: note)
         }
         
-        // Depending on the style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
-        let isPresentingInAddNoteMode = presentingViewController is UINavigationController
-        
-        if isPresentingInAddNoteMode {
-//            delegate?.contollerDidCancel(self)
-//            print("You are in edit mode")
-        } else if let owningNavigationController = navigationController {
-            
-            if let editedNote = Note(id: userNote.incrementIdentifierByOne(), name: textField.text!) {
-                delegate?.controllerDidEdit(self, didEdit: editedNote)
-                print("The name of the editted note is: \(editedNote.name)")
-                print("The id of the editted note is: \(editedNote.id)")
-                
-                // Testing to see wheather everything is working correctly
-            }
-            
-            print("You are saving in edit mode(saving the editted note)")
-            
-            owningNavigationController.popViewController(animated: true)
-        } else {
-            fatalError("The NoteViewController is not inside a navigation controller.")
-        }
     }
+        
+//        // Depending on the style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
+//        let isPresentingInAddNoteMode = presentingViewController is UINavigationController
+//
+//        if isPresentingInAddNoteMode {
+////            delegate?.contollerDidCancel(self)
+////            print("You are in edit mode")
+//        } else if let owningNavigationController = navigationController {
+//
+//            if let editedNote = Note(id: userNote.incrementIdentifierByOne(), name: textField.text ?? "") {
+//                delegate?.controllerDidEdit(self, didEdit: editedNote)
+//                print("The name of the editted note is: \(editedNote.name)")
+//                print("The id of the editted note is: \(editedNote.id)")
+//
+//                // Testing to see wheather everything is working correctly
+//            }
+//
+//            print("You are saving in edit mode(saving the editted note)")
+//
+//            owningNavigationController.popViewController(animated: true)
+//        } else {
+//            fatalError("The NoteViewController is not inside a navigation controller.")
+//        }
+//    }
 }
 
 

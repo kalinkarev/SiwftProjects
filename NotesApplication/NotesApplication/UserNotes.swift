@@ -65,25 +65,8 @@ struct UserNotes {
         print("The name of the seleceted note is: \(nameOfTheEditingNote)")
         print("The id of the selected note is: \(idOfTheEditingNote)")
 
+        notes.insert(editedNote, at: idOfTheEditingNote)
         
-        
-        
-//        notes += [editedNote]
-//        print("The edited note has name: \(editedNote.name) and id: \(editedNote.id)")
-        
-        
-//        array.first({$0.eventID == id})?.added = value
-//        notes.first({$0.id == idOfTheEditingNote})
-        
-        
-        
-//        if let selectedIndexPath = tableView.indexPathForSelectedRow {
-//            // Update an existing meal.
-//            meals[selectedIndexPath.row] = meal
-//            tableView.reloadRows(at: [selectedIndexPath], with: .none)
-//        }
-        
-//        notes[editedNote.id]
     }
     
     func notesNumber() -> Int {
