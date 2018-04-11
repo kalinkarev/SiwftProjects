@@ -42,24 +42,24 @@ class MainScreenViewController: UIViewController {
             }
             
         case "showDetail":
+
+//            let navigationControllerEdit = segue.destination as? UINavigationController
+//            let editNoteViewController = navigationController?.topViewController as? AddNoteViewController
 //
-////            let navigationControllerEdit = segue.destination as? UINavigationController
-////            let editNoteViewController = navigationController?.topViewController as? AddNoteViewController
-////
-////            if let viewContollerEdit = editNoteViewController {
-////                viewContollerEdit.delegate = self as AddNoteViewControllerDelegate
-////            }
-////
+//            if let viewContollerEdit = editNoteViewController {
+//                viewContollerEdit.delegate = self as AddNoteViewControllerDelegate
+//            }
 //
-////            let navigationControllerEdit = segue.destination as? UINavigationController
-////            let editNoteViewController = navigationControllerEdit?.topViewController as? AddNoteViewController
-////
-////            if let editViewController = editNoteViewController {
-////                editViewController.delegate = self as AddNoteViewControllerDelegate
-////            }
+
+//            let navigationControllerEdit = segue.destination as? UINavigationController
+//            let editNoteViewController = navigationControllerEdit?.topViewController as? AddNoteViewController
 //
+//            if let editViewController = editNoteViewController {
+//                editViewController.delegate = self as AddNoteViewControllerDelegate
+//            }
+
             print("You have selected edit note")
-//
+
             guard let noteDetailViewController = segue.destination as? AddNoteViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
@@ -71,11 +71,14 @@ class MainScreenViewController: UIViewController {
             guard let indexPath = notesTableView.indexPath(for: selectedNoteCell) else {
                 fatalError("The seleceted cell is not being displayed by the table")
             }
-//
+
             let selectedNote = userNotes.notes[indexPath.row]
             noteDetailViewController.note = selectedNote
-//
-//            userNotes.editNote(selectedNote)
+
+//            print("The name of the selected note for edit is: \(selectedNote.name)")
+//            print("The id of the selected note for edit is: \(selectedNote.id)")
+            
+            userNotes.editNote(selectedNote)
             
         default:
             fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")

@@ -59,16 +59,24 @@ class AddNoteViewController: UIViewController {
     
     @IBAction func cancelButton(_ sender: Any) {
         /* use the delegate method for cencelling the save of a note */
-        delegate?.contollerDidCancel(self)
+        
+        let isPressentingInEditNoteMode = presentingViewController is UINavigationController
+        
+        if isPressentingInEditNoteMode {
+            delegate?.contollerDidCancel(self)
+            print("You pressed the Cancel button in Add Note screen")
+        }
         
         // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
         let isPresentingInAddNoteMode = presentingViewController is UINavigationController
         
         if isPresentingInAddNoteMode {
             delegate?.contollerDidCancel(self)
+            
         }
         else if let owningNavigationController = navigationController{
             owningNavigationController.popViewController(animated: true)
+            print("You pressed the Cancel button in Edit Note screen")
         }
         else {
             fatalError("The NoteViewController is not inside a navigation controller.")
@@ -83,10 +91,36 @@ class AddNoteViewController: UIViewController {
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
         /* use the delegate method for saving user note */
-        if let note = Note(id: userNote.incrementIdentifierByOne(), name: textField.text ?? "") {
-            delegate?.contollerDidSave(self, didSave: note)
+        
+        let isPressentingInEditNoteMode = presentingViewController is UINavigationController
+        
+        if isPressentingInEditNoteMode {
+            if let note = Note(id: userNote.incrementIdentifierByOne(), name: textField.text ?? "") {
+                delegate?.contollerDidSave(self, didSave: note)
+            }
+            print("You pressed the save button in add note")
+//            delegate?.contollerDidCancel(self)
+//            print("You pressed the Cancel button in Add Note screen")
         }
         
+        // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
+        let isPresentingInAddNoteMode = presentingViewController is UINavigationController
+        
+        if isPresentingInAddNoteMode {
+            delegate?.contollerDidCancel(self)
+        }
+        else if let owningNavigationController = navigationController{
+            owningNavigationController.popViewController(animated: true)
+            print("You pressed the Save button in Edit Note screen")
+        }
+        else {
+            fatalError("The NoteViewController is not inside a navigation controller.")
+        }
+        
+//        if let note = Note(id: userNote.incrementIdentifierByOne(), name: textField.text ?? "") {
+//            delegate?.contollerDidSave(self, didSave: note)
+//        }
+//        print("You pressed the save button in add note")
     }
         
 //        // Depending on the style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.

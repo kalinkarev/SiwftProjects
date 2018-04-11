@@ -65,7 +65,8 @@ struct UserNotes {
         print("The name of the seleceted note is: \(nameOfTheEditingNote)")
         print("The id of the selected note is: \(idOfTheEditingNote)")
 
-        notes.insert(editedNote, at: idOfTheEditingNote)
+//        notes.insert(editedNote, at: idOfTheEditingNote)
+//        notes.insert(editedNote, at: idOfTheEditingNote)
         
     }
     
