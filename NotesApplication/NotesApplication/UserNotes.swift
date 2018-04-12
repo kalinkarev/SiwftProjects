@@ -71,7 +71,7 @@ struct UserNotes {
                 ... Update the context of the selected note, without changing the id (When the edit section is chosen)
                 ...
           */
-        
+     
     }
     
     func notesNumber() -> Int {
