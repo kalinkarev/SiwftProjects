@@ -59,9 +59,9 @@ struct UserNotes {
         Implement the functionality of editing a note
      */
     mutating func editNote(_ editedNote: Note) {
-        let nameOfTheEditingNote = editedNote.name
-        let idOfTheEditingNote = editedNote.id
-        
+//        let nameOfTheEditingNote = editedNote.name
+//        let idOfTheEditingNote = editedNote.id
+//
 //        print("The name of the selected note is: \(nameOfTheEditingNote)")
 //        print("The id of the selected note is: \(idOfTheEditingNote)")
 
