@@ -75,6 +75,19 @@ struct UserNotes {
 //        if let i = notes.index(of: editedNote) {
 //            notes[i] = editedNote.name
 //        }
+    
+//        let i = notes.index(after: idOfTheEditingNote)
+        
+//        var i = notes.index(after: idOfTheEditingNote)
+//
+//        if i == notes.index(after: idOfTheEditingNote) {
+//            notes[i] = editedNote
+//        }
+        
+//        if var i = notes.index(after: idOfTheEditingNote) {
+//            notes[i] = editedNote.name
+//        }
+        
         
     }
     
