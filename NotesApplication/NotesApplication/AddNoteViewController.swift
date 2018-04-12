@@ -104,9 +104,12 @@ class AddNoteViewController: UIViewController {
             delegate?.contollerDidCancel(self)
         } else if let owningNavigationController = navigationController{
             owningNavigationController.popViewController(animated: true)
-//            if let editNote = Note(id: userNote.incrementIdentifierByOne(), name: textField.text ?? "") {
-//                userNote.editNote(editNote)
-//            }
+            
+            if let noteEdit = Note(id: userNote.incrementIdentifierByOne(), name: textField.text ?? "") {
+                userNote.editNote(noteEdit)
+                print("The new name of the edited note is: \(noteEdit.name)")
+                print()
+            }
             
             print("You pressed the Save button in Edit Note screen")
             // We have to save the new context of the element without changing the id of the element in the array.

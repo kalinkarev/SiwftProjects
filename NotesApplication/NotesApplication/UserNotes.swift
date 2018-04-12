@@ -88,6 +88,15 @@ struct UserNotes {
 //            notes[i] = editedNote.name
 //        }
         
+//        var nameOfTheNewNote: String
+//        nameOfTheNewNote = editedNote.name
+//
+//        var idOfTheNewNote: Int
+//        idOfTheNewNote = editedNote.id
+//
+//        print("The name of the edited note is: \(nameOfTheNewNote)")
+//
+//        print("The new name of the note is: \(editedNote.name)")
         
     }
     
