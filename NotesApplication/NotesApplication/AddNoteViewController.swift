@@ -108,7 +108,7 @@ class AddNoteViewController: UIViewController {
             if let noteEdit = Note(id: userNote.incrementIdentifierByOne(), name: textField.text ?? "") {
                 userNote.editNote(noteEdit)
                 print("The new name of the edited note is: \(noteEdit.name)")
-                print()
+                print("The id of the edited note is: \(noteEdit.id)")
             }
             
             print("You pressed the Save button in Edit Note screen")

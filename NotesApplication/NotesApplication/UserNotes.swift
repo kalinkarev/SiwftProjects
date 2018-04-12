@@ -62,8 +62,8 @@ struct UserNotes {
         let nameOfTheEditingNote = editedNote.name
         let idOfTheEditingNote = editedNote.id
         
-        print("The name of the selected note is: \(nameOfTheEditingNote)")
-        print("The id of the selected note is: \(idOfTheEditingNote)")
+//        print("The name of the selected note is: \(nameOfTheEditingNote)")
+//        print("The id of the selected note is: \(idOfTheEditingNote)")
 
         // Update the context of the element without changing the id
         /*
