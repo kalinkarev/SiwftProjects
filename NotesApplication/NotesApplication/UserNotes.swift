@@ -40,9 +40,9 @@ struct UserNotes {
             print("The new note has name: \(localNewNote.name) and id: \(localNewNote.id)")
         } else {
             let lastNote = notes.last
-            print("The last note is: \(String(describing: lastNote))")
+//            print("The last note is: \(String(describing: lastNote))")
             let lastID = lastNote?.id
-            print("The last id is: \(String(describing: lastID))")
+//            print("The last id is: \(String(describing: lastID))")
             var localNewNote  = newNote
             localNewNote.id = lastID! + 1
             notes += [localNewNote]

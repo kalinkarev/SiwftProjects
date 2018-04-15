@@ -109,6 +109,13 @@ class AddNoteViewController: UIViewController {
                 userNote.editNote(noteEdit)
                 print("The new name of the edited note is: \(noteEdit.name)")
                 print("The id of the edited note is: \(noteEdit.id)")
+                
+//                userNote.notes[noteEdit.id].name = noteEdit.name
+//                print("The name of the changed element is: \(userNote.notes[noteEdit.id].name)")
+                var wantedNote = userNote.notes[noteEdit.id].name
+                
+                
+                
 //                var newNote: Note = userNote.notes.index(after: noteEdit - 1)
 ////                newNote = userNote.notes.index(after: noteEdit.id - 1)
 //                newNote.name = noteEdit.name
@@ -123,8 +130,8 @@ class AddNoteViewController: UIViewController {
 //                let i = userNote.notes.index(after: noteEdit.id - 1)
 //                userNote.notes.index(after: noteEdit.id - 1)
                 
-                print("The array of notes is: \(userNote.notes)")
-                print("The number of notes in the array is: \(userNote.notesNumber())")
+//                print("The array of notes is: \(userNote.notes)")
+//                print("The number of notes in the array is: \(userNote.notesNumber())")
             }
             
             print("You pressed the Save button in Edit Note screen")
