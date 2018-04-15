@@ -79,8 +79,8 @@ class MainScreenViewController: UIViewController {
             let selectedNote = userNotes.notes[indexPath.row]
             noteDetailViewController.note = selectedNote
 
-//            print("The name of the selected note for edit is: \(selectedNote.name)")
-//            print("The id of the selected note for edit is: \(selectedNote.id)")
+            print("The name of the selected note for edit is: \(selectedNote.name)")
+            print("The id of the selected note for edit is: \(selectedNote.id)")
             
             userNotes.editNote(selectedNote)
             

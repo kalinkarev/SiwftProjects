@@ -110,9 +110,10 @@ class AddNoteViewController: UIViewController {
                 print("The new name of the edited note is: \(noteEdit.name)")
                 print("The id of the edited note is: \(noteEdit.id)")
                 
-//                userNote.notes[noteEdit.id].name = noteEdit.name
+                userNote.notes[noteEdit.id].name = noteEdit.name
 //                print("The name of the changed element is: \(userNote.notes[noteEdit.id].name)")
-                var wantedNote = userNote.notes[noteEdit.id].name
+//                var wantedNote = userNote.notes[noteEdit.id].name
+//                print(wantedNote)
                 
                 
                 
