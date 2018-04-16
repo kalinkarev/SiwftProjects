@@ -62,8 +62,6 @@ struct UserNotes {
         printTheArray()
     }
     
-//    private var selectedIdentifier: Int
-    
     /*
         Implement the functionality of editing a note
      */
@@ -84,7 +82,9 @@ struct UserNotes {
 //        func selectedNotesId() -> Int {
 //            return editedNote.id
 //        }
-
+        
+//        printTheArray()
+        
         return editedNote.id
         
     }
