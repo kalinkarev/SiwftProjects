@@ -13,7 +13,7 @@ struct UserNotes {
     // Array for storing the notes (all the user notes are stored here)
     var notes: [Note] = []
     
-//    private var counter: Int = 1
+    private var counter: Int = 1
     
 //    var selectedIdentifier: Int
     
@@ -67,88 +67,36 @@ struct UserNotes {
     /*
         Implement the functionality of editing a note
      */
-    mutating func editNote(_ editedNote: Note) {
+    mutating func editNote(_ editedNote: Note) -> Int {
     
-        var selectedId: Int
-        
-        let idOfSelectedNote = editedNote.id
-        let nameOfSelectedNote = editedNote.name
-        
-        print("The id of the selected note is: \(idOfSelectedNote)")
-        print("The name of the selected note is: \(nameOfSelectedNote)")
-        
-        selectedId = idOfSelectedNote
-    
-        print("The id of the selected note is: \(selectedId)")
-        
-//        printTheArray()
-        
-//        notes[editedNote.id].name = editedNote.name
-        
-//        printTheArray()
-        
-//        notes[editedNote.id].name = editedNote.name
-        
-        
-        
-//        let nameOfTheEditingNote = editedNote.name
-//        let idOfTheEditingNote = editedNote.id
+//        var selectedId: Int
 //
-//        print("The name of the selected note is: \(nameOfTheEditingNote)")
-//        print("The id of the selected note is: \(idOfTheEditingNote)")
+//        let idOfSelectedNote = editedNote.id
+//        let nameOfSelectedNote = editedNote.name
+        
+//        print("The id of the selected note is: \(idOfSelectedNote)")
+//        print("The name of the selected note is: \(nameOfSelectedNote)")
+        
+//        selectedId = idOfSelectedNote
+    
+//        print("The id of the selected note is: \(selectedId)")
+    
+//        func selectedNotesId() -> Int {
+//            return editedNote.id
+//        }
 
-        // Update the context of the element without changing the id
-        /*
-                ...
-                ... Update the context of the selected note, without changing the id (When the edit section is chosen)
-                ...
-          */
+        return editedNote.id
         
-//        if let i = notes.index(of: editedNote) {
-//            notes[i] = editedNote.name
-//        }
-    
-//        let i = notes.index(after: idOfTheEditingNote)
-        
-//        var i = notes.index(after: idOfTheEditingNote)
-//
-//        if i == notes.index(after: idOfTheEditingNote) {
-//            notes[i] = editedNote
-//        }
-        
-//        if var i = notes.index(after: idOfTheEditingNote) {
-//            notes[i] = editedNote.name
-//        }
-        
-//        var nameOfTheNewNote: String
-//        nameOfTheNewNote = editedNote.name
-//
-//        var idOfTheNewNote: Int
-//        idOfTheNewNote = editedNote.id
-//
-//        print("The name of the edited note is: \(nameOfTheNewNote)")
-//
-//        print("The new name of the note is: \(editedNote.name)")
-    
-//        selectedIdentifier = selectedId
     }
-    
-//    func idOfTheSelectedForEditNote() -> Int {
-//        return selectedIdentifier
-//    }
-    
-//    func idOfTheSelectedForEditNote() -> Int {
-//        return
-//    }
     
     func notesNumber() -> Int {
         return notes.count
     }
     
-//    mutating func incrementIdentifierByOne() -> Int {
-//        counter = counter + 1
-//        return counter
-//    }
+    mutating func incrementIdentifierByOne() -> Int {
+        counter = counter + 1
+        return counter
+    }
     
     func printTheArray() {
         print("The array is: \(notes)")

@@ -82,7 +82,7 @@ class MainScreenViewController: UIViewController {
             print("The name of the selected note for edit is: \(selectedNote.name)")
             print("The id of the selected note for edit is: \(selectedNote.id)")
             
-            userNotes.editNote(selectedNote)
+//            userNotes.editNote(selectedNote)
             
         default:
             fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
