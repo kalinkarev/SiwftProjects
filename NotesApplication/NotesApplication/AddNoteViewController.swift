@@ -91,7 +91,7 @@ class AddNoteViewController: UIViewController {
         let isPressentingInEditNoteMode = presentingViewController is UINavigationController
         
         if isPressentingInEditNoteMode {
-            if let note = Note(id: userNote.incrementIdentifierByOne(), name: textField.text ?? "") {
+            if let note = Note(id: userNote., name: textField.text ?? "") {
                 delegate?.contollerDidSave(self, didSave: note)
             }
             print("You pressed the save button in Add Note screen")
@@ -104,13 +104,21 @@ class AddNoteViewController: UIViewController {
             delegate?.contollerDidCancel(self)
         } else if let owningNavigationController = navigationController{
             owningNavigationController.popViewController(animated: true)
-            
+                        
             if let noteEdit = Note(id: userNote.incrementIdentifierByOne(), name: textField.text ?? "") {
                 userNote.editNote(noteEdit)
                 print("The new name of the edited note is: \(noteEdit.name)")
                 print("The id of the edited note is: \(noteEdit.id)")
                 
-                userNote.notes[noteEdit.id].name = noteEdit.name
+//                userNote.printTheArray()
+                
+//                userNote.notes.append(noteEdit)
+                
+//                userNote.printTheArray()
+                
+//                userNote.notes[noteEdit.id].name = noteEdit.name
+                
+//                print(userNote.notes[0].name)
 //                print("The name of the changed element is: \(userNote.notes[noteEdit.id].name)")
 //                var wantedNote = userNote.notes[noteEdit.id].name
 //                print(wantedNote)

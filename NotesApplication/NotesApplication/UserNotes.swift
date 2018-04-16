@@ -12,8 +12,10 @@ import UIKit
 struct UserNotes {
     // Array for storing the notes (all the user notes are stored here)
     var notes: [Note] = []
-
-    private var counter: Int = 1
+    
+//    private var counter: Int = 1
+    
+//    var selectedIdentifier: Int
     
     mutating func loadData() {
         guard let note1 = Note(id: 0, name: "Go to work") else {
@@ -48,17 +50,42 @@ struct UserNotes {
             notes += [localNewNote]
             print("The new note has name: \(localNewNote.name) and id: \(localNewNote.id)")
         }
+        
+        printTheArray()
+        
     }
     
     mutating func deleteNote(deletedNote: Note) {
         // Removing the selected note (the user selects a note and it should be removed | we are using the removement by id |)
         notes.remove(at: deletedNote.id)
+        
+        printTheArray()
     }
+    
+//    private var selectedIdentifier: Int
     
     /*
         Implement the functionality of editing a note
      */
     mutating func editNote(_ editedNote: Note) {
+    
+        var selectedId: Int
+        
+        let idOfSelectedNote = editedNote.id
+        let nameOfSelectedNote = editedNote.name
+        
+        print("The id of the selected note is: \(idOfSelectedNote)")
+        print("The name of the selected note is: \(nameOfSelectedNote)")
+        
+        selectedId = idOfSelectedNote
+    
+        print("The id of the selected note is: \(selectedId)")
+        
+//        printTheArray()
+        
+//        notes[editedNote.id].name = editedNote.name
+        
+//        printTheArray()
         
 //        notes[editedNote.id].name = editedNote.name
         
@@ -102,15 +129,29 @@ struct UserNotes {
 //        print("The name of the edited note is: \(nameOfTheNewNote)")
 //
 //        print("The new name of the note is: \(editedNote.name)")
-        
+    
+//        selectedIdentifier = selectedId
     }
+    
+//    func idOfTheSelectedForEditNote() -> Int {
+//        return selectedIdentifier
+//    }
+    
+//    func idOfTheSelectedForEditNote() -> Int {
+//        return
+//    }
     
     func notesNumber() -> Int {
         return notes.count
     }
     
-    mutating func incrementIdentifierByOne() -> Int {
-        counter = counter + 1
-        return counter
+//    mutating func incrementIdentifierByOne() -> Int {
+//        counter = counter + 1
+//        return counter
+//    }
+    
+    func printTheArray() {
+        print("The array is: \(notes)")
     }
+    
 }
