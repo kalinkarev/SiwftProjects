@@ -88,6 +88,8 @@ class AddNoteViewController: UIViewController {
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
         /* use the delegate method for saving user note */
         
+//        let notes = userNote.notes
+        
         let isPressentingInEditNoteMode = presentingViewController is UINavigationController
         
         if isPressentingInEditNoteMode {
@@ -105,8 +107,18 @@ class AddNoteViewController: UIViewController {
         } else if let owningNavigationController = navigationController{
             owningNavigationController.popViewController(animated: true)
                         
+//            if let noteEdit = Note(id: userNote.editNote(note!), name: textField.text ?? "") {
+////                userNote.editNote(noteEdit)
+//                print("The new name of the edited note is: \(noteEdit.name)")
+//                print("The id of the edited note is: \(noteEdit.id)")
+//
+//                userNote.notes[noteEdit.id].name = noteEdit.name
+//                print("The arrays changed element has name: \(userNote.notes[noteEdit.id].name)")
+//            }
+//
+//            print("The notes are: \(notes)")
+            
             if let noteEdit = Note(id: userNote.editNote(note!), name: textField.text ?? "") {
-//                userNote.editNote(noteEdit)
                 print("The new name of the edited note is: \(noteEdit.name)")
                 print("The id of the edited note is: \(noteEdit.id)")
             }

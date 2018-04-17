@@ -80,15 +80,20 @@ class MainScreenViewController: UIViewController {
             print("The name of the selected note for edit is: \(selectedNote.name)")
             print("The id of the selected note for edit is: \(selectedNote.id)")
 
+//            // Updating the existing note
+//            userNotes.notes[selectedNote.id].name = selectedNote.name
+//            print("The arays changed element is: \(userNotes.notes)")
+//            notesTableView.reloadData()
+            
             print("---------------------")
             
-            if let sourceViewController = sender as? AddNoteViewController, let note = sourceViewController.note {
-                if let selectedIndexPath = notesTableView.indexPathForSelectedRow {
-                    // Update an existing note.
-                    userNotes.notes[selectedIndexPath.row] = note
-                    notesTableView.reloadRows(at: [selectedIndexPath], with: .none)
-                }
-            }
+//            if let sourceViewController = sender as? AddNoteViewController, let note = sourceViewController.note {
+//                if let selectedIndexPath = notesTableView.indexPathForSelectedRow {
+//                    // Update an existing note.
+//                    userNotes.notes[selectedIndexPath.row] = note
+//                    notesTableView.reloadRows(at: [selectedIndexPath], with: .none)
+//                }
+//            }
             
 //            userNotes.editNote(selectedNote)
             
