@@ -110,11 +110,6 @@ extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
         // Configure Cell
         cell.nameLabel.text = note.name
         
-//        if let selectedIndexPath = notesTableView.indexPathForSelectedRow {
-//            userNotes.notes[selectedIndexPath.row] = note
-//            notesTableView.reloadRows(at: [selectedIndexPath], with: .none)
-//        }
-        
         return cell
     }
     
