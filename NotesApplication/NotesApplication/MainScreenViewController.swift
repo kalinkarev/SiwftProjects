@@ -30,7 +30,24 @@ class MainScreenViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: Actions
+    func unwindToNoteList(sender: UIStoryboardSegue) {
+        if let sourceViewConroller = sender.source as? AddNoteViewController, let note = sourceViewConroller.note {
+            if let selectedIndexPath = notesTableView.indexPathForSelectedRow {
+                // Update an existing note.
+                userNotes.notes[selectedIndexPath.row] = note
+                notesTableView.reloadRows(at: [selectedIndexPath], with: .none)
+            }
+        }
+    }
+    
+    // MARK: Navigation
+    // This method lets you configure a view controller before it`s presented.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        super.prepare(for: segue, sender: sender)
+        
+        // Configure the destination view controller only when the save button is pressed.
         
         switch (segue.identifier ?? "") {
         case "AddNoteViewController":
@@ -42,9 +59,9 @@ class MainScreenViewController: UIViewController {
             }
             
         case "showDetail":
-
-            print("You have selected edit note")
             
+            print("You have selected edit note")
+
             guard let noteDetailViewController = segue.destination as? AddNoteViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
@@ -62,6 +79,29 @@ class MainScreenViewController: UIViewController {
 
             print("The name of the selected note for edit is: \(selectedNote.name)")
             print("The id of the selected note for edit is: \(selectedNote.id)")
+
+            print("---------------------")
+            
+            if let sourceViewController = sender as? AddNoteViewController, let note = sourceViewController.note {
+                if let selectedIndexPath = notesTableView.indexPathForSelectedRow {
+                    // Update an existing note.
+                    userNotes.notes[selectedIndexPath.row] = note
+                    notesTableView.reloadRows(at: [selectedIndexPath], with: .none)
+                }
+            }
+            
+//            userNotes.editNote(selectedNote)
+            
+//            if let sourceViewController = sender as? AddNoteViewController, let note = sourceViewController.note {
+//                if let selectedIndexPath = notesTableView.indexPathForSelectedRow {
+//                    // Update an existing note.
+//                    userNotes.notes[selectedIndexPath.row] = note
+//                    notesTableView.reloadRows(at: [selectedIndexPath], with: .none)
+//                    notesTableView.reloadData()
+//                }
+//            }
+            
+//            notes[selectedNote.id].name = selectedNote.name
             
 //            userNotes.editNote(selectedNote)
             

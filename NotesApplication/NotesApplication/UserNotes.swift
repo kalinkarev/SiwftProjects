@@ -68,7 +68,7 @@ struct UserNotes {
     mutating func editNote(_ editedNote: Note) -> Int {
         
 //        notes[editedNote.id].name = editedNote.name
-        
+    
         return editedNote.id
         
     }
