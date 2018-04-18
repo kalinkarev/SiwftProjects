@@ -13,6 +13,8 @@
 		A9A32D5A20875E7A00AC94CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9A32D5920875E7A00AC94CE /* Assets.xcassets */; };
 		A9A32D5D20875E7A00AC94CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9A32D5B20875E7A00AC94CE /* LaunchScreen.storyboard */; };
 		A9A32D6520876EAD00AC94CE /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A32D6420876EAD00AC94CE /* Note.swift */; };
+		A9A32D672087741600AC94CE /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A32D662087741600AC94CE /* NoteTableViewCell.swift */; };
+		A9A32D6B2087837300AC94CE /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A32D6A2087837300AC94CE /* NoteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		A9A32D5C20875E7A00AC94CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A9A32D5E20875E7A00AC94CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9A32D6420876EAD00AC94CE /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		A9A32D662087741600AC94CE /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
+		A9A32D6A2087837300AC94CE /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				A9A32D5220875E7A00AC94CE /* AppDelegate.swift */,
 				A9A32D5420875E7A00AC94CE /* ViewController.swift */,
 				A9A32D6420876EAD00AC94CE /* Note.swift */,
+				A9A32D662087741600AC94CE /* NoteTableViewCell.swift */,
+				A9A32D6A2087837300AC94CE /* NoteViewController.swift */,
 				A9A32D5620875E7A00AC94CE /* Main.storyboard */,
 				A9A32D5920875E7A00AC94CE /* Assets.xcassets */,
 				A9A32D5B20875E7A00AC94CE /* LaunchScreen.storyboard */,
@@ -142,6 +148,8 @@
 				A9A32D5520875E7A00AC94CE /* ViewController.swift in Sources */,
 				A9A32D5320875E7A00AC94CE /* AppDelegate.swift in Sources */,
 				A9A32D6520876EAD00AC94CE /* Note.swift in Sources */,
+				A9A32D6B2087837300AC94CE /* NoteViewController.swift in Sources */,
+				A9A32D672087741600AC94CE /* NoteTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
