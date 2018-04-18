@@ -15,12 +15,12 @@ struct Note {
     
     // MARK: Initialization
     init?(name: String) {
-        // Initialize stores properties
-        self.name = name
-        
-        // Initialization should fail if there is no name
-        if name.isEmpty {
+        // The name of the note must not be empty
+        guard !name.isEmpty else {
             return nil
         }
+        
+        // Initialize stores properties
+        self.name = name
     }
 }
