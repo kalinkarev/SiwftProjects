@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController {
 
     // MARK: Properties
     @IBOutlet weak var nameTextField: UITextField!
@@ -26,8 +26,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: Actions
+    @IBAction func setDefaultLabelText(_ sender: UIButton) {
+        noteNameLabel.text = "Default Text"
+    }
+    
+}
 
-    // MARK: UITextFieldDelegate
+// MARK: UITextFieldDelegate
+extension ViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Hide the keyboard.
         textField.resignFirstResponder()
@@ -37,11 +45,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         noteNameLabel.text = textField.text
     }
-    
-    // MARK: Actions
-    @IBAction func setDefaultLabelText(_ sender: UIButton) {
-        noteNameLabel.text = "Default Text"
-    }
-    
+
 }
 
