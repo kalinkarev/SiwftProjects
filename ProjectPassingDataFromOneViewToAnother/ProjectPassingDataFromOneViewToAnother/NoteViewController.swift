@@ -21,6 +21,11 @@ class NoteViewController: UIViewController {
         loadSampleData()
 
         print("The array is: \(notes)")
+        /*
+            Have to see how to use ViewController with a table view in it.
+            Need to finish the implementation of the table view, so that it works correctly
+          */
+        
     }
 
     override func didReceiveMemoryWarning() {
