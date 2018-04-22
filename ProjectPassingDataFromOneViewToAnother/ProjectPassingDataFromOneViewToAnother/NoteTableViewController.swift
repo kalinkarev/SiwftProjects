@@ -2,7 +2,7 @@
 //  NoteTableViewController.swift
 //  ProjectPassingDataFromOneViewToAnother
 //
-//  Created by Kalin Karev on 4/18/18.
+//  Created by Kalin Karev on 4/22/18.
 //  Copyright © 2018 Kalin Karev. All rights reserved.
 //
 
@@ -16,12 +16,6 @@ class NoteTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
         // Load the sample data.
         loadSampleNotes()
     }
@@ -42,17 +36,15 @@ class NoteTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Table view cells are reused and should be dequed using a cell identifier.
+        // Table views cells are reused and should be dequeued using a cell identifier.
         let cellIdentifier = "NoteTableViewCell"
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? NoteTableViewCell else {
-            fatalError("The dequeded cell is not an instance of NoteTableViewCell.")
+            fatalError("The dequeued cell is not an instance of NoteTableViewCell.")
         }
-
-        // Fetch the appropriate note for the data source layout.
-        let note = notes[indexPath.row]
         
-        // Configure the cell...
+        // Fetches the appropriate note for the data source layout.
+        let note = notes[indexPath.row]
 
         cell.nameLabel.text = note.name
         
@@ -106,17 +98,17 @@ class NoteTableViewController: UITableViewController {
 
     // MARK: Private Methods
     private func loadSampleNotes() {
-        guard let note1 = Note(name: "have lunch") else {
+        guard let note1 = Note(name: "Have breakfast") else {
             fatalError("Unable to instantiate note1")
         }
-        guard let note2 = Note(name: "have dinner") else {
+        guard let note2 = Note(name: "Have lunch") else {
             fatalError("Unable to instantiate note2")
         }
-        guard let note3 = Note(name: "have breakfast") else {
+        guard let note3 = Note(name: "Have dinner") else {
             fatalError("Unable to instantiate note3")
         }
         
         notes += [note1, note2, note3]
-        
     }
+    
 }

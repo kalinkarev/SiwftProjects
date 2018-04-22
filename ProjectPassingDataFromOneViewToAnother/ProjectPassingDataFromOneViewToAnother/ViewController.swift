@@ -12,7 +12,6 @@ class ViewController: UIViewController {
 
     // MARK: Properties
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var noteNameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +37,7 @@ extension ViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        noteNameLabel.text = textField.text
+        
     }
 
 }
