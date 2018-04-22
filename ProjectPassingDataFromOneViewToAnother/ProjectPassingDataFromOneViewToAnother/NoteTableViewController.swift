@@ -11,11 +11,16 @@ import UIKit
 class NoteTableViewController: UITableViewController {
 
     // MARK: Properties
+    @IBOutlet var myTableView: UITableView!
+    
     var notes = [Note]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Set title to the navigation bar
+        navigationItem.title = "Your Notes"
+        
         // Load the sample data.
         loadSampleNotes()
     }
@@ -96,6 +101,17 @@ class NoteTableViewController: UITableViewController {
     }
     */
 
+    // MARK: Actions
+    @IBAction func unwindToNoteList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? ViewController, let note = sourceViewController.note {
+            // Add a new note.
+            let newIndexPath = IndexPath(row: notes.count, section: 0)
+            notes.append(note)
+            myTableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
+    }
+    
+    
     // MARK: Private Methods
     private func loadSampleNotes() {
         guard let note1 = Note(name: "Have breakfast") else {
