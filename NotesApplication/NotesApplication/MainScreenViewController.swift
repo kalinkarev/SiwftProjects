@@ -105,8 +105,8 @@ class MainScreenViewController: UIViewController {
                 userNotes.notes[i].name = selectedNote.name
             }
             
-            
             userNotes.notes[selectedNote.id].name = selectedNote.name
+            
             
 //            // Updating the existing note
 //            userNotes.notes[selectedNote.id].name = selectedNote.name
