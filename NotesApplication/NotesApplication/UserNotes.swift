@@ -15,8 +15,6 @@ struct UserNotes {
     
     private var counter: Int = 1
     
-//    var selectedIdentifier: Int
-    
     mutating func loadData() {
         guard let note1 = Note(id: 0, name: "Go to work") else {
             fatalError("Unable to instantiate note1")
@@ -68,7 +66,9 @@ struct UserNotes {
     mutating func editNote(_ editedNote: Note) -> Int {
         
 //        notes[editedNote.id].name = editedNote.name
-    
+        
+//        printTheArray()
+        
         return editedNote.id
         
     }
