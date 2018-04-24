@@ -89,10 +89,22 @@ class MainScreenViewController: UIViewController {
 //
 //            }
             
+/*
             let i = userNotes.notes.index(after: selectedIndex - 1)
             if i == selectedIndex {
                 userNotes.notes[i].name = selectedNote.name
             }
+            
+            if let i = userNotes.notes.index(after: selectedIndex - 1) {
+                userNotes.notes[i].name = selectedNote.name
+            }
+*/
+            
+            let i = userNotes.notes.index(after: selectedIndex - 1)
+            if i == selectedIndex {
+                userNotes.notes[i].name = selectedNote.name
+            }
+            
             
             userNotes.notes[selectedNote.id].name = selectedNote.name
             

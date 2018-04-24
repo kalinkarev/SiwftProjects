@@ -122,10 +122,10 @@ class AddNoteViewController: UIViewController {
                 print("The new name of the edited note is: \(noteEdit.name)")
                 print("The id of the edited note is: \(noteEdit.id)")
                 
-                var idOfTheSelectedNote = noteEdit.id
-                print("The id of the selected note is: \(idOfTheSelectedNote)")
-                var nameOfTheSelectedNote = noteEdit.name
-                print("The name of the selected note is: \(nameOfTheSelectedNote)")
+//                var idOfTheSelectedNote = noteEdit.id
+//                print("The id of the selected note is: \(idOfTheSelectedNote)")
+//                var nameOfTheSelectedNote = noteEdit.name
+//                print("The name of the selected note is: \(nameOfTheSelectedNote)")
                 
 //                let name = userNote.notes[noteEdit.id]
 //                print("The seleceted element has name: \(name)")
