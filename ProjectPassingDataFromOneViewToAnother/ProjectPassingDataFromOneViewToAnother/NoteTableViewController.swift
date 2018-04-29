@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class NoteTableViewController: UITableViewController {
 
@@ -91,23 +92,49 @@ class NoteTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        
+        switch (segue.identifier ?? "") {
+        case "AddItem":
+            os_log("Adding a new note.", log: OSLog.default, type: .debug)
+        case "ShowDetail":
+            guard let noteDetailViewController = segue.destination as? ViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            guard let selectedNoteCell = sender as? NoteTableViewCell else {
+                fatalError("Unexpected sender: \(String(describing: sender))")
+            }
+            guard let indexPath = tableView.indexPath(for: selectedNoteCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            let selectedNote = notes[indexPath.row]
+            noteDetailViewController.note = selectedNote
+        default:
+            fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
+        }
     }
-    */
 
     // MARK: Actions
     @IBAction func unwindToNoteList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? ViewController, let note = sourceViewController.note {
-            // Add a new note.
-            let newIndexPath = IndexPath(row: notes.count, section: 0)
-            notes.append(note)
-            myTableView.insertRows(at: [newIndexPath], with: .automatic)
+            
+            if let selectedIndexPath = tableView.indexPathForSelectedRow { // checks whether a row in the table view is selected.
+                // Update an existing note.
+                notes[selectedIndexPath.row] = note // updates the notes array. Replace the old note object with the new, edited note object.
+                tableView.reloadRows(at: [selectedIndexPath], with: .none) // reloads the appropriate row in the table view. Replaces the current cell with a new cell that contains the updated note data.
+            } else { // executes when there`s no selected row in the table view
+                // Add a new note.
+                let newIndexPath = IndexPath(row: notes.count, section: 0)
+                notes.append(note)
+                myTableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
         }
     }
     

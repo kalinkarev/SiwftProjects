@@ -30,6 +30,12 @@ class ViewController: UIViewController {
         
         // Handle the text field`s user input through delegate callbacks.
         nameTextField.delegate = self
+        
+        // Set up views if editing an existing Note.
+        if let note = note {
+            navigationItem.title = note.name
+            nameTextField.text = note.name
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,10 +62,16 @@ class ViewController: UIViewController {
     
     // MARK: Actions
     @IBAction func cancel(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
+        let isPresentingInAddNoteMode = presentingViewController is UINavigationController
+        if isPresentingInAddNoteMode {
+            dismiss(animated: true, completion: nil)
+        } else if let owningNavigationController = navigationController { // it is called when the user is editing  an existing note
+            owningNavigationController.popViewController(animated: true)
+        } else {
+            fatalError("The ViewController is not inside a navigation controller.")
+        }
     }
-    
-    
 }
 
 // MARK: UITextFieldDelegate
