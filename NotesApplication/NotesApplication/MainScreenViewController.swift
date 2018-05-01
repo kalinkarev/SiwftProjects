@@ -14,6 +14,8 @@ class MainScreenViewController: UIViewController {
     @IBOutlet weak var notesTableView: UITableView!
     
     var userNotes = UserNotes()
+//    var arrayNotes = UserNotes().notes
+    var arrayNotes = [Note]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,16 +32,16 @@ class MainScreenViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: Actions
-    func unwindToNoteList(sender: UIStoryboardSegue) {
-        if let sourceViewConroller = sender.source as? AddNoteViewController, let note = sourceViewConroller.note {
-            if let selectedIndexPath = notesTableView.indexPathForSelectedRow {
-                // Update an existing note.
-                userNotes.notes[selectedIndexPath.row] = note
-                notesTableView.reloadRows(at: [selectedIndexPath], with: .none)
-            }
-        }
-    }
+//    // MARK: Actions
+//    func unwindToNoteList(sender: UIStoryboardSegue) {
+//        if let sourceViewConroller = sender.source as? AddNoteViewController, let note = sourceViewConroller.note {
+//            if let selectedIndexPath = notesTableView.indexPathForSelectedRow {
+//                // Update an existing note.
+//                userNotes.notes[selectedIndexPath.row] = note
+//                notesTableView.reloadRows(at: [selectedIndexPath], with: .none)
+//            }
+//        }
+//    }
     
     // MARK: Navigation
     // This method lets you configure a view controller before it`s presented.
@@ -74,82 +76,43 @@ class MainScreenViewController: UIViewController {
                 fatalError("The seleceted cell is not being displayed by the table")
             }
 
+//            let selectedNote = arrayNotes[indexPath.row]
+//            noteDetailViewController.note = selectedNote
+            
             let selectedNote = userNotes.notes[indexPath.row]
             noteDetailViewController.note = selectedNote
 
             print("The name of the selected note for edit is: \(selectedNote.name)")
             print("The id of the selected note for edit is: \(selectedNote.id)")
             
-            /* ------------------------------------------------------------------ */
-            
-            let selectedIndex = userNotes.notes.index(after: selectedNote.id - 1)
-            print("The id of the note that you have selected is: \(selectedIndex)")
-            
-//            if let i = userNotes.notes.index(after: selectedIndex - 1) {
-//
-//            }
-            
-/*
-            let i = userNotes.notes.index(after: selectedIndex - 1)
-            if i == selectedIndex {
-                userNotes.notes[i].name = selectedNote.name
-            }
-            
-            if let i = userNotes.notes.index(after: selectedIndex - 1) {
-                userNotes.notes[i].name = selectedNote.name
-            }
-*/
-            
-            let i = userNotes.notes.index(after: selectedIndex - 1)
-            if i == selectedIndex {
-                userNotes.notes[i].name = selectedNote.name
-            }
-            
-            userNotes.notes[selectedNote.id].name = selectedNote.name
-            
-            
-//            // Updating the existing note
-//            userNotes.notes[selectedNote.id].name = selectedNote.name
-//            print("The arays changed element is: \(userNotes.notes)")
-//            notesTableView.reloadData()
-            
-            print("---------------------")
-            print("\(indexPath.row)")
-            print("The array is: \(userNotes.notes)")
-            
-            
-//            if let sourceViewController = sender as? AddNoteViewController, let note = sourceViewController.note {
-//                if let selectedIndexPath = notesTableView.indexPathForSelectedRow {
-//                    // Update an existing note.
-//                    userNotes.notes[selectedIndexPath.row] = note
-//                    notesTableView.reloadRows(at: [selectedIndexPath], with: .none)
-//                }
-//            }
-            
-//            userNotes.editNote(selectedNote)
-            
-//            if let sourceViewController = sender as? AddNoteViewController, let note = sourceViewController.note {
-//                if let selectedIndexPath = notesTableView.indexPathForSelectedRow {
-//                    // Update an existing note.
-//                    userNotes.notes[selectedIndexPath.row] = note
-//                    notesTableView.reloadRows(at: [selectedIndexPath], with: .none)
-//                    notesTableView.reloadData()
-//                }
-//            }
-            
-//            notes[selectedNote.id].name = selectedNote.name
-            
-//            userNotes.editNote(selectedNote)
-            
         default:
             fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
         }
     }
+    
+    // MARK: Actions
+    @IBAction func unwindToNoteList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? AddNoteViewController, let note = sourceViewController.note {
+            if let selectedIndexPath = notesTableView.indexPathForSelectedRow { // check whether a row in the table view is selected.
+                // Update an existing note.
+                userNotes.notes[selectedIndexPath.row] = note //updates the notes array. Replace the old object with the new, edited note object
+                notesTableView.reloadRows(at: [selectedIndexPath], with: .none)// Reloads the appropriate row in the table view.
+            } else {
+                userNotes.addNote(note)
+            }
+        }
+    }
+    
 }
 
 
 // MARK: TableViewDelegates
 extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return userNotes.notesNumber()
     }

@@ -24,7 +24,8 @@ class AddNoteViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var saveBtn: UIBarButtonItem!
     
-    var note = Note(id: 0, name: "")
+//    var note = Note(id: 0, name: "")
+    var note: Note?
     
     weak var delegate: AddNoteViewControllerDelegate?
     

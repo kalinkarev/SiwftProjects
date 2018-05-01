@@ -16,17 +16,17 @@ struct UserNotes {
     private var counter: Int = 1
     
     mutating func loadData() {
-        guard let note1 = Note(id: 0, name: "Go to work") else {
-            fatalError("Unable to instantiate note1")
-        }
-
-        guard let note2 = Note(id: 1, name: "Study") else {
-            fatalError("Unable to instantiate note2")
-        }
-        notes += [note1, note2]
-
-        print("The note name: \(note1.name) and id: \(note1.id)")
-        print("The note name: \(note2.name) and id: \(note2.id)")
+//        guard let note1 = Note(id: 0, name: "Go to work") else {
+//            fatalError("Unable to instantiate note1")
+//        }
+//
+//        guard let note2 = Note(id: 1, name: "Study") else {
+//            fatalError("Unable to instantiate note2")
+//        }
+//        notes += [note1, note2]
+//
+//        print("The note name: \(note1.name) and id: \(note1.id)")
+//        print("The note name: \(note2.name) and id: \(note2.id)")
     }
     
     mutating func addNote(_ newNote: Note) {
@@ -84,6 +84,16 @@ struct UserNotes {
     
     func printTheArray() {
         print("The array is: \(notes)")
+    }
+    
+    func passTheArray() -> [Note] {
+        return notes
+    }
+    
+    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        let viewController =  as! MainScreenViewController
+        let viewController = MainScreenViewController()
+        viewController.arrayNotes = self.notes
     }
     
 }
