@@ -63,8 +63,22 @@ struct UserNotes {
     mutating func editNote(_ editedNote: Note) -> Int {
         return editedNote.id
     }
+    
+    mutating func makeEdit(_ noteEdit: Note) {
+        print("You are in the edit function")
+        
+        notes = notes.map {
+            var mutableNote = $0
+            if $0.id == noteEdit.id {
+                mutableNote.name = noteEdit.name
+            }
+            return mutableNote
+        }
+        
+        print("You are exiting the edit function")
+    }
 
-    mutating func editedNote(_ editedNote: Note) {
+//    mutating func editedNote(_ editedNote: Note) {
 //        notes.filter({$0.id == editedNote.id}).first?.name = editedNote.name
 
 //        if let row = self.upcoming.index(where: {$0.id == editedNote.id}) {
@@ -82,19 +96,18 @@ struct UserNotes {
 //            $0.id == editedNote.id
 //        }.first?.name = editedNote.name
 
-        notes = notes.map{
-            var mutableNote = $0
-            if $0.id == editedNote.id {
-                mutableNote.name = editedNote.name
-            }
-            return mutableNote
-        }
-        
-        notes.forEach { note in
-            print(note.name)
-        }
-        
-    }
+//        notes = notes.map{
+//            var mutableNote = $0
+//            if $0.id == editedNote.id {
+//                mutableNote.name = editedNote.name
+//            }
+//
+//            print("The new item is: \(mutableNote.name) and has id: \(mutableNote.id)")
+//
+//            return mutableNote
+//        }
+//
+//    }
     
     func notesNumber() -> Int {
         return notes.count

@@ -110,7 +110,9 @@ class AddNoteViewController: UIViewController {
                 print("The new name of the edited note is: \(noteEdit.name)")
                 print("The id of the edited note is: \(noteEdit.id)")
                 
-                userNote.editedNote(noteEdit)
+//                userNote.editedNote(noteEdit)
+                userNote.makeEdit(noteEdit)
+                
             }
             
             print("You pressed the Save button in Edit Note screen")
