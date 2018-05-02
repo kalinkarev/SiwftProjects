@@ -69,13 +69,23 @@ struct UserNotes {
         
         notes = notes.map {
             var mutableNote = $0
-            if $0.id == noteEdit.id {
+            if ($0.id == noteEdit.id) {
                 mutableNote.name = noteEdit.name
             }
             return mutableNote
         }
         
         print("You are exiting the edit function")
+        
+        print("Iterating over the array")
+        print("------------------------")
+        for note in notes {
+            if notes.isEmpty {
+                print("No elements in the array")
+            } else {
+                print(note.name)
+            }
+        }
     }
 
 //    mutating func editedNote(_ editedNote: Note) {
