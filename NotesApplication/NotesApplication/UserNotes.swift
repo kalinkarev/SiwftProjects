@@ -31,7 +31,6 @@ struct UserNotes {
     
     mutating func addNote(_ newNote: Note) {
         // adding the new note into the array of notes
-        
         if (notes.isEmpty) {
             let newID = 0
             var localNewNote = newNote
@@ -48,9 +47,7 @@ struct UserNotes {
             notes += [localNewNote]
             print("The new note has name: \(localNewNote.name) and id: \(localNewNote.id)")
         }
-        
         printTheArray()
-        
     }
     
     mutating func deleteNote(deletedNote: Note) {
@@ -64,12 +61,38 @@ struct UserNotes {
         Implement the functionality of editing a note
      */
     mutating func editNote(_ editedNote: Note) -> Int {
-        
-//        notes[editedNote.id].name = editedNote.name
-        
-//        printTheArray()
-        
         return editedNote.id
+    }
+
+    mutating func editedNote(_ editedNote: Note) {
+//        notes.filter({$0.id == editedNote.id}).first?.name = editedNote.name
+
+//        if let row = self.upcoming.index(where: {$0.id == editedNote.id}) {
+//            notes[row] = editedNote.name
+//        }
+//        notes = notes.map{
+//            var mutableBook = $0
+//            if $0.id == 1 {
+//                mutableBook.title = "modified"
+//            }
+//            return mutableBook
+//        }
+        
+//        notes.filter{
+//            $0.id == editedNote.id
+//        }.first?.name = editedNote.name
+
+        notes = notes.map{
+            var mutableNote = $0
+            if $0.id == editedNote.id {
+                mutableNote.name = editedNote.name
+            }
+            return mutableNote
+        }
+        
+        notes.forEach { note in
+            print(note.name)
+        }
         
     }
     

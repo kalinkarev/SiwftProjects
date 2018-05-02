@@ -89,8 +89,6 @@ class AddNoteViewController: UIViewController {
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
         /* use the delegate method for saving user note */
         
-//        let notes = userNote.notes
-        
         let isPressentingInEditNoteMode = presentingViewController is UINavigationController
         
         if isPressentingInEditNoteMode {
@@ -108,33 +106,11 @@ class AddNoteViewController: UIViewController {
         } else if let owningNavigationController = navigationController{
             owningNavigationController.popViewController(animated: true)
             
-//            if let noteEdit = Note(id: userNote.editNote(note!), name: textField.text ?? "") {
-////                userNote.editNote(noteEdit)
-//                print("The new name of the edited note is: \(noteEdit.name)")
-//                print("The id of the edited note is: \(noteEdit.id)")
-//
-//                userNote.notes[noteEdit.id].name = noteEdit.name
-//                print("The arrays changed element has name: \(userNote.notes[noteEdit.id].name)")
-//            }
-//
-//            print("The notes are: \(notes)")
-            
             if let noteEdit = Note(id: userNote.editNote(note!), name: textField.text ?? "") {
                 print("The new name of the edited note is: \(noteEdit.name)")
                 print("The id of the edited note is: \(noteEdit.id)")
                 
-//                var idOfTheSelectedNote = noteEdit.id
-//                print("The id of the selected note is: \(idOfTheSelectedNote)")
-//                var nameOfTheSelectedNote = noteEdit.name
-//                print("The name of the selected note is: \(nameOfTheSelectedNote)")
-
-//                let name = userNote.notes[noteEdit.id]
-//                print("The seleceted element has name: \(name)")
-                
-//                if let i = userNote.notes.index(of: name) {
-//                    userNote.notes[i] = noteEdit.name
-//                }
-                
+                userNote.editedNote(noteEdit)
             }
             
             print("You pressed the Save button in Edit Note screen")

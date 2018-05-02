@@ -32,17 +32,6 @@ class MainScreenViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-//    // MARK: Actions
-//    func unwindToNoteList(sender: UIStoryboardSegue) {
-//        if let sourceViewConroller = sender.source as? AddNoteViewController, let note = sourceViewConroller.note {
-//            if let selectedIndexPath = notesTableView.indexPathForSelectedRow {
-//                // Update an existing note.
-//                userNotes.notes[selectedIndexPath.row] = note
-//                notesTableView.reloadRows(at: [selectedIndexPath], with: .none)
-//            }
-//        }
-//    }
-    
     // MARK: Navigation
     // This method lets you configure a view controller before it`s presented.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -75,9 +64,6 @@ class MainScreenViewController: UIViewController {
             guard let indexPath = notesTableView.indexPath(for: selectedNoteCell) else {
                 fatalError("The seleceted cell is not being displayed by the table")
             }
-
-//            let selectedNote = arrayNotes[indexPath.row]
-//            noteDetailViewController.note = selectedNote
             
             let selectedNote = userNotes.notes[indexPath.row]
             noteDetailViewController.note = selectedNote
