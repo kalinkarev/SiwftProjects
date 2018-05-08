@@ -14,8 +14,6 @@ class MainScreenViewController: UIViewController {
     @IBOutlet weak var notesTableView: UITableView!
     
     var userNotes = UserNotes()
-//    var arrayNotes = UserNotes().notes
-    var arrayNotes = [Note]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +68,8 @@ class MainScreenViewController: UIViewController {
 
             print("The name of the selected note for edit is: \(selectedNote.name)")
             print("The id of the selected note for edit is: \(selectedNote.id)")
+            
+            print(userNotes.notes)
             
         default:
             fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")

@@ -77,50 +77,45 @@ struct UserNotes {
             return mutableNote
         }
         
+        if (notes.isEmpty) {
+            print("No elements in the array")
+            printTheArray()
+        } else {
+            notes.forEach { note in
+                print(note.name)
+            }
+        }
+        print("Exiting the finction for edit note")
     }
     
-    
     mutating func editNoteID(_ editedNote: Note) -> Int {
-//        printTheArray()
-//
-//        print("You are entering the edit note")
+        return editedNote.id
+    }
+    
+//    mutating func makeEdit(_ noteEdit: Note) {
+//        print("You are in the edit function")
 //
 //        notes = notes.map {
 //            var mutableNote = $0
-//            if ($0.id == editedNote.id) {
-//                mutableNote.name = editedNote.name
+//
+//            if ($0.id == noteEdit.id) {
+//                mutableNote.name = noteEdit.name
 //            }
 //            return mutableNote
 //        }
 //
-//        print("You are exiting the edit note")
-        return editedNote.id
-    }
-    
-    mutating func makeEdit(_ noteEdit: Note) {
-        print("You are in the edit function")
-        
-        notes = notes.map {
-            var mutableNote = $0
-            
-            if ($0.id == noteEdit.id) {
-                mutableNote.name = noteEdit.name
-            }
-            return mutableNote
-        }
-        
-        print("You are exiting the edit function")
-        
-        print("Iterating over the array")
-        print("------------------------")
-        for note in notes {
-            if notes.isEmpty {
-                print("No elements in the array")
-            } else {
-                print(note.name)
-            }
-        }
-    }
+//        print("You are exiting the edit function")
+//
+//        print("Iterating over the array")
+//        print("------------------------")
+//        for note in notes {
+//            if notes.isEmpty {
+//                print("No elements in the array")
+//            } else {
+//                print(note.name)
+//            }
+//        }
+//    }
 
 //    mutating func editedNote(_ editedNote: Note) {
 //        notes.filter({$0.id == editedNote.id}).first?.name = editedNote.name
@@ -169,11 +164,4 @@ struct UserNotes {
     func passTheArray() -> [Note] {
         return notes
     }
-    
-    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        let viewController =  as! MainScreenViewController
-        let viewController = MainScreenViewController()
-        viewController.arrayNotes = self.notes
-    }
-    
 }
