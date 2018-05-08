@@ -138,7 +138,7 @@ extension MainScreenViewController: UITableViewDataSource, UITableViewDelegate {
             let note = Note(id: indexPath.row, name: indexPath.description)
             
 //            userNotes.notes.remove(at: indexPath.row) //-> correct one, working perfectly
-            userNotes.deleteNote(deletedNote: note!)
+            userNotes.deleteNote(note!)
             
             /*
                     Update Table View

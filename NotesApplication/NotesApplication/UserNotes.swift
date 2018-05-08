@@ -50,7 +50,7 @@ struct UserNotes {
         printTheArray()
     }
     
-    mutating func deleteNote(deletedNote: Note) {
+    mutating func deleteNote(_ deletedNote: Note) {
         // Removing the selected note (the user selects a note and it should be removed | we are using the removement by id |)
         notes.remove(at: deletedNote.id)
         
@@ -60,7 +60,40 @@ struct UserNotes {
     /*
         Implement the functionality of editing a note
      */
-    mutating func editNote(_ editedNote: Note) -> Int {
+    mutating func editNote(_ editedNote: Note) {
+        print("You have entered edit note")
+        
+        print("The edit note id is: \(editedNote.id)")
+        print("The edit note name is: \(editedNote.name)")
+//        The editedNote here has the new name and the same id(correct one)
+        
+        notes = notes.map {
+            var mutableNote = $0
+            if $0.id == editedNote.id {
+                mutableNote.name = editedNote.name
+            }
+            print("The changed id of the object is: \(mutableNote.id)")
+            print("The change name of the object is: \(mutableNote.name)")
+            return mutableNote
+        }
+        
+    }
+    
+    
+    mutating func editNoteID(_ editedNote: Note) -> Int {
+//        printTheArray()
+//
+//        print("You are entering the edit note")
+//
+//        notes = notes.map {
+//            var mutableNote = $0
+//            if ($0.id == editedNote.id) {
+//                mutableNote.name = editedNote.name
+//            }
+//            return mutableNote
+//        }
+//
+//        print("You are exiting the edit note")
         return editedNote.id
     }
     
@@ -69,6 +102,7 @@ struct UserNotes {
         
         notes = notes.map {
             var mutableNote = $0
+            
             if ($0.id == noteEdit.id) {
                 mutableNote.name = noteEdit.name
             }
@@ -90,7 +124,7 @@ struct UserNotes {
 
 //    mutating func editedNote(_ editedNote: Note) {
 //        notes.filter({$0.id == editedNote.id}).first?.name = editedNote.name
-
+//
 //        if let row = self.upcoming.index(where: {$0.id == editedNote.id}) {
 //            notes[row] = editedNote.name
 //        }
@@ -101,11 +135,11 @@ struct UserNotes {
 //            }
 //            return mutableBook
 //        }
-        
+//
 //        notes.filter{
 //            $0.id == editedNote.id
 //        }.first?.name = editedNote.name
-
+//
 //        notes = notes.map{
 //            var mutableNote = $0
 //            if $0.id == editedNote.id {

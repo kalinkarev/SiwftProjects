@@ -106,10 +106,11 @@ class AddNoteViewController: UIViewController {
         } else if let owningNavigationController = navigationController{
             owningNavigationController.popViewController(animated: true)
             
-            if let noteEdit = Note(id: userNote.editNote(note!), name: textField.text ?? "") {
-                userNote.makeEdit(noteEdit)
-                print("The new name of the edited note is: \(noteEdit.name)")
-                print("The id of the edited note is: \(noteEdit.id)")
+            if let noteEdit = Note(id: userNote.editNoteID(note!), name: textField.text ?? "") {
+//                userNote.makeEdit(noteEdit)
+                userNote.editNote(noteEdit)
+//                print("The new name of the edited note is: \(noteEdit.name)")
+//                print("The id of the edited note is: \(noteEdit.id)")
             }
             
             print("You pressed the Save button in Edit Note screen")
