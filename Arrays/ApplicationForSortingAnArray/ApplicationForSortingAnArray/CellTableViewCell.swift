@@ -1,15 +1,6 @@
-//
-//  CellTableViewCell.swift
-//  ApplicationForSortingAnArray
-//
-//  Created by Kalin Karev on 7/4/18.
-//  Copyright © 2018 Kalin Karev. All rights reserved.
-//
-
 import UIKit
 
 class CellTableViewCell: UITableViewCell {
-
     // MARK: Properties
     @IBOutlet weak var nameLabel: UILabel!
     
@@ -22,6 +13,7 @@ class CellTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        // This line of code is used when the user click a cell in the table view not to be marked in gray
+        selectionStyle = UITableViewCellSelectionStyle.none
     }
-
 }

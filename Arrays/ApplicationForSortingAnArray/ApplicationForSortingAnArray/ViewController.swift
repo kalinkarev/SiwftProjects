@@ -1,19 +1,10 @@
-//
-//  ViewController.swift
-//  ApplicationForSortingAnArray
-//
-//  Created by Kalin Karev on 7/4/18.
-//  Copyright © 2018 Kalin Karev. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
-
     // MARK: Properties
     @IBOutlet weak var numberTableView: UITableView!
     
-    var array = [10,7,11,4,3,12]
+    var array = [3, 10, 8, 9, 2, 5, 1]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,32 +17,24 @@ class ViewController: UIViewController {
     }
     
     // MARK: Private Methods
-    func bubbleSort(_ input:[Int]) -> [Int] {
-        guard input.count > 1 else {
-            return input
-        }
+    func descendingSort(array: inout [Int]) {
+        let arrayElements = array.count
         
-        var result = input
-        let count = result.count
-        
-        var isSwapped = false
-        
-        repeat {
-            isSwapped = false
-            for index in 1..<count {
-                if result[index] < result[index - 1] {
-                    result.swapAt(index - 1, index)
-                    isSwapped = true
+        for _ in 0...arrayElements{
+            for value in 1...arrayElements - 1 {
+                if (array[value - 1] > array[value]) {
+                    let tmp = array[value - 1]
+                    array[value - 1] = array[value]
+                    array[value] = tmp
                 }
             }
-        } while isSwapped
-        return result
+        }
     }
     
     // MARK: Actions
     @IBAction func sortButton(_ sender: UIBarButtonItem) {
         print("You have pressed the sort button")
-        array = bubbleSort(array)
+        descendingSort(array: &array)
         print("The sorted array is: \(array)")
         self.numberTableView.reloadData()
     }
@@ -62,9 +45,11 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return array.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "numberCellIdentifier"
         
