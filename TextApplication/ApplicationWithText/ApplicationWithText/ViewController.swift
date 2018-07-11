@@ -9,7 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-
     // MARK: Properties
     @IBOutlet weak var inputTextField: UITextField!
     @IBOutlet weak var emojiIcon: UIImageView!
@@ -40,7 +39,7 @@ class ViewController: UIViewController {
     }
     
     func imagePressed() {
-        var s = inputTextField.text
+        let s = inputTextField.text
         print("The String is \(String(describing: s))")
         
         if s?.range(of: "[img]") != nil {
@@ -48,20 +47,27 @@ class ViewController: UIViewController {
                 print("The string \(String(describing: s)) contains [img] tag")
                 emojiIcon.isHidden = false
                 locationIcon.isHidden = true
+                labelLocationLatitude.text = ""
+                labelLocationLongitude.text = ""
                 
-                let firstWordToRemove = "[img]"
-                if let range = s?.range(of: firstWordToRemove) {
-                    s?.removeSubrange(range)
+                let fullInput = s?.components(separatedBy: "[")
+                let firstPart = fullInput![0]
+                var secondPart = fullInput![1]
+                print("The first part of the input is: \(firstPart)")
+                print("The second part of the input is: \(secondPart)")
+
+                let firstWordToRemove = "img]"
+                if let range = secondPart.range(of: firstWordToRemove) {
+                    secondPart.removeSubrange(range)
                 }
-                let lastWordToRemove = "[/img]"
-                if let range = s?.range(of: lastWordToRemove) {
-                    s?.removeSubrange(range)
-                }
-                labelImage.text = s
+                labelImage.text = secondPart
             } else {
                 labelImage.text = ""
                 emojiIcon.isHidden = true
             }
+        } else {
+            labelImage.text = ""
+            emojiIcon.isHidden = true
         }
     }
     
@@ -73,24 +79,28 @@ class ViewController: UIViewController {
                 print("The String \(String(describing: s)) conatins [lng] tag")
                 emojiIcon.isHidden = true
                 locationIcon.isHidden = false
+                labelImage.text = ""
                 
                 if (s == "[lng][/lng]") {
                     print("You haven`t inputed any text for latitude and longitude")
                 } else {
-                    let fullLocationArr = s?.components(separatedBy: ";")
-                    var latitude = fullLocationArr![0]
-                    var longitude = fullLocationArr![1]
-                
-                    let firstWordToRemove = "[lng]"
-                    if let range = latitude.range(of: firstWordToRemove) {
-                        latitude.removeSubrange(range)
+                    
+                    let fullInput = s?.components(separatedBy: "[")
+                    let firstPart = fullInput![0]
+                    var secondPart = fullInput![1]
+                    print("The first part of the location is: \(firstPart)")
+                    print("The second part of the location is: \(secondPart)")
+                    
+                    let firstWordToRemove = "lng]"
+                    if let range = secondPart.range(of: firstWordToRemove) {
+                        secondPart.removeSubrange(range)
                     }
-                
-                    let lastWordToRemove = "[/lng]"
-                    if let range = longitude.range(of: lastWordToRemove) {
-                        longitude.removeSubrange(range)
-                    }
-                
+                    print("The text between the [lng] tags is: \(secondPart)")
+                    
+                    let fullLocationArray = secondPart.components(separatedBy: ";")
+                    let latitude = fullLocationArray[0]
+                    let longitude = fullLocationArray[1]
+                    
                     labelLocationLatitude.text = latitude
                     labelLocationLongitude.text = longitude
                 }
@@ -99,6 +109,10 @@ class ViewController: UIViewController {
                 labelLocationLongitude.text = ""
                 locationIcon.isHidden = true
             }
+        } else {
+            labelLocationLatitude.text = ""
+            labelLocationLongitude.text = ""
+            locationIcon.isHidden = true
         }
     }
 }
