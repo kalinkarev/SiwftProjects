@@ -50,7 +50,15 @@ class ViewController: UIViewController, UITextViewDelegate {
         
         let enteredString = inputTextView.text
 //        print("The user has entered: \(String(describing: enteredString))")
-        
+
+        if (inputTextView.text == "") {
+            toastView(message: "You don`t have text")
+        } else if (searchedString.text == "") {
+            toastView(message: "You don`t have search")
+        } else if (removingString.text == "") {
+            toastView(message: "You don`t have remove")
+        }
+                
         changedInputText(inputString: enteredString!)
     }
     
@@ -63,7 +71,6 @@ class ViewController: UIViewController, UITextViewDelegate {
     }
     
     func changedInputText( inputString: String) {
-        
         var word: String = ""
 //        print("The String named word is: \(word)")
         var final: String = ""
@@ -96,4 +103,21 @@ class ViewController: UIViewController, UITextViewDelegate {
         outputTextView.text = final
     }
     
+    func toastView(message: String) {
+        let toastLabel = UILabel(frame: CGRect(x: view.frame.size.width/2 - 150,
+                                               y: view.frame.size.height - 100,
+                                               width: 300,
+                                               height: 35))
+        toastLabel.backgroundColor = UIColor.black
+        toastLabel.textColor = UIColor.white
+        toastLabel.textAlignment = NSTextAlignment.center
+        view.addSubview(toastLabel)
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10
+        toastLabel.clipsToBounds = true
+        UIView.animate(withDuration: 5.0, delay: 0.3, options: UIViewAnimationOptions.curveEaseOut, animations: {
+            toastLabel.alpha = 0.0
+        })
+    }
 }
