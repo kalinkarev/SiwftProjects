@@ -58,7 +58,7 @@ class ViewController: UIViewController, UITextViewDelegate {
         } else if (removingString.text == "") {
             toastView(message: "You don`t have remove")
         }
-                
+        
         changedInputText(inputString: enteredString!)
     }
     
@@ -81,8 +81,6 @@ class ViewController: UIViewController, UITextViewDelegate {
         let charSpace = Character(u!)
 //        print("The character is: \(charSpace)")
         
-        var counter: Int = 0
-        
         for index in (inputString.indices) {
             print("The characters in the input string is: \(inputString[index])")
             if (inputString[index] > charSpace) {
@@ -94,7 +92,6 @@ class ViewController: UIViewController, UITextViewDelegate {
                 final.append(word)
                 word = ""
             }
-            counter += 1
         }
         word = symbolChange(newString: word)
         final.append(word)
