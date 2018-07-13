@@ -14,6 +14,9 @@ class ViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var inputTextView: UITextView!
     @IBOutlet weak var outputTextView: UITextView!
     
+    @IBOutlet weak var searchedString: UITextField!
+    @IBOutlet weak var removingString: UITextField!
+    
     let changeSymbol = ":)"
     
     override func viewDidLoad() {
@@ -58,8 +61,8 @@ class ViewController: UIViewController, UITextViewDelegate {
         func symbolChange( newString: String) -> String {
             var stringChange = newString
 //            print("The word is: \(stringChange)")
-            if (stringChange == changeSymbol) {
-                stringChange = "!!"
+            if (stringChange == searchedString.text) {
+                stringChange = removingString.text!
             }
 //            print("The string is: \(stringChange)")
             return stringChange
