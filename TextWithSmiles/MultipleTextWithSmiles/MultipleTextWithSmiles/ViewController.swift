@@ -47,10 +47,13 @@ class ViewController: UIViewController, UITextViewDelegate {
     @IBAction func btnChanged(_ sender: UIButton) {
         print("The change button was pressed")
         
-        changedInputText()
+        let enteredString = inputTextView.text
+//        print("The user has entered: \(String(describing: enteredString))")
+        
+        changedInputText(inputString: enteredString!)
     }
     
-    func changedInputText() {
+    func changedInputText( inputString: String) {
         
         func symbolChange( newString: String) -> String {
             var stringChange = newString
@@ -61,11 +64,6 @@ class ViewController: UIViewController, UITextViewDelegate {
 //            print("The string is: \(stringChange)")
             return stringChange
         }
-        
-        let inputString = inputTextView.text
-//        print("The user has inputted: \(String(describing: inputString))")
-        
-//        let numberOfCharactersInString = inputString?.count
         
         var word: String = ""
 //        print("The String named word is: \(word)")
@@ -79,14 +77,14 @@ class ViewController: UIViewController, UITextViewDelegate {
         
         var counter: Int = 0
         
-        for index in (inputString?.indices)! {
-            print("The characters in the input string is: \(inputString![index])")
-            if (inputString![index] > charSpace) {
+        for index in (inputString.indices) {
+            print("The characters in the input string is: \(inputString[index])")
+            if (inputString[index] > charSpace) {
 //                print("Have found a split character")
-                word.append(inputString![index])
+                word.append(inputString[index])
             } else {
                 word = symbolChange(newString: word)
-                word.append(inputString![index])
+                word.append(inputString[index])
                 final.append(word)
                 word = ""
             }
