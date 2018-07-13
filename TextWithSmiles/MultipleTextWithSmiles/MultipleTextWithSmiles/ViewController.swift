@@ -14,6 +14,8 @@ class ViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var inputTextView: UITextView!
     @IBOutlet weak var outputTextView: UITextView!
     
+    let changeSymbol = ":)"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -49,10 +51,21 @@ class ViewController: UIViewController, UITextViewDelegate {
     }
     
     func changedInputText() {
+        
+        func symbolChange( newString: String) -> String {
+            var stringChange = newString
+//            print("The word is: \(stringChange)")
+            if (stringChange == changeSymbol) {
+                stringChange = "!!"
+            }
+//            print("The string is: \(stringChange)")
+            return stringChange
+        }
+        
         let inputString = inputTextView.text
 //        print("The user has inputted: \(String(describing: inputString))")
         
-        let numberOfCharactersInString = inputString?.count
+//        let numberOfCharactersInString = inputString?.count
         
         var word: String = ""
 //        print("The String named word is: \(word)")
@@ -64,34 +77,26 @@ class ViewController: UIViewController, UITextViewDelegate {
         let charSpace = Character(u!)
 //        print("The character is: \(charSpace)")
         
-        let changeSymbol = ":)"
-        
         var counter: Int = 0
         
         for index in (inputString?.indices)! {
             print("The characters in the input string is: \(inputString![index])")
-            if (inputString![index] > charSpace) { //|| counter == numberOfCharactersInString) {
+            if (inputString![index] > charSpace) {
 //                print("Have found a split character")
                 word.append(inputString![index])
             } else {
-                print("The word is: \(word)")
-                if (word == changeSymbol) {
-                    word = "!!"
-                }
+                word = symbolChange(newString: word)
                 word.append(inputString![index])
                 final.append(word)
                 word = ""
             }
             counter += 1
         }
-        print("The word is: \(word)")
-        if (word == changeSymbol) {
-            word = "!!"
-        }
+        word = symbolChange(newString: word)
         final.append(word)
         
         //        print("The final is: \(final)")
         outputTextView.text = final
     }
-
+    
 }
