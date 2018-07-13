@@ -17,13 +17,11 @@ class ViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var searchedString: UITextField!
     @IBOutlet weak var removingString: UITextField!
     
-    let changeSymbol = ":)"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        inputTextView.text = "PlaceHolder"
+        inputTextView.text = "Enter text"
         inputTextView.textColor = UIColor.lightGray
     }
 
@@ -36,7 +34,7 @@ class ViewController: UIViewController, UITextViewDelegate {
 
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.text = "PlaceHolder"
+            textView.text = "Enter text"
             textView.textColor = UIColor.lightGray
         }
     }
@@ -56,17 +54,15 @@ class ViewController: UIViewController, UITextViewDelegate {
         changedInputText(inputString: enteredString!)
     }
     
-    func changedInputText( inputString: String) {
-        
-        func symbolChange( newString: String) -> String {
-            var stringChange = newString
-//            print("The word is: \(stringChange)")
-            if (stringChange == searchedString.text) {
-                stringChange = removingString.text!
-            }
-//            print("The string is: \(stringChange)")
-            return stringChange
+    func symbolChange( newString: String) -> String {
+        var stringChange = newString
+        if (stringChange == searchedString.text) {
+            stringChange = removingString.text!
         }
+        return stringChange
+    }
+    
+    func changedInputText( inputString: String) {
         
         var word: String = ""
 //        print("The String named word is: \(word)")
@@ -96,7 +92,7 @@ class ViewController: UIViewController, UITextViewDelegate {
         word = symbolChange(newString: word)
         final.append(word)
         
-        //        print("The final is: \(final)")
+//        print("The final is: \(final)")
         outputTextView.text = final
     }
     
