@@ -13,30 +13,15 @@ class ViewController: UIViewController, UITextViewDelegate {
     // MARK: Properties
     @IBOutlet weak var inputTextView: UITextView!
     @IBOutlet weak var outputTextView: UITextView!
-    
     @IBOutlet weak var searchedString: UITextField!
     @IBOutlet weak var removingString: UITextField!
+    
+    var searchSymbols: [String] = [":)", "new"]
+    var putSymbols: [String] = ["!!", "old"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        inputTextView.text = "Enter text"
-        inputTextView.textColor = UIColor.lightGray
-    }
-
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == UIColor.lightGray {
-            textView.text = nil
-            textView.textColor = UIColor.black
-        }
-    }
-
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
-            textView.text = "Enter text"
-            textView.textColor = UIColor.lightGray
-        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -46,75 +31,68 @@ class ViewController: UIViewController, UITextViewDelegate {
 
     // MARK: Actions
     @IBAction func btnChanged(_ sender: UIButton) {
-        print("The change button was pressed")
+        let entered = getInputText()
+        printOutputText(input: entered)
+    }
+    
+    func getInputText() -> String {
+        let input = inputTextView.text
+        return input!
+    }
+    
+    func getTextOfUserInput() -> (searched: String, putted: String) {
+        let searched = searchedString.text
+        let putted = removingString.text
         
-        let enteredString = inputTextView.text
-//        print("The user has entered: \(String(describing: enteredString))")
+        searchSymbols.append(searched!)
+        print("The array for seached symbols is: \(searchSymbols)")
+        putSymbols.append(putted!)
+        print("The array for putting symbols is: \(putSymbols)")
+        
+        return (searched!, putted!)
+    }
+    
+    func printOutputText(input: String) {
 
-        if (inputTextView.text == "") {
-            toastView(message: "You don`t have text")
-        } else if (searchedString.text == "") {
-            toastView(message: "You don`t have search")
-        } else if (removingString.text == "") {
-            toastView(message: "You don`t have remove")
-        }
-        
-        changedInputText(inputString: enteredString!)
+        let userInput = getTextOfUserInput()
+        _ = userInput.searched
+        _ = userInput.putted
+
+        outputTextView.text = inputTextWithChange(input: input, searching: searchSymbols, putting: putSymbols)
     }
-    
-    func symbolChange( newString: String) -> String {
-        var stringChange = newString
-        if (stringChange == searchedString.text) {
-            stringChange = removingString.text!
-        }
-        return stringChange
-    }
-    
-    func changedInputText( inputString: String) {
+
+    func inputTextWithChange(input: String, searching: [String], putting: [String]) -> String {
         var word: String = ""
-//        print("The String named word is: \(word)")
         var final: String = ""
-//        print("The String named final is: \(final)")
-
+        
         let spaceValue = 32
         let u = UnicodeScalar(spaceValue)
         let charSpace = Character(u!)
-//        print("The character is: \(charSpace)")
-        
-        for index in (inputString.indices) {
-            print("The characters in the input string is: \(inputString[index])")
-            if (inputString[index] > charSpace) {
-//                print("Have found a split character")
-                word.append(inputString[index])
+        for index in (input.indices) {
+            if (input[index] > charSpace) {
+                word.append(input[index])
             } else {
-                word = symbolChange(newString: word)
-                word.append(inputString[index])
+                word = changeSymbol(newInput: word, searching: searchSymbols, putting: putSymbols)
+                word.append(input[index])
                 final.append(word)
                 word = ""
             }
         }
-        word = symbolChange(newString: word)
+        word = changeSymbol(newInput: word, searching: searchSymbols, putting: putSymbols)
         final.append(word)
-        
-//        print("The final is: \(final)")
-        outputTextView.text = final
+        return final
     }
     
-    func toastView(message: String) {
-        let toastLabel = UILabel(frame: CGRect(x: view.frame.size.width/2 - 150,
-                                               y: view.frame.size.height - 100,
-                                               width: 300,
-                                               height: 35))
-        toastLabel.backgroundColor = UIColor.black
-        toastLabel.textColor = UIColor.white
-        toastLabel.textAlignment = NSTextAlignment.center
-        view.addSubview(toastLabel)
-        toastLabel.text = message
-        toastLabel.alpha = 1.0
-        toastLabel.layer.cornerRadius = 10
-        toastLabel.clipsToBounds = true
-        UIView.animate(withDuration: 5.0, delay: 0.3, options: UIViewAnimationOptions.curveEaseOut, animations: {
-            toastLabel.alpha = 0.0
-        })
+    func changeSymbol(newInput: String, searching: [String], putting: [String]) -> String {
+        var changeInput = newInput
+        
+        for i in 0..<searchSymbols.count {
+            if changeInput == searchSymbols[i] {
+                changeInput = putSymbols[i]
+            }
+        }
+        
+        return changeInput
     }
+    
 }
