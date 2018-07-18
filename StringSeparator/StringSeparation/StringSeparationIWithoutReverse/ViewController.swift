@@ -41,8 +41,9 @@ class ViewController: UIViewController {
         result = formatString(input: input!, number: number!)
         
         outputLabel.text = result
+        
+        self.view.endEditing(true) // hiding the keyboard when the button is pressed
     }
-    
 }
 
 func formatString( input: String, number: Int) -> String {
