@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        outputLabel.text = ""
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,28 +43,26 @@ class ViewController: UIViewController {
         outputLabel.text = result
     }
     
-    func formatString( input: String, number: Int) -> String {
-        var userInput = input
-//        print("The input is: \(String(describing: userInput))")
-        
-        let countSymbols = userInput.count
-//        print("The number of characters in the string are: \(String(describing: countSymbols))")
-        
-        if (countSymbols < 3 || countSymbols > 25) {
-            print("You should enter number between 3 and 25 digits")
-        }
-        
-        let numberOfSeparators = countSymbols / number
-        
-        var numberOfSymbolsBeforeFirstSeparator = countSymbols % number
-//        print("The number of symbols before the first separator is: \(numberOfSymbolsBeforeFirstSeparator)")
-        
-        for _ in 0..<numberOfSeparators {
-            userInput.insert(" ", at: (userInput.index((userInput.startIndex), offsetBy: numberOfSymbolsBeforeFirstSeparator)))
-            numberOfSymbolsBeforeFirstSeparator += number + 1
-        }
-        
-//        print("The result is: \(String(describing: userInput))")
-        return userInput
+}
+
+func formatString( input: String, number: Int) -> String {
+    var userInput = input
+//    print("The input is: \(userInput)")
+    let countSymbols = userInput.count
+//    print("The number of characters in the string are: \(countSymbols)")
+    if (countSymbols < 3 || countSymbols > 25) {
+        print("You should enter number between 3 and 25 digits.")
     }
+    
+    let numberOfSeparators = countSymbols / number
+    
+    var numberOfSymbolsBeforeFirstSeparator = countSymbols % number
+//    print("The number of symbols before the first separator is: \(numberOfSymbolsBeforeFirstSeparator)")
+    for _ in 0..<numberOfSeparators {
+        userInput.insert(" ", at: (userInput.index((userInput.startIndex), offsetBy: numberOfSymbolsBeforeFirstSeparator)))
+        numberOfSymbolsBeforeFirstSeparator += number + 1
+    }
+    
+//    print("The result is: \(userInput)")
+    return userInput
 }
