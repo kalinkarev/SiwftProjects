@@ -48,25 +48,24 @@ class ViewController: UIViewController {
             separator = " "
         }
         
-        result = formatString(input: input!, number: number!, separator: separator!)
+        result = (input?.formatString(number: number!, separator: separator!))!
         
         outputLabel.text = result
         
         self.view.endEditing(true) // hiding the keyboard when the button is pressed
     }
 }
-    
-func formatString( input: String, number: Int, separator: String) -> String {
-    var userInput = input
 
-    let numberOfSeparators = userInput.count / number
-
-    var numberOfSymbolsBeforeFirstSeparator = userInput.count % number
-
-    for _ in 0..<numberOfSeparators {
-        userInput.insert(contentsOf: separator, at: (userInput.index(userInput.startIndex, offsetBy: numberOfSymbolsBeforeFirstSeparator)))
-        numberOfSymbolsBeforeFirstSeparator += number + separator.count
+extension String {
+    func formatString( number: Int, separator: String) -> String {
+        var userInput = self
+        let numberOfSeparators = userInput.count / number
+        var numberOfSymbolsBeforeFirstSeparator = userInput.count % number
+        
+        for _ in 0..<numberOfSeparators {
+            userInput.insert(contentsOf: separator, at: (userInput.index(userInput.startIndex, offsetBy: numberOfSymbolsBeforeFirstSeparator)))
+            numberOfSymbolsBeforeFirstSeparator += number + separator.count
+        }
+        return userInput
     }
-    
-    return userInput
 }
