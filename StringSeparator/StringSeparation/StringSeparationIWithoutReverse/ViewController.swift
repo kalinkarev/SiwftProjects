@@ -38,15 +38,15 @@ class ViewController: UIViewController {
             number = 5
         }
         
-        result = formatString(input: input!, number: number!)
+        result = formatString(input: input!, number: number!, separator: " ")
         
         outputLabel.text = result
         
         self.view.endEditing(true) // hiding the keyboard when the button is pressed
     }
 }
-
-func formatString( input: String, number: Int) -> String {
+    
+func formatString( input: String, number: Int, separator: Character) -> String {
     var userInput = input
 //    print("The input is: \(userInput)")
     let countSymbols = userInput.count
@@ -60,7 +60,7 @@ func formatString( input: String, number: Int) -> String {
     var numberOfSymbolsBeforeFirstSeparator = countSymbols % number
 //    print("The number of symbols before the first separator is: \(numberOfSymbolsBeforeFirstSeparator)")
     for _ in 0..<numberOfSeparators {
-        userInput.insert(" ", at: (userInput.index((userInput.startIndex), offsetBy: numberOfSymbolsBeforeFirstSeparator)))
+        userInput.insert(separator, at: (userInput.index((userInput.startIndex), offsetBy: numberOfSymbolsBeforeFirstSeparator)))
         numberOfSymbolsBeforeFirstSeparator += number + 1
     }
     
