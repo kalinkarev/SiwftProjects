@@ -58,21 +58,15 @@ class ViewController: UIViewController {
     
 func formatString( input: String, number: Int, separator: String) -> String {
     var userInput = input
-//    print("The input is: \(userInput)")
-    let countSymbols = userInput.count
-//    print("The number of characters in the string are: \(countSymbols)")
-    
-    let numberOfSeparators = countSymbols / number
-    
-    var numberOfSymbolsBeforeFirstSeparator = countSymbols % number
 
-    let separatorLenght = separator.count
-    
+    let numberOfSeparators = userInput.count / number
+
+    var numberOfSymbolsBeforeFirstSeparator = userInput.count % number
+
     for _ in 0..<numberOfSeparators {
         userInput.insert(contentsOf: separator, at: (userInput.index(userInput.startIndex, offsetBy: numberOfSymbolsBeforeFirstSeparator)))
-        numberOfSymbolsBeforeFirstSeparator += number + separatorLenght
+        numberOfSymbolsBeforeFirstSeparator += number + separator.count
     }
     
-//    print("The result is: \(userInput)")
     return userInput
 }
