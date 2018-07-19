@@ -40,8 +40,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the sting to separate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="het-Pk-J2m">
+                                <rect key="frame" x="16" y="136" width="251" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zfp-cQ-Mol">
-                                <rect key="frame" x="16" y="136" width="343" height="21"/>
+                                <rect key="frame" x="16" y="174" width="343" height="21"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -55,6 +62,7 @@
                         <outlet property="inputTextField" destination="BDb-um-1IA" id="qB9-rC-R8s"/>
                         <outlet property="numberSeparated" destination="aje-zq-Z2m" id="377-lB-6so"/>
                         <outlet property="outputLabel" destination="Zfp-cQ-Mol" id="0CK-eR-0Xv"/>
+                        <outlet property="separatorTextField" destination="het-Pk-J2m" id="baO-Cp-6Gb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
