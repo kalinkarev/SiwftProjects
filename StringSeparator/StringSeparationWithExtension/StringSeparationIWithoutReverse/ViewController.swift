@@ -18,7 +18,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
         outputLabel.text = ""
     }
 
@@ -29,7 +28,7 @@ class ViewController: UIViewController {
 
     // MARK: Actions
     @IBAction func formatButon(_ sender: UIButton) {
-        let input = inputTextField.text
+        var input = inputTextField.text
         var separator = separatorTextField.text
         var result = ""
         
@@ -49,23 +48,20 @@ class ViewController: UIViewController {
         }
         
         result = (input?.formatString(number: number!, separator: separator!))!
-        
         outputLabel.text = result
-        
         self.view.endEditing(true) // hiding the keyboard when the button is pressed
     }
 }
 
 extension String {
-    func formatString( number: Int, separator: String) -> String {
-        var userInput = self
-        let numberOfSeparators = userInput.count / number
-        var numberOfSymbolsBeforeFirstSeparator = userInput.count % number
+    mutating func formatString( number: Int, separator: String) -> String {
+        let numberOfSeparators = self.count / number
+        var numberOfSymbolsBeforeFirstSeparator = self.count % number
         
         for _ in 0..<numberOfSeparators {
-            userInput.insert(contentsOf: separator, at: (userInput.index(userInput.startIndex, offsetBy: numberOfSymbolsBeforeFirstSeparator)))
+            self.insert(contentsOf: separator, at: (self.index(self.startIndex, offsetBy: numberOfSymbolsBeforeFirstSeparator)))
             numberOfSymbolsBeforeFirstSeparator += number + separator.count
         }
-        return userInput
+        return self
     }
 }
