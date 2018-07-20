@@ -16,7 +16,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var searchedString: UITextField!
     @IBOutlet weak var removingString: UITextField!
     
-    var dict:[String:String] = ["new":"old", ":)":"!!"]
+    var searchDictionary:[String:String] = ["new":"old", ":)":"!!"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,8 +50,8 @@ class ViewController: UIViewController, UITextViewDelegate {
             fatalError("You inpuuted something wrong")
         }
         
-        dict[searched] = putted
-        print("The dictionary for searched symbols is: \(dict)")
+        searchDictionary[searched] = putted
+        print("The dictionary for searched symbols is: \(searchDictionary)")
         
         return (searched, putted)
     }
@@ -62,7 +62,7 @@ class ViewController: UIViewController, UITextViewDelegate {
         _ = userInput.searched
         _ = userInput.putted
 
-        outputTextView.text = inputTextWithChange(input: input, searching: dict.keys, putting: dict.values)
+        outputTextView.text = inputTextWithChange(input: input, searching: searchDictionary.keys, putting: searchDictionary.values)
     }
 
     func inputTextWithChange(input: String, searching: NSDictionary.Key, putting: NSDictionary.Value) -> String {
@@ -81,21 +81,21 @@ class ViewController: UIViewController, UITextViewDelegate {
             if (input[index] > charSpace) {
                 word.append(input[index])
             } else {
-                word = changeSymbol(newInput: word, searching: dict.keys, putting: dict.values)
+                word = changeSymbol(newInput: word, searching: searchDictionary.keys, putting: searchDictionary.values)
                 word.append(input[index])
                 final.append(word)
                 word = ""
             }
         }
-        word = changeSymbol(newInput: word, searching: dict.keys, putting: dict.values)
+        word = changeSymbol(newInput: word, searching: searchDictionary.keys, putting: searchDictionary.values)
         final.append(word)
         return final
     }
     
     func changeSymbol(newInput: String, searching: NSDictionary.Key, putting: NSDictionary.Value) -> String {
         var changeInput = newInput
-
-        for (key, value) in dict {
+        
+        for (key, value) in searchDictionary {
             if changeInput == key {
                 changeInput = value
             }
