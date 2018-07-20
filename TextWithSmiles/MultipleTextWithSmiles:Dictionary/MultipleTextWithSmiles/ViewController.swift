@@ -70,8 +70,13 @@ class ViewController: UIViewController, UITextViewDelegate {
         var final: String = ""
         
         let spaceValue = 32
-        let u = UnicodeScalar(spaceValue)
-        let charSpace = Character(u!)
+        
+        guard let u = UnicodeScalar(spaceValue) else {
+            fatalError("There is a problem with the space value")
+        }
+        
+        let charSpace = Character(u)
+        
         for index in (input.indices) {
             if (input[index] > charSpace) {
                 word.append(input[index])
