@@ -35,18 +35,25 @@ class ViewController: UIViewController, UITextViewDelegate {
     }
     
     func getInputText() -> String {
-        let input = inputTextView.text
-        return input!
+        guard let input = inputTextView.text else {
+            fatalError("You haven`t inputted a text")
+        }
+        return input
     }
     
     func getTextOfUserInput() -> (searched: String, putted: String) {
-        let searched = searchedString.text
-        let putted = removingString.text
+        guard let searched = searchedString.text else {
+            fatalError("You inputted something wrong")
+        }
 
-        dict[searched!] = putted
+        guard let putted = removingString.text else {
+            fatalError("You inpuuted something wrong")
+        }
+        
+        dict[searched] = putted
         print("The dictionary for searched symbols is: \(dict)")
         
-        return (searched!, putted!)
+        return (searched, putted)
     }
     
     func printOutputText(input: String) {
