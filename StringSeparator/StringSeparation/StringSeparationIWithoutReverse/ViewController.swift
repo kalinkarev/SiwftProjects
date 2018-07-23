@@ -29,15 +29,22 @@ class ViewController: UIViewController {
     // MARK: Actions
     @IBAction func formatButon(_ sender: UIButton) {
         
+        guard let input = inputTextField.text else {
+            fatalError("You have inputted something wrong")
+        }
         
+        guard let separator = separatorTextField.text else {
+            fatalError("You have inputted something wrong")
+        }
         
-        var input = inputTextField.text
-        var separator = separatorTextField.text
+        guard let separatedNumbers = numberSeparated.text else {
+            fatalError("You have inputted something wrong")
+        }
+        
         var result = ""
 
-        let separatedNumbers = numberSeparated.text
-
-        result = (input?.textInput(userInput: input!, separator: separator!, groupNumber: separatedNumbers!))!
+        result = input.textInput(userInput: input, separator: separator, groupNumber: separatedNumbers)
+//        result = (input.textInput(userInput: input, separator: separator!, groupNumber: separatedNumbers!))!
         
         outputLabel.text = result
         self.view.endEditing(true) // hiding the keyboard when the button is pressed
