@@ -43,15 +43,20 @@ class ViewController: UIViewController, UITextViewDelegate {
     }
     
     func getTextOfUserInput() -> (searched: String, putted: String) {
-        let searched = searchedString.text
-        let putted = removingString.text
+        guard let searched = searchedString.text else {
+            fatalError("Error with inputting a string for change")
+        }
         
-        searchSymbols.append(searched!)
-        print("The array for seached symbols is: \(searchSymbols)")
-        putSymbols.append(putted!)
+        guard let putted = removingString.text else {
+            fatalError("Error with inputting a string for putting")
+        }
+        
+        searchSymbols.append(searched)
+        print("The array for search symbols is: \(searchSymbols)")
+        putSymbols.append(putted)
         print("The array for putting symbols is: \(putSymbols)")
         
-        return (searched!, putted!)
+        return (searched, putted)
     }
     
     func printOutputText(input: String) {
