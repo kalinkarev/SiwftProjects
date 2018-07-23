@@ -47,7 +47,7 @@ class ViewController: UIViewController {
 
 extension String {
     func textInput( userInput: String, separator: String, groupNumber: String) -> String {
-        let input = userInput
+        var input = userInput
         var separator = separator
         var result = ""
         
