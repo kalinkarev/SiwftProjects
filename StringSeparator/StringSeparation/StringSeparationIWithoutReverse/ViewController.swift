@@ -28,7 +28,6 @@ class ViewController: UIViewController {
 
     // MARK: Actions
     @IBAction func formatButon(_ sender: UIButton) {
-        
         guard let input = inputTextField.text else {
             fatalError("You have inputted something wrong")
         }
@@ -41,12 +40,7 @@ class ViewController: UIViewController {
             fatalError("You have inputted something wrong")
         }
         
-        var result = ""
-
-        result = input.textInput(userInput: input, separator: separator, groupNumber: separatedNumbers)
-//        result = (input.textInput(userInput: input, separator: separator!, groupNumber: separatedNumbers!))!
-        
-        outputLabel.text = result
+        outputLabel.text = input.textInput(userInput: input, separator: separator, groupNumber: separatedNumbers)
         self.view.endEditing(true) // hiding the keyboard when the button is pressed
     }
 }
