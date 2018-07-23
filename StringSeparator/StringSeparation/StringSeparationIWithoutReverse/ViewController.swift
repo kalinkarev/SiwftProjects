@@ -47,7 +47,7 @@ class ViewController: UIViewController {
 
 extension String {
     func textInput( userInput: String, separator: String, groupNumber: String) -> String {
-        var input = userInput
+        let input = userInput
         var separator = separator
         var result = ""
         
@@ -70,14 +70,15 @@ extension String {
         return result
     }
     
-    mutating func formatString( number: Int, separator: String) -> String {
-        let numberOfSeparators = self.count / number
-        var numberOfSymbolsBeforeFirstSeparator = self.count % number
+    func formatString( number: Int, separator: String) -> String {
+        var userInput = self
+        let numberOfSeparators = userInput.count / number
+        var numberOfSymbolsBeforeFirstSeparator = userInput.count % number
         
         for _ in 0..<numberOfSeparators {
-            self.insert(contentsOf: separator, at: (self.index(self.startIndex, offsetBy: numberOfSymbolsBeforeFirstSeparator)))
+            userInput.insert(contentsOf: separator, at: (userInput.index(userInput.startIndex, offsetBy: numberOfSymbolsBeforeFirstSeparator)))
             numberOfSymbolsBeforeFirstSeparator += number + separator.count
         }
-        return self
+        return userInput
     }
 }
