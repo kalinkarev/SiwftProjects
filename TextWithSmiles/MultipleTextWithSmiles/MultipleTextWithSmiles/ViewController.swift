@@ -75,8 +75,10 @@ extension ViewController {
         var final: String = ""
         
         let spaceValue = 32
-        let u = UnicodeScalar(spaceValue)
-        let charSpace = Character(u!)
+        guard let u = UnicodeScalar(spaceValue) else {
+            fatalError("Error with the space character")
+        }
+        let charSpace = Character(u)
         for index in (input.indices) {
             if (input[index] > charSpace) {
                 word.append(input[index])
