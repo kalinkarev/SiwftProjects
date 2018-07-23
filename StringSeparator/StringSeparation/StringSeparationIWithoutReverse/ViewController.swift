@@ -46,7 +46,6 @@ class ViewController: UIViewController {
 }
 
 extension String {
-    
     func textInput( userInput: String, separator: String, groupNumber: String) -> String {
         var input = userInput
         var separator = separator
