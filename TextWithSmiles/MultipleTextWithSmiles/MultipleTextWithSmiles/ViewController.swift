@@ -36,8 +36,10 @@ class ViewController: UIViewController, UITextViewDelegate {
     }
     
     func getInputText() -> String {
-        let input = inputTextView.text
-        return input!
+        guard let input = inputTextView.text else {
+            fatalError("You have inputtesd something wrong")
+        }
+        return input
     }
     
     func getTextOfUserInput() -> (searched: String, putted: String) {
