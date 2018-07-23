@@ -42,7 +42,8 @@ class ViewController: UIViewController, UITextViewDelegate {
         return input
     }
     
-    func getTextOfUserInput() -> (searched: String, putted: String) {
+    func printOutputText(input: String) {
+
         guard let searched = searchedString.text else {
             fatalError("Error with inputting a string for change")
         }
@@ -56,15 +57,6 @@ class ViewController: UIViewController, UITextViewDelegate {
         putSymbols.append(putted)
         print("The array for putting symbols is: \(putSymbols)")
         
-        return (searched, putted)
-    }
-    
-    func printOutputText(input: String) {
-
-        let userInput = getTextOfUserInput()
-        _ = userInput.searched
-        _ = userInput.putted
-
         outputTextView.text = inputTextWithChange(input: input, searching: searchSymbols, putting: putSymbols)
     }    
 }
