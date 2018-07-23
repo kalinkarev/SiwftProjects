@@ -59,8 +59,10 @@ class ViewController: UIViewController, UITextViewDelegate {
         _ = userInput.putted
 
         outputTextView.text = inputTextWithChange(input: input, searching: searchSymbols, putting: putSymbols)
-    }
+    }    
+}
 
+extension ViewController {
     func inputTextWithChange(input: String, searching: [String], putting: [String]) -> String {
         var word: String = ""
         var final: String = ""
@@ -91,8 +93,9 @@ class ViewController: UIViewController, UITextViewDelegate {
                 changeInput = putSymbols[i]
             }
         }
-        
         return changeInput
     }
-    
 }
+
+
+
