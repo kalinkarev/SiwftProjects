@@ -38,6 +38,7 @@ class ViewController: UIViewController, UITextViewDelegate {
         guard let input = inputTextView.text else {
             fatalError("You haven`t inputted a text")
         }
+                
         return input
     }
     
@@ -62,40 +63,83 @@ class ViewController: UIViewController, UITextViewDelegate {
         _ = userInput.searched
         _ = userInput.putted
 
-        outputTextView.text = inputTextWithChange(input: input, searching: searchDictionary.keys, putting: searchDictionary.values)
+//        outputTextView.text = inputTextWithChange(input: input, searching: searchDictionary.keys, putting: searchDictionary.values)
+        outputTextView.text = input.inputTextWithChange(dict: searchDictionary)
     }
 
-    func inputTextWithChange(input: String, searching: NSDictionary.Key, putting: NSDictionary.Value) -> String {
+//    func inputTextWithChange(input: String, searching: NSDictionary.Key, putting: NSDictionary.Value) -> String {
+//        var word: String = ""
+//        var final: String = ""
+//
+//        let spaceValue = 32
+//
+//        guard let u = UnicodeScalar(spaceValue) else {
+//            fatalError("There is a problem with the space value")
+//        }
+//
+//        let charSpace = Character(u)
+//
+//        for index in (input.indices) {
+//            if (input[index] > charSpace) {
+//                word.append(input[index])
+//            } else {
+//                word = changeSymbol(newInput: word, searching: searchDictionary.keys, putting: searchDictionary.values)
+//                word.append(input[index])
+//                final.append(word)
+//                word = ""
+//            }
+//        }
+//        word = changeSymbol(newInput: word, searching: searchDictionary.keys, putting: searchDictionary.values)
+//        final.append(word)
+//        return final
+//    }
+//
+//    func changeSymbol(newInput: String, searching: NSDictionary.Key, putting: NSDictionary.Value) -> String {
+//        var changeInput = newInput
+//
+//        for (key, value) in searchDictionary {
+//            if changeInput == key {
+//                changeInput = value
+//            }
+//        }
+//
+//        return changeInput
+//    }
+    
+}
+
+extension String {
+    func inputTextWithChange(dict:[String:String]) -> String {
+        let input = self
         var word: String = ""
         var final: String = ""
         
         let spaceValue = 32
-        
         guard let u = UnicodeScalar(spaceValue) else {
-            fatalError("There is a problem with the space value")
+            fatalError("Problem with the space value")
         }
-        
         let charSpace = Character(u)
         
         for index in (input.indices) {
             if (input[index] > charSpace) {
                 word.append(input[index])
             } else {
-                word = changeSymbol(newInput: word, searching: searchDictionary.keys, putting: searchDictionary.values)
+                word = changeSymbol(newInput: word, dictionarySearch: dict)
                 word.append(input[index])
                 final.append(word)
                 word = ""
             }
         }
-        word = changeSymbol(newInput: word, searching: searchDictionary.keys, putting: searchDictionary.values)
+        
+        word = changeSymbol(newInput: word, dictionarySearch: dict)
         final.append(word)
         return final
     }
     
-    func changeSymbol(newInput: String, searching: NSDictionary.Key, putting: NSDictionary.Value) -> String {
+    func changeSymbol(newInput: String, dictionarySearch: [String:String]) -> String {
         var changeInput = newInput
         
-        for (key, value) in searchDictionary {
+        for (key, value) in dictionarySearch {
             if changeInput == key {
                 changeInput = value
             }
@@ -103,5 +147,4 @@ class ViewController: UIViewController, UITextViewDelegate {
         
         return changeInput
     }
-    
 }
