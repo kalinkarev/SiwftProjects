@@ -37,13 +37,19 @@ class ViewController: UIViewController, UITextViewDelegate {
     
     func getInputText() -> String {
         guard let input = inputTextView.text else {
-            fatalError("You have inputtesd something wrong")
+            fatalError("You have inputted something wrong")
         }
+        
+//        let input = """
+//                        He is the :)
+//                        She has new car
+//                        """
+        
         return input
     }
     
     func printOutputText(input: String) {
-
+        
         guard let searched = searchedString.text else {
             fatalError("Error with inputting a string for change")
         }
@@ -57,12 +63,16 @@ class ViewController: UIViewController, UITextViewDelegate {
         putSymbols.append(putted)
         print("The array for putting symbols is: \(putSymbols)")
         
-        outputTextView.text = inputTextWithChange(input: input, searching: searchSymbols, putting: putSymbols)
-    }    
+        let result = input.inputTextWithChange(searching: searchSymbols, putting: putSymbols)
+        print("The result of the changed input is: \(result)")
+        
+        outputTextView.text = result
+    }
 }
 
-extension ViewController {
-    func inputTextWithChange(input: String, searching: [String], putting: [String]) -> String {
+extension String {
+    func inputTextWithChange(searching: [String], putting: [String]) -> String {
+        let input = self
         var word: String = ""
         var final: String = ""
         
@@ -71,27 +81,28 @@ extension ViewController {
             fatalError("Error with the space character")
         }
         let charSpace = Character(u)
+        
         for index in (input.indices) {
             if (input[index] > charSpace) {
                 word.append(input[index])
             } else {
-                word = changeSymbol(newInput: word, searching: searchSymbols, putting: putSymbols)
+                word = changeSymbol(newInput: word, searching: searching, putting: putting)
                 word.append(input[index])
                 final.append(word)
                 word = ""
             }
         }
-        word = changeSymbol(newInput: word, searching: searchSymbols, putting: putSymbols)
+        word = changeSymbol(newInput: word, searching: searching, putting: putting)
         final.append(word)
         return final
     }
     
-    func changeSymbol(newInput: String, searching: [String], putting: [String]) -> String {
+    func changeSymbol( newInput: String, searching: [String], putting: [String]) -> String {
         var changeInput = newInput
         
-        for i in 0..<searchSymbols.count {
-            if changeInput == searchSymbols[i] {
-                changeInput = putSymbols[i]
+        for i in 0..<searching.count {
+            if changeInput == searching[i] {
+                changeInput = putting[i]
             }
         }
         return changeInput
@@ -99,4 +110,91 @@ extension ViewController {
 }
 
 
+//extension String {
+//    func inputTextWithChange( searchArr: [String], putArr: [String]) -> String {
+//        var input = self
+//        var word: String = ""
+//        var final: String = ""
+//
+//        let spaceValue = 32
+//        guard let u = UnicodeScalar(spaceValue) else {
+//            fatalError("Error with the space character")
+//        }
+//        let charSpace = Character(u)
+//
+//        for index in (input.indices) {
+//            if (input[index] > charSpace) {
+//                word.append(input[index])
+//            } else {
+//                word = changeSymbol(searching: searchArr , putting: putArr)
+//                word.append(input[index])
+//                final.append(word)
+//                word = ""
+//            }
+//        }
+//        word = changeSymbol(searching: searchArr, putting: putArr)
+//        final.append(word)
+//        return final
+//    }
+//
+//    func changeSymbol( searching: [String], putting: [String]) -> String {
+//        var changeInput = self
+//
+//        for i in 0..<searching.count {
+//            if changeInput == searching[i] {
+////                changeInput = putting[i]
+//                print("Have found")
+//            }
+//        }
+//        return changeInput
+//    }
+//}
+
+//extension String {
+//    func inputTextWithChange(input: String, searching: [String], putting: [String]) -> String {
+//        var word: String = ""
+//        var final: String = ""
+//
+//        let spaceValue = 32
+//        guard let u = UnicodeScalar(spaceValue) else {
+//            fatalError("Error with the space character")
+//        }
+//        let charSpace = Character(u)
+//        for index in (input.indices) {
+//            if (input[index] > charSpace) {
+//                word.append(input[index])
+//            } else {
+////                word = changeSymbol(newInput: word, searching: searching, putting: putting)
+//                word = changeSymbol(searching: searching, putting: putting)
+//                word.append(input[index])
+//                final.append(word)
+//                word = ""
+//            }
+//        }
+////        word = changeSymbol(newInput: word, searching: searchSymbols, putting: putSymbols)
+//        word = changeSymbol(searching: searching, putting: putting)
+//        final.append(word)
+//        return final
+//    }
+//
+//    func changeSymbol( searching: [String], putting: [String]) -> String {
+//        var changeInput = self
+//
+////        print("The string for change is: \(changeInput)")
+//
+//        for i in 0..<searching.count {
+//            if changeInput == searching[i] {
+//                print("Have found a word")
+////                changeInput = putting[i]
+//            }
+//        }
+//
+////        for i in 0..<searchSymbols.count {
+////            if changeInput == searchSymbols[i] {
+////                changeInput = putSymbols[i]
+////            }
+////        }
+//        return changeInput
+//    }
+//}
 
