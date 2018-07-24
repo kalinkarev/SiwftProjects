@@ -40,11 +40,6 @@ class ViewController: UIViewController, UITextViewDelegate {
             fatalError("You have inputted something wrong")
         }
         
-//        let input = """
-//                        He is the :)
-//                        She has new car
-//                        """
-        
         return input
     }
     
@@ -63,10 +58,13 @@ class ViewController: UIViewController, UITextViewDelegate {
         putSymbols.append(putted)
         print("The array for putting symbols is: \(putSymbols)")
         
-        let result = input.inputTextWithChange(searching: searchSymbols, putting: putSymbols)
-        print("The result of the changed input is: \(result)")
+//        let result = input.inputTextWithChange(searching: searchSymbols, putting: putSymbols)
+//        print("The result of the changed input is: \(result)")
+//
+//        outputTextView.text = result
         
-        outputTextView.text = result
+        outputTextView.text = input.inputTextWithChange(searching: searchSymbols, putting: putSymbols)
+        
     }
 }
 
@@ -108,93 +106,3 @@ extension String {
         return changeInput
     }
 }
-
-
-//extension String {
-//    func inputTextWithChange( searchArr: [String], putArr: [String]) -> String {
-//        var input = self
-//        var word: String = ""
-//        var final: String = ""
-//
-//        let spaceValue = 32
-//        guard let u = UnicodeScalar(spaceValue) else {
-//            fatalError("Error with the space character")
-//        }
-//        let charSpace = Character(u)
-//
-//        for index in (input.indices) {
-//            if (input[index] > charSpace) {
-//                word.append(input[index])
-//            } else {
-//                word = changeSymbol(searching: searchArr , putting: putArr)
-//                word.append(input[index])
-//                final.append(word)
-//                word = ""
-//            }
-//        }
-//        word = changeSymbol(searching: searchArr, putting: putArr)
-//        final.append(word)
-//        return final
-//    }
-//
-//    func changeSymbol( searching: [String], putting: [String]) -> String {
-//        var changeInput = self
-//
-//        for i in 0..<searching.count {
-//            if changeInput == searching[i] {
-////                changeInput = putting[i]
-//                print("Have found")
-//            }
-//        }
-//        return changeInput
-//    }
-//}
-
-//extension String {
-//    func inputTextWithChange(input: String, searching: [String], putting: [String]) -> String {
-//        var word: String = ""
-//        var final: String = ""
-//
-//        let spaceValue = 32
-//        guard let u = UnicodeScalar(spaceValue) else {
-//            fatalError("Error with the space character")
-//        }
-//        let charSpace = Character(u)
-//        for index in (input.indices) {
-//            if (input[index] > charSpace) {
-//                word.append(input[index])
-//            } else {
-////                word = changeSymbol(newInput: word, searching: searching, putting: putting)
-//                word = changeSymbol(searching: searching, putting: putting)
-//                word.append(input[index])
-//                final.append(word)
-//                word = ""
-//            }
-//        }
-////        word = changeSymbol(newInput: word, searching: searchSymbols, putting: putSymbols)
-//        word = changeSymbol(searching: searching, putting: putting)
-//        final.append(word)
-//        return final
-//    }
-//
-//    func changeSymbol( searching: [String], putting: [String]) -> String {
-//        var changeInput = self
-//
-////        print("The string for change is: \(changeInput)")
-//
-//        for i in 0..<searching.count {
-//            if changeInput == searching[i] {
-//                print("Have found a word")
-////                changeInput = putting[i]
-//            }
-//        }
-//
-////        for i in 0..<searchSymbols.count {
-////            if changeInput == searchSymbols[i] {
-////                changeInput = putSymbols[i]
-////            }
-////        }
-//        return changeInput
-//    }
-//}
-
