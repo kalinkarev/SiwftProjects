@@ -54,17 +54,9 @@ class ViewController: UIViewController, UITextViewDelegate {
         }
         
         searchSymbols.append(searched)
-        print("The array for search symbols is: \(searchSymbols)")
         putSymbols.append(putted)
-        print("The array for putting symbols is: \(putSymbols)")
-        
-//        let result = input.inputTextWithChange(searching: searchSymbols, putting: putSymbols)
-//        print("The result of the changed input is: \(result)")
-//
-//        outputTextView.text = result
         
         outputTextView.text = input.inputTextWithChange(searching: searchSymbols, putting: putSymbols)
-        
     }
 }
 
