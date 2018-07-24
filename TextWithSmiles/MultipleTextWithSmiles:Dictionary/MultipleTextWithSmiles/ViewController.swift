@@ -64,7 +64,7 @@ class ViewController: UIViewController, UITextViewDelegate {
         _ = userInput.putted
 
         outputTextView.text = input.inputTextWithChange(dict: searchDictionary)
-    }    
+    }
 }
 
 extension String {
