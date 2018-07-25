@@ -69,7 +69,6 @@ class ViewController: UIViewController, UITextViewDelegate {
 
 extension String {
     func inputTextWithChange(dict:[String:String]) -> String {
-        let input = self
         var word: String = ""
         var final: String = ""
         
@@ -79,12 +78,12 @@ extension String {
         }
         let charSpace = Character(u)
         
-        for index in (input.indices) {
-            if (input[index] > charSpace) {
-                word.append(input[index])
+        for index in (self.indices) {
+            if (self[index] > charSpace) {
+                word.append(self[index])
             } else {
                 word = changeSymbol(newInput: word, dictionarySearch: dict)
-                word.append(input[index])
+                word.append(self[index])
                 final.append(word)
                 word = ""
             }
