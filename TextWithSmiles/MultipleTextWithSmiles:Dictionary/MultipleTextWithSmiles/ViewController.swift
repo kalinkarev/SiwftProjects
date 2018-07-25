@@ -30,45 +30,29 @@ class ViewController: UIViewController, UITextViewDelegate {
 
     // MARK: Actions
     @IBAction func btnChanged(_ sender: UIButton) {
-        let entered = getInputText()
+        guard let entered = inputTextView.text else {
+            fatalError("You have inputted something wrong")
+        }
+        
         printOutputText(input: entered)
     }
     
-    func getInputText() -> String {
-        guard let input = inputTextView.text else {
-            fatalError("You haven`t inputted a text")
-        }
-        
-        return input
-    }
-    
-    func getTextOfUserInput() -> (searched: String, putted: String) {
+    func printOutputText(input: String) {
         guard let searched = searchedString.text else {
-            fatalError("You inputted something wrong")
+            fatalError("Error with inputting a string for change")
         }
-
         guard let putted = removingString.text else {
-            fatalError("You inpuuted something wrong")
+            fatalError("Error with inputting a string for putting")
         }
-        
         searchDictionary[searched] = putted
         print("The dictionary for searched symbols is: \(searchDictionary)")
         
-        return (searched, putted)
-    }
-    
-    func printOutputText(input: String) {
-
-        let userInput = getTextOfUserInput()
-        _ = userInput.searched
-        _ = userInput.putted
-
-        outputTextView.text = input.inputTextWithChange(dict: searchDictionary)
+        outputTextView.text = input.changeInput(dict: searchDictionary)
     }
 }
 
 extension String {
-    func inputTextWithChange(dict:[String:String]) -> String {
+    func changeInput(dict:[String:String]) -> String {
         var word: String = ""
         var final: String = ""
         
