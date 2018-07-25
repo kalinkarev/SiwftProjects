@@ -41,7 +41,7 @@ class ViewController: UIViewController, UITextViewDelegate {
         guard let searched = searchedString.text else {
             fatalError("Error with inputting a string for change")
         }
-        
+
         guard let putted = removingString.text else {
             fatalError("Error with inputting a string for putting")
         }
@@ -59,7 +59,7 @@ extension String {
         
         let spaceValue = 32
         guard let u = UnicodeScalar(spaceValue) else {
-            fatalError("Problem with the space value")
+            fatalError("Problems with the unwrapping of space value")
         }
         let charSpace = Character(u)
         
@@ -67,20 +67,20 @@ extension String {
             if (self[index] > charSpace) {
                 word.append(self[index])
             } else {
-                word = changeSymbol(newInput: word, dictionarySearch: dictSearch)
+                word = changeSymbol(input: word, dictionarySearch: dictSearch)
                 word.append(self[index])
                 final.append(word)
                 word = ""
             }
         }
         
-        word = changeSymbol(newInput: word, dictionarySearch: dictSearch)
+        word = changeSymbol(input: word, dictionarySearch: dictSearch)
         final.append(word)
         return final
     }
     
-    func changeSymbol(newInput: String, dictionarySearch: [String:String]) -> String {
-        var changeInput = newInput
+    func changeSymbol(input: String, dictionarySearch: [String:String]) -> String {
+        var changeInput = input
         
         for (key, value) in dictionarySearch {
             if changeInput == key {
