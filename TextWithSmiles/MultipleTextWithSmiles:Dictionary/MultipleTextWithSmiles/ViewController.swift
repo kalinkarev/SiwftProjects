@@ -41,11 +41,12 @@ class ViewController: UIViewController, UITextViewDelegate {
         guard let searched = searchedString.text else {
             fatalError("Error with inputting a string for change")
         }
+        
         guard let putted = removingString.text else {
             fatalError("Error with inputting a string for putting")
         }
+        
         searchDictionary[searched] = putted
-        print("The dictionary for searched symbols is: \(searchDictionary)")
         
         outputTextView.text = input.changeInput(dict: searchDictionary)
     }
