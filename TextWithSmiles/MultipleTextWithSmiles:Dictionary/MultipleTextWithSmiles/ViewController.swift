@@ -48,12 +48,12 @@ class ViewController: UIViewController, UITextViewDelegate {
         
         searchDictionary[searched] = putted
         
-        outputTextView.text = input.changeInput(dict: searchDictionary)
+        outputTextView.text = input.changeInput(dictSearch: searchDictionary)
     }
 }
 
 extension String {
-    func changeInput(dict:[String:String]) -> String {
+    func changeInput(dictSearch:[String:String]) -> String {
         var word: String = ""
         var final: String = ""
         
@@ -67,14 +67,14 @@ extension String {
             if (self[index] > charSpace) {
                 word.append(self[index])
             } else {
-                word = changeSymbol(newInput: word, dictionarySearch: dict)
+                word = changeSymbol(newInput: word, dictionarySearch: dictSearch)
                 word.append(self[index])
                 final.append(word)
                 word = ""
             }
         }
         
-        word = changeSymbol(newInput: word, dictionarySearch: dict)
+        word = changeSymbol(newInput: word, dictionarySearch: dictSearch)
         final.append(word)
         return final
     }
