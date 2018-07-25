@@ -16,8 +16,8 @@ class ViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var searchedString: UITextField!
     @IBOutlet weak var removingString: UITextField!
     
-    var searchSymbols: [String] = [":)", "new"]
-    var putSymbols: [String] = ["!!", "old"]
+    var searchSymbols: [String] = ["1", "2"]
+    var putSymbols: [String] = ["X"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,12 +51,13 @@ class ViewController: UIViewController, UITextViewDelegate {
         searchSymbols.append(searched)
         putSymbols.append(putted)
         
-        outputTextView.text = input.inputTextWithChange(searching: searchSymbols, putting: putSymbols)
+//        outputTextView.text = input.inputTextWithChange(searching: searchSymbols, putting: putSymbols)
+        outputTextView.text = input.changeInput(searching: searchSymbols, putting: putSymbols)
     }
 }
 
 extension String {
-    func inputTextWithChange(searching: [String], putting: [String]) -> String {
+    func changeInput(searching: [String], putting: [String]) -> String {
         var word: String = ""
         var final: String = ""
         
