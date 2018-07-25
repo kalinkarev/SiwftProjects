@@ -31,16 +31,11 @@ class ViewController: UIViewController, UITextViewDelegate {
 
     // MARK: Actions
     @IBAction func btnChanged(_ sender: UIButton) {
-        let entered = getInputText()
-        printOutputText(input: entered)
-    }
-    
-    func getInputText() -> String {
-        guard let input = inputTextView.text else {
+        guard let entered = inputTextView.text else {
             fatalError("You have inputted something wrong")
         }
         
-        return input
+        printOutputText(input: entered)
     }
     
     func printOutputText(input: String) {
