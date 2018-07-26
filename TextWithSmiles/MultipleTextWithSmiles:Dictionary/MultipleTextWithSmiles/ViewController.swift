@@ -79,7 +79,7 @@ extension String {
         return final
     }
 
-    func changeWord(word: String, dictionarySearch: [String:String]) -> String {
+    func changeWord(word: String, dictionarySearch:[String:String]) -> String {
         var changeWord = word
         
         for (key, value) in dictionarySearch {
