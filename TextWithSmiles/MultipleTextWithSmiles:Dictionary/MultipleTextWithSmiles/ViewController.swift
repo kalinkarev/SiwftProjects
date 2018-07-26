@@ -30,14 +30,14 @@ class ViewController: UIViewController, UITextViewDelegate {
 
     // MARK: Actions
     @IBAction func btnChanged(_ sender: UIButton) {
-        guard let entered = inputTextView.text else {
+        printOutputText()
+    }
+    
+    func printOutputText() {
+        guard let input = inputTextView.text else {
             fatalError("You have inputted something wrong")
         }
         
-        printOutputText(input: entered)
-    }
-    
-    func printOutputText(input: String) {
         guard let searched = searchedString.text else {
             fatalError("Error with inputting a string for change")
         }
@@ -67,27 +67,27 @@ extension String {
             if (self[index] > charSpace) {
                 word.append(self[index])
             } else {
-                word = changeSymbol(input: word, dictionarySearch: dictSearch)
+                word = changeWord(word: word, dictionarySearch: dictSearch)
                 word.append(self[index])
                 final.append(word)
                 word = ""
             }
         }
         
-        word = changeSymbol(input: word, dictionarySearch: dictSearch)
+        word = changeWord(word: word, dictionarySearch: dictSearch)
         final.append(word)
         return final
     }
-    
-    func changeSymbol(input: String, dictionarySearch: [String:String]) -> String {
-        var changeInput = input
+
+    func changeWord(word: String, dictionarySearch: [String:String]) -> String {
+        var changeWord = word
         
         for (key, value) in dictionarySearch {
-            if changeInput == key {
-                changeInput = value
+            if changeWord == key {
+                changeWord = value
             }
         }
         
-        return changeInput
+        return changeWord
     }
 }
