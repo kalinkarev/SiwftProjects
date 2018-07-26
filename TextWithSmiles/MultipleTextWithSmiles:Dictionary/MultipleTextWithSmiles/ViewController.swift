@@ -16,7 +16,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var searchedString: UITextField!
     @IBOutlet weak var removingString: UITextField!
 
-    var searchDictionary:[String:String] = [":)":"!!", "new":"old"]
+    var searchDictionary:[String:String] = [":)":"!!", "new":"old", "!!":"@@"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +54,7 @@ class ViewController: UIViewController, UITextViewDelegate {
         guard let input = inputTextView.text else {
             fatalError("You have inputted something wrong")
         }
-
+        
         guard let searched = searchedString.text else {
             fatalError("Error with inputting a string for change")
         }
@@ -96,14 +96,13 @@ extension String {
         return final
     }
 
-    func changeWord(dictionarySearch: [String:String]) -> String {
+    func changeWord(dictionarySearch:[String:String]) -> String {
         var changeWord = self
-        
-        for (key, value) in dictionarySearch {
-            if changeWord == key {
-                changeWord = value
-            }
+
+        if dictionarySearch.keys.contains(changeWord) {
+            changeWord = dictionarySearch[changeWord]!
         }
         return changeWord
     }
+    
 }
