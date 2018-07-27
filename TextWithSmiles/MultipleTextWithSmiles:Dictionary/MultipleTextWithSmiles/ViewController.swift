@@ -71,8 +71,8 @@ class ViewController: UIViewController, UITextViewDelegate {
 
 extension String {
     func changeInput(dictSearch:[String:String]) -> String {
-        var word = ""
-        var final = ""
+        var word:String = ""
+        var final:String = ""
 
         let spaceValue = 32
         guard let u = UnicodeScalar(spaceValue) else {
