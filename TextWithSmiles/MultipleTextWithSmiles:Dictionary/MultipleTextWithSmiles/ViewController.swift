@@ -16,7 +16,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var searchedString: UITextField!
     @IBOutlet weak var removingString: UITextField!
 
-    var searchDictionary:[String:String] = [":)":"!!", "new":"old", "!!":"@@"]
+    var searchDictionary:[String:String] = ["first":"last", "next":"previous", "new":"old", "last":"this"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,15 +95,13 @@ extension String {
         final.append(word)
         return final
     }
-
+    
     func changeWord(dictionarySearch:[String:String]) -> String {
-        var changeWord = self
-
-        if dictionarySearch.keys.contains(changeWord) {
-            changeWord = dictionarySearch[changeWord]!
+        if dictionarySearch.keys.contains(self) {
+            return dictionarySearch[self]!
+        } else {
+            return self
         }
-        return changeWord
-//        return dictionarySearch[changeWord]!
     }
     
 }
