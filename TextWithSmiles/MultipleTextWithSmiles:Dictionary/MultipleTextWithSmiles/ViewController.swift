@@ -95,7 +95,7 @@ extension String {
         final.append(word)
         return final
     }
-    
+
     func changeWord(dictionarySearch:[String:String]) -> String {
         if dictionarySearch.keys.contains(self) {
             return dictionarySearch[self]!
@@ -103,5 +103,5 @@ extension String {
             return self
         }
     }
-    
+
 }
