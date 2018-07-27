@@ -103,6 +103,7 @@ extension String {
             changeWord = dictionarySearch[changeWord]!
         }
         return changeWord
+//        return dictionarySearch[changeWord]!
     }
     
 }
