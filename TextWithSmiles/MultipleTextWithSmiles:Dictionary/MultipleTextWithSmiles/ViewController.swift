@@ -84,24 +84,16 @@ extension String {
             if self[index] > charSpace {
                 word.append(self[index])
             } else {
-                word = word.changeWord(dictionarySearch: dictSearch)
+                word = dictSearch[word] ?? word
                 word.append(self[index])
                 final.append(word)
                 word = ""
             }
         }
 
-        word = word.changeWord(dictionarySearch: dictSearch)
+        word = dictSearch[word] ?? word
         final.append(word)
         return final
-    }
-
-    func changeWord(dictionarySearch:[String:String]) -> String {
-        if dictionarySearch.keys.contains(self) {
-            return dictionarySearch[self]!
-        } else {
-            return self
-        }
     }
 
 }
