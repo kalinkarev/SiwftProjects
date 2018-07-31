@@ -10,11 +10,12 @@ import UIKit
 
 class AddGolfViewController: UIViewController {
 
+    var sessionNumber: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-//        showActionSheet()
         showAlert()
     }
 
@@ -31,9 +32,11 @@ class AddGolfViewController: UIViewController {
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
         print("You have pressed the save button")
+        print("The number is: \(sessionNumber)")
     }
     
     func showAlert() {
+        
         let alert = UIAlertController(title: "Choose how many dupki do you want",
                                       message: "Submit something",
                                       preferredStyle: .alert
@@ -44,7 +47,12 @@ class AddGolfViewController: UIViewController {
             (action) -> Void in
             // Get 1st TextField`s text
             let textField = alert.textFields![0]
-            print(textField.text!)
+            
+            let number = Int(textField.text!)
+            
+            self.sessionNumber = number!
+            
+            self.showTexts()
         })
         
         // Cancel button
@@ -67,94 +75,9 @@ class AddGolfViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    func showActionSheet() -> Int {
-        
-        var numberDupki: Int = 0
-        
-        let alertController = UIAlertController(title: "Choose how many dupki", message: nil, preferredStyle: .actionSheet)
-
-        let nineButton = UIAlertAction(title: "Nine dupki", style: .default, handler: {
-            (action) -> Void  in
-            print("Nine dupki")
-            numberDupki = 9
-            print("The number of dupki is: \(numberDupki)")
-        })
-        
-        let tenButton = UIAlertAction(title: "Ten dupki", style: .default, handler: {
-            (action) -> Void in
-            print("Ten dupki")
-            numberDupki = 10
-        })
-        
-        let elevenButton = UIAlertAction(title: "Eleven dupki", style: .default, handler: {
-            (action) -> Void in
-            print("Eleven dupki")
-            numberDupki = 11
-        })
-
-        let twelveButton = UIAlertAction(title: "Twelve dupki", style: .default, handler: {
-            (action) -> Void in
-            print("Twelve dupki")
-            numberDupki = 12
-        })
-        
-        let thirteenButton = UIAlertAction(title: "Thirteen dupki", style: .default, handler: {
-            (action) -> Void in
-            print("Thirteen dupki")
-            numberDupki = 13
-        })
-        
-        let fourteenButton = UIAlertAction(title: "Fourteen dupki", style: .default, handler: {
-            (action) -> Void in
-            print("Fourteen dupki")
-            numberDupki = 14
-        })
-        
-        let fifteenButton = UIAlertAction(title: "Fifteen dupki", style: .default, handler: {
-            (action) -> Void in
-            print("Fifteen dupki")
-            numberDupki = 15
-        })
-        
-        let sixteenButton = UIAlertAction(title: "Sixteen dupki", style: .default, handler: {
-            (action) -> Void in
-            print("Sixteen dupki")
-            numberDupki = 16
-        })
-        
-        let seventeenButton = UIAlertAction(title: "Seventeen dupki", style: .default, handler: {
-            (action) -> Void in
-            print("Seventeen dupki")
-            numberDupki = 17
-        })
-        
-        let eighteenButton = UIAlertAction(title: "Eighteen dupki", style: .default, handler: {
-            (action) -> Void in
-            print("Eighteen dupki")
-            numberDupki = 18
-        })
-        
-        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: {
-            (action) -> Void in
-            print("Cancel button tapped")
-        })
-        
-        alertController.addAction(nineButton)
-        alertController.addAction(tenButton)
-        alertController.addAction(elevenButton)
-        alertController.addAction(twelveButton)
-        alertController.addAction(thirteenButton)
-        alertController.addAction(fourteenButton)
-        alertController.addAction(fifteenButton)
-        alertController.addAction(sixteenButton)
-        alertController.addAction(seventeenButton)
-        alertController.addAction(eighteenButton)
-        alertController.addAction(cancelButton)
-        
-        self.present(alertController, animated: true, completion: nil)
-        
-        print("The number of dupki is: \(numberDupki)")
-        return numberDupki
+    func showTexts() {
+        createLabel(number: sessionNumber)
+        createTextField(number: sessionNumber)
     }
     
     func createLabel( number: Int) {
@@ -201,12 +124,11 @@ class AddGolfViewController: UIViewController {
             myTextView.font = .systemFont(ofSize: 13)
             myTextView.text = "The points are: \(j + 1)"
             self.view.addSubview(myTextView)
-            
+
             j += 1
             n += 20
         }
     }
-
     
     /*
     // MARK: - Navigation
