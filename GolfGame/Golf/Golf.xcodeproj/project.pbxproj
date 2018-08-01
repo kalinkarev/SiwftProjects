@@ -14,6 +14,7 @@
 		A93E848B210F29F0000B7C5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A93E8489210F29F0000B7C5D /* LaunchScreen.storyboard */; };
 		A93E8493210F3786000B7C5D /* GolfTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93E8492210F3786000B7C5D /* GolfTableViewCell.swift */; };
 		A93E8495210F3B15000B7C5D /* AddGolfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93E8494210F3B15000B7C5D /* AddGolfViewController.swift */; };
+		A9AA33A92111C7FE0079D066 /* AddGolfTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AA33A82111C7FE0079D066 /* AddGolfTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		A93E848C210F29F0000B7C5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A93E8492210F3786000B7C5D /* GolfTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GolfTableViewCell.swift; sourceTree = "<group>"; };
 		A93E8494210F3B15000B7C5D /* AddGolfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGolfViewController.swift; sourceTree = "<group>"; };
+		A9AA33A82111C7FE0079D066 /* AddGolfTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGolfTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				A93E8482210F29F0000B7C5D /* ViewController.swift */,
 				A93E8492210F3786000B7C5D /* GolfTableViewCell.swift */,
 				A93E8494210F3B15000B7C5D /* AddGolfViewController.swift */,
+				A9AA33A82111C7FE0079D066 /* AddGolfTableViewCell.swift */,
 				A93E8484210F29F0000B7C5D /* Main.storyboard */,
 				A93E8487210F29F0000B7C5D /* Assets.xcassets */,
 				A93E8489210F29F0000B7C5D /* LaunchScreen.storyboard */,
@@ -144,6 +147,7 @@
 			files = (
 				A93E8483210F29F0000B7C5D /* ViewController.swift in Sources */,
 				A93E8481210F29F0000B7C5D /* AppDelegate.swift in Sources */,
+				A9AA33A92111C7FE0079D066 /* AddGolfTableViewCell.swift in Sources */,
 				A93E8495210F3B15000B7C5D /* AddGolfViewController.swift in Sources */,
 				A93E8493210F3786000B7C5D /* GolfTableViewCell.swift in Sources */,
 			);
