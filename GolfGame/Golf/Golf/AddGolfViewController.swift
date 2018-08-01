@@ -16,7 +16,8 @@ class AddGolfViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        showAlert()
+//        showAlert()
+        showActionSheet()
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,6 +74,89 @@ class AddGolfViewController: UIViewController {
         alert.addAction(submitAction)
         alert.addAction(cancel)
         present(alert, animated: true, completion: nil)
+    }
+    
+    func showActionSheet() {
+        let alertController = UIAlertController(title: "Choose how many holes do you want to play with", message: nil, preferredStyle: .actionSheet)
+        
+        let nineButton = UIAlertAction(title: "Nine holes", style: .default, handler: {
+            (action) -> Void in
+            print("Nine holes")
+            self.sessionNumber = 9
+            self.showTexts()
+        })
+        let tenButton = UIAlertAction(title: "Ten holes", style: .default, handler: {
+            (action) -> Void in
+            print("Ten holes")
+            self.sessionNumber = 10
+            self.showTexts()
+        })
+        let elevenButton = UIAlertAction(title: "Eleven holes", style: .default, handler: {
+            (action) -> Void in
+            print("Eleven holes")
+            self.sessionNumber = 11
+            self.showTexts()
+        })
+        let twelveButton = UIAlertAction(title: "Twelve holes", style: .default, handler: {
+            (action) -> Void in
+            print("Twelve holes")
+            self.sessionNumber = 12
+            self.showTexts()
+        })
+        let thirteenButton = UIAlertAction(title: "Thirteen holes", style: .default, handler: {
+            (action) -> Void in
+            print("Thirteen holes")
+            self.sessionNumber = 13
+            self.showTexts()
+        })
+        let fourteenButton = UIAlertAction(title: "Fourteen holes", style: .default, handler: {
+            (action) -> Void in
+            print("Fourteen holes")
+            self.sessionNumber = 14
+            self.showTexts()
+        })
+        let fifteenButton = UIAlertAction(title: "Fifteen holes", style: .default, handler: {
+            (action) -> Void in
+            print("Fifteen holes")
+            self.sessionNumber = 15
+            self.showTexts()
+        })
+        let sixteenButton = UIAlertAction(title: "Sixteen holes", style: .default, handler: {
+            (action) -> Void in
+            print("Sixteen holes")
+            self.sessionNumber = 16
+            self.showTexts()
+        })
+        let seventeenButton = UIAlertAction(title: "Seventeen holes", style: .default, handler: {
+            (action) -> Void in
+            print("Seventeen holes")
+            self.sessionNumber = 17
+            self.showTexts()
+        })
+        let eighteenButton = UIAlertAction(title: "Eighteen holes", style: .default, handler: {
+            (action) -> Void in
+            print("Eighteen holes")
+            self.sessionNumber = 18
+            self.showTexts()
+        })
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: {
+            (action) -> Void in
+            print("Cancel button tapped")
+        })
+        
+        alertController.addAction(nineButton)
+        alertController.addAction(tenButton)
+        alertController.addAction(elevenButton)
+        alertController.addAction(twelveButton)
+        alertController.addAction(thirteenButton)
+        alertController.addAction(fourteenButton)
+        alertController.addAction(fifteenButton)
+        alertController.addAction(sixteenButton)
+        alertController.addAction(seventeenButton)
+        alertController.addAction(eighteenButton)
+        alertController.addAction(cancelButton)
+        
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func showTexts() {
