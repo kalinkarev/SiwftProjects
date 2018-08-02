@@ -152,15 +152,15 @@ class AddGolfViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellAdd", for: indexPath) as! AddGolfTableViewCell
 
-        var c: Int = 0
-        for counter in 0...indexPath.row {
-            c = counter
-            c = indexPath.row + 1
+        var counter: Int = 1
+        for c in 0..<indexPath.row {
+            counter = c
+            counter = indexPath.row + 1
         }
-        
-        cell.labHoles.text = "I am label: \(c)"
-        cell.txtPoint.text = "I am text field: \(c)"
-                
+
+        cell.labHoles.text = "I am label: \(counter)"
+        cell.txtPoint.text = "I am text field: \(counter)"
+
         return cell
     }
 
