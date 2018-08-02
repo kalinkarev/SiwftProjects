@@ -19,7 +19,7 @@ class AddGolfViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+
         numberHolesTableView.register(AddGolfTableViewCell.self, forCellReuseIdentifier: "cellAdd")
 
         hideElementOnTheScreen()
@@ -51,10 +51,10 @@ class AddGolfViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
         print("You have pressed the save button")
     }
-    
+
     func showActionSheet() {
         let alertController = UIAlertController(title: "Choose how many holes do you want to play with", message: nil, preferredStyle: .actionSheet)
-        
+
         let nineButton = UIAlertAction(title: "Nine holes", style: .default, handler: {
             (action) -> Void in
             print("Nine holes")

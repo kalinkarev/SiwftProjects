@@ -8,8 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var sections: Int = 10
+    
     // MARK: Properties
     @IBOutlet weak var gamesTableView: UITableView!
     
@@ -27,7 +29,27 @@ class ViewController: UIViewController {
     @IBAction func addButton(_ sender: UIBarButtonItem) {
         
     }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return section
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellIdentifier = "nameCell"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? GolfTableViewCell else {
+            fatalError("The dequed is not an instance of GolfTableViewCell")
+        }
+
+        cell.nameLabel.text = "The number is"
+
+        return cell
+    }
+
 }
 
 extension ViewController {
