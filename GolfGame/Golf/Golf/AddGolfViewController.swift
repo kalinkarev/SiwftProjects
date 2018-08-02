@@ -157,11 +157,12 @@ class AddGolfViewController: UIViewController {
 
 }
 
+// TableView Delegates
 extension AddGolfViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return numberHoles
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellAdd", for: indexPath) as! AddGolfTableViewCell
         
@@ -171,7 +172,7 @@ extension AddGolfViewController: UITableViewDataSource, UITableViewDelegate {
             counter = indexPath.row + 1
         }
         
-        cell.labHoles.text = "I am label: \(counter)"
+        cell.labHoles.text = "Hole: \(counter)"
         cell.txtPoint.text = "I am text field: \(counter)"
         
         return cell

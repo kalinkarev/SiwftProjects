@@ -14,6 +14,7 @@
 		A93E848B210F29F0000B7C5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A93E8489210F29F0000B7C5D /* LaunchScreen.storyboard */; };
 		A93E8493210F3786000B7C5D /* GolfTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93E8492210F3786000B7C5D /* GolfTableViewCell.swift */; };
 		A93E8495210F3B15000B7C5D /* AddGolfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93E8494210F3B15000B7C5D /* AddGolfViewController.swift */; };
+		A99E434C21131EC300A25D49 /* GolfGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99E434B21131EC300A25D49 /* GolfGame.swift */; };
 		A9AA33A92111C7FE0079D066 /* AddGolfTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AA33A82111C7FE0079D066 /* AddGolfTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		A93E848C210F29F0000B7C5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A93E8492210F3786000B7C5D /* GolfTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GolfTableViewCell.swift; sourceTree = "<group>"; };
 		A93E8494210F3B15000B7C5D /* AddGolfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGolfViewController.swift; sourceTree = "<group>"; };
+		A99E434B21131EC300A25D49 /* GolfGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GolfGame.swift; sourceTree = "<group>"; };
 		A9AA33A82111C7FE0079D066 /* AddGolfTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGolfTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,6 +67,7 @@
 				A93E8492210F3786000B7C5D /* GolfTableViewCell.swift */,
 				A93E8494210F3B15000B7C5D /* AddGolfViewController.swift */,
 				A9AA33A82111C7FE0079D066 /* AddGolfTableViewCell.swift */,
+				A99E434B21131EC300A25D49 /* GolfGame.swift */,
 				A93E8484210F29F0000B7C5D /* Main.storyboard */,
 				A93E8487210F29F0000B7C5D /* Assets.xcassets */,
 				A93E8489210F29F0000B7C5D /* LaunchScreen.storyboard */,
@@ -150,6 +153,7 @@
 				A9AA33A92111C7FE0079D066 /* AddGolfTableViewCell.swift in Sources */,
 				A93E8495210F3B15000B7C5D /* AddGolfViewController.swift in Sources */,
 				A93E8493210F3786000B7C5D /* GolfTableViewCell.swift in Sources */,
+				A99E434C21131EC300A25D49 /* GolfGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
