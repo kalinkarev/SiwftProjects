@@ -13,12 +13,9 @@ class AddGolfViewController: UIViewController, UITableViewDelegate, UITableViewD
     // MARK: Properties
     @IBOutlet weak var numberHolesTableView: UITableView!
     @IBOutlet weak var nameTextField: UITextField!
-    
+
     var numberHoles: Int = 0
-    
-//    var sessionNumber: Int = 0
-//    var sections: Int = 3
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -26,12 +23,14 @@ class AddGolfViewController: UIViewController, UITableViewDelegate, UITableViewD
         numberHolesTableView.register(AddGolfTableViewCell.self, forCellReuseIdentifier: "cellAdd")
         
         numberHolesTableView.isHidden = true
+        nameTextField.isHidden = true
         
         showActionSheet()
     }
     
-    func showTableView() {
+    func showElementsOnTheScreen() {
         numberHolesTableView.isHidden = false
+        nameTextField.isHidden = false
     }
     
     override func didReceiveMemoryWarning() {
@@ -138,7 +137,7 @@ class AddGolfViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func prepopulateTableView() {
         printTheNumber()
-        showTableView()
+        showElementsOnTheScreen()
         self.numberHolesTableView.reloadData()
     }
     
@@ -150,33 +149,6 @@ class AddGolfViewController: UIViewController, UITableViewDelegate, UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellAdd", for: indexPath) as! AddGolfTableViewCell
 
         var result = UITableViewCell()
-
-//        switch numberHoles {
-//        case 9:
-//            holes = 1
-//        case 10:
-//            holes = 2
-//        case 11:
-//            holes = 3
-//        case 12:
-//            holes = 4
-//        case 13:
-//            holes = 5
-//        case 14:
-//            holes = 6
-//        case 15:
-//            holes = 7
-//        case 16:
-//            holes = 8
-//        case 17:
-//            holes = 9
-//        case 18:
-//            holes = 10
-//        default:
-//            holes = 0
-//        }
-        
-//        print("The numeber of holes is: \(holes)")
 
         cell.labHoles.text = "I am label"
         cell.txtPoint.text = "I am text field"
@@ -194,49 +166,9 @@ class AddGolfViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             return result
         } while (i < numberHoles)
-        
-//        return result
-//        var i: Int = 1
-//
-//        while i < numberHoles {
-//            print("The element is: \(i)")
-//
-//            i += 1
-//
-//            cell.labHoles.text = "I am label \(i)"
-//            cell.txtPoint.text = "I am text field \(i)"
-//
-//            result = cell
-//        }
-        
-//        while (i <= numberHoles) {
-//            print(i)
-//
-//            i += 1
-//
-//            cell.labHoles.text = "\(i)"
-//            cell.txtPoint.text = "\(i)"
-//
-//            return cell
-//        }
-        
-//        while i < numberHoles {
-//
-//            cell.labHoles.text = "I am label \(i + 1)"
-//            cell.txtPoint.text = "I am text field \(i + 1)"
-//
-//            i += 1
-//
-//            print("The counter is: \(i + 1)")
-//
-//            return cell
-//        }
-        
-//        return cell
-//        return cell
-//        return result
+
     }
-    
+
     /*
     // MARK: - Navigation
 
