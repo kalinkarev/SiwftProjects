@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddGolfViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AddGolfViewController: UIViewController {
 
     // MARK: Properties
     @IBOutlet weak var numberHolesTableView: UITableView!
@@ -145,25 +145,6 @@ class AddGolfViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.numberHolesTableView.reloadData()
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numberHoles
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellAdd", for: indexPath) as! AddGolfTableViewCell
-
-        var counter: Int = 1
-        for c in 0..<indexPath.row {
-            counter = c
-            counter = indexPath.row + 1
-        }
-
-        cell.labHoles.text = "I am label: \(counter)"
-        cell.txtPoint.text = "I am text field: \(counter)"
-
-        return cell
-    }
-
     /*
     // MARK: - Navigation
 
@@ -174,4 +155,25 @@ class AddGolfViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     */
 
+}
+
+extension AddGolfViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return numberHoles
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellAdd", for: indexPath) as! AddGolfTableViewCell
+        
+        var counter: Int = 1
+        for c in 0..<indexPath.row {
+            counter = c
+            counter = indexPath.row + 1
+        }
+        
+        cell.labHoles.text = "I am label: \(counter)"
+        cell.txtPoint.text = "I am text field: \(counter)"
+        
+        return cell
+    }
 }
