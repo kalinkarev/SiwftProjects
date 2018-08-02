@@ -45,4 +45,15 @@ class AddGolfTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    func createLabel() {
+        let myLabel = UILabel(frame: CGRect(x: 10, y: 20, width: 150, height: 35))
+        myLabel.textAlignment = NSTextAlignment.center
+        myLabel.font = myLabel.font.withSize(15)
+    }
+
+    func createTextView() {
+        let myTextView = UITextView(frame: CGRect(x: 150, y: 20, width: 150, height: 35))
+        myTextView.textAlignment = NSTextAlignment.center
+        myTextView.font = .systemFont(ofSize: 13)
+    }
 }

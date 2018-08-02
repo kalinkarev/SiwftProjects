@@ -12,6 +12,7 @@ class AddGolfViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     // MARK: Properties
     @IBOutlet weak var numberHolesTableView: UITableView!
+    @IBOutlet weak var nameTextField: UITextField!
     
     var numberHoles: Int = 0
     
@@ -144,64 +145,96 @@ class AddGolfViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return numberHoles
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellAdd", for: indexPath) as! AddGolfTableViewCell
+
+        var result = UITableViewCell()
+
+//        switch numberHoles {
+//        case 9:
+//            holes = 1
+//        case 10:
+//            holes = 2
+//        case 11:
+//            holes = 3
+//        case 12:
+//            holes = 4
+//        case 13:
+//            holes = 5
+//        case 14:
+//            holes = 6
+//        case 15:
+//            holes = 7
+//        case 16:
+//            holes = 8
+//        case 17:
+//            holes = 9
+//        case 18:
+//            holes = 10
+//        default:
+//            holes = 0
+//        }
         
+//        print("The numeber of holes is: \(holes)")
+
         cell.labHoles.text = "I am label"
         cell.txtPoint.text = "I am text field"
         
-        return cell
-    }
-        
-    func createLabel( number: Int) {
-        let m: Int = 10
-        var n: Int = 100
-        var i: Int = 0
-        
-        while (i < number) {
-            let myLabel = UILabel(frame: CGRect(x: m, y: n, width: 150, height: 35))
-            myLabel.textAlignment = NSTextAlignment.center
-            myLabel.font = myLabel.font.withSize(15)
-            myLabel.text = "I am a test label \(i + 1)"
-            self.view.addSubview(myLabel)
-            
-            i += 1
-            n += 20
-        }
-    }
-    
-    func createTextField( number: Int) {
-        let m: Int = 150
-        var n: Int = 100
-        var j: Int = 0
-        
-        while (j < number) {
-            let myTextField = UITextField(frame: CGRect(x: m, y: n, width: 150, height: 35))
-            myTextField.textAlignment = NSTextAlignment.center
-            myTextField.text = "The points are: \(j + 1)"
-            self.view.addSubview(myTextField)
-            
-            j += 1
-            n += 20
-        }
-    }
-    
-    func createTextView( number: Int) {
-        let m: Int = 150
-        var n: Int = 100
-        var j: Int = 0
-        
-        while (j < number) {
-            let myTextView = UITextView(frame: CGRect(x: m, y: n, width: 150, height: 35))
-            myTextView.textAlignment = NSTextAlignment.center
-            myTextView.font = .systemFont(ofSize: 13)
-            myTextView.text = "The points are: \(j + 1)"
-            self.view.addSubview(myTextView)
+        result = cell
 
-            j += 1
-            n += 20
-        }
+        var i = 0
+        
+        repeat {
+            i += 1
+            cell.labHoles.text = "I am label \(i)"
+            cell.txtPoint.text = "I am text field \(i)"
+            
+            print("The i element is: \(i)")
+            
+            return result
+        } while (i < numberHoles)
+        
+//        return result
+//        var i: Int = 1
+//
+//        while i < numberHoles {
+//            print("The element is: \(i)")
+//
+//            i += 1
+//
+//            cell.labHoles.text = "I am label \(i)"
+//            cell.txtPoint.text = "I am text field \(i)"
+//
+//            result = cell
+//        }
+        
+//        while (i <= numberHoles) {
+//            print(i)
+//
+//            i += 1
+//
+//            cell.labHoles.text = "\(i)"
+//            cell.txtPoint.text = "\(i)"
+//
+//            return cell
+//        }
+        
+//        while i < numberHoles {
+//
+//            cell.labHoles.text = "I am label \(i + 1)"
+//            cell.txtPoint.text = "I am text field \(i + 1)"
+//
+//            i += 1
+//
+//            print("The counter is: \(i + 1)")
+//
+//            return cell
+//        }
+        
+//        return cell
+//        return cell
+//        return result
     }
     
     /*
