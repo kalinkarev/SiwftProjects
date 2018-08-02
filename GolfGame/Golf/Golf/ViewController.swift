@@ -29,7 +29,6 @@ class ViewController: UIViewController {
     @IBAction func addButton(_ sender: UIBarButtonItem) {
         
     }
-
 }
 
 // TableViewDelegates
@@ -49,5 +48,15 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         
         return cell
     }
-    
+}
+
+// MARK: Delegates(Use the delegate to pass data between the views)
+extension ViewController: AddGolfViewControllerDelegate {
+    func controllerDidCancel(_ controller: AddGolfViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+
+    func controllerDidSave(_ controller: AddGolfViewController, didSave: GolfGame) {
+        dismiss(animated: true, completion: nil)
+    }
 }

@@ -8,6 +8,13 @@
 
 import UIKit
 
+protocol AddGolfViewControllerDelegate: AnyObject {
+    // function used for cancelling the save of new game
+    func controllerDidCancel(_ controller: AddGolfViewController)
+    // function used for saving the new game
+    func controllerDidSave(_ controller: AddGolfViewController, didSave: GolfGame)
+}
+
 class AddGolfViewController: UIViewController {
 
     // MARK: Properties
@@ -16,6 +23,8 @@ class AddGolfViewController: UIViewController {
 
     var numberHoles: Int = 0
 
+    weak var delegate: AddGolfViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -44,8 +53,20 @@ class AddGolfViewController: UIViewController {
 
     // MARK: Actions
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
-        print("You have presed the cancel button")
-        dismiss(animated: true, completion: nil)
+//        print("You have presed the cancel button")
+//        dismiss(animated: true, completion: nil)
+//        delegate?.controllerDidCancel(self)
+        
+        let isPressentingInAddGolfGameMode = presentingViewController is UINavigationController
+        
+        if isPressentingInAddGolfGameMode {
+            delegate?.controllerDidCancel(self)
+            print("You have pressed the CANCEL button in the Add golf game screen")
+            dismiss(animated: true, completion: nil)
+        } else {
+            fatalError("The ViewController is not inside a navigation controller.")
+        }
+        
     }
 
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
