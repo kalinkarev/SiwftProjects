@@ -9,7 +9,7 @@
 import UIKit
 
 class GolfTableViewCell: UITableViewCell {
-
+    
     // MARK: Properties
     @IBOutlet weak var nameLabel: UILabel!
     

@@ -8,12 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController {
     
-    var sections: Int = 10
+    var sections: Int = 5
     
     // MARK: Properties
-    @IBOutlet weak var gamesTableView: UITableView!
+    @IBOutlet weak var nameTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,55 +30,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
 
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+}
+
+// TableViewDelegates
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return sections
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section
-    }
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "nameCell"
+        let cellIdentifier = "mainScreenCell"
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? GolfTableViewCell else {
-            fatalError("The dequed is not an instance of GolfTableViewCell")
+            fatalError("The dequed is not an instance of GolfTableViewCell identifier")
         }
-
-        cell.nameLabel.text = "The number is"
-
+        
+        cell.nameLabel.text = "The number is \(indexPath.row + 1)"
+        
         return cell
     }
-
+    
 }
-
-extension ViewController {
-    func toastView(message: String) {
-        let toastLabel = UILabel(frame: CGRect(x: view.frame.size.width/2 - 150,
-                                               y: view.frame.size.height - 100,
-                                               width: 300,
-                                               height: 35))
-        toastLabel.backgroundColor = UIColor.black
-        toastLabel.textColor = UIColor.white
-        toastLabel.textAlignment = NSTextAlignment.center
-        view.addSubview(toastLabel)
-        toastLabel.text = message
-        toastLabel.alpha = 1.0
-        toastLabel.layer.cornerRadius = 10
-        toastLabel.clipsToBounds = true
-        UIView.animate(withDuration: 5.0, delay: 0.3, options: UIViewAnimationOptions.curveEaseOut, animations: {
-            toastLabel.alpha = 0.0
-        })
-    }
-}
-
-//extension ViewController: UITableViewDataSource, UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        <#code#>
-//    }
-//    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        <#code#>
-//    }
-//}
-
