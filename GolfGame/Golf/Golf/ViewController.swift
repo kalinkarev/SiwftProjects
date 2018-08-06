@@ -25,6 +25,17 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addItem" {
+            let navigationController = segue.destination as? UINavigationController
+            let addItemViewController = navigationController?.topViewController as? AddGolfViewController
+            
+            if let viewController = addItemViewController {
+                viewController.delegate = self
+            }
+        }
+    }
+
     // MARK: Actions
     @IBAction func addButton(_ sender: UIBarButtonItem) {
         

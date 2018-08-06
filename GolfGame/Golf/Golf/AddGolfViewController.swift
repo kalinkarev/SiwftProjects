@@ -53,20 +53,8 @@ class AddGolfViewController: UIViewController {
 
     // MARK: Actions
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
-//        print("You have presed the cancel button")
-//        dismiss(animated: true, completion: nil)
-//        delegate?.controllerDidCancel(self)
-        
-        let isPressentingInAddGolfGameMode = presentingViewController is UINavigationController
-        
-        if isPressentingInAddGolfGameMode {
-            delegate?.controllerDidCancel(self)
-            print("You have pressed the CANCEL button in the Add golf game screen")
-            dismiss(animated: true, completion: nil)
-        } else {
-            fatalError("The ViewController is not inside a navigation controller.")
-        }
-        
+        print("You have pressed the cancel button")
+        delegate?.controllerDidCancel(self)
     }
 
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
