@@ -9,12 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    var sections: Int = 5
-    
+
+    var manageGame = ManageGolfGame()
+
     // MARK: Properties
     @IBOutlet weak var nameTableView: UITableView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -45,7 +45,7 @@ class ViewController: UIViewController {
 // TableViewDelegates
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sections
+        return manageGame.countGames()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -55,7 +55,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             fatalError("The dequed is not an instance of GolfTableViewCell identifier")
         }
         
-        cell.nameLabel.text = "The number is \(indexPath.row + 1)"
+        // Fetch item
+        let game = manageGame.games[indexPath.row]
+        // Configure cell
+        cell.nameLabel.text = game.name
         
         return cell
     }
@@ -68,6 +71,10 @@ extension ViewController: AddGolfViewControllerDelegate {
     }
 
     func controllerDidSave(_ controller: AddGolfViewController, didSave: GolfGame) {
+        manageGame.addGame(didSave)
+        
+        nameTableView.reloadData()
+
         dismiss(animated: true, completion: nil)
     }
 }

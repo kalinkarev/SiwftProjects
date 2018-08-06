@@ -21,6 +21,8 @@ class AddGolfViewController: UIViewController {
     @IBOutlet weak var numberHolesTableView: UITableView!
     @IBOutlet weak var nameTextField: UITextField!
 
+    var manageGolfGame = ManageGolfGame()
+    
     var numberHoles: Int = 0
 
     weak var delegate: AddGolfViewControllerDelegate?
@@ -59,6 +61,28 @@ class AddGolfViewController: UIViewController {
 
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
         print("You have pressed the save button")
+        
+//        var newID: Int = 0
+//
+//        if manageGolfGame.games.isEmpty {
+//            newID = 0
+//        } else {
+//            newID = (manageGolfGame.games.last?.id)!
+//        }
+//
+//        if let newGame = GolfGame(id: newID, name: nameTextField.text ?? "") {
+//            delegate?.controllerDidSave(self, didSave: newGame)
+//        }
+        var newID: Int = 0
+        if !manageGolfGame.games.isEmpty {
+            newID = (manageGolfGame.games.last?.id)! + 1
+        }
+
+        print("The new id is: \(newID)")
+
+//        let newGame = GolfGame(id: 2, name: "new")
+        let newGame = GolfGame(id: newID, name: nameTextField.text!)
+        delegate?.controllerDidSave(self, didSave: newGame!)
     }
 
     func showActionSheet() {
