@@ -69,7 +69,7 @@
             </objects>
             <point key="canvasLocation" x="332" y="115.59220389805098"/>
         </scene>
-        <!--Add Golf View Controller-->
+        <!--Add Game-->
         <scene sceneID="bSh-bE-wuK">
             <objects>
                 <viewController id="44I-PU-HuP" customClass="AddGolfViewController" customModule="Golf" customModuleProvider="target" sceneMemberID="viewController">
@@ -107,7 +107,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="jcC-sH-Xz7"/>
                     </view>
-                    <navigationItem key="navigationItem" id="DLf-3e-tXT">
+                    <navigationItem key="navigationItem" title="Add Game" id="DLf-3e-tXT">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="4zo-jp-54m">
                             <connections>
                                 <action selector="cancelButton:" destination="44I-PU-HuP" id="9OG-we-ZKt"/>
