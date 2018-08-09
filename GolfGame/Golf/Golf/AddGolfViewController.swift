@@ -25,8 +25,10 @@ class AddGolfViewController: UIViewController {
     
     var numberHoles: Int = 0
 
-    weak var delegate: AddGolfViewControllerDelegate?
+    var scoredPoints: Int = 0
     
+    weak var delegate: AddGolfViewControllerDelegate?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -179,7 +181,7 @@ class AddGolfViewController: UIViewController {
 
 }
 
-// TableView Delegates
+// MARK: TableView Delegates
 extension AddGolfViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return numberHoles
@@ -187,16 +189,15 @@ extension AddGolfViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellAdd", for: indexPath) as! AddGolfTableViewCell
-        
+
         var counter: Int = 1
         for c in 0..<indexPath.row {
             counter = c
             counter = indexPath.row + 1
         }
-        
+
         cell.labHoles.text = "Hole: \(counter)"
-        cell.txtPoint.text = "I am text field: \(counter)"
-        
+
         return cell
     }
 }

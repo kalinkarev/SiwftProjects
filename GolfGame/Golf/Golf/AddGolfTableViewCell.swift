@@ -19,6 +19,8 @@ class AddGolfTableViewCell: UITableViewCell {
         labHoles.translatesAutoresizingMaskIntoConstraints = false
         txtPoint.translatesAutoresizingMaskIntoConstraints = false
 
+        txtPoint.placeholder = "Enter points for the hole"
+
         contentView.addSubview(labHoles)
         contentView.addSubview(txtPoint)
 
@@ -28,6 +30,7 @@ class AddGolfTableViewCell: UITableViewCell {
         ] as [String : Any]
 
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[holes]-[points]-|", options: [], metrics: nil, views: viewDict))
+
     }
 
     required init?(coder aDecoder: NSCoder) {
