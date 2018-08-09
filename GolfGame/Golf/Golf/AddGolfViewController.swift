@@ -22,11 +22,14 @@ class AddGolfViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
 
     var manageGolfGame = ManageGolfGame()
-    
-    var numberHoles: Int = 0
 
-    var scoredPoints: Int = 0
+    var numberHoles: Int = 0
     
+    var arrayHoles: [String] = []
+    var dictionaryHolePoints: [Int: Int] = [:]
+    var arrayWithPoints = [Int]()
+    var allCellsText = [String?]()
+
     weak var delegate: AddGolfViewControllerDelegate?
 
     override func viewDidLoad() {
@@ -167,6 +170,15 @@ class AddGolfViewController: UIViewController {
         printTheNumber()
         showElementsOnTheScreen()
         self.numberHolesTableView.reloadData()
+        
+        initializeArrays()
+    }
+    
+    func initializeArrays() {
+        arrayHoles = [String](repeating: "hello", count: numberHoles)
+        print("The arrayHoles array is: \(arrayHoles)")
+        allCellsText = [String?](repeating: nil, count: numberHoles)
+        print("The allCellsText array is: \(allCellsText)")
     }
 
     /*
@@ -182,13 +194,13 @@ class AddGolfViewController: UIViewController {
 }
 
 // MARK: TableView Delegates
-extension AddGolfViewController: UITableViewDataSource, UITableViewDelegate {
+extension AddGolfViewController: UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return numberHoles
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellAdd", for: indexPath) as! AddGolfTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellAdd", for: indexPath as IndexPath) as! AddGolfTableViewCell
 
         var counter: Int = 1
         for c in 0..<indexPath.row {
@@ -196,8 +208,49 @@ extension AddGolfViewController: UITableViewDataSource, UITableViewDelegate {
             counter = indexPath.row + 1
         }
 
-        cell.labHoles.text = "Hole: \(counter)"
+        cell.labHoles.text = "Hole: \(indexPath.row)"
+        
+        cell.txtPoint.delegate = self
+        cell.txtPoint.text = ""
+        cell.txtPoint.placeholder = "Enter for hole: \(indexPath.row)"
+        arrayHoles[indexPath.row] = cell.txtPoint.placeholder!
+        cell.txtPoint.autocorrectionType = UITextAutocorrectionType.no
+        cell.txtPoint.autocapitalizationType = UITextAutocapitalizationType.none
+        cell.txtPoint.adjustsFontSizeToFitWidth = true
 
         return cell
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        let indexOf = arrayHoles.index(of: textField.placeholder!)
+        print("The index of the entered text field is: \(String(describing: indexOf))")
+
+        if (textField.placeholder! == arrayHoles[indexOf!]) {
+            if (indexOf! <= (allCellsText.count - 1)) {
+                allCellsText.remove(at: indexOf!)
+            }
+
+            allCellsText.insert(textField.text!, at: indexOf!)
+            print("The array with points is: \(allCellsText)")
+        }
+
+        let arrayWithoutOptionals: [String] = allCellsText.map { $0 ?? "" }
+
+        arrayWithPoints = arrayWithoutOptionals.map { Int($0) ?? 0 }
+        print("The points are: \(arrayWithPoints)")
+
+        for i in 0..<arrayWithPoints.count {
+            dictionaryHolePoints[i] = arrayWithPoints[i]
+        }
+        
+        for (key, value) in dictionaryHolePoints.sorted(by: <) {
+            print("The key: \(key) has value: \(value)")
+        }
+    }
+    
+    // delegate method
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
