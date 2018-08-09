@@ -24,7 +24,7 @@ class AddGolfViewController: UIViewController {
     var manageGolfGame = ManageGolfGame()
 
     var numberHoles: Int = 0
-    
+
     var arrayHoles: [String] = []
     var dictionaryHolePoints: [Int: Int] = [:]
     var arrayWithPoints = [Int]()
@@ -170,10 +170,10 @@ class AddGolfViewController: UIViewController {
         printTheNumber()
         showElementsOnTheScreen()
         self.numberHolesTableView.reloadData()
-        
+
         initializeArrays()
     }
-    
+
     func initializeArrays() {
         arrayHoles = [String](repeating: "hello", count: numberHoles)
         print("The arrayHoles array is: \(arrayHoles)")
@@ -202,17 +202,11 @@ extension AddGolfViewController: UITableViewDataSource, UITableViewDelegate, UIT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellAdd", for: indexPath as IndexPath) as! AddGolfTableViewCell
 
-        var counter: Int = 1
-        for c in 0..<indexPath.row {
-            counter = c
-            counter = indexPath.row + 1
-        }
+        cell.labHoles.text = "Hole: \(indexPath.row + 1)"
 
-        cell.labHoles.text = "Hole: \(indexPath.row)"
-        
         cell.txtPoint.delegate = self
         cell.txtPoint.text = ""
-        cell.txtPoint.placeholder = "Enter for hole: \(indexPath.row)"
+        cell.txtPoint.placeholder = "Enter for hole: \(indexPath.row + 1)"
         arrayHoles[indexPath.row] = cell.txtPoint.placeholder!
         cell.txtPoint.autocorrectionType = UITextAutocorrectionType.no
         cell.txtPoint.autocapitalizationType = UITextAutocapitalizationType.none
@@ -220,7 +214,7 @@ extension AddGolfViewController: UITableViewDataSource, UITableViewDelegate, UIT
 
         return cell
     }
-    
+
     func textFieldDidEndEditing(_ textField: UITextField) {
         let indexOf = arrayHoles.index(of: textField.placeholder!)
         print("The index of the entered text field is: \(String(describing: indexOf))")
@@ -242,12 +236,12 @@ extension AddGolfViewController: UITableViewDataSource, UITableViewDelegate, UIT
         for i in 0..<arrayWithPoints.count {
             dictionaryHolePoints[i] = arrayWithPoints[i]
         }
-        
+
         for (key, value) in dictionaryHolePoints.sorted(by: <) {
             print("The key: \(key) has value: \(value)")
         }
     }
-    
+
     // delegate method
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
