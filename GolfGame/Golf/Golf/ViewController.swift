@@ -70,7 +70,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let game = GolfGame(id: indexPath.row, name: indexPath.description, numberOfHoles: indexPath.row, pointsScored: indexPath.row)
+            let game = GolfGame(id: indexPath.row, name: indexPath.description, numberOfHoles: indexPath.row, pointsScored: indexPath.row, dictionaryHolePoints: [indexPath.row : indexPath.row])
             
             manageGame.deleteGame(game!)
             

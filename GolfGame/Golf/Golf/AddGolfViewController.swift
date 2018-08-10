@@ -77,8 +77,12 @@ class AddGolfViewController: UIViewController {
             newID = newID + 1
         }
         print("The new id is: \(newID)")
-        let newGame = GolfGame(id: newID, name: nameTextField.text!, numberOfHoles: numberHoles, pointsScored: sumOfPoints)
-        print("The new game has id: \(String(describing: newGame?.id)), name: \(String(describing: newGame?.name)), numberOfHoles: \(String(describing: newGame?.numberOfHoles)), points: \(String(describing: newGame?.pointsScored))")
+        let newGame = GolfGame(id: newID, name: nameTextField.text!, numberOfHoles: numberHoles, pointsScored: sumOfPoints, dictionaryHolePoints: dictionaryHolePoints)
+        print("The new game has id: \(String(describing: newGame?.id)), name: \(String(describing: newGame?.name)), numberOfHoles: \(String(describing: newGame?.numberOfHoles)), points: \(String(describing: newGame?.pointsScored)), dicitonary: \(String(describing: newGame?.dictionaryHolePoints))")
+
+        for (key, value) in (newGame?.dictionaryHolePoints)! {
+            print("Hole: \(key) has scored points: \(value)")
+        }
 
         delegate?.controllerDidSave(self, didSave: newGame!)
     }
