@@ -30,6 +30,8 @@ class AddGolfViewController: UIViewController {
     var arrayWithPoints = [Int]()
     var allCellsText = [String?]()
 
+    var sumOfPoints: Int = 0
+    
     weak var delegate: AddGolfViewControllerDelegate?
 
     override func viewDidLoad() {
@@ -233,9 +235,16 @@ extension AddGolfViewController: UITableViewDataSource, UITableViewDelegate, UIT
         arrayWithPoints = arrayWithoutOptionals.map { Int($0) ?? 0 }
         print("The points are: \(arrayWithPoints)")
 
+        
+        var sum: Int = 0
         for i in 0..<arrayWithPoints.count {
             dictionaryHolePoints[i] = arrayWithPoints[i]
+            sum += arrayWithPoints[i]
         }
+
+        print("The sum is: \(sum)")
+        sumOfPoints = sum
+        print("The sum of points that the user has scored: \(sumOfPoints)")
 
         for (key, value) in dictionaryHolePoints.sorted(by: <) {
             print("The key: \(key) has value: \(value)")
