@@ -31,7 +31,7 @@ class AddGolfViewController: UIViewController {
     var allCellsText = [String?]()
 
     var sumOfPoints: Int = 0
-    
+
     weak var delegate: AddGolfViewControllerDelegate?
 
     override func viewDidLoad() {
