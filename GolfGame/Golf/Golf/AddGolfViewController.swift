@@ -235,7 +235,6 @@ extension AddGolfViewController: UITableViewDataSource, UITableViewDelegate, UIT
         arrayWithPoints = arrayWithoutOptionals.map { Int($0) ?? 0 }
         print("The points are: \(arrayWithPoints)")
 
-        
         var sum: Int = 0
         for i in 0..<arrayWithPoints.count {
             dictionaryHolePoints[i] = arrayWithPoints[i]

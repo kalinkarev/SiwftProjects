@@ -12,9 +12,11 @@ struct GolfGame {
     // MARK: Properties
     var id: Int
     var name: String
+    var numberOfHoles: Int
+    var pointsScored: Int
 
     // MARK: Initialization
-    init?(id: Int, name: String) {
+    init?(id: Int, name: String, numberOfHoles: Int, pointsScored: Int) {
         //Initialization should fail if there is no name input(if the name field is empty)(there should be an error)
         if name.isEmpty {
             return nil
@@ -23,5 +25,7 @@ struct GolfGame {
         // Initialize stored properties.
         self.id = id
         self.name = name
+        self.numberOfHoles = numberOfHoles
+        self.pointsScored = pointsScored
     }
 }
