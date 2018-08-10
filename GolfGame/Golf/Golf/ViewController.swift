@@ -67,16 +67,31 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let game = GolfGame(id: indexPath.row, name: indexPath.description)
-
+            let game = GolfGame(id: indexPath.row, name: indexPath.description, numberOfHoles: indexPath.row, pointsScored: indexPath.row)
+            
             manageGame.deleteGame(game!)
-
+            
             nameTableView.deleteRows(at: [indexPath], with: .right)
         }
     }
+    
+    // Delete functionality
+//    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//        return true
+//    }
+//
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            let game = GolfGame(id: indexPath.row, name: indexPath.description, numberOfHoles: <#Int#>, pointsScored: <#Int#>)
+//
+//            manageGame.deleteGame(game!)
+//
+//            nameTableView.deleteRows(at: [indexPath], with: .right)
+//        }
+//    }
 }
 
 // MARK: Delegates(Use the delegate to pass data between the views)
