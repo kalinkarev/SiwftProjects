@@ -43,8 +43,6 @@ class AddGolfViewController: UIViewController {
         hideElementOnTheScreen()
 
         showActionSheet()
-
-        nameTextField.delegate = self
     }
 
     func hideElementOnTheScreen() {
@@ -56,6 +54,7 @@ class AddGolfViewController: UIViewController {
     func showElementsOnTheScreen() {
         numberHolesTableView.isHidden = false
         nameTextField.isHidden = false
+        nameTextField.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
