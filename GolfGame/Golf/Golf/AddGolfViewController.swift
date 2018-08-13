@@ -20,7 +20,7 @@ class AddGolfViewController: UIViewController {
     @IBOutlet weak var numberHolesTableView: UITableView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var btnSave: UIBarButtonItem!
-    
+
     var manageGolfGame = ManageGolfGame()
 
     var numberHoles: Int = 0
@@ -266,7 +266,7 @@ extension AddGolfViewController: UITableViewDataSource, UITableViewDelegate, UIT
         textField.resignFirstResponder()
         return true
     }
-    
+
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if !(nameTextField.text?.isEmpty)! {
             btnSave.isEnabled = true

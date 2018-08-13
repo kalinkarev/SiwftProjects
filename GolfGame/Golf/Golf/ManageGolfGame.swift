@@ -10,15 +10,15 @@ import Foundation
 
 struct ManageGolfGame {
     var games: [GolfGame] = []
-    
+
     func printGames() {
         print("The array is: \(games)")
     }
-    
+
     func countGames() -> Int {
         return games.count
     }
-    
+
     mutating func addGame(_ newGame: GolfGame) {
         if (games.isEmpty) {
             let newID = 0
@@ -38,7 +38,7 @@ struct ManageGolfGame {
         }
         printGames()
     }
-    
+
     mutating func deleteGame(_ deleteGame: GolfGame) {
         games.remove(at: deleteGame.id)
 
