@@ -9,11 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    var manageGame = ManageGolfGame()
-
     // MARK: Properties
     @IBOutlet weak var nameTableView: UITableView!
+
+    var manageGame = ManageGolfGame()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,11 +37,10 @@ class ViewController: UIViewController {
 
     // MARK: Actions
     @IBAction func addButton(_ sender: UIBarButtonItem) {
-
     }
 }
 
-// TableViewDelegates
+// MARK: TableView Delegates
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return manageGame.countGames()
@@ -79,7 +77,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-// MARK: Delegates(Use the delegate to pass data between the views)
+// MARK: Delegates (Implemented)
 extension ViewController: AddGolfViewControllerDelegate {
     func controllerDidCancel(_ controller: AddGolfViewController) {
         dismiss(animated: true, completion: nil)

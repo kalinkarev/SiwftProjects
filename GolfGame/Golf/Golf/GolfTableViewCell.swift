@@ -9,10 +9,9 @@
 import UIKit
 
 class GolfTableViewCell: UITableViewCell {
-    
     // MARK: Properties
     @IBOutlet weak var nameLabel: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,5 +23,4 @@ class GolfTableViewCell: UITableViewCell {
         // Configure the view for the selected state
         selectionStyle = UITableViewCellSelectionStyle.none
     }
-
 }

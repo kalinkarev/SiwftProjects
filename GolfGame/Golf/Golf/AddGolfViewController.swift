@@ -16,7 +16,6 @@ protocol AddGolfViewControllerDelegate: AnyObject {
 }
 
 class AddGolfViewController: UIViewController {
-
     // MARK: Properties
     @IBOutlet weak var numberHolesTableView: UITableView!
     @IBOutlet weak var nameTextField: UITextField!
@@ -77,7 +76,7 @@ class AddGolfViewController: UIViewController {
             newID = newID + 1
         }
         print("The new id is: \(newID)")
-        let newGame = GolfGame(id: newID, name: nameTextField.text!, numberOfHoles: numberHoles, pointsScored: sumOfPoints, dictionaryHolePoints: dictionaryHolePoints)
+        let newGame = GolfGame(id: newID, name: nameTextField.text ?? "", numberOfHoles: numberHoles, pointsScored: sumOfPoints, dictionaryHolePoints: dictionaryHolePoints)
         print("The new game has id: \(String(describing: newGame?.id)), name: \(String(describing: newGame?.name)), numberOfHoles: \(String(describing: newGame?.numberOfHoles)), points: \(String(describing: newGame?.pointsScored)), dicitonary: \(String(describing: newGame?.dictionaryHolePoints))")
 
         for (key, value) in (newGame?.dictionaryHolePoints)! {
@@ -215,7 +214,7 @@ extension AddGolfViewController: UITableViewDataSource, UITableViewDelegate, UIT
         cell.txtPoint.delegate = self
         cell.txtPoint.text = ""
         cell.txtPoint.placeholder = "Enter for hole: \(indexPath.row + 1)"
-        arrayHoles[indexPath.row] = cell.txtPoint.placeholder!
+        arrayHoles[indexPath.row] = cell.txtPoint.placeholder ?? ""
         cell.txtPoint.autocorrectionType = UITextAutocorrectionType.no
         cell.txtPoint.autocapitalizationType = UITextAutocapitalizationType.none
         cell.txtPoint.adjustsFontSizeToFitWidth = true
@@ -224,16 +223,19 @@ extension AddGolfViewController: UITableViewDataSource, UITableViewDelegate, UIT
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
-        let indexOf = arrayHoles.index(of: textField.placeholder!)
-        print("The index of the entered text field is: \(String(describing: indexOf))")
+        let indexOf = arrayHoles.index(of: textField.placeholder ?? "")
 
-        if (textField.placeholder! == arrayHoles[indexOf!]) {
-            if (indexOf! <= (allCellsText.count - 1)) {
-                allCellsText.remove(at: indexOf!)
+        if let indexWithoutOptinal = indexOf {
+            print("The index of the entered text field is: \(indexWithoutOptinal)")
+
+            if (textField.placeholder ?? "" == arrayHoles[indexWithoutOptinal]) {
+                if (indexWithoutOptinal <= (allCellsText.count - 1)) {
+                    allCellsText.remove(at: indexWithoutOptinal)
+                }
+
+                allCellsText.insert(textField.text ?? "", at: indexWithoutOptinal)
+                print("The array with points is: \(allCellsText)")
             }
-
-            allCellsText.insert(textField.text!, at: indexOf!)
-            print("The array with points is: \(allCellsText)")
         }
 
         let arrayWithoutOptionals: [String] = allCellsText.map { $0 ?? "" }
