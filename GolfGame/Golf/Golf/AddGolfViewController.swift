@@ -19,7 +19,8 @@ class AddGolfViewController: UIViewController {
     // MARK: Properties
     @IBOutlet weak var numberHolesTableView: UITableView!
     @IBOutlet weak var nameTextField: UITextField!
-
+    @IBOutlet weak var btnSave: UIBarButtonItem!
+    
     var manageGolfGame = ManageGolfGame()
 
     var numberHoles: Int = 0
@@ -42,11 +43,14 @@ class AddGolfViewController: UIViewController {
         hideElementOnTheScreen()
 
         showActionSheet()
+
+        nameTextField.delegate = self
     }
 
     func hideElementOnTheScreen() {
         numberHolesTableView.isHidden = true
         nameTextField.isHidden = true
+        btnSave.isEnabled = false
     }
 
     func showElementsOnTheScreen() {
@@ -262,5 +266,13 @@ extension AddGolfViewController: UITableViewDataSource, UITableViewDelegate, UIT
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if !(nameTextField.text?.isEmpty)! {
+            btnSave.isEnabled = true
+        } else  {
+            btnSave.isEnabled = false
+        }
     }
 }

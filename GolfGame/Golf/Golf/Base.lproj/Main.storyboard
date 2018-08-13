@@ -120,6 +120,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="btnSave" destination="GCa-6L-wMp" id="8sV-Ki-gQS"/>
                         <outlet property="nameTextField" destination="9hb-nF-4zO" id="Snk-OH-PE4"/>
                         <outlet property="numberHolesTableView" destination="fBY-Bl-3BD" id="UeX-q5-D3R"/>
                     </connections>
