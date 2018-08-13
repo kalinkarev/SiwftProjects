@@ -170,12 +170,12 @@ class AddGolfViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
 
-    func printTheNumber() {
+    func printTheNumberOfHoles() {
         print("The number of holes is equal to: \(self.numberHoles)")
     }
 
     func prepopulateTableView() {
-        printTheNumber()
+        printTheNumberOfHoles()
         showElementsOnTheScreen()
         self.numberHolesTableView.reloadData()
 

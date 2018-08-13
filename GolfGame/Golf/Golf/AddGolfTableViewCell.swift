@@ -30,7 +30,6 @@ class AddGolfTableViewCell: UITableViewCell {
         ] as [String : Any]
 
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[holes]-[points]-|", options: [], metrics: nil, views: viewDict))
-
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -48,5 +47,4 @@ class AddGolfTableViewCell: UITableViewCell {
         // Configure the view for the selected state
         selectionStyle = UITableViewCellSelectionStyle.none
     }
-
 }
