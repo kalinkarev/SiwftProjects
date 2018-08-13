@@ -19,8 +19,6 @@ class AddGolfTableViewCell: UITableViewCell {
         labHoles.translatesAutoresizingMaskIntoConstraints = false
         txtPoint.translatesAutoresizingMaskIntoConstraints = false
 
-        txtPoint.placeholder = "Enter points for the hole"
-
         contentView.addSubview(labHoles)
         contentView.addSubview(txtPoint)
 

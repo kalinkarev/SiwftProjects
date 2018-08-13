@@ -213,7 +213,7 @@ extension AddGolfViewController: UITableViewDataSource, UITableViewDelegate, UIT
 
         cell.txtPoint.delegate = self
         cell.txtPoint.text = ""
-        cell.txtPoint.placeholder = "Enter for hole: \(indexPath.row + 1)"
+        cell.txtPoint.placeholder = "Enter points for hole: \(indexPath.row + 1)"
         arrayHoles[indexPath.row] = cell.txtPoint.placeholder ?? ""
         cell.txtPoint.autocorrectionType = UITextAutocorrectionType.no
         cell.txtPoint.autocapitalizationType = UITextAutocapitalizationType.none
