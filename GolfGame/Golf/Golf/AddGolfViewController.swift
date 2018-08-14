@@ -204,7 +204,7 @@ class AddGolfViewController: UIViewController {
 }
 
 // MARK: TableView Delegates
-extension AddGolfViewController: UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
+extension AddGolfViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return numberHoles
     }
@@ -224,7 +224,10 @@ extension AddGolfViewController: UITableViewDataSource, UITableViewDelegate, UIT
 
         return cell
     }
+}
 
+// MARK: UITextField Delegates
+extension AddGolfViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         let indexOf = arrayHoles.index(of: textField.placeholder ?? "")
 
