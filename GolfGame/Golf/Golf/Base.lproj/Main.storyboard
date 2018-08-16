@@ -27,7 +27,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ieI-IO-TaD" id="ZXu-oD-LbT">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0w2-Ss-tWU">
@@ -120,14 +120,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="btnSave" destination="GCa-6L-wMp" id="8sV-Ki-gQS"/>
+                        <outlet property="btnSave" destination="GCa-6L-wMp" id="uaB-Be-fGR"/>
                         <outlet property="nameTextField" destination="9hb-nF-4zO" id="Snk-OH-PE4"/>
                         <outlet property="numberHolesTableView" destination="fBY-Bl-3BD" id="UeX-q5-D3R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AKk-0j-fkg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1784.8" y="116.49175412293854"/>
+            <point key="canvasLocation" x="1814" y="117"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tmO-hR-I08">
