@@ -39,17 +39,9 @@ class AddGolfViewController: UIViewController {
         
         numberHolesTableView.register(AddGolfTableViewCell.self, forCellReuseIdentifier: "cellAdd")
         
-//        hideElementOnTheScreen()
-        
-//        showActionSheet()
+        btnSave.isEnabled = false
         
         prepopulateTableView()
-    }
-    
-    func hideElementOnTheScreen() {
-        numberHolesTableView.isHidden = true
-        nameTextField.isHidden = true
-        btnSave.isEnabled = false
     }
     
     func showElementsOnTheScreen() {
@@ -79,33 +71,6 @@ class AddGolfViewController: UIViewController {
         
         delegate?.controllerDidSave(self, didSave: newGame!)
     }
-   
-//    func showActionSheet() {
-//        let alertController = UIAlertController(title: "Choose how many holes to have the golf game", message: nil, preferredStyle: .actionSheet)
-//
-//        let nineButton = UIAlertAction(title: "Nine holes", style: .default, handler: {
-//            (action) -> Void in
-//            print("Nine holes")
-//            self.numberHoles = 9
-//            self.prepopulateTableView()
-//        })
-//        let eighteenButton = UIAlertAction(title: "Eighteen holes", style: .default, handler: {
-//            (action) -> Void in
-//            print("Eighteen holes")
-//            self.numberHoles = 18
-//            self.prepopulateTableView()
-//        })
-//        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: {
-//            (action) -> Void in
-//            print("Cancel button tapped")
-//        })
-//
-//        alertController.addAction(nineButton)
-//        alertController.addAction(eighteenButton)
-//        alertController.addAction(cancelButton)
-//
-//        self.present(alertController.self, animated: true, completion: nil)
-//    }
     
     func printTheNumberOfHoles() {
         print("The number of holes is equal to: \(self.numberHoles)")
@@ -121,7 +86,9 @@ class AddGolfViewController: UIViewController {
     
     func initializeArrays() {
         arrayHoles = [String](repeating: "hello", count: numberHoles)
+        print("The array of holes is: \(arrayHoles)")
         allCellsText = [String?](repeating: nil, count: numberHoles)
+        print("The array of cells text is: \(allCellsText)")
     }
     
     /*
