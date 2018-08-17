@@ -44,11 +44,6 @@ class AddGolfViewController: UIViewController {
         prepopulateTableView()
     }
     
-    func showElementsOnTheScreen() {
-        numberHolesTableView.isHidden = false
-        nameTextField.isHidden = false
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -56,6 +51,9 @@ class AddGolfViewController: UIViewController {
     
     // MARK: Actions
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
+//        delegate?.controllerDidCancel(self)
+//        dismiss(animated: true, completion: nil)
+        print("Cancel button pressed")
         delegate?.controllerDidCancel(self)
     }
     
@@ -78,12 +76,11 @@ class AddGolfViewController: UIViewController {
     
     func prepopulateTableView() {
         printTheNumberOfHoles()
-        showElementsOnTheScreen()
         self.numberHolesTableView.reloadData()
         
         initializeArrays()
     }
-    
+
     func initializeArrays() {
         arrayHoles = [String](repeating: "hello", count: numberHoles)
         print("The array of holes is: \(arrayHoles)")
