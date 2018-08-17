@@ -57,12 +57,12 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="9xo-db-UdL">
                             <connections>
                                 <action selector="addButton:" destination="BYZ-38-t0r" id="caL-PK-o3q"/>
-                                <segue destination="qTt-9Z-cp4" kind="show" identifier="addItem" id="8Dj-N4-o9j"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="nameTableView" destination="pSS-mz-7Ul" id="UYA-df-Nfs"/>
+                        <segue destination="qTt-9Z-cp4" kind="show" identifier="addItem" id="BEz-lo-Bwn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

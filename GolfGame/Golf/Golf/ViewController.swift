@@ -26,53 +26,89 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func goToNextScreen(segue: UIStoryboardSegue, passNumber: Int) {
-        let navVC = segue.destination as! UINavigationController
-        let addVC = navVC.viewControllers.first as! AddGolfViewController
-        
-        addVC.numberHoles = numberOfHoles
-        self.present(navVC, animated: true, completion: nil)
+//    func goToNextScreen(segue: UIStoryboardSegue, passNumber: Int) {
+//        let navVC = segue.destination as! UINavigationController
+//        let addVC = navVC.viewControllers.first as! AddGolfViewController
+//
+//        addVC.numberHoles = numberOfHoles
+//        self.present(navVC, animated: true, completion: nil)
+//    }
+    
+//    func showActionSheet(segue: UIStoryboardSegue) {
+//        let alertController = UIAlertController(title: "Choose how many holes do you want the game to have", message: nil, preferredStyle: .actionSheet)
+//
+//        let nineButton = UIAlertAction(title: "Nine holes", style: .default, handler: {
+//            (action) -> Void in
+//            print("Nine holes")
+//
+//            self.numberOfHoles = 9
+//            self.goToNextScreen(segue: segue, passNumber: self.numberOfHoles)
+//        })
+//        let eighteenButton = UIAlertAction(title: "Eighteen holes", style: .default, handler: {
+//            (action) -> Void in
+//            print("Eighteen holes")
+//
+//            self.numberOfHoles = 18
+//            self.goToNextScreen(segue: segue, passNumber: self.numberOfHoles)
+//        })
+//        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: {
+//            (action) -> Void in
+//            print("Cancel button tapped")
+//        })
+//
+//        alertController.addAction(nineButton)
+//        alertController.addAction(eighteenButton)
+//        alertController.addAction(cancelButton)
+//
+//        self.present(alertController, animated: true, completion: nil)
+//    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addItem" {
+            let navigationController = segue.destination as? UINavigationController
+            let addItemViewController = navigationController?.topViewController as? AddGolfViewController
+            
+            if let viewController = addItemViewController {
+                viewController.delegate = self
+
+                viewController.numberHoles = numberOfHoles
+            }
+        }
     }
     
-    func showActionSheet(segue: UIStoryboardSegue) {
+    // MARK: Actions
+    @IBAction func addButton(_ sender: UIBarButtonItem) {
+        showActionSheet()
+    }
+    
+    func showActionSheet() {
         let alertController = UIAlertController(title: "Choose how many holes do you want the game to have", message: nil, preferredStyle: .actionSheet)
         
         let nineButton = UIAlertAction(title: "Nine holes", style: .default, handler: {
             (action) -> Void in
-            print("Nine holes")
+            print("You have pressed the nine button")
             
             self.numberOfHoles = 9
-            self.goToNextScreen(segue: segue, passNumber: self.numberOfHoles)
+            
+            self.performSegue(withIdentifier: "addItem", sender: self)
         })
         let eighteenButton = UIAlertAction(title: "Eighteen holes", style: .default, handler: {
             (action) -> Void in
-            print("Eighteen holes")
+            print("You have pressed the eighteen button")
             
             self.numberOfHoles = 18
-            self.goToNextScreen(segue: segue, passNumber: self.numberOfHoles)
+            self.performSegue(withIdentifier: "addItem", sender: self)
         })
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: {
             (action) -> Void in
-            print("Cancel button tapped")
+            print("You have pressed the cancel button")
         })
-        
         alertController.addAction(nineButton)
         alertController.addAction(eighteenButton)
         alertController.addAction(cancelButton)
         
         self.present(alertController, animated: true, completion: nil)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "addItem" {
-            showActionSheet(segue: segue)
-        }
-    }
-    
-    // MARK: Actions
-    @IBAction func addButton(_ sender: UIBarButtonItem) {
-    }
-    
 }
 
 // MARK: TableView Delegates

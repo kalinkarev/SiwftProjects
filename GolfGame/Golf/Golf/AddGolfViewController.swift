@@ -51,9 +51,6 @@ class AddGolfViewController: UIViewController {
     
     // MARK: Actions
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
-//        delegate?.controllerDidCancel(self)
-//        dismiss(animated: true, completion: nil)
-        print("Cancel button pressed")
         delegate?.controllerDidCancel(self)
     }
     
