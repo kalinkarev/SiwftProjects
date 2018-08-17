@@ -37,4 +37,10 @@ struct ManageGolfGame {
         }
         printGames()
     }
+
+    mutating func deleteGame(_ deleteGame: GolfGame) {
+        games.remove(at: deleteGame.id)
+
+        printGames()
+    }
 }

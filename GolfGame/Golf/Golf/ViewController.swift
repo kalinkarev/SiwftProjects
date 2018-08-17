@@ -94,6 +94,21 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         
         return cell
     }
+    
+    // Delete game
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let game = GolfGame(id: indexPath.row, name: indexPath.description, pointsScored: indexPath.row, dictHolePoints: [indexPath.row : indexPath.row])
+            
+            manageGame.deleteGame(game!)
+            
+            nameTableView.deleteRows(at: [indexPath], with: .right)
+        }
+    }
 }
 
 // MARK: Delegates (Implemented)
