@@ -18,7 +18,7 @@ struct ManageGolfGame {
     func countGames() -> Int {
         return games.count
     }
-    
+
     mutating func addGame(_ newGame: GolfGame) {
         if games.isEmpty {
             let newID = 0
@@ -28,7 +28,7 @@ struct ManageGolfGame {
         } else {
             let lastGame = games.last
             let lastID = lastGame?.id
-            
+
             if let lastGameID = lastID {
                 var localNewGame = newGame
                 localNewGame.id = lastGameID + 1
