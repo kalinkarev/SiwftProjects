@@ -29,6 +29,8 @@ class AddGolfViewController: UIViewController {
     var arrayWithPoints = [Int]()
     var allCellsText = [String?]()
     
+    var dictionaryHolePoints: [Int : Int] = [:]
+    
     var sumOfPoints: Int = 0
     
     weak var delegate: AddGolfViewControllerDelegate?
@@ -65,6 +67,10 @@ class AddGolfViewController: UIViewController {
         let newGame = GolfGame(id: newID, name: nameTextField.text ?? "", pointsScored: sumOfPoints)
         
         delegate?.controllerDidSave(self, didSave: newGame!)
+        
+        for (key, value) in dictionaryHolePoints.sorted(by: >) {
+            print("The key of the dicitonary: \(key) has value: \(value)")
+        }
     }
     
     func printTheNumberOfHoles() {
@@ -134,6 +140,7 @@ extension AddGolfViewController: UITextFieldDelegate {
         
         var sum: Int = 0
         for i in 0..<arrayWithPoints.count {
+            dictionaryHolePoints[i] = arrayWithPoints[i]
             sum += arrayWithPoints[i]
         }
         
