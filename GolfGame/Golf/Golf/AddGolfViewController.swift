@@ -27,35 +27,35 @@ class AddGolfViewController: UIViewController {
 
     var arrayWithPoints = [Int]()
     var allCellsText = [String?]()
-    
+
     var dictionaryHolePoints: [Int : Int] = [:]
-    
+
     var arrayDictKeys: [Int] = []
     var arrayDictValues: [Int] = []
-    
+
     var sumOfPoints: Int = 0
-    
+
     weak var delegate: AddGolfViewControllerDelegate?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+
         numberHolesTableView.register(AddGolfTableViewCell.self, forCellReuseIdentifier: "cellAdd")
-        
+
         prepopulateTableView()
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     // MARK: Actions
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
         delegate?.controllerDidCancel(self)
     }
-    
+
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
         var newID: Int
         if manageGolfGame.games.isEmpty {
@@ -113,17 +113,16 @@ extension AddGolfViewController: UITableViewDataSource, UITableViewDelegate {
 
 // MARK: TextField Delegates
 extension AddGolfViewController: UITextFieldDelegate {
-    
     func textFieldDidEndEditing(_ textField: UITextField) {
         allCellsText[textField.tag] = textField.text
         print("The array is: \(allCellsText)")
-        
+
         let arrayWithoutOptionals: [String] = allCellsText.map { $0 ?? "" }
         arrayWithPoints = arrayWithoutOptionals.map { Int($0) ?? 0 }
         print("The array of points is: \(arrayWithPoints)")
-        
+
         var sum: Int = 0
-        
+
         for i in 0..<arrayWithPoints.count {
             print("The position:\(i) has value: \(arrayWithPoints[i])")
             dictionaryHolePoints[i] = arrayWithPoints[i]
@@ -133,17 +132,24 @@ extension AddGolfViewController: UITextFieldDelegate {
             print("The array of values is: \(arrayDictValues)")
             sum += arrayWithPoints[i]
         }
-        
+
         sumOfPoints = sum
         print("The sum of the games points are: \(sumOfPoints)")
-        
+
         for (key, value) in dictionaryHolePoints.sorted(by: <) {
             print("Hole number \(key + 1) has \(value) scored points")
         }
     }
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+
+        if !(nameTextField.text!.isEmpty) {
+            btnSave.isEnabled = true
+        } else {
+            btnSave.isEnabled = false
+        }
+
         return true
     }
 }
