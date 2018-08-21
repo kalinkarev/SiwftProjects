@@ -43,6 +43,9 @@ class AddGolfViewController: UIViewController {
 
         numberHolesTableView.register(AddGolfTableViewCell.self, forCellReuseIdentifier: "cellAdd")
 
+        numberHolesTableView.rowHeight = UITableViewAutomaticDimension
+        numberHolesTableView.estimatedRowHeight = 44
+
         prepopulateTableView()
     }
 
