@@ -73,10 +73,10 @@ class AddGolfViewController: UIViewController {
                 arrayKeys.append(key)
                 arrayValues.append(value)
             }
-            
+
             arrayWithHoles = arrayKeys
             arrayDictValues = arrayValues
-            
+
             let arrayOfOptionalDictionaryValues = arrayDictValues.map {
                 Optional(String($0))
             }
