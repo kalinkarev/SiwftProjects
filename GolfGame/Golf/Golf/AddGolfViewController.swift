@@ -21,6 +21,8 @@ class AddGolfViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var btnSave: UIBarButtonItem!
 
+    var selectedGame: GolfGame?
+    
     var manageGolfGame = ManageGolfGame()
 
     var numberHoles: Int = 0
@@ -30,7 +32,8 @@ class AddGolfViewController: UIViewController {
 
     var dictionaryHolePoints: [Int : Int] = [:]
 
-    var arrayDictKeys: [Int] = []
+    var arrayWithHoles: [Int] = []
+    
     var arrayDictValues: [Int] = []
 
     var sumOfPoints: Int = 0
@@ -46,7 +49,41 @@ class AddGolfViewController: UIViewController {
         numberHolesTableView.rowHeight = UITableViewAutomaticDimension
         numberHolesTableView.estimatedRowHeight = 44
 
-        prepopulateTableView()
+        if let game = selectedGame {
+            let idOfSelectedGame = game.id
+            print("The id of the selected game is: \(idOfSelectedGame)")
+            
+            let nameOfSelectedGame = game.name
+            print("The name of the selected game is: \(nameOfSelectedGame)")
+            
+            let pointsScoredOfSelectedGame = game.pointsScored
+            print("The scored points of the selected game is: \(pointsScoredOfSelectedGame)")
+            
+            let dictionaryHolePointsOfSelectedGame = game.dictHolePoints
+            print("The hole with points of the selected game is: \(dictionaryHolePointsOfSelectedGame)")
+            
+            nameTextField.text = nameOfSelectedGame
+            
+            let sortedDictionary = dictionaryHolePointsOfSelectedGame.sorted { $0.key < $1.key }
+            
+            var arrayKeys: [Int] = []
+            var arrayValues: [Int] = []
+            
+            for (key, value) in sortedDictionary {
+                arrayKeys.append(key)
+                arrayValues.append(value)
+            }
+            
+            arrayWithHoles = arrayKeys
+            arrayDictValues = arrayValues
+            
+            let arrayOfOptionalDictionaryValues = arrayDictValues.map {
+                Optional(String($0))
+            }
+            allCellsText = arrayOfOptionalDictionaryValues
+        } else {
+            prepopulateTableView()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,7 +93,15 @@ class AddGolfViewController: UIViewController {
 
     // MARK: Actions
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
-        delegate?.controllerDidCancel(self)
+        let isPresentingInAddGameMode = presentingViewController is UINavigationController
+
+        if isPresentingInAddGameMode {
+           delegate?.controllerDidCancel(self)
+        } else if let owningNavigationController = navigationController {
+            owningNavigationController.popViewController(animated: true)
+        } else {
+            fatalError("The AddGolfViewController is not inside navigationController.")
+        }
     }
 
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
@@ -91,20 +136,28 @@ class AddGolfViewController: UIViewController {
     func initializeArrays() {
         allCellsText = [String?](repeating: nil, count: numberHoles)
         print("The array of cells text is: \(allCellsText)")
+        
+        for i in 0..<numberHoles {
+            arrayWithHoles.append(i)
+        }
+        
+        for j in 0..<arrayWithHoles.count {
+            dictionaryHolePoints[j] = j
+        }
     }
 }
 
 // MARK: TableView Delegates
 extension AddGolfViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numberHoles
+        return arrayWithHoles.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellAdd", for: indexPath as IndexPath) as! AddGolfTableViewCell
 
-        cell.labHoles.text = "Hole: \(indexPath.row + 1)"
-        cell.txtPoint.placeholder = "Enter points for hole: \(indexPath.row + 1)"
+        cell.labHoles.text = "Hole: \(arrayWithHoles[indexPath.row])"
+        cell.txtPoint.placeholder = "Enter points for hole: \(indexPath.row)"
 
         cell.txtPoint.text = allCellsText[indexPath.row]
         cell.txtPoint.tag = indexPath.row
@@ -129,8 +182,6 @@ extension AddGolfViewController: UITextFieldDelegate {
         for i in 0..<arrayWithPoints.count {
             print("The position:\(i) has value: \(arrayWithPoints[i])")
             dictionaryHolePoints[i] = arrayWithPoints[i]
-            arrayDictKeys = Array(dictionaryHolePoints.keys.sorted())
-            print("The array of keys is: \(arrayDictKeys)")
             arrayDictValues = Array(dictionaryHolePoints.values.sorted())
             print("The array of values is: \(arrayDictValues)")
             sum += arrayWithPoints[i]

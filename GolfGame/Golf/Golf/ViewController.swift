@@ -27,16 +27,57 @@ class ViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "addItem" {
+        super.prepare(for: segue, sender: sender)
+
+        switch segue.identifier {
+        case "addItem"?:
             let navigationController = segue.destination as? UINavigationController
             let addItemViewController = navigationController?.topViewController as? AddGolfViewController
             
             if let viewController = addItemViewController {
                 viewController.delegate = self
-
                 viewController.numberHoles = numberOfHoles
             }
+        case "editItem"?:
+            guard let gameDetailViewController = segue.destination as? AddGolfViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            guard let selectedGameCell = sender as? GolfTableViewCell else {
+                fatalError("Unexpected sender: \(String(describing: sender))")
+            }
+            guard let indexPath = nameTableView.indexPath(for: selectedGameCell) else {
+                fatalError("The selected call is not being displayed bythe table")
+            }
+            
+            let selectedGame = manageGame.games[indexPath.row]
+            gameDetailViewController.selectedGame = selectedGame
+        default:
+            print("There is not such operation, that you can do?")
         }
+        
+//        switch segue.identifier {
+//        case "addItem"?:
+//            let navigationController = segue.destination as? UINavigationController
+//            let addItemViewController = navigationController?.topViewController as? AddGolfViewController
+//
+//            if let viewController = addItemViewController {
+//                viewController.delegate = self
+//                viewController.numberHoles = numberOfHoles
+//            }
+//        default:
+//            <#code#>
+//        }
+        
+//        if segue.identifier == "addItem" {
+//            let navigationController = segue.destination as? UINavigationController
+//            let addItemViewController = navigationController?.topViewController as? AddGolfViewController
+//
+//            if let viewController = addItemViewController {
+//                viewController.delegate = self
+//
+//                viewController.numberHoles = numberOfHoles
+//            }
+//        }
     }
     
     // MARK: Actions
