@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        manageGame.loadGames()
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,6 +51,7 @@ class ViewController: UIViewController {
             
             let selectedGame = manageGame.games[indexPath.row]
             gameDetailViewController.selectedGame = selectedGame
+            gameDetailViewController.delegate = self
         default:
             print("There is not such operation, that you can do?")
         }
@@ -160,9 +161,15 @@ extension ViewController: AddGolfViewControllerDelegate {
     
     func controllerDidSave(_ controller: AddGolfViewController, didSave: GolfGame) {
         manageGame.addGame(didSave)
-        
+
         nameTableView.reloadData()
-        
+
         dismiss(animated: true, completion: nil)
+    }
+
+    func controllerDidEdit(_ controller: AddGolfViewController, didEdit: GolfGame) {
+        manageGame.editGame(didEdit)
+
+        nameTableView.reloadData()
     }
 }
