@@ -12,43 +12,39 @@ import UIKit
 class MainScreenViewController: UIViewController {    
     // MARK: Properties
     @IBOutlet weak var notesTableView: UITableView!
-    
+
     var userNotes = UserNotes()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Set Title on the navigation bar on the main screen _Your Notes_
         title = "Your Notes"
-        
-        // Populate Items in the table view
-        userNotes.loadData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     // MARK: Navigation
     // This method lets you configure a view controller before it`s presented.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         super.prepare(for: segue, sender: sender)
-        
+
         // Configure the destination view controller only when the save button is pressed.
-        
+
         switch (segue.identifier ?? "") {
         case "AddNoteViewController":
             let navigationController = segue.destination as? UINavigationController
             let addNoteViewController = navigationController?.topViewController as? AddNoteViewController
-            
+
             if let viewController = addNoteViewController {
                 viewController.delegate = self as AddNoteViewControllerDelegate
             }
-            
+
         case "showDetail":
-            
+
             print("You have selected edit note")
 
             guard let noteDetailViewController = segue.destination as? AddNoteViewController else {
@@ -62,20 +58,21 @@ class MainScreenViewController: UIViewController {
             guard let indexPath = notesTableView.indexPath(for: selectedNoteCell) else {
                 fatalError("The seleceted cell is not being displayed by the table")
             }
-            
+
             let selectedNote = userNotes.notes[indexPath.row]
             noteDetailViewController.note = selectedNote
+            noteDetailViewController.delegate = self
 
             print("The name of the selected note for edit is: \(selectedNote.name)")
             print("The id of the selected note for edit is: \(selectedNote.id)")
-            
+
             print(userNotes.notes)
-            
+
         default:
             fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
         }
     }
-    
+
     // MARK: Actions
     @IBAction func unwindToNoteList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? AddNoteViewController, let note = sourceViewController.note {
@@ -88,7 +85,6 @@ class MainScreenViewController: UIViewController {
             }
         }
     }
-    
 }
 
 
@@ -156,15 +152,21 @@ extension MainScreenViewController: AddNoteViewControllerDelegate {
         // Update the Data Source
         // Using the method implemented in the UserNotes.swift
         userNotes.addNote(didSave)
-        
+
         // Reload Table View
         notesTableView.reloadData()
-        
+
         // Dismiss Add Note View Controller
         dismiss(animated: true, completion: nil)
     }
 
     func contollerDidCancel(_ controller: AddNoteViewController) {
         dismiss(animated: true, completion: nil)
+    }
+
+    func controllerDidEdit(_ controller: AddNoteViewController, didEdit: Note) {
+        userNotes.editNote(didEdit)
+
+        notesTableView.reloadData()
     }
 }
