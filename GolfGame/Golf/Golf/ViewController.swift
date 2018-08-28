@@ -11,11 +11,11 @@ import UIKit
 class ViewController: UIViewController {
     // MARK: Properties
     @IBOutlet weak var nameTableView: UITableView!
-    
+
     var manageGame = ManageGolfGame()
-    
+
     var numberOfHoles: Int = 0
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         manageGame.loadGames()
@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         case "addItem"?:
             let navigationController = segue.destination as? UINavigationController
             let addItemViewController = navigationController?.topViewController as? AddGolfViewController
-            
+
             if let viewController = addItemViewController {
                 viewController.delegate = self
                 viewController.numberHoles = numberOfHoles
@@ -48,7 +48,7 @@ class ViewController: UIViewController {
             guard let indexPath = nameTableView.indexPath(for: selectedGameCell) else {
                 fatalError("The selected call is not being displayed bythe table")
             }
-            
+
             let selectedGame = manageGame.games[indexPath.row]
             gameDetailViewController.selectedGame = selectedGame
             gameDetailViewController.delegate = self
