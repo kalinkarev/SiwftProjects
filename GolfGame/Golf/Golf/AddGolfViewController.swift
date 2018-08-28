@@ -24,7 +24,7 @@ class AddGolfViewController: UIViewController {
     @IBOutlet weak var btnSave: UIBarButtonItem!
 
     var selectedGame: GolfGame?
-    
+
     var manageGolfGame = ManageGolfGame()
 
     var numberHoles: Int = 0
@@ -35,7 +35,7 @@ class AddGolfViewController: UIViewController {
     var dictionaryHolePoints: [Int : Int] = [:]
 
     var arrayWithHoles: [Int] = []
-    
+
     var arrayDictValues: [Int] = []
 
     var sumOfPoints: Int = 0

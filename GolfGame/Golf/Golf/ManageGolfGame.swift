@@ -55,17 +55,32 @@ struct ManageGolfGame {
         printGames()
     }
 
+//    mutating func editGame(_ selectedGame: GolfGame) {
+//        printGames()
+//
+//        print("The selected game`s id is: \(selectedGame.id)")
+//        print("The selected game`s name is: \(selectedGame.name)")
+//
+//        games.remove(at: selectedGame.id)
+//        printGames()
+//
+//        let newGame = selectedGame
+//        games.insert(newGame, at: selectedGame.id)
+//        printGames()
+//    }
+    
     mutating func editGame(_ selectedGame: GolfGame) {
-        printGames()
-
-        print("The selected game`s id is: \(selectedGame.id)")
-        print("The selected game`s name is: \(selectedGame.name)")
-
-        games.remove(at: selectedGame.id)
-        printGames()
-
-        let newGame = selectedGame
-        games.insert(newGame, at: selectedGame.id)
-        printGames()
+        games = games.map {
+            var mutableGame = $0
+            
+            if $0.id == selectedGame.id {
+                mutableGame.name = selectedGame.name
+                mutableGame.pointsScored = selectedGame.pointsScored
+                mutableGame.dictHolePoints = selectedGame.dictHolePoints
+            }
+            
+            return mutableGame
+        }
     }
+    
 }
