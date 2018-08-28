@@ -35,11 +35,12 @@ class AddNoteViewController: UIViewController {
         // Do any additional setup after loading the view.
 
         // Set Title on the navigation bar in the add screen _Add Note_
-        title = "Add Note"
+        title = "Adding Note"
 
         // Set up views if editing an existing Note.
         if let note = note {
             textField.text = note.name
+            title = "Editing Note"
         }
 
         saveBtn.isEnabled = false
