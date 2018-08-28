@@ -44,34 +44,36 @@ struct UserNotes {
     }
 
     mutating func editNote(_ selectedNote: Note) {
-        printTheArray()
+        notes = notes.map {
+            var mutableNote = $0
 
-        print("The selected note`s id is: \(selectedNote.id)")
-        print("THe selected note`s name is: \(selectedNote.name)")
-
-        notes.remove(at: selectedNote.id)
-        printTheArray()
-
-        let newNote = selectedNote
-
-        notes.insert(newNote, at: selectedNote.id)
-        printTheArray()
+            if $0.id == selectedNote.id {
+                mutableNote.name = selectedNote.name
+            }
+            return mutableNote
+        }
     }
+
+//    mutating func editNote(_ selectedNote: Note) {
+//        printTheArray()
+//
+//        print("The selected note`s id is: \(selectedNote.id)")
+//        print("THe selected note`s name is: \(selectedNote.name)")
+//
+//        notes.remove(at: selectedNote.id)
+//        printTheArray()
+//
+//        let newNote = selectedNote
+//
+//        notes.insert(newNote, at: selectedNote.id)
+//        printTheArray()
+//    }
 
     func notesNumber() -> Int {
         return notes.count
     }
 
-//    mutating func incrementIdentifierByOne() -> Int {
-//        counter = counter + 1
-//        return counter
-//    }
-
     func printTheArray() {
         print("The array is: \(notes)")
     }
-
-//    func passTheArray() -> [Note] {
-//        return notes
-//    }
 }
