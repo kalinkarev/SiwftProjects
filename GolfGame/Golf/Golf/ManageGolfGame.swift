@@ -10,11 +10,11 @@ import Foundation
 
 struct ManageGolfGame {
     var games: [GolfGame] = []
-    
+
     func printGames() {
         print("The array of games is: \(games)")
     }
-    
+
     func countGames() -> Int {
         return games.count
     }
@@ -68,19 +68,18 @@ struct ManageGolfGame {
 //        games.insert(newGame, at: selectedGame.id)
 //        printGames()
 //    }
-    
+
     mutating func editGame(_ selectedGame: GolfGame) {
         games = games.map {
             var mutableGame = $0
-            
+
             if $0.id == selectedGame.id {
                 mutableGame.name = selectedGame.name
                 mutableGame.pointsScored = selectedGame.pointsScored
                 mutableGame.dictHolePoints = selectedGame.dictHolePoints
             }
-            
+
             return mutableGame
         }
     }
-    
 }
