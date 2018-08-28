@@ -52,25 +52,27 @@ class AddGolfViewController: UIViewController {
         numberHolesTableView.estimatedRowHeight = 44
 
         if let game = selectedGame {
+            title = "Editing a game"
+
             let idOfSelectedGame = game.id
             print("The id of the selected game is: \(idOfSelectedGame)")
-            
+
             let nameOfSelectedGame = game.name
             print("The name of the selected game is: \(nameOfSelectedGame)")
-            
+
             let pointsScoredOfSelectedGame = game.pointsScored
             print("The scored points of the selected game is: \(pointsScoredOfSelectedGame)")
-            
+
             let dictionaryHolePointsOfSelectedGame = game.dictHolePoints
             print("The hole with points of the selected game is: \(dictionaryHolePointsOfSelectedGame)")
-            
+
             nameTextField.text = nameOfSelectedGame
-            
+
             let sortedDictionary = dictionaryHolePointsOfSelectedGame.sorted { $0.key < $1.key }
-            
+
             var arrayKeys: [Int] = []
             var arrayValues: [Int] = []
-            
+
             for (key, value) in sortedDictionary {
                 arrayKeys.append(key)
                 arrayValues.append(value)
@@ -108,10 +110,10 @@ class AddGolfViewController: UIViewController {
 
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
         let isPresentingInAddGameMode = presentingViewController is UINavigationController
-        
+
         if isPresentingInAddGameMode {
             print("Save from add screen")
-            
+
             var newID: Int
             if manageGolfGame.games.isEmpty {
                 newID = 0
@@ -120,47 +122,30 @@ class AddGolfViewController: UIViewController {
                 newID = newID + 1
             }
             let newGame = GolfGame(id: newID, name: nameTextField.text ?? "", pointsScored: sumOfPoints, dictHolePoints: dictionaryHolePoints)
-            
+
             print("The new game has id: \(String(describing: newGame?.id)), name: \(String(describing: newGame?.name)), pointsScored: \(String(describing: newGame?.pointsScored)), hole-points: \(String(describing: newGame?.dictHolePoints.sorted(by: >)))")
-            
+
             delegate?.controllerDidSave(self, didSave: newGame!)
-            
+
             for (key, value) in dictionaryHolePoints.sorted(by: >) {
                 print("The key of the dicitonary: \(key) has value: \(value)")
             }
         } else if let owningNavigationController = navigationController {
             print("Save from edit screen")
-            
+
             let gameEditID = selectedGame?.id
             print("The id of the selected game is: \(String(describing: gameEditID))")
             let gameEditName = selectedGame?.name
             print("The name of the selected game is: \(String(describing: gameEditName))")
-            
+
             let editGame = GolfGame(id: gameEditID!, name: nameTextField.text!, pointsScored: sumOfPoints, dictHolePoints: dictionaryHolePoints)
 
             delegate?.controllerDidEdit(self, didEdit: editGame!)
-            
+
             owningNavigationController.popViewController(animated: true)
         } else {
             fatalError("The AddGolfViewController is not inside a navigationcontroller.")
         }
-        
-//        var newID: Int
-//        if manageGolfGame.games.isEmpty {
-//            newID = 0
-//        } else {
-//            newID = (manageGolfGame.games.last?.id)!
-//            newID = newID + 1
-//        }
-//        let newGame = GolfGame(id: newID, name: nameTextField.text ?? "", pointsScored: sumOfPoints, dictHolePoints: dictionaryHolePoints)
-//
-//        print("The new game has id: \(String(describing: newGame?.id)), name: \(String(describing: newGame?.name)), pointsScored: \(String(describing: newGame?.pointsScored)), hole-points: \(String(describing: newGame?.dictHolePoints.sorted(by: >)))")
-//
-//        delegate?.controllerDidSave(self, didSave: newGame!)
-//
-//        for (key, value) in dictionaryHolePoints.sorted(by: >) {
-//            print("The key of the dicitonary: \(key) has value: \(value)")
-//        }
     }
 
     func printTheNumberOfHoles() {
@@ -176,11 +161,11 @@ class AddGolfViewController: UIViewController {
     func initializeArrays() {
         allCellsText = [String?](repeating: nil, count: numberHoles)
         print("The array of cells text is: \(allCellsText)")
-        
+
         for i in 0..<numberHoles {
             arrayWithHoles.append(i)
         }
-        
+
         for j in 0..<arrayWithHoles.count {
             dictionaryHolePoints[j] = j
         }
