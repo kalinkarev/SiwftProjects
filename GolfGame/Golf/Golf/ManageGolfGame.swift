@@ -23,7 +23,7 @@ struct ManageGolfGame {
         guard let game1 = GolfGame(id: 0, name: "Game1", pointsScored: 45, dictHolePoints: [1:1, 2:2, 3:3, 4:4, 5:5, 6:6, 7:7, 8:8, 9:9]) else {
             fatalError("Unable to instantiate game1")
         }
-        guard let game2 = GolfGame(id: 1, name: "Game2", pointsScored: 33, dictHolePoints: [1:11, 2: 14, 3: 13]) else {
+        guard let game2 = GolfGame(id: 1, name: "Game2", pointsScored: 33, dictHolePoints: [1:11, 2:14, 3:13]) else {
             fatalError("Unable to instantiate game2")
         }
 
