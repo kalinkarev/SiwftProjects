@@ -78,7 +78,10 @@ class AddGolfViewController: UIViewController {
                 arrayValues.append(value)
             }
 
-            arrayWithHoles = arrayKeys
+            for i in 1...arrayKeys.count {
+                arrayWithHoles.append(i)
+            }
+
             arrayDictValues = arrayValues
 
             let arrayOfOptionalDictionaryValues = arrayDictValues.map {
@@ -164,7 +167,7 @@ class AddGolfViewController: UIViewController {
         allCellsText = [String?](repeating: nil, count: numberHoles)
         print("The array of cells text is: \(allCellsText)")
 
-        for i in 0..<numberHoles {
+        for i in 1...numberHoles {
             arrayWithHoles.append(i)
         }
 
@@ -184,7 +187,7 @@ extension AddGolfViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellAdd", for: indexPath as IndexPath) as! AddGolfTableViewCell
 
         cell.labHoles.text = "Hole: \(arrayWithHoles[indexPath.row])"
-        cell.txtPoint.placeholder = "Enter points for hole: \(indexPath.row)"
+        cell.txtPoint.placeholder = "Enter points for hole: \(indexPath.row + 1)"
 
         cell.txtPoint.text = allCellsText[indexPath.row]
         cell.txtPoint.tag = indexPath.row
