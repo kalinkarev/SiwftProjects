@@ -85,6 +85,8 @@ class AddGolfViewController: UIViewController {
                 Optional(String($0))
             }
             allCellsText = arrayOfOptionalDictionaryValues
+
+            btnSave.isEnabled = false
         } else {
             prepopulateTableView()
         }
