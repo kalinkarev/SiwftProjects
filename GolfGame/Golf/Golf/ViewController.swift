@@ -68,15 +68,12 @@ class ViewController: UIViewController {
         let nineButton = UIAlertAction(title: "Nine holes", style: .default, handler: {
             (action) -> Void in
             print("You have pressed the nine button")
-
             self.numberOfHoles = 9
-
             self.performSegue(withIdentifier: "addItem", sender: self)
         })
         let eighteenButton = UIAlertAction(title: "Eighteen holes", style: .default, handler: {
             (action) -> Void in
             print("You have pressed the eighteen button")
-
             self.numberOfHoles = 18
             self.performSegue(withIdentifier: "addItem", sender: self)
         })
@@ -137,15 +134,12 @@ extension ViewController: AddGolfViewControllerDelegate {
 
     func controllerDidSave(_ controller: AddGolfViewController, didSave: GolfGame) {
         manageGame.addGame(didSave)
-
         nameTableView.reloadData()
-
         dismiss(animated: true, completion: nil)
     }
 
     func controllerDidEdit(_ controller: AddGolfViewController, didEdit: GolfGame) {
         manageGame.editGame(didEdit)
-
         nameTableView.reloadData()
     }
 }

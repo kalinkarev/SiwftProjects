@@ -44,7 +44,6 @@ class AddGolfViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
 
         numberHolesTableView.register(AddGolfTableViewCell.self, forCellReuseIdentifier: "cellAdd")
 
@@ -56,13 +55,10 @@ class AddGolfViewController: UIViewController {
 
             let idOfSelectedGame = game.id
             print("The id of the selected game is: \(idOfSelectedGame)")
-
             let nameOfSelectedGame = game.name
             print("The name of the selected game is: \(nameOfSelectedGame)")
-
             let pointsScoredOfSelectedGame = game.pointsScored
             print("The scored points of the selected game is: \(pointsScoredOfSelectedGame)")
-
             let dictionaryHolePointsOfSelectedGame = game.dictHolePoints
             print("The hole with points of the selected game is: \(dictionaryHolePointsOfSelectedGame)")
 
@@ -117,8 +113,6 @@ class AddGolfViewController: UIViewController {
         let isPresentingInAddGameMode = presentingViewController is UINavigationController
 
         if isPresentingInAddGameMode {
-            print("Save from add screen")
-
             var newID: Int
             if manageGolfGame.games.isEmpty {
                 newID = 0
@@ -136,8 +130,6 @@ class AddGolfViewController: UIViewController {
                 print("The key of the dicitonary: \(key) has value: \(value)")
             }
         } else if let owningNavigationController = navigationController {
-            print("Save from edit screen")
-
             let gameEditID = selectedGame?.id
             print("The id of the selected game is: \(String(describing: gameEditID))")
             let gameEditName = selectedGame?.name
