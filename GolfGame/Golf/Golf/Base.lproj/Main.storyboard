@@ -87,7 +87,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="32"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SZc-1U-ftJ" id="UfB-Qr-7bV">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="31.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="32"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
