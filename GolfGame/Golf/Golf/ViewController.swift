@@ -119,7 +119,9 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         if editingStyle == .delete {
             let game = GolfGame(id: indexPath.row, name: indexPath.description, pointsScored: indexPath.row, dictHolePoints: [indexPath.row : indexPath.row])
 
-            manageGame.deleteGame(game!)
+            if let gameForDelete = game {
+                manageGame.deleteGame(gameForDelete)
+            }
 
             nameTableView.deleteRows(at: [indexPath], with: .right)
         }
