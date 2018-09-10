@@ -124,7 +124,9 @@ class AddGolfViewController: UIViewController {
 
             print("The new game has id: \(String(describing: newGame?.id)), name: \(String(describing: newGame?.name)), pointsScored: \(String(describing: newGame?.pointsScored)), hole-points: \(String(describing: newGame?.dictHolePoints.sorted(by: >)))")
 
-            delegate?.controllerDidSave(self, didSave: newGame!)
+            if let addGame = newGame {
+                delegate?.controllerDidSave(self, didSave: addGame)
+            }
 
             for (key, value) in dictionaryHolePoints.sorted(by: >) {
                 print("The key of the dicitonary: \(key) has value: \(value)")
@@ -135,9 +137,13 @@ class AddGolfViewController: UIViewController {
             let gameEditName = selectedGame?.name
             print("The name of the selected game is: \(String(describing: gameEditName))")
 
-            let editGame = GolfGame(id: gameEditID!, name: nameTextField.text!, pointsScored: sumOfPoints, dictHolePoints: dictionaryHolePoints)
+            if let editGameID = gameEditID {
+                let editGame = GolfGame(id: editGameID, name: nameTextField.text ?? "", pointsScored: sumOfPoints, dictHolePoints: dictionaryHolePoints)
 
-            delegate?.controllerDidEdit(self, didEdit: editGame!)
+                if let newGameAfterEdit = editGame {
+                    delegate?.controllerDidEdit(self, didEdit: newGameAfterEdit)
+                }
+            }
 
             owningNavigationController.popViewController(animated: true)
         } else {
@@ -220,10 +226,12 @@ extension AddGolfViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
 
-        if !(nameTextField.text!.isEmpty) {
-            btnSave.isEnabled = true
-        } else {
-            btnSave.isEnabled = false
+        if let userInput = nameTextField.text {
+            if !(userInput.isEmpty) {
+                btnSave.isEnabled = true
+            } else {
+                btnSave.isEnabled = false
+            }
         }
 
         return true
