@@ -22,6 +22,8 @@ class AddGolfTableViewCell: UITableViewCell {
         contentView.addSubview(labHoles)
         contentView.addSubview(txtPoint)
 
+//        txtPoint.keyboardType = UIKeyboardType.numberPad
+
         let viewDictionary = [
             "holes" : labHoles,
             "points" : txtPoint
