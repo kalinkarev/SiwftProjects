@@ -45,7 +45,9 @@ class AddGolfViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        numberHolesTableView.register(AddGolfTableViewCell.self, forCellReuseIdentifier: "cellAdd")
+        nameTextField.delegate = self
+        
+//        numberHolesTableView.register(AddGolfTableViewCell.self, forCellReuseIdentifier: "cellAdd")
 
         numberHolesTableView.rowHeight = UITableViewAutomaticDimension
         numberHolesTableView.estimatedRowHeight = 44
@@ -184,12 +186,21 @@ extension AddGolfViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellAdd", for: indexPath as IndexPath) as! AddGolfTableViewCell
 
-        cell.labHoles.text = "Hole: \(arrayWithHoles[indexPath.row])"
-        cell.txtPoint.placeholder = "Enter points for hole: \(indexPath.row + 1)"
-
-        cell.txtPoint.text = allCellsText[indexPath.row]
-        cell.txtPoint.tag = indexPath.row
-        cell.txtPoint.delegate = self
+        cell.nameLabelAddScreen.text = "Hole: \(arrayWithHoles[indexPath.row])"
+        cell.pointsTexField.placeholder = "Enter points for hole: \(indexPath.row + 1)"
+        
+        cell.pointsTexField.text = allCellsText[indexPath.row]
+        cell.pointsTexField.tag = indexPath.row
+        cell.pointsTexField.delegate = self
+        
+        cell.pointsTexField.addDoneButtonToKeyboard(myAction: #selector(cell.pointsTexField.resignFirstResponder))
+        
+//        cell.labHoles.text = "Hole: \(arrayWithHoles[indexPath.row])"
+//        cell.txtPoint.placeholder = "Enter points for hole: \(indexPath.row + 1)"
+//
+//        cell.txtPoint.text = allCellsText[indexPath.row]
+//        cell.txtPoint.tag = indexPath.row
+//        cell.txtPoint.delegate = self
 
         return cell
     }
@@ -235,5 +246,24 @@ extension AddGolfViewController: UITextFieldDelegate {
         }
 
         return true
+    }
+}
+
+extension UITextField {
+    func addDoneButtonToKeyboard(myAction: Selector?) {
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 300, height: 40))
+        doneToolbar.barStyle = UIBarStyle.default
+        
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: myAction)
+        
+        var items = [UIBarButtonItem]()
+        items.append(flexSpace)
+        items.append(done)
+        
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        
+        self.inputAccessoryView = doneToolbar
     }
 }

@@ -10,31 +10,34 @@ import UIKit
 
 class AddGolfTableViewCell: UITableViewCell {
 
-    var labHoles = UILabel()
-    var txtPoint = UITextField()
-
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-
-        labHoles.translatesAutoresizingMaskIntoConstraints = false
-        txtPoint.translatesAutoresizingMaskIntoConstraints = false
-
-        contentView.addSubview(labHoles)
-        contentView.addSubview(txtPoint)
-
-//        txtPoint.keyboardType = UIKeyboardType.numberPad
-
-        let viewDictionary = [
-            "holes" : labHoles,
-            "points" : txtPoint
-        ] as [String : Any]
-
-        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[holes]-[points]-|", options: [], metrics: nil, views: viewDictionary))
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    @IBOutlet weak var nameLabelAddScreen: UILabel!
+    @IBOutlet weak var pointsTexField: UITextField!
+    
+//    var labHoles = UILabel()
+//    var txtPoint = UITextField()
+//
+//    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+//        super.init(style: style, reuseIdentifier: reuseIdentifier)
+//
+//        labHoles.translatesAutoresizingMaskIntoConstraints = false
+//        txtPoint.translatesAutoresizingMaskIntoConstraints = false
+//
+//        contentView.addSubview(labHoles)
+//        contentView.addSubview(txtPoint)
+//
+////        txtPoint.keyboardType = UIKeyboardType.numberPad
+//
+//        let viewDictionary = [
+//            "holes" : labHoles,
+//            "points" : txtPoint
+//        ] as [String : Any]
+//
+//        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[holes]-[points]-|", options: [], metrics: nil, views: viewDictionary))
+//    }
+//
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
