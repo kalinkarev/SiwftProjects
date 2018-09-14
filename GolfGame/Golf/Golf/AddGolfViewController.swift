@@ -46,7 +46,7 @@ class AddGolfViewController: UIViewController {
         super.viewDidLoad()
 
         nameTextField.delegate = self
-        
+//        nameTextField.addDoneButtonToKeyboard(myAction: #selector(nameTextField.resignFirstResponder))
 //        numberHolesTableView.register(AddGolfTableViewCell.self, forCellReuseIdentifier: "cellAdd")
 
         numberHolesTableView.rowHeight = UITableViewAutomaticDimension
@@ -142,6 +142,8 @@ class AddGolfViewController: UIViewController {
             if let editGameID = gameEditID {
                 let editGame = GolfGame(id: editGameID, name: nameTextField.text ?? "", pointsScored: sumOfPoints, dictHolePoints: dictionaryHolePoints)
 
+                print("The edited game has id: \(String(describing: editGame?.id)), name: \(String(describing: editGame?.name)), points scored: \(String(describing: editGame?.pointsScored)), hole-points: \(String(describing: editGame?.dictHolePoints))")
+                
                 if let newGameAfterEdit = editGame {
                     delegate?.controllerDidEdit(self, didEdit: newGameAfterEdit)
                 }
@@ -192,9 +194,9 @@ extension AddGolfViewController: UITableViewDataSource, UITableViewDelegate {
         cell.pointsTexField.text = allCellsText[indexPath.row]
         cell.pointsTexField.tag = indexPath.row
         cell.pointsTexField.delegate = self
-        
+
         cell.pointsTexField.addDoneButtonToKeyboard(myAction: #selector(cell.pointsTexField.resignFirstResponder))
-        
+
 //        cell.labHoles.text = "Hole: \(arrayWithHoles[indexPath.row])"
 //        cell.txtPoint.placeholder = "Enter points for hole: \(indexPath.row + 1)"
 //
