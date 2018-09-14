@@ -33,7 +33,7 @@ class AddGolfViewController: UIViewController {
     var allCellsText = [String?]()
 
     var able = false
-    
+
     var dictionaryHolePoints: [Int : Int] = [:]
 
     var arrayWithHoles: [Int] = []
@@ -46,9 +46,11 @@ class AddGolfViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        inputTextView.text = "Enter name of the game"
+        inputTextView.textColor = UIColor.lightGray
         inputTextView.delegate = self
-        
+
         numberHolesTableView.rowHeight = UITableViewAutomaticDimension
         numberHolesTableView.estimatedRowHeight = 44
 
@@ -65,6 +67,7 @@ class AddGolfViewController: UIViewController {
             print("The hole with points of the selected game is: \(dictionaryHolePointsOfSelectedGame)")
 
             inputTextView.text = nameOfSelectedGame
+            inputTextView.textColor = UIColor.black
 
             let sortedDictionary = dictionaryHolePointsOfSelectedGame.sorted { $0.key < $1.key }
 
@@ -143,7 +146,7 @@ class AddGolfViewController: UIViewController {
                 let editGame = GolfGame(id: editGameID, name: inputTextView.text ?? "", pointsScored: sumOfPoints, dictHolePoints: dictionaryHolePoints)
 
                 print("The edited game has id: \(String(describing: editGame?.id)), name: \(String(describing: editGame?.name)), points scored: \(String(describing: editGame?.pointsScored)), hole-points: \(String(describing: editGame?.dictHolePoints))")
-                
+
                 if let newGameAfterEdit = editGame {
                     delegate?.controllerDidEdit(self, didEdit: newGameAfterEdit)
                 }
@@ -190,7 +193,7 @@ extension AddGolfViewController: UITableViewDataSource, UITableViewDelegate {
 
         cell.nameLabelAddScreen.text = "Hole: \(arrayWithHoles[indexPath.row])"
         cell.pointsTexField.placeholder = "Enter points for hole: \(indexPath.row + 1)"
-        
+
         cell.pointsTexField.text = allCellsText[indexPath.row]
         cell.pointsTexField.tag = indexPath.row
         cell.pointsTexField.delegate = self
@@ -225,15 +228,15 @@ extension AddGolfViewController: UITextFieldDelegate {
         for (key, value) in dictionaryHolePoints.sorted(by: <) {
             print("Hole number \(key + 1) has \(value) scored points")
         }
-        
+
         let result = arrayWithPoints.all { $0 > 0 }
         print("The result is: \(result)")
-        
+
         able = result
         print("The variable able has value: \(able)")
-        
+
         print("The user has entered: \(inputTextView.text)")
-        
+
         if result == true {
             if !(inputTextView.text.isEmpty) {
                 btnSave.isEnabled = true
@@ -249,7 +252,7 @@ extension AddGolfViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-    
+
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let allowedCharacters = CharacterSet.decimalDigits
         let characterSet = CharacterSet(charactersIn: string)
@@ -258,25 +261,53 @@ extension AddGolfViewController: UITextFieldDelegate {
 }
 
 extension AddGolfViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if (textView.text == "Enter name of the game") {
+            textView.text = ""
+        }
+        textView.becomeFirstResponder()
+        textView.textColor = UIColor.black
+    }
+
     func textViewDidEndEditing(_ textView: UITextView) {
+        if (textView.text == "") {
+            textView.text = "Enter name of the game"
+            textView.textColor = UIColor.lightGray
+        }
+        textView.resignFirstResponder()
+
         print("The able is: \(able)")
-        
+
         if !(inputTextView.text.isEmpty) {
-            if able == true {
-                btnSave.isEnabled = true
+            if !(inputTextView.text == "Enter name of the game") {
+                if able == true {
+                    btnSave.isEnabled = true
+                } else {
+                    btnSave.isEnabled = false
+                }
             } else {
                 btnSave.isEnabled = false
             }
         } else {
             btnSave.isEnabled = false
         }
+
+//        if !(inputTextView.text.isEmpty) {
+//            if able == true {
+//                btnSave.isEnabled = true
+//            } else {
+//                btnSave.isEnabled = false
+//            }
+//        } else {
+//            btnSave.isEnabled = false
+//        }
     }
-    
+
     func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
         textView.resignFirstResponder()
         return true
     }
-    
+
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
 
         print("chars \(textView.text.count) \(text)")
