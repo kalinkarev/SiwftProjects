@@ -239,7 +239,11 @@ extension AddGolfViewController: UITextFieldDelegate {
 
         if result == true {
             if !(inputTextView.text.isEmpty) {
-                btnSave.isEnabled = true
+                if !(inputTextView.text == "Enter name of the game") {
+                    btnSave.isEnabled = true
+                } else {
+                    btnSave.isEnabled = false
+                }
             } else {
                 btnSave.isEnabled = false
             }
