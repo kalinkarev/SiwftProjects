@@ -95,7 +95,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEP-dz-c9F">
                                                     <rect key="frame" x="15" y="11" width="102" height="21"/>
@@ -117,13 +117,13 @@
                                     <outlet property="delegate" destination="44I-PU-HuP" id="K6D-p8-Yjs"/>
                                 </connections>
                             </tableView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9hb-nF-4zO">
-                                <rect key="frame" x="16" y="83" width="343" height="30"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Enter text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="onQ-xT-shD">
+                                <rect key="frame" x="16" y="99" width="343" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="jcC-sH-Xz7"/>
@@ -142,13 +142,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="btnSave" destination="GCa-6L-wMp" id="uaB-Be-fGR"/>
-                        <outlet property="nameTextField" destination="9hb-nF-4zO" id="Snk-OH-PE4"/>
+                        <outlet property="inputTextView" destination="onQ-xT-shD" id="YxK-i4-pSm"/>
                         <outlet property="numberHolesTableView" destination="fBY-Bl-3BD" id="UeX-q5-D3R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AKk-0j-fkg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1813.5999999999999" y="116.49175412293854"/>
+            <point key="canvasLocation" x="1820" y="116.49175412293854"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tmO-hR-I08">

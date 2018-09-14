@@ -20,7 +20,7 @@ protocol AddGolfViewControllerDelegate: AnyObject {
 class AddGolfViewController: UIViewController {
     // MARK: Properties
     @IBOutlet weak var numberHolesTableView: UITableView!
-    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var inputTextView: UITextView!
     @IBOutlet weak var btnSave: UIBarButtonItem!
 
     var selectedGame: GolfGame?
@@ -32,6 +32,8 @@ class AddGolfViewController: UIViewController {
     var arrayWithPoints = [Int]()
     var allCellsText = [String?]()
 
+    var able = false
+    
     var dictionaryHolePoints: [Int : Int] = [:]
 
     var arrayWithHoles: [Int] = []
@@ -44,11 +46,9 @@ class AddGolfViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        nameTextField.delegate = self
-//        nameTextField.addDoneButtonToKeyboard(myAction: #selector(nameTextField.resignFirstResponder))
-//        numberHolesTableView.register(AddGolfTableViewCell.self, forCellReuseIdentifier: "cellAdd")
-
+        
+        inputTextView.delegate = self
+        
         numberHolesTableView.rowHeight = UITableViewAutomaticDimension
         numberHolesTableView.estimatedRowHeight = 44
 
@@ -64,7 +64,7 @@ class AddGolfViewController: UIViewController {
             let dictionaryHolePointsOfSelectedGame = game.dictHolePoints
             print("The hole with points of the selected game is: \(dictionaryHolePointsOfSelectedGame)")
 
-            nameTextField.text = nameOfSelectedGame
+            inputTextView.text = nameOfSelectedGame
 
             let sortedDictionary = dictionaryHolePointsOfSelectedGame.sorted { $0.key < $1.key }
 
@@ -122,7 +122,7 @@ class AddGolfViewController: UIViewController {
                 newID = (manageGolfGame.games.last?.id)!
                 newID = newID + 1
             }
-            let newGame = GolfGame(id: newID, name: nameTextField.text ?? "", pointsScored: sumOfPoints, dictHolePoints: dictionaryHolePoints)
+            let newGame = GolfGame(id: newID, name: inputTextView.text ?? "", pointsScored: sumOfPoints, dictHolePoints: dictionaryHolePoints)
 
             print("The new game has id: \(String(describing: newGame?.id)), name: \(String(describing: newGame?.name)), pointsScored: \(String(describing: newGame?.pointsScored)), hole-points: \(String(describing: newGame?.dictHolePoints.sorted(by: >)))")
 
@@ -140,7 +140,7 @@ class AddGolfViewController: UIViewController {
             print("The name of the selected game is: \(String(describing: gameEditName))")
 
             if let editGameID = gameEditID {
-                let editGame = GolfGame(id: editGameID, name: nameTextField.text ?? "", pointsScored: sumOfPoints, dictHolePoints: dictionaryHolePoints)
+                let editGame = GolfGame(id: editGameID, name: inputTextView.text ?? "", pointsScored: sumOfPoints, dictHolePoints: dictionaryHolePoints)
 
                 print("The edited game has id: \(String(describing: editGame?.id)), name: \(String(describing: editGame?.name)), points scored: \(String(describing: editGame?.pointsScored)), hole-points: \(String(describing: editGame?.dictHolePoints))")
                 
@@ -195,15 +195,6 @@ extension AddGolfViewController: UITableViewDataSource, UITableViewDelegate {
         cell.pointsTexField.tag = indexPath.row
         cell.pointsTexField.delegate = self
 
-        cell.pointsTexField.addDoneButtonToKeyboard(myAction: #selector(cell.pointsTexField.resignFirstResponder))
-
-//        cell.labHoles.text = "Hole: \(arrayWithHoles[indexPath.row])"
-//        cell.txtPoint.placeholder = "Enter points for hole: \(indexPath.row + 1)"
-//
-//        cell.txtPoint.text = allCellsText[indexPath.row]
-//        cell.txtPoint.tag = indexPath.row
-//        cell.txtPoint.delegate = self
-
         return cell
     }
 }
@@ -234,38 +225,85 @@ extension AddGolfViewController: UITextFieldDelegate {
         for (key, value) in dictionaryHolePoints.sorted(by: <) {
             print("Hole number \(key + 1) has \(value) scored points")
         }
-    }
-
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-
-        if let userInput = nameTextField.text {
-            if !(userInput.isEmpty) {
+        
+        let result = arrayWithPoints.all { $0 > 0 }
+        print("The result is: \(result)")
+        
+        able = result
+        print("The variable able has value: \(able)")
+        
+        print("The user has entered: \(inputTextView.text)")
+        
+        if result == true {
+            if !(inputTextView.text.isEmpty) {
                 btnSave.isEnabled = true
             } else {
                 btnSave.isEnabled = false
             }
+        } else {
+            btnSave.isEnabled = false
+        }
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let allowedCharacters = CharacterSet.decimalDigits
+        let characterSet = CharacterSet(charactersIn: string)
+        return allowedCharacters.isSuperset(of: characterSet)
+    }
+}
+
+extension AddGolfViewController: UITextViewDelegate {
+    func textViewDidEndEditing(_ textView: UITextView) {
+        print("The able is: \(able)")
+        
+        if !(inputTextView.text.isEmpty) {
+            if able == true {
+                btnSave.isEnabled = true
+            } else {
+                btnSave.isEnabled = false
+            }
+        } else {
+            btnSave.isEnabled = false
+        }
+    }
+    
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        textView.resignFirstResponder()
+        return true
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+
+        print("chars \(textView.text.count) \(text)")
+
+        if (textView.text.count > 20 && range.length == 0) {
+            print("Please summarize in 20 characters or less")
+            return false
+        }
+
+        if (text == "\n") {
+            textView.resignFirstResponder()
+            return false
         }
 
         return true
     }
 }
 
-extension UITextField {
-    func addDoneButtonToKeyboard(myAction: Selector?) {
-        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 300, height: 40))
-        doneToolbar.barStyle = UIBarStyle.default
-        
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: myAction)
-        
-        var items = [UIBarButtonItem]()
-        items.append(flexSpace)
-        items.append(done)
-        
-        doneToolbar.items = items
-        doneToolbar.sizeToFit()
-        
-        self.inputAccessoryView = doneToolbar
+extension Collection {
+    func all(_ predicate: (Element) throws -> Bool) rethrows -> Bool {
+        for item in self {
+            let result = try predicate(item)
+
+            if !result {
+                return false
+            }
+        }
+        return true
     }
 }
