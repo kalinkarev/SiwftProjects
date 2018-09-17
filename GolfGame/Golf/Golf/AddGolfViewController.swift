@@ -47,12 +47,17 @@ class AddGolfViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.hideKeyboardWhenTappedAround()
-
+        inputTextView.delegate = self
         inputTextView.text = "Enter name of the game"
         inputTextView.textColor = UIColor.lightGray
-        inputTextView.delegate = self
 
+        self.hideKeyboardWhenTappedAround()
+        
+        if inputTextView.text == "Enter name of the game" {
+            print("It`s the same")
+            inputTextView.selectedTextRange = inputTextView.textRange(from: inputTextView.beginningOfDocument, to: inputTextView.beginningOfDocument)
+        }
+        
         numberHolesTableView.rowHeight = UITableViewAutomaticDimension
         numberHolesTableView.estimatedRowHeight = 44
 
@@ -274,14 +279,14 @@ extension AddGolfViewController: UITextViewDelegate {
         textView.becomeFirstResponder()
         textView.textColor = UIColor.black
     }
-
+    
     func textViewDidEndEditing(_ textView: UITextView) {
         if (textView.text == "") {
             textView.text = "Enter name of the game"
             textView.textColor = UIColor.lightGray
         }
         textView.resignFirstResponder()
-
+        
         print("The able is: \(able)")
 
         if !(inputTextView.text.isEmpty) {
@@ -297,16 +302,6 @@ extension AddGolfViewController: UITextViewDelegate {
         } else {
             btnSave.isEnabled = false
         }
-
-//        if !(inputTextView.text.isEmpty) {
-//            if able == true {
-//                btnSave.isEnabled = true
-//            } else {
-//                btnSave.isEnabled = false
-//            }
-//        } else {
-//            btnSave.isEnabled = false
-//        }
     }
 
     func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
@@ -323,12 +318,22 @@ extension AddGolfViewController: UITextViewDelegate {
             return false
         }
 
-        if (text == "\n") {
+        if (text != "\n") {
+//            textView.resignFirstResponder()
+            return true
+        } else {
             textView.resignFirstResponder()
-            return false
         }
 
-        return true
+        return false
+    }
+
+    func textViewDidChangeSelection(_ textView: UITextView) {
+        if self.view.window != nil {
+            if textView.textColor == UIColor.lightGray {
+                textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
+            }
+        }
     }
 }
 
