@@ -47,6 +47,8 @@ class AddGolfViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.hideKeyboardWhenTappedAround()
+
         inputTextView.text = "Enter name of the game"
         inputTextView.textColor = UIColor.lightGray
         inputTextView.delegate = self
