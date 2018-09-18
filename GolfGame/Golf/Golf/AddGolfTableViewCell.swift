@@ -8,11 +8,22 @@
 
 import UIKit
 
+protocol AddGolfTableViewCellDelegate: AnyObject {
+    func didTapButton(_ cell: AddGolfTableViewCell)
+}
+
 class AddGolfTableViewCell: UITableViewCell {
     // MARK: Properties
     @IBOutlet weak var nameLabelAddScreen: UILabel!
     @IBOutlet weak var pointsTexField: UITextField!
-    @IBOutlet weak var xButton: UIButton!
+    
+    weak var delegateCell: AddGolfTableViewCellDelegate?
+    
+    // MARK: Actions
+    @IBAction func xButton(_ sender: UIButton) {
+        print("You have pressed the X Button")
+        delegateCell?.didTapButton(self)
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

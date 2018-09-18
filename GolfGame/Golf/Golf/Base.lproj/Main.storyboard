@@ -108,6 +108,9 @@
                                                     <rect key="frame" x="294" y="10" width="22" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="X"/>
+                                                    <connections>
+                                                        <action selector="xButton:" destination="SZc-1U-ftJ" eventType="touchUpInside" id="BdO-lE-9tx"/>
+                                                    </connections>
                                                 </button>
                                                 <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CMj-k8-ybs">
                                                     <rect key="frame" x="76" y="6" width="187" height="30"/>
@@ -121,7 +124,6 @@
                                         <connections>
                                             <outlet property="nameLabelAddScreen" destination="EEP-dz-c9F" id="lc9-M1-Dae"/>
                                             <outlet property="pointsTexField" destination="CMj-k8-ybs" id="0sw-5Z-e2C"/>
-                                            <outlet property="xButton" destination="YZd-ii-7Vp" id="H0W-hG-yyk"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

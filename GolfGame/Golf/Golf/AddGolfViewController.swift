@@ -202,6 +202,8 @@ extension AddGolfViewController: UITableViewDataSource, UITableViewDelegate {
         cell.nameLabelAddScreen.text = "Hole: \(arrayWithHoles[indexPath.row])"
         cell.pointsTexField.placeholder = "Points for hole: \(indexPath.row + 1)"
 
+        cell.delegateCell = self
+
         cell.pointsTexField.text = allCellsText[indexPath.row]
         cell.pointsTexField.tag = indexPath.row
         cell.pointsTexField.delegate = self
@@ -209,6 +211,20 @@ extension AddGolfViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
 }
+
+extension AddGolfViewController: AddGolfTableViewCellDelegate {
+    func didTapButton(_ cell: AddGolfTableViewCell) {
+        let indexOfXButtonCell = self.numberHolesTableView.indexPath(for: cell)
+        print("The user has clicked the x Button for cell: \(indexOfXButtonCell![1] + 1)")
+    }
+}
+
+//extension AddGolfViewController: AddGolfTableViewCellDelegate {
+//    func didTapButton(_ cell: AddGolfTableViewCell) {
+//        let indexOfCell = self.numberHolesTableView.indexPath(for: cell)
+//        print(indexOfCell!)
+//    }
+//}
 
 // MARK: TextField Delegates
 extension AddGolfViewController: UITextFieldDelegate {
