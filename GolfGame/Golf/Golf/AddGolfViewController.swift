@@ -340,6 +340,7 @@ extension AddGolfViewController: UITextViewDelegate {
     }
 }
 
+// MARK: Extension -> cheking whether the user has inputted every cell on the add screen
 extension Collection {
     func all(_ predicate: (Element) throws -> Bool) rethrows -> Bool {
         for item in self {

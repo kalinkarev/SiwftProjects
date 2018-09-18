@@ -128,7 +128,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-// MARK: Delegates (Implemented)
+// MARK: AddGolfViewController Delegates
 extension ViewController: AddGolfViewControllerDelegate {
     func controllerDidCancel(_ controller: AddGolfViewController) {
         dismiss(animated: true, completion: nil)
@@ -146,6 +146,7 @@ extension ViewController: AddGolfViewControllerDelegate {
     }
 }
 
+// MARK: Extension for every UIViewConroller -> hiding the keyboard when clicking somewhere on the screen
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
