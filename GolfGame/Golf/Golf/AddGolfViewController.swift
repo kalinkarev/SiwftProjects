@@ -47,17 +47,18 @@ class AddGolfViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        inputTextView.textContainer.maximumNumberOfLines = 1
+
         inputTextView.delegate = self
         inputTextView.text = "Enter name of the game"
         inputTextView.textColor = UIColor.lightGray
 
         self.hideKeyboardWhenTappedAround()
-        
+
         if inputTextView.text == "Enter name of the game" {
-            print("It`s the same")
             inputTextView.selectedTextRange = inputTextView.textRange(from: inputTextView.beginningOfDocument, to: inputTextView.beginningOfDocument)
         }
-        
+
         numberHolesTableView.rowHeight = UITableViewAutomaticDimension
         numberHolesTableView.estimatedRowHeight = 44
 
@@ -271,27 +272,14 @@ extension AddGolfViewController: UITextFieldDelegate {
     }
 }
 
+// MARK: Text View Delegates
 extension AddGolfViewController: UITextViewDelegate {
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if (textView.text == "Enter name of the game") {
-            textView.text = ""
-        }
-        textView.becomeFirstResponder()
-        textView.textColor = UIColor.black
-    }
-    
     func textViewDidEndEditing(_ textView: UITextView) {
-        if (textView.text == "") {
-            textView.text = "Enter name of the game"
-            textView.textColor = UIColor.lightGray
-        }
-        textView.resignFirstResponder()
-        
         print("The able is: \(able)")
 
-        if !(inputTextView.text.isEmpty) {
-            if !(inputTextView.text == "Enter name of the game") {
-                if able == true {
+        if !(textView.text.isEmpty) {
+            if !(textView.text == "Enter name of the game") {
+                if (able == true) {
                     btnSave.isEnabled = true
                 } else {
                     btnSave.isEnabled = false
@@ -310,19 +298,34 @@ extension AddGolfViewController: UITextViewDelegate {
     }
 
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-
-        print("chars \(textView.text.count) \(text)")
-
-        if (textView.text.count > 20 && range.length == 0) {
-            print("Please summarize in 20 characters or less")
-            return false
+        if text == "\n" {
+            textView.resignFirstResponder()
         }
 
-        if (text != "\n") {
-//            textView.resignFirstResponder()
-            return true
+        let currentText: String = textView.text
+        let updatedText = (currentText as NSString).replacingCharacters(in: range, with: text)
+
+        if updatedText.isEmpty {
+            textView.text = "Enter name of the game"
+            textView.textColor = UIColor.lightGray
+
+            textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
+        } else if textView.textColor == UIColor.lightGray && !text.isEmpty {
+            textView.textColor = UIColor.black
+            textView.text = text
         } else {
-            textView.resignFirstResponder()
+            print("The text of currentText is: \(currentText)")
+
+            print("The text of updatedText is: \(updatedText)")
+            let lenghtOfUserInput = updatedText.count
+            print("The number of characters of updatedText is: \(lenghtOfUserInput)")
+
+            if (lenghtOfUserInput > 21) {
+                print("Please summarize the input with up to 20 characters")
+                return false
+            }
+
+            return true
         }
 
         return false
