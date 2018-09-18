@@ -212,19 +212,13 @@ extension AddGolfViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+// MARK: AddGolfTableViewCell Delegates
 extension AddGolfViewController: AddGolfTableViewCellDelegate {
     func didTapButton(_ cell: AddGolfTableViewCell) {
         let indexOfXButtonCell = self.numberHolesTableView.indexPath(for: cell)
         print("The user has clicked the x Button for cell: \(indexOfXButtonCell![1] + 1)")
     }
 }
-
-//extension AddGolfViewController: AddGolfTableViewCellDelegate {
-//    func didTapButton(_ cell: AddGolfTableViewCell) {
-//        let indexOfCell = self.numberHolesTableView.indexPath(for: cell)
-//        print(indexOfCell!)
-//    }
-//}
 
 // MARK: TextField Delegates
 extension AddGolfViewController: UITextFieldDelegate {
