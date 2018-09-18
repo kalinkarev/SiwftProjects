@@ -12,6 +12,7 @@ class AddGolfTableViewCell: UITableViewCell {
     // MARK: Properties
     @IBOutlet weak var nameLabelAddScreen: UILabel!
     @IBOutlet weak var pointsTexField: UITextField!
+    @IBOutlet weak var xButton: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()
