@@ -200,7 +200,7 @@ extension AddGolfViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellAdd", for: indexPath as IndexPath) as! AddGolfTableViewCell
 
         cell.nameLabelAddScreen.text = "Hole: \(arrayWithHoles[indexPath.row])"
-        cell.pointsTexField.placeholder = "Enter points for hole: \(indexPath.row + 1)"
+        cell.pointsTexField.placeholder = "Points for hole: \(indexPath.row + 1)"
 
         cell.pointsTexField.text = allCellsText[indexPath.row]
         cell.pointsTexField.tag = indexPath.row
