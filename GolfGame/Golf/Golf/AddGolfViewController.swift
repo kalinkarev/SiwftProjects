@@ -216,7 +216,10 @@ extension AddGolfViewController: UITableViewDataSource, UITableViewDelegate {
 extension AddGolfViewController: AddGolfTableViewCellDelegate {
     func didTapButton(_ cell: AddGolfTableViewCell) {
         let indexOfXButtonCell = self.numberHolesTableView.indexPath(for: cell)
-        print("The user has clicked the x Button for cell: \(indexOfXButtonCell![1] + 1)")
+
+        if let indexCell = indexOfXButtonCell {
+            print("The user has clicked the x Button for cell: \(indexCell[1] + 1)")
+        }
     }
 }
 
