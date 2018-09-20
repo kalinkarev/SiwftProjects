@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     }
 }
 
+// MARK: Extension for UITableView delegates
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
