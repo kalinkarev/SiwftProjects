@@ -9,6 +9,8 @@
 import UIKit
 
 class MainScreenTableViewCell: UITableViewCell {
+    // MARK: Properties
+    @IBOutlet weak var inputTextField: UITextField!
 
     override func awakeFromNib() {
         super.awakeFromNib()

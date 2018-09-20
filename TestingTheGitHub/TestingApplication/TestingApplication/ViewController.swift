@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     // MARK: Properties
     @IBOutlet weak var userLabel: UILabel!
+    @IBOutlet weak var userTableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +22,22 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellIdentifier = "mainScreenCell"
+
+        guard let cell = userTableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MainScreenTableViewCell else {
+            fatalError("Problem with the cell in the table view")
+        }
+
+        cell.inputTextField.placeholder = "Enter name for cell \(indexPath.row)"
+
+        return cell
+    }
+}
