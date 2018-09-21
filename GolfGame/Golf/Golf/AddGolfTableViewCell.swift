@@ -15,10 +15,10 @@ protocol AddGolfTableViewCellDelegate: AnyObject {
 class AddGolfTableViewCell: UITableViewCell {
     // MARK: Properties
     @IBOutlet weak var nameLabelAddScreen: UILabel!
-    @IBOutlet weak var pointsTexField: UITextField!
-    
+    @IBOutlet weak var pointsTextField: UITextField!
+
     weak var delegateCell: AddGolfTableViewCellDelegate?
-    
+
     // MARK: Actions
     @IBAction func xButton(_ sender: UIButton) {
         print("You have pressed the X Button")

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -97,33 +98,42 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CMj-k8-ybs">
-                                                    <rect key="frame" x="76" y="6" width="131" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
-                                                </textField>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEP-dz-c9F">
-                                                    <rect key="frame" x="0.0" y="11" width="76" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crc-KT-VDb">
+                                                    <rect key="frame" x="15" y="11" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YZd-ii-7Vp">
-                                                    <rect key="frame" x="259" y="11" width="22" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QNO-Wr-MIn">
+                                                    <rect key="frame" x="65" y="6" width="209" height="30"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JXY-7R-xQ6">
+                                                    <rect key="frame" x="298" y="6" width="30" height="30"/>
                                                     <state key="normal" title="X"/>
                                                     <connections>
-                                                        <action selector="xButton:" destination="SZc-1U-ftJ" eventType="touchUpInside" id="BdO-lE-9tx"/>
+                                                        <action selector="xButton:" destination="SZc-1U-ftJ" eventType="touchUpInside" id="jyK-6g-PMJ"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="crc-KT-VDb" secondAttribute="bottom" constant="1" id="8Me-fx-cQy"/>
+                                                <constraint firstItem="JXY-7R-xQ6" firstAttribute="top" secondItem="UfB-Qr-7bV" secondAttribute="top" constant="6" id="9Dp-CN-DhW"/>
+                                                <constraint firstItem="QNO-Wr-MIn" firstAttribute="top" secondItem="UfB-Qr-7bV" secondAttribute="top" constant="6" id="CnP-2Q-6wK"/>
+                                                <constraint firstItem="crc-KT-VDb" firstAttribute="top" secondItem="UfB-Qr-7bV" secondAttribute="topMargin" id="JZ4-87-eDk"/>
+                                                <constraint firstItem="crc-KT-VDb" firstAttribute="leading" secondItem="UfB-Qr-7bV" secondAttribute="leadingMargin" id="Lbc-uo-iOq"/>
+                                                <constraint firstItem="JXY-7R-xQ6" firstAttribute="leading" secondItem="QNO-Wr-MIn" secondAttribute="trailing" constant="24" id="RLt-G5-m2U"/>
+                                                <constraint firstAttribute="trailing" secondItem="JXY-7R-xQ6" secondAttribute="trailing" constant="15" id="cuc-9B-Pa9"/>
+                                                <constraint firstAttribute="bottom" secondItem="QNO-Wr-MIn" secondAttribute="bottom" constant="7.5" id="fLQ-F4-D8P"/>
+                                                <constraint firstAttribute="bottom" secondItem="JXY-7R-xQ6" secondAttribute="bottom" constant="7.5" id="r0a-vX-Oe6"/>
+                                                <constraint firstItem="QNO-Wr-MIn" firstAttribute="leading" secondItem="crc-KT-VDb" secondAttribute="trailing" constant="8" id="zA4-eU-moK"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="nameLabelAddScreen" destination="EEP-dz-c9F" id="lc9-M1-Dae"/>
-                                            <outlet property="pointsTexField" destination="CMj-k8-ybs" id="0sw-5Z-e2C"/>
+                                            <outlet property="nameLabelAddScreen" destination="crc-KT-VDb" id="ynE-L7-lyS"/>
+                                            <outlet property="pointsTextField" destination="QNO-Wr-MIn" id="xA9-u5-7cZ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
