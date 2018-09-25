@@ -62,6 +62,9 @@ class AddGolfViewController: UIViewController {
         numberHolesTableView.rowHeight = UITableViewAutomaticDimension
         numberHolesTableView.estimatedRowHeight = 44
 
+        NotificationCenter.default.addObserver(self, selector: #selector(AddGolfViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(AddGolfViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+
         if let game = selectedGame {
             title = "Editing a game"
 
@@ -107,6 +110,18 @@ class AddGolfViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    @objc func keyboardWillShow(_ notification: Notification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            numberHolesTableView.contentInset = UIEdgeInsetsMake(0, 0, keyboardSize.height, 0)
+        }
+    }
+
+    @objc func keyboardWillHide(_ notification: Notification) {
+        if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+            numberHolesTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        }
     }
 
     // MARK: Actions

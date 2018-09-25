@@ -87,7 +87,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fBY-Bl-3BD">
-                                <rect key="frame" x="16" y="134" width="343" height="218"/>
+                                <rect key="frame" x="16" y="134" width="343" height="513"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -99,16 +99,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crc-KT-VDb">
-                                                    <rect key="frame" x="15" y="11" width="42" height="21"/>
+                                                    <rect key="frame" x="15" y="11" width="70" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QNO-Wr-MIn">
-                                                    <rect key="frame" x="65" y="6" width="240" height="30"/>
+                                                    <rect key="frame" x="93" y="6" width="212" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JXY-7R-xQ6">
                                                     <rect key="frame" x="313" y="6" width="30" height="30"/>
@@ -121,14 +121,15 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="crc-KT-VDb" secondAttribute="bottom" constant="1" id="8Me-fx-cQy"/>
                                                 <constraint firstItem="JXY-7R-xQ6" firstAttribute="top" secondItem="UfB-Qr-7bV" secondAttribute="top" constant="6" id="9Dp-CN-DhW"/>
-                                                <constraint firstItem="QNO-Wr-MIn" firstAttribute="top" secondItem="UfB-Qr-7bV" secondAttribute="top" constant="6" id="CnP-2Q-6wK"/>
+                                                <constraint firstItem="QNO-Wr-MIn" firstAttribute="leading" secondItem="UfB-Qr-7bV" secondAttribute="leading" constant="93" id="9M8-My-RxA"/>
+                                                <constraint firstItem="QNO-Wr-MIn" firstAttribute="top" secondItem="JXY-7R-xQ6" secondAttribute="top" id="Av2-91-E4n"/>
                                                 <constraint firstItem="crc-KT-VDb" firstAttribute="top" secondItem="UfB-Qr-7bV" secondAttribute="topMargin" id="JZ4-87-eDk"/>
                                                 <constraint firstItem="crc-KT-VDb" firstAttribute="leading" secondItem="UfB-Qr-7bV" secondAttribute="leadingMargin" id="Lbc-uo-iOq"/>
-                                                <constraint firstItem="JXY-7R-xQ6" firstAttribute="leading" secondItem="QNO-Wr-MIn" secondAttribute="trailing" constant="8" id="RLt-G5-m2U"/>
                                                 <constraint firstAttribute="trailing" secondItem="JXY-7R-xQ6" secondAttribute="trailing" id="cuc-9B-Pa9"/>
-                                                <constraint firstAttribute="bottom" secondItem="QNO-Wr-MIn" secondAttribute="bottom" constant="7.5" id="fLQ-F4-D8P"/>
+                                                <constraint firstItem="QNO-Wr-MIn" firstAttribute="leading" secondItem="crc-KT-VDb" secondAttribute="trailing" constant="8" symbolic="YES" id="ddV-Xp-ga5"/>
+                                                <constraint firstItem="JXY-7R-xQ6" firstAttribute="leading" secondItem="QNO-Wr-MIn" secondAttribute="trailing" constant="8" symbolic="YES" id="f1F-PQ-IJM"/>
+                                                <constraint firstItem="QNO-Wr-MIn" firstAttribute="centerY" secondItem="crc-KT-VDb" secondAttribute="centerY" id="nZh-Fp-JBK"/>
                                                 <constraint firstAttribute="bottom" secondItem="JXY-7R-xQ6" secondAttribute="bottom" constant="7.5" id="r0a-vX-Oe6"/>
-                                                <constraint firstItem="QNO-Wr-MIn" firstAttribute="leading" secondItem="crc-KT-VDb" secondAttribute="trailing" constant="8" id="zA4-eU-moK"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
