@@ -114,7 +114,7 @@ class AddGolfViewController: UIViewController {
 
     @objc func keyboardWillShow(_ notification: Notification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            numberHolesTableView.contentInset = UIEdgeInsetsMake(0, 0, keyboardSize.height, 0)
+            numberHolesTableView.contentInset = UIEdgeInsetsMake(0, 0, keyboardSize.height + 15, 0)
         }
     }
 

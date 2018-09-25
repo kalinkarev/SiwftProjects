@@ -17,7 +17,7 @@ struct GolfGame {
 
     // MARK: Initialization
     init?(id: Int, name: String, pointsScored: Int, dictHolePoints: [Int : Int]) {
-        //Initialization should fail if there is no name input(if the name field is empty)(there should be an error)
+        // Initialization should fail if there is no name input(if the name field is empty)(there should be an error)
         if name.isEmpty {
             return nil
         }
