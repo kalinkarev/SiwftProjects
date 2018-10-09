@@ -133,6 +133,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="btnX" destination="JXY-7R-xQ6" id="LDc-hD-bxC"/>
                                             <outlet property="nameLabelAddScreen" destination="crc-KT-VDb" id="ynE-L7-lyS"/>
                                             <outlet property="pointsTextField" destination="QNO-Wr-MIn" id="xA9-u5-7cZ"/>
                                         </connections>

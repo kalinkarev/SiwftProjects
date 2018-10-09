@@ -44,6 +44,12 @@ class AddGolfViewController: UIViewController {
 
     weak var delegate: AddGolfViewControllerDelegate?
 
+    var flags: [Bool] = []
+    var dictHoleXButton: [Int : Bool] = [:]
+    
+//    var addGolfTableViewCell = AddGolfTableViewCell()
+//    var mainCell = AddGolfTableViewCell()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -202,6 +208,21 @@ class AddGolfViewController: UIViewController {
         for j in 0..<arrayWithHoles.count {
             dictionaryHolePoints[j] = j
         }
+
+        flags = [Bool](repeating: false, count: numberHoles)
+    }
+
+    func changeArrayElement(arr: [Bool], element: Bool, position: Int) -> [Bool] {
+        var array = arr
+//        print("The array is: \(array)")
+
+        array.remove(at: position)
+//        print("The array is: \(array)")
+
+        array.insert(element, at: position)
+        print("The array is: \(array)")
+
+        return array
     }
 }
 
@@ -232,15 +253,68 @@ extension AddGolfViewController: AddGolfTableViewCellDelegate {
     func didTapButton(_ cell: AddGolfTableViewCell) {
         let indexOfXButtonCell = self.numberHolesTableView.indexPath(for: cell)
 
+//        mainCell = cell
+        
         if let indexCell = indexOfXButtonCell {
-            print("The user has clicked the x Button for cell: \(indexCell[1] + 1)")
+            print("The user has clicked the x Button for cell: \(indexCell[1])")
+            
+            flags = changeArrayElement(arr: flags, element: true, position: indexCell[1])
+        }
+        
+        print("The array of flags is: \(flags)")
+        
+        cell.pointsTextField.text = "X"
+        cell.btnX.isHidden = true
+        
+        print("The cell x array is: \(flags)")
+        
+        for i in 0..<flags.count {
+            print("The position:\(i) has value: \(flags[i])")
+            
+            dictHoleXButton[i] = flags[i]
+        }
+        
+        for (key, value) in dictHoleXButton {
+            print("The key: \(key) has value: \(value)")
         }
     }
+    
+//    func didEnterTextField(_ cell: AddGolfTableViewCell) {
+//        let indexOfTextFieldCell = self.numberHolesTableView.indexPath(for: cell)
+//
+//        if let indexCell = indexOfTextFieldCell {
+//            print("The user has end editing the textfield for cell: \(indexCell[1])")
+//        }
+//
+//        cell.btnX.isHidden = false
+//    }
 }
 
 // MARK: TextField Delegates
 extension AddGolfViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
+        let index = IndexPath(row: textField.tag, section: 0)
+        let cell: AddGolfTableViewCell = self.numberHolesTableView.cellForRow(at: index) as! AddGolfTableViewCell
+        let indexOfCellTextFieldCell = self.numberHolesTableView.indexPath(for: cell)
+        if let indexCell = indexOfCellTextFieldCell {
+            print("The user has end editing the textfield for cell: \(indexCell[1])")
+            flags = changeArrayElement(arr: flags, element: false, position: indexCell[1])
+        }
+        print("The array of flags is: \(flags)")
+        for i in 0..<flags.count {
+            print("The position \(i) has value: \(flags[i])")
+
+            if flags[i] == false {
+                if cell.btnX == nil {
+                    print("The btnX is NILL value")
+                } else {
+                    print("The btnX is correct")
+                }
+            }
+        }
+
+        cell.btnX.isHidden = false
+
         allCellsText[textField.tag] = textField.text
         print("The array is: \(allCellsText)")
 
@@ -289,6 +363,7 @@ extension AddGolfViewController: UITextFieldDelegate {
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("You have end editing the textfield")
         textField.resignFirstResponder()
         return true
     }
