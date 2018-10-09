@@ -254,31 +254,31 @@ extension AddGolfViewController: AddGolfTableViewCellDelegate {
         let indexOfXButtonCell = self.numberHolesTableView.indexPath(for: cell)
 
 //        mainCell = cell
-        
+
         if let indexCell = indexOfXButtonCell {
             print("The user has clicked the x Button for cell: \(indexCell[1])")
-            
+
             flags = changeArrayElement(arr: flags, element: true, position: indexCell[1])
         }
-        
+
         print("The array of flags is: \(flags)")
-        
+
         cell.pointsTextField.text = "X"
         cell.btnX.isHidden = true
-        
+
         print("The cell x array is: \(flags)")
-        
+
         for i in 0..<flags.count {
             print("The position:\(i) has value: \(flags[i])")
-            
+
             dictHoleXButton[i] = flags[i]
         }
-        
+
         for (key, value) in dictHoleXButton {
             print("The key: \(key) has value: \(value)")
         }
     }
-    
+
 //    func didEnterTextField(_ cell: AddGolfTableViewCell) {
 //        let indexOfTextFieldCell = self.numberHolesTableView.indexPath(for: cell)
 //
