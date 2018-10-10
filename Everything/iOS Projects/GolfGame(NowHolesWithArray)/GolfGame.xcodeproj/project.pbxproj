@@ -1,0 +1,341 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A9AD7B02212D38D70094564B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD7B01212D38D70094564B /* AppDelegate.swift */; };
+		A9AD7B04212D38D70094564B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD7B03212D38D70094564B /* ViewController.swift */; };
+		A9AD7B07212D38D70094564B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9AD7B05212D38D70094564B /* Main.storyboard */; };
+		A9AD7B09212D38D70094564B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9AD7B08212D38D70094564B /* Assets.xcassets */; };
+		A9AD7B0C212D38D70094564B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9AD7B0A212D38D70094564B /* LaunchScreen.storyboard */; };
+		A9AD7B14212D3A3F0094564B /* MainScreenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD7B13212D3A3F0094564B /* MainScreenTableViewCell.swift */; };
+		A9AD7B16212D3D410094564B /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD7B15212D3D410094564B /* AddItemViewController.swift */; };
+		A9AD7B18212D41B10094564B /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD7B17212D41B10094564B /* Game.swift */; };
+		A9AD7B1A212D4FFD0094564B /* AddScreenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AD7B19212D4FFD0094564B /* AddScreenTableViewCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A9AD7AFE212D38D70094564B /* GolfGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GolfGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9AD7B01212D38D70094564B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A9AD7B03212D38D70094564B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A9AD7B06212D38D70094564B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A9AD7B08212D38D70094564B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A9AD7B0B212D38D70094564B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A9AD7B0D212D38D70094564B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9AD7B13212D3A3F0094564B /* MainScreenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenTableViewCell.swift; sourceTree = "<group>"; };
+		A9AD7B15212D3D410094564B /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		A9AD7B17212D41B10094564B /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		A9AD7B19212D4FFD0094564B /* AddScreenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScreenTableViewCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A9AD7AFB212D38D70094564B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A9AD7AF5212D38D70094564B = {
+			isa = PBXGroup;
+			children = (
+				A9AD7B00212D38D70094564B /* GolfGame */,
+				A9AD7AFF212D38D70094564B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A9AD7AFF212D38D70094564B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A9AD7AFE212D38D70094564B /* GolfGame.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A9AD7B00212D38D70094564B /* GolfGame */ = {
+			isa = PBXGroup;
+			children = (
+				A9AD7B01212D38D70094564B /* AppDelegate.swift */,
+				A9AD7B03212D38D70094564B /* ViewController.swift */,
+				A9AD7B13212D3A3F0094564B /* MainScreenTableViewCell.swift */,
+				A9AD7B15212D3D410094564B /* AddItemViewController.swift */,
+				A9AD7B17212D41B10094564B /* Game.swift */,
+				A9AD7B19212D4FFD0094564B /* AddScreenTableViewCell.swift */,
+				A9AD7B05212D38D70094564B /* Main.storyboard */,
+				A9AD7B08212D38D70094564B /* Assets.xcassets */,
+				A9AD7B0A212D38D70094564B /* LaunchScreen.storyboard */,
+				A9AD7B0D212D38D70094564B /* Info.plist */,
+			);
+			path = GolfGame;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A9AD7AFD212D38D70094564B /* GolfGame */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9AD7B10212D38D70094564B /* Build configuration list for PBXNativeTarget "GolfGame" */;
+			buildPhases = (
+				A9AD7AFA212D38D70094564B /* Sources */,
+				A9AD7AFB212D38D70094564B /* Frameworks */,
+				A9AD7AFC212D38D70094564B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GolfGame;
+			productName = GolfGame;
+			productReference = A9AD7AFE212D38D70094564B /* GolfGame.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A9AD7AF6212D38D70094564B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Kalin Karev";
+				TargetAttributes = {
+					A9AD7AFD212D38D70094564B = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = A9AD7AF9212D38D70094564B /* Build configuration list for PBXProject "GolfGame" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A9AD7AF5212D38D70094564B;
+			productRefGroup = A9AD7AFF212D38D70094564B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A9AD7AFD212D38D70094564B /* GolfGame */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A9AD7AFC212D38D70094564B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9AD7B0C212D38D70094564B /* LaunchScreen.storyboard in Resources */,
+				A9AD7B09212D38D70094564B /* Assets.xcassets in Resources */,
+				A9AD7B07212D38D70094564B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A9AD7AFA212D38D70094564B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9AD7B04212D38D70094564B /* ViewController.swift in Sources */,
+				A9AD7B18212D41B10094564B /* Game.swift in Sources */,
+				A9AD7B16212D3D410094564B /* AddItemViewController.swift in Sources */,
+				A9AD7B02212D38D70094564B /* AppDelegate.swift in Sources */,
+				A9AD7B14212D3A3F0094564B /* MainScreenTableViewCell.swift in Sources */,
+				A9AD7B1A212D4FFD0094564B /* AddScreenTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A9AD7B05212D38D70094564B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9AD7B06212D38D70094564B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A9AD7B0A212D38D70094564B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9AD7B0B212D38D70094564B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A9AD7B0E212D38D70094564B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A9AD7B0F212D38D70094564B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A9AD7B11212D38D70094564B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GolfGame/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.GolfGame;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A9AD7B12212D38D70094564B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GolfGame/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.GolfGame;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A9AD7AF9212D38D70094564B /* Build configuration list for PBXProject "GolfGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9AD7B0E212D38D70094564B /* Debug */,
+				A9AD7B0F212D38D70094564B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9AD7B10212D38D70094564B /* Build configuration list for PBXNativeTarget "GolfGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9AD7B11212D38D70094564B /* Debug */,
+				A9AD7B12212D38D70094564B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A9AD7AF6212D38D70094564B /* Project object */;
+}

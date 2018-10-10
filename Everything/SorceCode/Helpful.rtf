@@ -1,0 +1,41 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww28300\viewh17700\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 https://stackoverflow.com/questions/38084406/find-an-item-and-change-value-in-custom-object-array-swift/38084479\
+\
+\
+\
+\
+\
+struct Book \{\
+    var id: Int\
+    var title = "default"\
+\
+    init (id: Int) \{\
+        self.id = id\
+    \}\
+\}\
+var arrayBook = [Book]()\
+arrayBook.append(Book(id: 0))\
+arrayBook.append(Book(id: 1))\
+arrayBook.append(Book(id: 2))\
+\
+// for book in arrayBook \{\
+//     print(book.title)\
+// \}\
+\
+arrayBook = arrayBook.map\{\
+    var mutableBook = $0\
+    if $0.id != 1 \{\
+        mutableBook.title = "modified"\
+    \}\
+    return mutableBook\
+\}\
+\
+for book in arrayBook \{\
+    print(book.title)\
+\}}

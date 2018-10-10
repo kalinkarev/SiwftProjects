@@ -1,0 +1,819 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;\f1\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red0\green116\blue0;\red255\green255\blue255;\red170\green13\blue145;
+\red0\green0\blue0;\red196\green26\blue22;\red92\green38\blue153;\red63\green110\blue116;\red46\green13\blue110;
+\red28\green0\blue207;}
+{\*\expandedcolortbl;;\csgenericrgb\c0\c45600\c0;\csgenericrgb\c100000\c100000\c100000;\csgenericrgb\c66500\c5200\c56900;
+\csgenericrgb\c0\c0\c0;\csgenericrgb\c77000\c10200\c8600;\csgenericrgb\c35900\c14900\c60100;\csgenericrgb\c24700\c43100\c45600;\csgenericrgb\c18100\c5200\c43100;
+\csgenericrgb\c11000\c0\c81000;}
+\margl1440\margr1440\vieww28300\viewh15020\viewkind0
+\deftab890
+\pard\tx890\pardeftab890\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf2 \cb3 //: Playground - noun: a place where people can play
+\f1\fs24 \cf0 \
+\
+\pard\tx890\pardeftab890\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf4 import
+\fs36 \cf5  UIKit
+\f1\fs24 \cf0 \
+\
+
+\f0\fs28 \cf4 var
+\fs36 \cf5  str = 
+\fs28 \cf6 "Hello, playground"
+\f1\fs24 \cf0 \
+\
+
+\f0\fs28 \cf4 var
+\fs36 \cf5  searchArr:[
+\fs28 \cf7 String
+\fs36 \cf5 ] = [
+\fs28 \cf6 "Hello,"
+\fs36 \cf5 , 
+\fs28 \cf6 "new"
+\fs36 \cf5 , 
+\fs28 \cf6 "she"
+\fs36 \cf5 , 
+\fs28 \cf6 "is"
+\fs36 \cf5 ]
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf4 var
+\fs36 \cf5  putArr:[
+\fs28 \cf7 String
+\fs36 \cf5 ] = [
+\fs28 \cf6 "Goodbye,"
+\fs36 \cf5 , 
+\fs28 \cf6 "old"
+\fs36 \cf5 , 
+\fs28 \cf6 "he"
+\fs36 \cf5 , 
+\fs28 \cf6 "was"
+\fs36 \cf5 ]
+\f1\fs24 \cf0 \
+\
+\pard\tx890\pardeftab890\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf2 //for i in 0..<searchArr.count \{
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //    print("The element id is: \\(i) and has value: \\(searchArr[i])")
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //\}
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //for j in 0..<putArr.count \{
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //    print("The element id is: \\(j) and has value: \\(putArr[j])")
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //\}
+\f1\fs24 \cf0 \
+\
+\pard\tx890\pardeftab890\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf4 let
+\fs36 \cf5  stringOfWords = 
+\fs28 \cf6 "Hello, he is the she colleg new he she new"
+\f1\fs24 \cf0 \
+\
+
+\f0\fs28 \cf4 var
+\fs36 \cf5  stringOfWordsArray = 
+\fs28 \cf8 stringOfWords
+\fs36 \cf5 .
+\fs28 \cf9 components
+\fs36 \cf5 (separatedBy: 
+\fs28 \cf6 " "
+\fs36 \cf5 )
+\f1\fs24 \cf0 \
+\
+\pard\tx890\pardeftab890\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf2 //for word in stringOfWordsArray \{
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //    print("The word is: \\(word)")
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //\}
+\f1\fs24 \cf0 \
+\
+\pard\tx890\pardeftab890\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf4 for
+\fs36 \cf5  k 
+\fs28 \cf4 in
+\fs36 \cf5  
+\fs28 \cf10 0
+\fs36 \cf5 ..<
+\fs28 \cf8 stringOfWordsArray
+\fs36 \cf5 .
+\fs28 \cf7 count
+\fs36 \cf5  \{
+\f1\fs24 \cf0 \
+
+\f0\fs36 \cf5     
+\fs28 \cf9 print
+\fs36 \cf5 (
+\fs28 \cf6 "The id 
+\fs36 \cf5 \\
+\fs28 \cf6 (
+\fs36 \cf5 k
+\fs28 \cf6 ) has word: 
+\fs36 \cf5 \\
+\fs28 \cf6 (\cf8 stringOfWordsArray
+\fs36 \cf5 [k]
+\fs28 \cf6 )"
+\fs36 \cf5 )
+\f1\fs24 \cf0 \
+
+\f0\fs36 \cf5     
+\f1\fs24 \cf0 \
+
+\f0\fs36 \cf5     
+\fs28 \cf4 for
+\fs36 \cf5  i 
+\fs28 \cf4 in
+\fs36 \cf5  
+\fs28 \cf10 0
+\fs36 \cf5 ..<
+\fs28 \cf8 searchArr
+\fs36 \cf5 .
+\fs28 \cf7 count
+\fs36 \cf5  \{
+\f1\fs24 \cf0 \
+\pard\tx890\pardeftab890\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf2 //        for (s1, s2) in zip(searchArr, putArr) \{
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //            if stringOfWordsArray[k] == searchArr[i] \{
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //                print("Have found")
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //                //            for (s1, s2) in zip(searchArr, putArr) \{
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //                stringOfWordsArray[k] = putArr[i]
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //                //            \}
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //            \}
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //        \}
+\f1\fs24 \cf0 \
+\pard\tx890\pardeftab890\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf5         
+\fs28 \cf4 if
+\fs36 \cf5  
+\fs28 \cf8 stringOfWordsArray
+\fs36 \cf5 [k] == 
+\fs28 \cf8 searchArr
+\fs36 \cf5 [i] \{
+\f1\fs24 \cf0 \
+
+\f0\fs36 \cf5             
+\fs28 \cf9 print
+\fs36 \cf5 (
+\fs28 \cf6 "Have found"
+\fs36 \cf5 )
+\f1\fs24 \cf0 \
+
+\f0\fs36 \cf5             
+\fs28 \cf9 print
+\fs36 \cf5 (
+\fs28 \cf6 "The id is: 
+\fs36 \cf5 \\
+\fs28 \cf6 (
+\fs36 \cf5 i
+\fs28 \cf6 )"
+\fs36 \cf5 )
+\f1\fs24 \cf0 \
+
+\f0\fs36 \cf5             
+\fs28 \cf8 stringOfWordsArray
+\fs36 \cf5 [k] = 
+\fs28 \cf8 putArr
+\fs36 \cf5 [i]
+\f1\fs24 \cf0 \
+
+\f0\fs36 \cf5         \}
+\f1\fs24 \cf0 \
+
+\f0\fs36 \cf5     \}
+\f1\fs24 \cf0 \
+
+\f0\fs36 \cf5     
+\f1\fs24 \cf0 \
+
+\f0\fs36 \cf5 \}
+\f1\fs24 \cf0 \
+
+\f0\fs36 \cf5     
+\f1\fs24 \cf0 \
+\pard\tx890\pardeftab890\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf2 //    for i in 0..<searchArr.count \{
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //        if stringOfWordsArray[k] == searchArr[i] \{
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //            print("Have found")
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //            for j in 0..<putArr.count \{
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //                stringOfWordsArray[k] = putArr[j]
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //            \}
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //        \}
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //    \}
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //\}
+\f1\fs24 \cf0 \
+\
+\pard\tx890\pardeftab890\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf9 print
+\fs36 \cf5 (
+\fs28 \cf6 "The new array is: 
+\fs36 \cf5 \\
+\fs28 \cf6 (\cf8 stringOfWordsArray\cf6 )"
+\fs36 \cf5 )
+\f1\fs24 \cf0 \
+\
+\pard\tx890\pardeftab890\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf2 //for (index, element) in searchArr.enumerated() \{
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //    print(element)
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //    print(putArr[index])
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //\}
+\f1\fs24 \cf0 \
+\
+
+\f0\fs28 \cf2 //for (s1, s2) in zip(searchArr, putArr) \{
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //    print("The id is: \\(s1) - \\(s2)")
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //\}
+\f1\fs24 \cf0 \
+\
+\
+// With Dictionary\
+\
+
+\f0\fs28 \cf2 //: Playground - noun: a place where people can play
+\f1\fs24 \cf0 \
+\
+\pard\tx890\pardeftab890\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf4 import
+\fs36 \cf5  UIKit
+\f1\fs24 \cf0 \
+\
+\pard\tx890\pardeftab890\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf2 //var someDict = [Int : String]()
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //var someDict:[Int:String] = [1:"One", 2:"Two", 3:"Three"]
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //var cities = ["Delhi", "Bangalore", "Hyderabad"]
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //var distance = [2000, 10, 620]
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //let cityDistanceDict = Dictionary(uniqueKeysWithValues: zip(cities, distance))
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //// Filtering values from a dictionary
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //var closeCities = cityDistanceDict.filter \{ $0.value < 1000 \}
+\f1\fs24 \cf0 \
+\
+
+\f0\fs28 \cf2 // Grouping of Dictionary values
+\f1\fs24 \cf0 \
+\pard\tx890\pardeftab890\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf4 var
+\fs36 \cf5  cities = [
+\fs28 \cf6 "Delhi"
+\fs36 \cf5 , 
+\fs28 \cf6 "Banalore"
+\fs36 \cf5 , 
+\fs28 \cf6 "Hyderabad"
+\fs36 \cf5 , 
+\fs28 \cf6 "Dehradun"
+\fs36 \cf5 , 
+\fs28 \cf6 "Bihar"
+\fs36 \cf5 ]
+\f1\fs24 \cf0 \
+\
+
+\f0\fs28 \cf4 var
+\fs36 \cf5  GroupedCities = 
+\fs28 \cf7 Dictionary
+\fs36 \cf5 (grouping: 
+\fs28 \cf8 cities
+\fs36 \cf5 ) \{ $0.
+\fs28 \cf7 first
+\fs36 \cf5 ! \}
+\f1\fs24 \cf0 \
+\pard\tx890\pardeftab890\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf9 print
+\fs36 \cf5 (
+\fs28 \cf6 "The grouped cities are: 
+\fs36 \cf5 \\
+\fs28 \cf6 (\cf8 GroupedCities\cf6 )"
+\fs36 \cf5 )
+\f1\fs24 \cf0 \
+\
+\pard\tx890\pardeftab890\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf2 //var someVar = someDict[key]
+\f1\fs24 \cf0 \
+\
+\
+\pard\tx890\pardeftab890\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf4 var
+\fs36 \cf5  someDict:[
+\fs28 \cf7 Int
+\fs36 \cf5 :
+\fs28 \cf7 String
+\fs36 \cf5 ] = [
+\fs28 \cf10 1
+\fs36 \cf5 :
+\fs28 \cf6 "One"
+\fs36 \cf5 , 
+\fs28 \cf10 2
+\fs36 \cf5 :
+\fs28 \cf6 "Two"
+\fs36 \cf5 , 
+\fs28 \cf10 3
+\fs36 \cf5 :
+\fs28 \cf6 "Three"
+\fs36 \cf5 ]
+\f1\fs24 \cf0 \
+\pard\tx890\pardeftab890\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf2 //var oldVal = someDict.updateValue("New value of one", forKey: 1)
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //var oldVal = someDict[1]
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //someDict[1] = "New value of one"
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //var someVar = someDict[1]
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //var removeValue = someDict.removeValue(forKey: 2)
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //someDict[2] = nil
+\f1\fs24 \cf0 \
+\
+\
+
+\f0\fs28 \cf2 //print("Old value of key = 1 is \\(String(describing: oldVal))")
+\f1\fs24 \cf0 \
+\
+
+\f0\fs28 \cf2 //for i in 1...someDict.count \{
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //    print("Value of key = \\(i) has value \\(String(describing: someDict[i]))")
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf2 //\}
+\f1\fs24 \cf0 \
+\
+\pard\tx890\pardeftab890\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf4 for
+\fs36 \cf5  (key, value) 
+\fs28 \cf4 in
+\fs36 \cf5  
+\fs28 \cf8 someDict
+\fs36 \cf5 .
+\fs28 \cf9 enumerated
+\fs36 \cf5 () \{
+\f1\fs24 \cf0 \
+
+\f0\fs36 \cf5     
+\fs28 \cf9 print
+\fs36 \cf5 (
+\fs28 \cf6 "Dictionary key 
+\fs36 \cf5 \\
+\fs28 \cf6 (
+\fs36 \cf5 key
+\fs28 \cf6 ) - Dictionary value 
+\fs36 \cf5 \\
+\fs28 \cf6 (
+\fs36 \cf5 value
+\fs28 \cf6 )"
+\fs36 \cf5 )
+\f1\fs24 \cf0 \
+
+\f0\fs36 \cf5 \}
+\f1\fs24 \cf0 \
+\
+
+\f0\fs28 \cf4 let
+\fs36 \cf5  dictKeys = [
+\fs28 \cf7 Int
+\fs36 \cf5 ](
+\fs28 \cf8 someDict
+\fs36 \cf5 .
+\fs28 \cf7 keys
+\fs36 \cf5 )
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf4 let
+\fs36 \cf5  dictValues = [
+\fs28 \cf7 String
+\fs36 \cf5 ](
+\fs28 \cf8 someDict
+\fs36 \cf5 .
+\fs28 \cf7 values
+\fs36 \cf5 )
+\f1\fs24 \cf0 \
+\
+\pard\tx890\pardeftab890\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf9 print
+\fs36 \cf5 (
+\fs28 \cf6 "Print Dictionary Keys"
+\fs36 \cf5 )
+\f1\fs24 \cf0 \
+\
+\pard\tx890\pardeftab890\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf4 for
+\fs36 \cf5  (key) 
+\fs28 \cf4 in
+\fs36 \cf5  
+\fs28 \cf8 dictKeys
+\fs36 \cf5  \{
+\f1\fs24 \cf0 \
+
+\f0\fs36 \cf5     
+\fs28 \cf9 print
+\fs36 \cf5 (
+\fs28 \cf6 "
+\fs36 \cf5 \\
+\fs28 \cf6 (
+\fs36 \cf5 key
+\fs28 \cf6 )"
+\fs36 \cf5 )
+\f1\fs24 \cf0 \
+
+\f0\fs36 \cf5 \}
+\f1\fs24 \cf0 \
+\
+\pard\tx890\pardeftab890\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf9 print
+\fs36 \cf5 (
+\fs28 \cf6 "Print Dictionary Values"
+\fs36 \cf5 )
+\f1\fs24 \cf0 \
+\
+\pard\tx890\pardeftab890\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf4 for
+\fs36 \cf5  (value) 
+\fs28 \cf4 in
+\fs36 \cf5  
+\fs28 \cf8 dictValues
+\fs36 \cf5  \{
+\f1\fs24 \cf0 \
+
+\f0\fs36 \cf5     
+\fs28 \cf9 print
+\fs36 \cf5 (
+\fs28 \cf6 "
+\fs36 \cf5 \\
+\fs28 \cf6 (
+\fs36 \cf5 value
+\fs28 \cf6 )"
+\fs36 \cf5 )
+\f1\fs24 \cf0 \
+
+\f0\fs36 \cf5 \}
+\f1\fs24 \cf0 \
+\
+
+\f0\fs28 \cf4 var
+\fs36 \cf5  someDict1:[
+\fs28 \cf7 Int
+\fs36 \cf5 :
+\fs28 \cf7 String
+\fs36 \cf5 ] = [
+\fs28 \cf10 1
+\fs36 \cf5 :
+\fs28 \cf6 "One"
+\fs36 \cf5 , 
+\fs28 \cf10 2
+\fs36 \cf5 :
+\fs28 \cf6 "Two"
+\fs36 \cf5 , 
+\fs28 \cf10 3
+\fs36 \cf5 :
+\fs28 \cf6 "Three"
+\fs36 \cf5 ]
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf4 var
+\fs36 \cf5  someDict2:[
+\fs28 \cf7 Int
+\fs36 \cf5 :
+\fs28 \cf7 String
+\fs36 \cf5 ] = [
+\fs28 \cf10 4
+\fs36 \cf5 :
+\fs28 \cf6 "Four"
+\fs36 \cf5 , 
+\fs28 \cf10 5
+\fs36 \cf5 :
+\fs28 \cf6 "Five"
+\fs36 \cf5 ]
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf4 var
+\fs36 \cf5  someDict3:[
+\fs28 \cf7 Int
+\fs36 \cf5 :
+\fs28 \cf7 String
+\fs36 \cf5 ] = [
+\fs28 \cf7 Int
+\fs36 \cf5 :
+\fs28 \cf7 String
+\fs36 \cf5 ]()
+\f1\fs24 \cf0 \
+\
+\pard\tx890\pardeftab890\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf9 print
+\fs36 \cf5 (
+\fs28 \cf6 "Total items in someDict1 = 
+\fs36 \cf5 \\
+\fs28 \cf6 (\cf8 someDict1
+\fs36 \cf5 .
+\fs28 \cf7 count\cf6 )"
+\fs36 \cf5 )
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf9 print
+\fs36 \cf5 (
+\fs28 \cf6 "Total items in someDict2 = 
+\fs36 \cf5 \\
+\fs28 \cf6 (\cf8 someDict2
+\fs36 \cf5 .
+\fs28 \cf7 count\cf6 )"
+\fs36 \cf5 )
+\f1\fs24 \cf0 \
+\
+
+\f0\fs28 \cf9 print
+\fs36 \cf5 (
+\fs28 \cf6 "someDict1 = 
+\fs36 \cf5 \\
+\fs28 \cf6 (\cf8 someDict1
+\fs36 \cf5 .
+\fs28 \cf7 isEmpty\cf6 )"
+\fs36 \cf5 )
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf9 print
+\fs36 \cf5 (
+\fs28 \cf6 "someDict2 = 
+\fs36 \cf5 \\
+\fs28 \cf6 (\cf8 someDict2
+\fs36 \cf5 .
+\fs28 \cf7 isEmpty\cf6 )"
+\fs36 \cf5 )
+\f1\fs24 \cf0 \
+
+\f0\fs28 \cf9 print
+\fs36 \cf5 (
+\fs28 \cf6 "someDict3 = 
+\fs36 \cf5 \\
+\fs28 \cf6 (\cf8 someDict3
+\fs36 \cf5 .
+\fs28 \cf7 isEmpty\cf6 )"
+\fs36 \cf5 )
+\f1\fs24 \cf0 \
+\
+\
+\
+\
+\
+\pard\tx890\pardeftab890\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf4 var
+\fs36 \cf5  dict:[
+\fs28 \cf7 String
+\fs36 \cf5 :
+\fs28 \cf7 String
+\fs36 \cf5 ] = [
+\fs28 \cf6 "new"
+\fs36 \cf5 :
+\fs28 \cf6 "old"
+\fs36 \cf5 , 
+\fs28 \cf6 "he"
+\fs36 \cf5 :
+\fs28 \cf6 "she"
+\fs36 \cf5 , 
+\fs28 \cf6 "car"
+\fs36 \cf5 :
+\fs28 \cf6 "plane"
+\fs36 \cf5 ]
+\f1\fs24 \cf0 \
+\
+
+\f0\fs28 \cf4 var
+\fs36 \cf5  inputString = 
+\fs28 \cf6 "he has new car and she is driving the new one"
+\f1\fs24 \cf0 \
+\pard\tx890\pardeftab890\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf2 //print("The input is: \\(inputString)")
+\f1\fs24 \cf0 \
+\
+\pard\tx890\pardeftab890\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf4 var
+\fs36 \cf5  inputArray = 
+\fs28 \cf8 inputString
+\fs36 \cf5 .
+\fs28 \cf9 components
+\fs36 \cf5 (separatedBy: 
+\fs28 \cf6 " "
+\fs36 \cf5 )
+\f1\fs24 \cf0 \
+\pard\tx890\pardeftab890\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf9 print
+\fs36 \cf5 (
+\fs28 \cf6 "The array of the input is: 
+\fs36 \cf5 \\
+\fs28 \cf6 (\cf8 inputArray\cf6 )"
+\fs36 \cf5 )
+\f1\fs24 \cf0 \
+\
+\pard\tx890\pardeftab890\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf4 for
+\fs36 \cf5  k 
+\fs28 \cf4 in
+\fs36 \cf5  
+\fs28 \cf10 0
+\fs36 \cf5 ..<
+\fs28 \cf8 inputArray
+\fs36 \cf5 .
+\fs28 \cf7 count
+\fs36 \cf5  \{
+\f1\fs24 \cf0 \
+
+\f0\fs36 \cf5     
+\fs28 \cf9 print
+\fs36 \cf5 (
+\fs28 \cf6 "The words are: 
+\fs36 \cf5 \\
+\fs28 \cf6 (\cf8 inputArray
+\fs36 \cf5 [k]
+\fs28 \cf6 )"
+\fs36 \cf5 )
+\f1\fs24 \cf0 \
+
+\f0\fs36 \cf5     
+\f1\fs24 \cf0 \
+
+\f0\fs36 \cf5     
+\fs28 \cf4 for
+\fs36 \cf5  (key, value) 
+\fs28 \cf4 in
+\fs36 \cf5  
+\fs28 \cf8 dict
+\fs36 \cf5  \{
+\f1\fs24 \cf0 \
+
+\f0\fs36 \cf5         
+\fs28 \cf9 print
+\fs36 \cf5 (
+\fs28 \cf6 "The key is: 
+\fs36 \cf5 \\
+\fs28 \cf6 (
+\fs36 \cf5 key
+\fs28 \cf6 )"
+\fs36 \cf5 )
+\f1\fs24 \cf0 \
+
+\f0\fs36 \cf5         
+\fs28 \cf4 if
+\fs36 \cf5  
+\fs28 \cf8 inputArray
+\fs36 \cf5 [k] == key \{
+\f1\fs24 \cf0 \
+\pard\tx890\pardeftab890\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf2 //            print("Have found")
+\f1\fs24 \cf0 \
+\pard\tx890\pardeftab890\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf5             
+\fs28 \cf8 inputArray
+\fs36 \cf5 [k] = value
+\f1\fs24 \cf0 \
+
+\f0\fs36 \cf5         \}
+\f1\fs24 \cf0 \
+
+\f0\fs36 \cf5     \}
+\f1\fs24 \cf0 \
+
+\f0\fs36 \cf5     
+\f1\fs24 \cf0 \
+
+\f0\fs36 \cf5 \}
+\f1\fs24 \cf0 \
+\
+\pard\tx890\pardeftab890\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf9 print
+\fs36 \cf5 (
+\fs28 \cf6 "The new array is: 
+\fs36 \cf5 \\
+\fs28 \cf6 (\cf8 inputArray\cf6 )"
+\fs36 \cf5 )
+\f1\fs24 \cf0 \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+}
